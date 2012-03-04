@@ -30,7 +30,7 @@
         <text>A%F1o%20fundaci%F3n</text>
       </controlProperties>
     </control>
-    <control controlID="6" controlTypeID="com.balsamiq.mockups::ComboBox" x="295" y="195" w="148" h="-1" measuredW="146" measuredH="23" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::ComboBox" x="300" y="195" w="143" h="-1" measuredW="146" measuredH="23" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <text>%28Seleccione%20un%20a%F1o%29</text>
       </controlProperties>
