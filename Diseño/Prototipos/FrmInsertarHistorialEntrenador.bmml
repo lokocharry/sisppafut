@@ -1,0 +1,87 @@
+<mockup version="1.0" skin="sketch" measuredW="867" measuredH="447" mockupW="834" mockupH="417">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="33" y="30" w="834" h="417" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Historial%20Entrenador</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Label" x="464" y="104" w="-1" h="-1" measuredW="70" measuredH="21" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Entrenador</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="550" y="101" w="280" h="-1" measuredW="79" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text/>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="464" y="143" w="-1" h="-1" measuredW="31" measuredH="21" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Pa%EDs</text>
+      </controlProperties>
+    </control>
+    <control controlID="5" controlTypeID="com.balsamiq.mockups::ComboBox" x="550" y="142" w="-1" h="-1" measuredW="149" measuredH="23" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28Seleccione%20un%20pa%EDs%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="6" controlTypeID="com.balsamiq.mockups::Label" x="464" y="180" w="-1" h="-1" measuredW="77" measuredH="21" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Competici%F3n</text>
+      </controlProperties>
+    </control>
+    <control controlID="7" controlTypeID="com.balsamiq.mockups::ComboBox" x="550" y="179" w="-1" h="-1" measuredW="200" measuredH="23" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28Seleccione%20una%20competici%F3n%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="8" controlTypeID="com.balsamiq.mockups::Label" x="463" y="216" w="-1" h="-1" measuredW="74" measuredH="21" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Temporada</text>
+      </controlProperties>
+    </control>
+    <control controlID="9" controlTypeID="com.balsamiq.mockups::ComboBox" x="550" y="215" w="-1" h="-1" measuredW="172" measuredH="23" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28Seleccione%20temporada%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Label" x="467" y="253" w="-1" h="-1" measuredW="44" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Equipo</text>
+      </controlProperties>
+    </control>
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::ComboBox" x="550" y="252" w="172" h="-1" measuredW="162" measuredH="23" zOrder="11" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>%28Seleccione%20un%20equipo%29</text>
+      </controlProperties>
+    </control>
+    <control controlID="12" controlTypeID="com.balsamiq.mockups::Button" x="755" y="374" w="-1" h="-1" measuredW="75" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Cancelar</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::Button" x="668" y="374" w="-1" h="-1" measuredW="69" measuredH="27" zOrder="13" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Guardar</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="__group__" x="69" y="75" w="335" h="325" measuredW="335" measuredH="325" zOrder="1" locked="false" isInGroup="-1">
+      <groupChildrenDescriptors>
+        <control controlID="2" controlTypeID="__group__" x="0" y="0" w="335" h="325" measuredW="335" measuredH="325" zOrder="0" locked="false" isInGroup="16">
+          <groupChildrenDescriptors>
+            <control controlID="0" controlTypeID="com.balsamiq.mockups::DataGrid" x="0" y="0" w="323" h="324" measuredW="269" measuredH="145" zOrder="0" locked="false" isInGroup="2">
+              <controlProperties>
+                <text>Apellidos%2C%20Nombres%2C%20Nacionalidad%0AMourinho%20F%E9lix%2C%20Jos%E9%2C%20Portugal%0AGuardiola%2C%20Josep%2C%20Espa%F1a%0ASimeone%2C%20Diego%20Pablo%2C%20Argentina%0ABielsa%20Caldera%2C%20Marcelo%2C%20Argentina%0A%7B60L%2C%2060L%2C%200C%7D</text>
+              </controlProperties>
+            </control>
+            <control controlID="1" controlTypeID="com.balsamiq.mockups::VerticalScrollBar" x="319" y="0" w="-1" h="325" measuredW="16" measuredH="100" zOrder="1" locked="false" isInGroup="2">
+              <controlProperties>
+                <value>100</value>
+              </controlProperties>
+            </control>
+          </groupChildrenDescriptors>
+        </control>
+      </groupChildrenDescriptors>
+    </control>
+  </controls>
+</mockup>
