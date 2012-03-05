@@ -50,9 +50,9 @@
         <text>Estadio%20Principal</text>
       </controlProperties>
     </control>
-    <control controlID="10" controlTypeID="com.balsamiq.mockups::Label" x="457" y="196" w="113" h="21" measuredW="113" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="10" controlTypeID="com.balsamiq.mockups::Label" x="457" y="196" w="113" h="21" measuredW="93" measuredH="21" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Estadio%20Secundario</text>
+        <text>Estadio%20Alterno</text>
       </controlProperties>
     </control>
     <control controlID="11" controlTypeID="com.balsamiq.mockups::ComboBox" x="579" y="158" w="166" h="-1" measuredW="166" measuredH="23" zOrder="11" locked="false" isInGroup="-1">
