@@ -75,9 +75,9 @@
         <text>Guardar</text>
       </controlProperties>
     </control>
-    <control controlID="23" controlTypeID="com.balsamiq.mockups::Button" x="680" y="179" w="-1" h="-1" measuredW="33" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="23" controlTypeID="com.balsamiq.mockups::Button" x="666" y="179" w="-1" h="-1" measuredW="47" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>...</text>
+        <text>M%E1s</text>
       </controlProperties>
     </control>
   </controls>
