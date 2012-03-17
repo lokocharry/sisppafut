@@ -99,5 +99,6 @@
         <text/>
       </controlProperties>
     </control>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::VRule" x="615" y="66" w="-1" h="235" measuredW="5" measuredH="100" zOrder="7" locked="false" isInGroup="-1"/>
   </controls>
 </mockup>
