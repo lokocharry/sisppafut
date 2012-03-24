@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
+using UPC.Proyecto.SISPPAFUT.BC;
 
 namespace UPC.Proyecto.SISPPAFUT
 {
@@ -13,7 +14,7 @@ namespace UPC.Proyecto.SISPPAFUT
         public Form1()
         {
             InitializeComponent();
-            String var_demo = dos
+            
         }
     }
 }
