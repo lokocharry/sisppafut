@@ -8,8 +8,8 @@
     <ProjectGuid>{4C03FE03-0DF0-4CC7-911E-67D851251B27}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UPC.Proyecto.SISPPAFUT.BE</RootNamespace>
-    <AssemblyName>UPC.Proyecto.SISPPAFUT.BE</AssemblyName>
+    <RootNamespace>UPC.Proyecto.SISPPAFUT.BL.BE</RootNamespace>
+    <AssemblyName>UPC.Proyecto.SISPPAFUT.BL.BE</AssemblyName>
     <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

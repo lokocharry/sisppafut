@@ -13,6 +13,7 @@ namespace UPC.Proyecto.SISPPAFUT
         public Form1()
         {
             InitializeComponent();
+            String var_demo = dos
         }
     }
 }

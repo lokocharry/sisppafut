@@ -68,6 +68,16 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BC\UPC.Proyecto.SISPPAFUT.BL.BC.csproj">
+      <Project>{324A488E-99D2-4B95-9E4A-9B6097E923BC}</Project>
+      <Name>UPC.Proyecto.SISPPAFUT.BL.BC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BE\UPC.Proyecto.SISPPAFUT.BL.BE.csproj">
+      <Project>{4C03FE03-0DF0-4CC7-911E-67D851251B27}</Project>
+      <Name>UPC.Proyecto.SISPPAFUT.BL.BE</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
