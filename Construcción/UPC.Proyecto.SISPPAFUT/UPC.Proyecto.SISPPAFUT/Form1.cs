@@ -5,7 +5,6 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-using UPC.Proyecto.SISPPAFUT.BC;
 
 namespace UPC.Proyecto.SISPPAFUT
 {
