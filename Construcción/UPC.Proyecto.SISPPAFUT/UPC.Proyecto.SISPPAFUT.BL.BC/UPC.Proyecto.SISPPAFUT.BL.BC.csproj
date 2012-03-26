@@ -40,11 +40,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BE\UPC.Proyecto.SISPPAFUT.BL.BE.csproj">
+    <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BL.BE\UPC.Proyecto.SISPPAFUT.BL.BE.csproj">
       <Project>{4C03FE03-0DF0-4CC7-911E-67D851251B27}</Project>
       <Name>UPC.Proyecto.SISPPAFUT.BL.BE</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.DALC\UPC.Proyecto.SISPPAFUT.DL.DALC.csproj">
+    <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.DL.DALC\UPC.Proyecto.SISPPAFUT.DL.DALC.csproj">
       <Project>{3E8E1A66-3993-4657-A0C0-C08F6A1A3EA3}</Project>
       <Name>UPC.Proyecto.SISPPAFUT.DL.DALC</Name>
     </ProjectReference>
