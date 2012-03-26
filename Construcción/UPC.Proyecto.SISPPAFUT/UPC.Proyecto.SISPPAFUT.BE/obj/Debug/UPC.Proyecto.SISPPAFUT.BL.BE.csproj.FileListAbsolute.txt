@@ -1,5 +1,0 @@
-C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BE\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BE\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll
-C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BE\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb
-C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BE\obj\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll
-C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BE\obj\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb

@@ -40,7 +40,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BE\UPC.Proyecto.SISPPAFUT.BL.BE.csproj">
+    <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BL.BE\UPC.Proyecto.SISPPAFUT.BL.BE.csproj">
       <Project>{4C03FE03-0DF0-4CC7-911E-67D851251B27}</Project>
       <Name>UPC.Proyecto.SISPPAFUT.BL.BE</Name>
     </ProjectReference>
