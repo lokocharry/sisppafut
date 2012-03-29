@@ -39,6 +39,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="EquipoBE.cs" />
     <Compile Include="LigaBE.cs" />
+    <Compile Include="PaisBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

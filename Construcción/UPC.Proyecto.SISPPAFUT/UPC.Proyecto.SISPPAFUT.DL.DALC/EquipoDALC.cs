@@ -8,7 +8,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
     {
         public int InsertarEquipo()
         {
- 
+            return 0;
         }
     }
 }
