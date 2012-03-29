@@ -113,5 +113,49 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 throw;
             }
         }
+
+        public List<PaisBE> listar_Paises()
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_paises;
+            SqlCommand cmd_paises;
+            String cadena;
+            String sqlPaisesListar;
+
+            try
+            {
+                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
+                conexion = new SqlConnection(cadena);
+                sqlPaisesListar = "spListarPaises";
+                cmd_paises = new SqlCommand(sqlPaisesListar, conexion);
+                cmd_paises.Connection.Open();
+                dr_paises = cmd_paises.ExecuteReader();
+
+                List<PaisBE> lista_paises;
+                PaisBE objPaisBE;
+
+                lista_paises = new List<PaisBE>();
+
+                while (dr_paises.Read())
+                {
+                    objPaisBE = new PaisBE();
+
+                    objPaisBE.NombrePais = dr_paises.GetString(dr_paises.GetOrdinal("Nombre"));
+
+                    lista_paises.Add(objPaisBE);
+                }
+
+                cmd_paises.Connection.Close();
+                conexion.Dispose();
+
+                return lista_paises;
+            }
+
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+        }
     }
 }

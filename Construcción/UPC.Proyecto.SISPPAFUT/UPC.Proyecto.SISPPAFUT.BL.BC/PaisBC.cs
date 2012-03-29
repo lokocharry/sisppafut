@@ -30,5 +30,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public List<PaisBE> listarPaises()
+        {
+            PaisDALC objPaisDALC = new PaisDALC();
+            return objPaisDALC.listar_Paises();
+        }
     }
 }

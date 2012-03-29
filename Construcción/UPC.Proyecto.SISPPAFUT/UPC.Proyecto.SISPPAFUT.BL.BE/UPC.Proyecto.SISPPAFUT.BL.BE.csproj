@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="EquipoBE.cs" />
+    <Compile Include="EstadioBE.cs" />
     <Compile Include="LigaBE.cs" />
     <Compile Include="PaisBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
