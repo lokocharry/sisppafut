@@ -37,6 +37,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="CompeticionBE.cs" />
     <Compile Include="EquipoBE.cs" />
     <Compile Include="EstadioBE.cs" />
     <Compile Include="LigaBE.cs" />

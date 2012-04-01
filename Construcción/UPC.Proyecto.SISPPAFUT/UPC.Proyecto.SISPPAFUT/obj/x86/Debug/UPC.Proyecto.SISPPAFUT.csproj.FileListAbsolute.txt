@@ -28,3 +28,4 @@ C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Pr
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.FrmEstadioInsertar.resources
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.FrmCompeticionInsertar.resources
