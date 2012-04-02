@@ -47,10 +47,10 @@ namespace UPC.Proyecto.SISPPAFUT
             codigo = objCompeticionBC.insertar_Competicion(objCompeticionBE);
 
             if (codigo != 0)
-                MessageBox.Show("EL ESTADIO HA SIDO REGISTRADO SATISFACTORIAMENTE");
+                MessageBox.Show("LA COMPETICIÓN HA SIDO REGISTRADO SATISFACTORIAMENTE");
 
             else
-                MessageBox.Show("HUBO UN PROBLEMA AL REGISTRAR EL ESTADIO");
+                MessageBox.Show("HUBO UN PROBLEMA AL REGISTRAR LA COMPETICIÓN");
         }
     }
 }

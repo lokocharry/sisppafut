@@ -29,3 +29,8 @@ C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Pr
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.FrmEstadioInsertar.resources
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.FrmCompeticionInsertar.resources
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.FrmCompeticionInsertar.resources
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.FrmEstadioInsertar.resources
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.PaisInsertar.resources
