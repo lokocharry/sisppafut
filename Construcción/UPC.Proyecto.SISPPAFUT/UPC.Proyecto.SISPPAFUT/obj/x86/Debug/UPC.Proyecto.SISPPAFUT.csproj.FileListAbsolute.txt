@@ -47,3 +47,4 @@ C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFU
 C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.FrmEstadioInsertar.resources
 C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.PaisInsertar.resources
 C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.Properties.Resources.resources
+C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmEquipoInsertar.resources

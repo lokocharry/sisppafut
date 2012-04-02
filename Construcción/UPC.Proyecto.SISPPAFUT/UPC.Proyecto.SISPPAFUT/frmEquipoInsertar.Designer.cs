@@ -125,15 +125,22 @@
             // 
             // cmb_pais
             // 
+            this.cmb_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_pais.FormattingEnabled = true;
+            this.cmb_pais.Items.AddRange(new object[] {
+            "(Seleccione un pais...)"});
             this.cmb_pais.Location = new System.Drawing.Point(112, 112);
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(149, 21);
+            this.cmb_pais.Sorted = true;
             this.cmb_pais.TabIndex = 9;
             // 
             // cmb_anio
             // 
+            this.cmb_anio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_anio.FormattingEnabled = true;
+            this.cmb_anio.Items.AddRange(new object[] {
+            "(Seleccione un año...)"});
             this.cmb_anio.Location = new System.Drawing.Point(113, 142);
             this.cmb_anio.Name = "cmb_anio";
             this.cmb_anio.Size = new System.Drawing.Size(148, 21);
@@ -141,6 +148,7 @@
             // 
             // cmb_estadioPrincipal
             // 
+            this.cmb_estadioPrincipal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_estadioPrincipal.FormattingEnabled = true;
             this.cmb_estadioPrincipal.Location = new System.Drawing.Point(358, 112);
             this.cmb_estadioPrincipal.Name = "cmb_estadioPrincipal";
@@ -149,6 +157,7 @@
             // 
             // cmb_estadioAlterno
             // 
+            this.cmb_estadioAlterno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_estadioAlterno.FormattingEnabled = true;
             this.cmb_estadioAlterno.Location = new System.Drawing.Point(358, 142);
             this.cmb_estadioAlterno.Name = "cmb_estadioAlterno";
@@ -173,6 +182,7 @@
             this.brn_cancelar.TabIndex = 14;
             this.brn_cancelar.Text = "Cancelar";
             this.brn_cancelar.UseVisualStyleBackColor = true;
+            this.brn_cancelar.Click += new System.EventHandler(this.brn_cancelar_Click);
             // 
             // frmEquipoInsertar
             // 

@@ -16,6 +16,33 @@ namespace UPC.Proyecto.SISPPAFUT
         public frmEquipoInsertar()
         {
             InitializeComponent();
+
+            iniciarPais();
+            inicarAnio();
+        }
+
+        private void iniciarPais()
+        {
+            cmb_pais.SelectedIndex = 0;
+            List<PaisBE> listaPaises = new List<PaisBE>();
+            PaisBC objPaisBC = new PaisBC();
+
+            listaPaises = objPaisBC.listarPaises();
+
+            for (int i = 0; i < listaPaises.Count; i++)
+            {
+                PaisBE objPais = listaPaises[i];
+                cmb_pais.Items.Add(objPais.NombrePais);
+            }
+        }
+
+        private void inicarAnio()
+        {
+            cmb_anio.SelectedIndex = 0;
+            for (int i = 1900; i < 2013; i++)
+            {
+                cmb_anio.Items.Add(i.ToString());
+            }
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -49,6 +76,11 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 MessageBox.Show("EL EQUIPO SE REGISTRO SATISFACTORIAMENTE");
             }
+        }
+
+        private void brn_cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

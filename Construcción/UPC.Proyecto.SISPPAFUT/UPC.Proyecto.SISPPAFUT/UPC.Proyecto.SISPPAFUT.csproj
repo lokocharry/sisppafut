@@ -76,6 +76,9 @@
     <EmbeddedResource Include="FrmCompeticionInsertar.resx">
       <DependentUpon>FrmCompeticionInsertar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEquipoInsertar.resx">
+      <DependentUpon>frmEquipoInsertar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadioInsertar.resx">
       <DependentUpon>FrmEstadioInsertar.cs</DependentUpon>
     </EmbeddedResource>
