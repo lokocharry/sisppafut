@@ -19,3 +19,10 @@ C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Pr
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
+C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll
+C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
+C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll
+C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb
+C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll
+C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
