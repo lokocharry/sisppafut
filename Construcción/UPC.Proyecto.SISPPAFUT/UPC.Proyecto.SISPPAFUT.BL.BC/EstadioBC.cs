@@ -14,5 +14,12 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             EstadioDALC objEstadioDALC = new EstadioDALC();
             return objEstadioDALC.insertar_Estadio(objEstadioBE);
         }
+
+        public List<EstadioBE> listarEstadios()
+        {
+            EstadioDALC objEstadioDALC = new EstadioDALC();
+            return objEstadioDALC.listar_Estadios();
+        }
+
     }
 }

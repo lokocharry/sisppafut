@@ -65,6 +65,12 @@
     <Compile Include="FrmEstadioInsertar.Designer.cs">
       <DependentUpon>FrmEstadioInsertar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLigaInsertar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLigaInsertar.Designer.cs">
+      <DependentUpon>frmLigaInsertar.cs</DependentUpon>
+    </Compile>
     <Compile Include="PaisInsertar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEstadioInsertar.resx">
       <DependentUpon>FrmEstadioInsertar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLigaInsertar.resx">
+      <DependentUpon>frmLigaInsertar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PaisInsertar.resx">
       <DependentUpon>PaisInsertar.cs</DependentUpon>

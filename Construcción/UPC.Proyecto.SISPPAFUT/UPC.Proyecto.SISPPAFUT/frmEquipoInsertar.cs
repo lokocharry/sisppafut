@@ -15,7 +15,6 @@ namespace UPC.Proyecto.SISPPAFUT
     {
         private List<PaisBE> listaPaises;
         private List<EstadioBE> listaEstadios;
-        private List<EstadioBE> listaEstadiosAlterno;
 
         public frmEquipoInsertar()
         {
@@ -23,8 +22,7 @@ namespace UPC.Proyecto.SISPPAFUT
 
             iniciarPais();
             inicarAnio();
-            iniciarEstadioPrincipal();
-            iniciarEstadioAlterno();
+            iniciarEstadios();
         }
 
         private void iniciarPais()
@@ -51,20 +49,24 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void iniciarEstadioPrincipal()
+        private void iniciarEstadios()
         {
             cmb_estadioPrincipal.SelectedIndex = 0;
-            listaEstadios = new List<EstadioBE>();
-            EstadioBC objEstadioBC = new EstadioBC();            
-        }
+            cmb_estadioAlterno.SelectedIndex = 0;
 
-        private void iniciarEstadioAlterno()
-        {
-            cmb_estadioPrincipal.SelectedIndex = 0;
-            listaEstadiosAlterno = new List<EstadioBE>();
-            EstadioBC objEstadioBC = new EstadioBC();            
+            listaEstadios = new List<EstadioBE>();
+            EstadioBC objEstadioBC = new EstadioBC();
+
+            listaEstadios = objEstadioBC.listarEstadios();
+
+            for (int i = 0; i < listaEstadios.Count; i++)
+            {
+                EstadioBE objEstadio = listaEstadios[i];
+                cmb_estadioPrincipal.Items.Add(objEstadio.Nombre_estadio);
+                cmb_estadioAlterno.Items.Add(objEstadio.Nombre_estadio);
+            }
         }
-        
+                
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             int iCodigo = 0;
@@ -79,8 +81,8 @@ namespace UPC.Proyecto.SISPPAFUT
             objEquipoBE.NombreEquipo = txt_nombre.Text;
             objEquipoBE.AnioFundacion = Convert.ToInt32(cmb_anio.SelectedItem.ToString());
             objEquipoBE.CiudadEquipo = txt_ciudad.Text;
-            objEquipoBE.CodigoEstadioPrincipal = 1;
-            objEquipoBE.CodigoEstadioAlterno = 2;
+            objEquipoBE.CodigoEstadioPrincipal = listaEstadios[cmb_estadioPrincipal.SelectedIndex-1].Codigo_estadio;
+            objEquipoBE.CodigoEstadioAlterno = listaEstadios[cmb_estadioPrincipal.SelectedIndex - 1].Codigo_estadio;
 
             iCodigo = objEquipoBC.insertarEquipo(objEquipoBE);
 
@@ -88,7 +90,7 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 MessageBox.Show("ESTE EQUIPO YA HA SIDO INGRESADO ANTERIORMENTE");
             }
-            else if (iCodigo == 0)
+            else if (iCodigo == 0 || objEquipoBE.CodigoEstadioPrincipal==objEquipoBE.CodigoEstadioAlterno)
             {
                 MessageBox.Show("NO SE PUDO REGISTRAR EL EQUIPO");
             }

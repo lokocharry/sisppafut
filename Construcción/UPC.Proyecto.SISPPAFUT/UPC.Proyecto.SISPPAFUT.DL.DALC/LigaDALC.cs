@@ -77,7 +77,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
             catch (Exception)
             {
-                cmd_LigaInsertar.Connection.Close();
+                //cmd_LigaInsertar.Connection.Close();
                 conexion.Dispose();
                 throw;
             }
@@ -85,7 +85,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             {
                 if (conexion != null && conexion.State==ConnectionState.Open)
                 {
-                    cmd_LigaInsertar.Connection.Close();
+                    //cmd_LigaInsertar.Connection.Close();
                     conexion.Dispose();
                     conexion = null;
                 }

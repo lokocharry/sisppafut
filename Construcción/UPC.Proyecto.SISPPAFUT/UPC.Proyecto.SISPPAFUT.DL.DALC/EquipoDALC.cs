@@ -87,16 +87,22 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
                 iCodigoEquipo = Convert.ToInt32(prm_Codigo.Value);
 
-                cmd_EquipoInsertar.Connection.Close();
-
-                conexion.Dispose();
-
                 return iCodigoEquipo;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
+                //cmd_EquipoInsertar.Connection.Close();
                 conexion.Dispose();
                 throw;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    //cmd_EquipoInsertar.Connection.Close();
+                    conexion.Dispose();
+                    conexion = null;
+                }
             }
         }
 

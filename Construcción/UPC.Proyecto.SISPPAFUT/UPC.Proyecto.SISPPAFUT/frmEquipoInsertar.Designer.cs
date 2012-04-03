@@ -150,7 +150,7 @@
             this.cmb_estadioPrincipal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_estadioPrincipal.FormattingEnabled = true;
             this.cmb_estadioPrincipal.Items.AddRange(new object[] {
-            "(Seleccionar estadio principal...)"});
+            "(Seleccionar estadio...)"});
             this.cmb_estadioPrincipal.Location = new System.Drawing.Point(358, 112);
             this.cmb_estadioPrincipal.Name = "cmb_estadioPrincipal";
             this.cmb_estadioPrincipal.Size = new System.Drawing.Size(145, 21);
@@ -161,7 +161,7 @@
             this.cmb_estadioAlterno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_estadioAlterno.FormattingEnabled = true;
             this.cmb_estadioAlterno.Items.AddRange(new object[] {
-            "(Seleccionar un estadio alterno...)"});
+            "(Seleccionar un estadio...)"});
             this.cmb_estadioAlterno.Location = new System.Drawing.Point(358, 142);
             this.cmb_estadioAlterno.Name = "cmb_estadioAlterno";
             this.cmb_estadioAlterno.Size = new System.Drawing.Size(145, 21);
