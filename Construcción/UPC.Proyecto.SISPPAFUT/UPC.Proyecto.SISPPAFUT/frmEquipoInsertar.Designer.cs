@@ -132,7 +132,6 @@
             this.cmb_pais.Location = new System.Drawing.Point(112, 112);
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(149, 21);
-            this.cmb_pais.Sorted = true;
             this.cmb_pais.TabIndex = 9;
             // 
             // cmb_anio
@@ -150,6 +149,8 @@
             // 
             this.cmb_estadioPrincipal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_estadioPrincipal.FormattingEnabled = true;
+            this.cmb_estadioPrincipal.Items.AddRange(new object[] {
+            "(Seleccionar estadio principal...)"});
             this.cmb_estadioPrincipal.Location = new System.Drawing.Point(358, 112);
             this.cmb_estadioPrincipal.Name = "cmb_estadioPrincipal";
             this.cmb_estadioPrincipal.Size = new System.Drawing.Size(145, 21);
@@ -159,6 +160,8 @@
             // 
             this.cmb_estadioAlterno.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_estadioAlterno.FormattingEnabled = true;
+            this.cmb_estadioAlterno.Items.AddRange(new object[] {
+            "(Seleccionar un estadio alterno...)"});
             this.cmb_estadioAlterno.Location = new System.Drawing.Point(358, 142);
             this.cmb_estadioAlterno.Name = "cmb_estadioAlterno";
             this.cmb_estadioAlterno.Size = new System.Drawing.Size(145, 21);
@@ -206,6 +209,7 @@
             this.Controls.Add(this.lbl_titulo);
             this.Name = "frmEquipoInsertar";
             this.Text = "Equipo";
+            this.Load += new System.EventHandler(this.frmEquipoInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

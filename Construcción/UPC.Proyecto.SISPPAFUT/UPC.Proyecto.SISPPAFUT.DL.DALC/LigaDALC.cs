@@ -73,16 +73,22 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
                 iCodigoLiga = Convert.ToInt32(prm_Codigo.Value);
 
-                cmd_LigaInsertar.Connection.Close();
-
-                conexion.Dispose();
-
                 return iCodigoLiga;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
+                cmd_LigaInsertar.Connection.Close();
                 conexion.Dispose();
                 throw;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State==ConnectionState.Open)
+                {
+                    cmd_LigaInsertar.Connection.Close();
+                    conexion.Dispose();
+                    conexion = null;
+                }
             }
         }
 

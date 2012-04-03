@@ -13,18 +13,24 @@ namespace UPC.Proyecto.SISPPAFUT
 {
     public partial class frmEquipoInsertar : Form
     {
+        private List<PaisBE> listaPaises;
+        private List<EstadioBE> listaEstadios;
+        private List<EstadioBE> listaEstadiosAlterno;
+
         public frmEquipoInsertar()
         {
             InitializeComponent();
 
             iniciarPais();
             inicarAnio();
+            iniciarEstadioPrincipal();
+            iniciarEstadioAlterno();
         }
 
         private void iniciarPais()
         {
             cmb_pais.SelectedIndex = 0;
-            List<PaisBE> listaPaises = new List<PaisBE>();
+            listaPaises = new List<PaisBE>();
             PaisBC objPaisBC = new PaisBC();
 
             listaPaises = objPaisBC.listarPaises();
@@ -45,6 +51,20 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
+        private void iniciarEstadioPrincipal()
+        {
+            cmb_estadioPrincipal.SelectedIndex = 0;
+            listaEstadios = new List<EstadioBE>();
+            EstadioBC objEstadioBC = new EstadioBC();            
+        }
+
+        private void iniciarEstadioAlterno()
+        {
+            cmb_estadioPrincipal.SelectedIndex = 0;
+            listaEstadiosAlterno = new List<EstadioBE>();
+            EstadioBC objEstadioBC = new EstadioBC();            
+        }
+        
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             int iCodigo = 0;
@@ -55,12 +75,12 @@ namespace UPC.Proyecto.SISPPAFUT
             objEquipoBE = new EquipoBE();
             objEquipoBC = new EquipoBC();
 
-            //objEquipoBE.CodigoPais = 
+            objEquipoBE.CodigoPais = listaPaises[cmb_pais.SelectedIndex-1].CodigoPais;
             objEquipoBE.NombreEquipo = txt_nombre.Text;
-            objEquipoBE.AnioFundacion = Convert.ToInt32(cmb_anio.SelectedValue);
-            objEquipoBE.CiudadEquipo = txt_nombre.Text;
-            //objEquipoBE.CodigoEstadioPrincipal =
-            //objEquipoBE.CodigoEstadioAlterno = 
+            objEquipoBE.AnioFundacion = Convert.ToInt32(cmb_anio.SelectedItem.ToString());
+            objEquipoBE.CiudadEquipo = txt_ciudad.Text;
+            objEquipoBE.CodigoEstadioPrincipal = 1;
+            objEquipoBE.CodigoEstadioAlterno = 2;
 
             iCodigo = objEquipoBC.insertarEquipo(objEquipoBE);
 
@@ -81,6 +101,11 @@ namespace UPC.Proyecto.SISPPAFUT
         private void brn_cancelar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmEquipoInsertar_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

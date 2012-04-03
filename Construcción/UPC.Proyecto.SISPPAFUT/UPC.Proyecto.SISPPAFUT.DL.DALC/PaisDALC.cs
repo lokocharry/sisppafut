@@ -140,6 +140,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 {
                     objPaisBE = new PaisBE();
 
+                    objPaisBE.CodigoPais = dr_paises.GetInt32(dr_paises.GetOrdinal("CodPais"));
                     objPaisBE.NombrePais = dr_paises.GetString(dr_paises.GetOrdinal("Nombre"));
 
                     lista_paises.Add(objPaisBE);
