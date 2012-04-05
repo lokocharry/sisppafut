@@ -123,9 +123,11 @@
             this.txt_temporada.Name = "txt_temporada";
             this.txt_temporada.Size = new System.Drawing.Size(186, 20);
             this.txt_temporada.TabIndex = 7;
+            this.txt_temporada.TextChanged += new System.EventHandler(this.inTemporada);
             // 
             // txt_nombre
             // 
+            this.txt_nombre.Enabled = false;
             this.txt_nombre.Location = new System.Drawing.Point(130, 164);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(346, 20);
@@ -135,7 +137,7 @@
             // 
             this.txt_cantidad.Location = new System.Drawing.Point(130, 198);
             this.txt_cantidad.Name = "txt_cantidad";
-            this.txt_cantidad.Size = new System.Drawing.Size(81, 20);
+            this.txt_cantidad.Size = new System.Drawing.Size(54, 20);
             this.txt_cantidad.TabIndex = 9;
             // 
             // chb_editar
@@ -147,6 +149,7 @@
             this.chb_editar.TabIndex = 10;
             this.chb_editar.Text = "Editar";
             this.chb_editar.UseVisualStyleBackColor = true;
+            this.chb_editar.CheckedChanged += new System.EventHandler(this.inEditarNombreLiga);
             // 
             // cmb_competicion
             // 
@@ -163,6 +166,7 @@
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(165, 21);
             this.cmb_pais.TabIndex = 12;
+            this.cmb_pais.SelectedValueChanged += new System.EventHandler(this.inPaisSeleccionado);
             // 
             // cmb_equipo
             // 
@@ -232,6 +236,7 @@
             this.Controls.Add(this.lbl_titulo);
             this.Name = "frmLigaInsertar";
             this.Text = "Liga";
+            this.Load += new System.EventHandler(this.inLoad);
             ((System.ComponentModel.ISupportInitialize)(this.dg_equipos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

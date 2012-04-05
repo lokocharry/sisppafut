@@ -104,7 +104,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
 
-                sqlEquipoInsertarEnLiga = "spInsertEquipoEnLiga";
+                sqlEquipoInsertarEnLiga = "spCreateLigaEquipo";
 
                 cmd_EquipoInsertarEnLiga = new SqlCommand(sqlEquipoInsertarEnLiga, conexion);
                 cmd_EquipoInsertarEnLiga.CommandType = CommandType.StoredProcedure;

@@ -30,10 +30,17 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
-        public List<EquipoBE> listarEquipos()
+        public List<EquipoBE> listarEquipos(String Pais)
         {
-            EquipoDALC objEquipoDALC = new EquipoDALC();
-            return objEquipoDALC.listar_Equipos();
+            try
+            {
+                EquipoDALC objEquipoDALC = new EquipoDALC();
+                return objEquipoDALC.listar_Equipos(Pais);
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
         }
     }
 }

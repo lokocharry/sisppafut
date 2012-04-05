@@ -53,7 +53,7 @@ namespace UPC.Proyecto.SISPPAFUT
         private void inicarAnio()
         {
             cmb_anio.SelectedIndex = 0;
-            for (int i = 1900; i < 2013; i++)
+            for (int i = 1857; i < 2013; i++)
             {
                 cmb_anio.Items.Add(i.ToString());
             }
@@ -92,7 +92,8 @@ namespace UPC.Proyecto.SISPPAFUT
             objEquipoBE.AnioFundacion = Convert.ToInt32(cmb_anio.SelectedItem.ToString());
             objEquipoBE.CiudadEquipo = txt_ciudad.Text;
             objEquipoBE.CodigoEstadioPrincipal = listaEstadios[cmb_estadioPrincipal.SelectedIndex-1].Codigo_estadio;
-            objEquipoBE.CodigoEstadioAlterno = listaEstadios[cmb_estadioPrincipal.SelectedIndex - 1].Codigo_estadio;
+            if (cmb_estadioAlterno.SelectedIndex>0)
+                objEquipoBE.CodigoEstadioAlterno = listaEstadios[cmb_estadioAlterno.SelectedIndex - 1].Codigo_estadio;
 
             iCodigo = objEquipoBC.insertarEquipo(objEquipoBE);
 

@@ -150,18 +150,30 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
-        public List<EquipoBE> listar_Equipos()
+        public List<EquipoBE> listar_Equipos(String Pais)
         {
             SqlConnection conexion = null;
             SqlDataReader dr_equipos;
             SqlCommand cmd_equipos;
             String sqlEquiposListar;
+            SqlParameter _Pais;
 
             try
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
                 sqlEquiposListar = "spListarEquipos";
-                cmd_equipos = new SqlCommand(sqlEquiposListar, conexion);
+                cmd_equipos = conexion.CreateCommand();
+                cmd_equipos.CommandText = sqlEquiposListar;
+                cmd_equipos.CommandType = CommandType.StoredProcedure;
+
+                _Pais = cmd_equipos.CreateParameter();
+                _Pais.ParameterName = "@Pais";
+                _Pais.SqlDbType = SqlDbType.VarChar;
+                _Pais.Size = 20;
+                _Pais.SqlValue = Pais;
+
+                cmd_equipos.Parameters.Add(_Pais);
+
                 cmd_equipos.Connection.Open();
                 dr_equipos = cmd_equipos.ExecuteReader();
 

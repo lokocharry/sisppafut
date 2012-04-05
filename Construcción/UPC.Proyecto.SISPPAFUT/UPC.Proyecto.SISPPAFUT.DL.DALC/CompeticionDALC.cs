@@ -68,6 +68,60 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 throw;
             }
         }
-         
+
+        public List<CompeticionBE> listar_Competicion(String Pais)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_Competicion;
+            SqlCommand cmd;
+            String sqlCompeticionesListar;
+            SqlParameter _Pais;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlCompeticionesListar = "spListarCompeticion";
+                cmd = conexion.CreateCommand();
+                cmd.CommandText = sqlCompeticionesListar;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                _Pais = cmd.CreateParameter();
+                _Pais.ParameterName = "@Pais";
+                _Pais.SqlDbType = SqlDbType.VarChar;
+                _Pais.Size = 20;
+                _Pais.SqlValue = Pais;
+
+                cmd.Parameters.Add(_Pais);
+
+                cmd.Connection.Open();
+                dr_Competicion = cmd.ExecuteReader();
+
+                List<CompeticionBE> lst;
+                CompeticionBE objCompeticionBE;
+
+                lst = new List<CompeticionBE>();
+
+                while (dr_Competicion.Read())
+                {
+                    objCompeticionBE = new CompeticionBE();
+
+                    objCompeticionBE.Nombre_competicion = dr_Competicion.GetString(dr_Competicion.GetOrdinal("Nombre"));
+
+                    lst.Add(objCompeticionBE);
+                }
+
+                cmd.Connection.Close();
+                conexion.Dispose();
+
+                return lst;
+            }
+
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+
+        }
     }
 }

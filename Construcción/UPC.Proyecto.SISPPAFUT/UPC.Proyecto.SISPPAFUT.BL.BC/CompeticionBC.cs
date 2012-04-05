@@ -14,5 +14,19 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             CompeticionDALC objCompeticionDALC = new CompeticionDALC();
             return objCompeticionDALC.insertar_Competicion(objCompeticionBE);
         }
+
+        public List<CompeticionBE> ListarCompeticion(String Pais)
+        {
+            try
+            {
+                CompeticionDALC objCompeticionDALC = new CompeticionDALC();
+                List<CompeticionBE> lst = objCompeticionDALC.listar_Competicion(Pais);
+                return lst;
+            }
+            catch(Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
