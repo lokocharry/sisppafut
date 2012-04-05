@@ -11,7 +11,7 @@ GO
 -- Create date: 29/03/2012
 -- Description:	Este Store Procedure permire verificar si el nombre de la liga ingresada ya existe
 -- =============================================
-CREATE PROCEDURE [dbo].[spPaisVerificarRepetido]
+CREATE PROCEDURE [dbo].[spLigaVerificarRepetido]
 (
 	@Nombre varchar(30)
 )
