@@ -11,9 +11,19 @@ using UPC.Proyecto.SISPPAFUT.BL.BE;
 
 namespace UPC.Proyecto.SISPPAFUT
 {
-    public partial class FrmEstadioInsertar : Form
+    public partial class frmEstadioInsertar : Form
     {
-        public FrmEstadioInsertar()
+        private static frmEstadioInsertar frmEstadio = null;
+        public static frmEstadioInsertar Instance()
+        {
+            if (frmEstadio == null)
+            {
+                frmEstadio = new frmEstadioInsertar();
+            }
+            return frmEstadio;
+        }
+
+        public frmEstadioInsertar()
         {
             InitializeComponent();
         }

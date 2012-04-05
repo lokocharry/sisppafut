@@ -16,6 +16,16 @@ namespace UPC.Proyecto.SISPPAFUT
         private List<PaisBE> listaPaises;
         private List<EstadioBE> listaEstadios;
 
+        private static frmEquipoInsertar frmEquipo = null;
+        public static frmEquipoInsertar Instance()
+        {
+            if (frmEquipo == null)
+            {
+                frmEquipo = new frmEquipoInsertar();
+            }
+            return frmEquipo;
+        }
+
         public frmEquipoInsertar()
         {
             InitializeComponent();

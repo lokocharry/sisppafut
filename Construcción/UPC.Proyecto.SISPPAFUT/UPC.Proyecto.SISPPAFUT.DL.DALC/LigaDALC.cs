@@ -12,7 +12,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
     {
         public int insertar_Liga(LigaBE objLigaBE)
         {
-            String cadena;
             SqlConnection conexion = null;
             SqlCommand cmd_LigaInsertar;
 
@@ -28,8 +27,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
 
                 sqlLigaInsertar = "spCreateLiga";
 
@@ -94,7 +92,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
         public void insertar_equipoEnLiga(int codigoLiga, int codigoEquipo)
         {
-            String cadena;
             SqlConnection conexion = null;
             SqlCommand cmd_EquipoInsertarEnLiga;
 
@@ -105,8 +102,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
 
                 sqlEquipoInsertarEnLiga = "spInsertEquipoEnLiga";
 
@@ -143,7 +139,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
         public int existe_Liga(String nombre)
         {
-            String cadena;
             SqlConnection conexion = null;
             SqlDataReader dr_liga;
             SqlCommand cmd_LigaValidar;
@@ -154,8 +149,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
                 sqlLigaValidar = "spVerificarLigaRepetida";
 
                 cmd_LigaValidar = new SqlCommand(sqlLigaValidar, conexion);
@@ -194,13 +188,11 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             SqlConnection conexion = null;
             SqlDataReader dr_ligas;
             SqlCommand cmd_ligas;
-            String cadena;
             String sqlLigasListar;
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
                 sqlLigasListar = "spListarLigas";
                 cmd_ligas = new SqlCommand(sqlLigasListar, conexion);
                 cmd_ligas.Connection.Open();

@@ -11,9 +11,19 @@ using UPC.Proyecto.SISPPAFUT.BL.BE;
 
 namespace UPC.Proyecto.SISPPAFUT
 {
-    public partial class FrmCompeticionInsertar : Form
+    public partial class frmCompeticionInsertar : Form
     {
-        public FrmCompeticionInsertar()
+        private static frmCompeticionInsertar frmCompeticion = null;
+        public static frmCompeticionInsertar Instance()
+        {
+            if (frmCompeticion == null)
+            {
+                frmCompeticion = new frmCompeticionInsertar();
+            }
+            return frmCompeticion;
+        }
+
+        public frmCompeticionInsertar()
         {
             InitializeComponent();
         }

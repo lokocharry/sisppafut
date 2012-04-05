@@ -12,7 +12,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
     {
         public int insertar_Estadio(EstadioBE objEstadioBE)
         {
-            String cadena;
             SqlConnection conexion = null;
             SqlCommand cmd_EstadioInsertar;
 
@@ -29,8 +28,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
 
                 sqlEstadioInsertar = "spCreateEstadio";
 
@@ -98,13 +96,11 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             SqlConnection conexion = null;
             SqlDataReader dr_estadios;
             SqlCommand cmd_estadios;
-            String cadena;
             String sqlEstadiosListar;
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
                 sqlEstadiosListar = "spListarEstadios";
                 cmd_estadios = new SqlCommand(sqlEstadiosListar, conexion);
                 cmd_estadios.Connection.Open();

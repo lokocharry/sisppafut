@@ -41,17 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Funciones.cs" />
+    <Compile Include="SISPPAFUTmdi.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="SISPPAFUTmdi.Designer.cs">
+      <DependentUpon>SISPPAFUTmdi.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCompeticionInsertar.cs">
+    <Compile Include="frmCompeticionInsertar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmCompeticionInsertar.Designer.cs">
-      <DependentUpon>FrmCompeticionInsertar.cs</DependentUpon>
+    <Compile Include="frmCompeticionInsertar.Designer.cs">
+      <DependentUpon>frmCompeticionInsertar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmEquipoInsertar.cs">
       <SubType>Form</SubType>
@@ -59,11 +60,11 @@
     <Compile Include="frmEquipoInsertar.Designer.cs">
       <DependentUpon>frmEquipoInsertar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEstadioInsertar.cs">
+    <Compile Include="frmEstadioInsertar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEstadioInsertar.Designer.cs">
-      <DependentUpon>FrmEstadioInsertar.cs</DependentUpon>
+    <Compile Include="frmEstadioInsertar.Designer.cs">
+      <DependentUpon>frmEstadioInsertar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLigaInsertar.cs">
       <SubType>Form</SubType>
@@ -71,28 +72,31 @@
     <Compile Include="frmLigaInsertar.Designer.cs">
       <DependentUpon>frmLigaInsertar.cs</DependentUpon>
     </Compile>
-    <Compile Include="PaisInsertar.cs">
+    <Compile Include="frmPaisInsertar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PaisInsertar.designer.cs">
-      <DependentUpon>PaisInsertar.cs</DependentUpon>
+    <Compile Include="frmPaisInsertar.designer.cs">
+      <DependentUpon>frmPaisInsertar.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmCompeticionInsertar.resx">
-      <DependentUpon>FrmCompeticionInsertar.cs</DependentUpon>
+    <EmbeddedResource Include="frmCompeticionInsertar.resx">
+      <DependentUpon>frmCompeticionInsertar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEquipoInsertar.resx">
       <DependentUpon>frmEquipoInsertar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEstadioInsertar.resx">
-      <DependentUpon>FrmEstadioInsertar.cs</DependentUpon>
+    <EmbeddedResource Include="frmEstadioInsertar.resx">
+      <DependentUpon>frmEstadioInsertar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLigaInsertar.resx">
       <DependentUpon>frmLigaInsertar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PaisInsertar.resx">
-      <DependentUpon>PaisInsertar.cs</DependentUpon>
+    <EmbeddedResource Include="SISPPAFUTmdi.resx">
+      <DependentUpon>SISPPAFUTmdi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPaisInsertar.resx">
+      <DependentUpon>frmPaisInsertar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

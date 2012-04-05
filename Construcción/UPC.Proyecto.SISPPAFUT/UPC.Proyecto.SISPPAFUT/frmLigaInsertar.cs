@@ -10,6 +10,16 @@ namespace UPC.Proyecto.SISPPAFUT
 {
     public partial class frmLigaInsertar : Form
     {
+        private static frmLigaInsertar frmLiga = null;
+        public static frmLigaInsertar Instance()
+        {
+            if (frmLiga == null)
+            {
+                frmLiga = new frmLigaInsertar();
+            }
+            return frmLiga;
+        }
+
         public frmLigaInsertar()
         {
             InitializeComponent();

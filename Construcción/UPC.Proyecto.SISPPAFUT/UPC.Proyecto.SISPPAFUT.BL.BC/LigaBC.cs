@@ -32,8 +32,15 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 
         public List<LigaBE> listarLigas()
         {
-            LigaDALC objLigaDALC = new LigaDALC();
-            return objLigaDALC.listar_Ligas();
+            try
+            {
+                LigaDALC objLigaDALC = new LigaDALC();
+                return objLigaDALC.listar_Ligas();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public void insertarEquipoEnLiga(int codigoLiga, int codigoEquipo)

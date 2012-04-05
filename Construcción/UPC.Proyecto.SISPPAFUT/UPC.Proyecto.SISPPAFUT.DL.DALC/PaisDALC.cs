@@ -12,7 +12,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
     {
         public int insertar_Pais(PaisBE objPaisBE)
         {
-            String cadena;
             SqlConnection conexion = null;
             SqlCommand cmd_PaisInsertar;
 
@@ -25,8 +24,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
 
                 sqlPaisInsertar = "spCreatePais";
 
@@ -67,7 +65,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
         public int existe_Pais(String nombre)
         {
-            String cadena;
             SqlConnection conexion = null;
             SqlDataReader dr_pais;
             SqlCommand cmd_PaisValidar;
@@ -78,8 +75,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
                 sqlPaisValidar = "spPaisVerificarRepetido";
 
                 cmd_PaisValidar = new SqlCommand(sqlPaisValidar, conexion);
@@ -119,13 +115,11 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             SqlConnection conexion = null;
             SqlDataReader dr_paises;
             SqlCommand cmd_paises;
-            String cadena;
             String sqlPaisesListar;
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
                 sqlPaisesListar = "spListarPaises";
                 cmd_paises = new SqlCommand(sqlPaisesListar, conexion);
                 cmd_paises.Connection.Open();

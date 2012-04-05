@@ -12,7 +12,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
     {
         public int insertar_Competicion(CompeticionBE objCompeticionBE)
         {
-            String cadena;
             SqlConnection conexion = null;
             SqlCommand cmd_CompeticionInsertar;
 
@@ -26,8 +25,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
 
                 sqlCompeticionInsertar = "spCreateCompeticion";
 

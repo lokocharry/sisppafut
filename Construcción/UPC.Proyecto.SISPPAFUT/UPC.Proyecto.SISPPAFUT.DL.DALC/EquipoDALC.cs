@@ -12,7 +12,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
     {
         public int insertar_Equipo(EquipoBE objEquipoBE)
         {
-            String cadena;
             SqlConnection conexion = null;
             SqlCommand cmd_EquipoInsertar;
 
@@ -30,8 +29,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
 
                 sqlEquipoInsertar = "spCreateEquipo";
 
@@ -108,8 +106,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
         public int existe_Equipo(String nombre)
         {
-
-            String cadena;
             SqlConnection conexion = null;
             SqlDataReader dr_equipo;
             SqlCommand cmd_EquipoValidar;
@@ -120,8 +116,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
                 sqlEquipoValidar = "spEquipoVerificarRepetido";
 
                 cmd_EquipoValidar = new SqlCommand(sqlEquipoValidar, conexion);
@@ -160,13 +155,11 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             SqlConnection conexion = null;
             SqlDataReader dr_equipos;
             SqlCommand cmd_equipos;
-            String cadena;
             String sqlEquiposListar;
 
             try
             {
-                cadena = "server=(local); database=SISPPAFUT; User Id=sa; Pwd=password";
-                conexion = new SqlConnection(cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
                 sqlEquiposListar = "spListarEquipos";
                 cmd_equipos = new SqlCommand(sqlEquiposListar, conexion);
                 cmd_equipos.Connection.Open();

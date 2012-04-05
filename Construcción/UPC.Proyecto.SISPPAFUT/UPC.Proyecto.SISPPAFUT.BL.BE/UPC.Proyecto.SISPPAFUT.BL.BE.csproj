@@ -36,11 +36,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="CompeticionBE.cs" />
     <Compile Include="EquipoBE.cs" />
     <Compile Include="EstadioBE.cs" />
+    <Compile Include="ExcepcionBE.cs" />
     <Compile Include="LigaBE.cs" />
+    <Compile Include="LogBE.cs" />
     <Compile Include="PaisBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

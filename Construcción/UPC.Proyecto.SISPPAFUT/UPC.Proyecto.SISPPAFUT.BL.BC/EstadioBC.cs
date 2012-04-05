@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Text;
 
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -11,14 +12,46 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
     {
         public int insertar_Estadio(EstadioBE objEstadioBE)
         {
-            EstadioDALC objEstadioDALC = new EstadioDALC();
-            return objEstadioDALC.insertar_Estadio(objEstadioBE);
+            int result = 0;
+            try
+            {
+                EstadioDALC objEstadioDALC = new EstadioDALC();
+                result = objEstadioDALC.insertar_Estadio(objEstadioBE);
+
+                if (result != 0)
+                {
+                    //Guardar el registro;
+                    LogBC objLogBC = new LogBC();
+                    LogBE objLogBE = new LogBE();
+                    IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                    objLogBE.CodOperacion = result;
+                    objLogBE.Fecha = DateTime.Now;
+                    objLogBE.IP = entry.AddressList[0].ToString();
+                    objLogBE.Razon = "Inserción de un nuevo registro en el sistema";
+                    objLogBE.Tabla = "Estadio";
+                    objLogBE.Usuario = "Adminn"; //Debo obtener el usuario
+                    int r = (objLogBC.RegistrarLog(objLogBE));
+                }
+
+                return result;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public List<EstadioBE> listarEstadios()
         {
-            EstadioDALC objEstadioDALC = new EstadioDALC();
-            return objEstadioDALC.listar_Estadios();
+            try
+            {
+                EstadioDALC objEstadioDALC = new EstadioDALC();
+                return objEstadioDALC.listar_Estadios();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
     }

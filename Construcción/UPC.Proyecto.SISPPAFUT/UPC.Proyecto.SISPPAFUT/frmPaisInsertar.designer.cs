@@ -1,6 +1,6 @@
 ﻿namespace UPC.Proyecto.SISPPAFUT
 {
-    partial class PaisInsertar
+    partial class frmPaisInsertar
     {
         /// <summary>
         /// Required designer variable.
@@ -13,11 +13,15 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing)
             {
-                components.Dispose();
+                if (components != null)
+                {
+                    components.Dispose();
+                }
             }
             base.Dispose(disposing);
+            frmPais = null;
         }
 
         #region Windows Form Designer generated code
