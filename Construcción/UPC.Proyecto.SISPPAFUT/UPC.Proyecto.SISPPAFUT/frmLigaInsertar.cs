@@ -11,6 +11,7 @@ namespace UPC.Proyecto.SISPPAFUT
     {
         //-- Varibles globales
         List<PaisBE> lista_paises;
+        List<EquipoBE> lista_equipos;
 
         private static frmLigaInsertar frmLiga = null;
         public static frmLigaInsertar Instance()
@@ -47,7 +48,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 Funciones.RegistrarExcepcion(ex);
             }
         }
-
+        
         private void iniciarGrilla()
         {
             try

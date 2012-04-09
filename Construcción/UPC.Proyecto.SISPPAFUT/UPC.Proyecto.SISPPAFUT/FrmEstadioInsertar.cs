@@ -61,7 +61,7 @@ namespace UPC.Proyecto.SISPPAFUT
 
                 EstadioBE objEstadioBE = new EstadioBE();
 
-                objEstadioBE.Codigo_pais = Convert.ToInt32(cmb_pais.SelectedIndex);
+                objEstadioBE.Codigo_pais = lista_paises[cmb_pais.SelectedIndex - 1].CodigoPais;
                 objEstadioBE.Anho_fundacion = Convert.ToInt32(cmb_anho.Items[cmb_anho.SelectedIndex]);
                 objEstadioBE.Nombre_estadio = txt_nombre.Text;
                 objEstadioBE.Ciudad_estadio = txt_ciudad.Text;

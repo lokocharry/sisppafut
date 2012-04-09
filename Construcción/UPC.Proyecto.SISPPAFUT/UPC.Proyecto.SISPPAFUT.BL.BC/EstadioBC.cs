@@ -54,5 +54,18 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
+        public List<EstadioBE> listarEstadiosDeEquipo(int codigo_equipo)
+        {
+            try
+            {
+                EstadioDALC objEstadioDALC = new EstadioDALC();
+                return objEstadioDALC.obtenerEstadioDeEquipo(codigo_equipo);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
     }
 }

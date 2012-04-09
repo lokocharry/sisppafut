@@ -138,5 +138,52 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
 
         }
+
+        public List<EstadioBE> obtenerEstadioDeEquipo(int codigo_equipo)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_estadios;
+            SqlCommand cmd_estadios;
+            String sqlEstadiosListar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlEstadiosListar = "spListarEstadiosDeEquipo";
+                cmd_estadios = new SqlCommand(sqlEstadiosListar, conexion);
+                cmd_estadios.Connection.Open();
+                dr_estadios = cmd_estadios.ExecuteReader();
+
+                List<EstadioBE> lista_estadios;
+                EstadioBE objEstadioBE;
+
+                lista_estadios = new List<EstadioBE>();
+
+                while (dr_estadios.Read())
+                {
+                    objEstadioBE = new EstadioBE();
+                    
+                    objEstadioBE.Codigo_estadio = dr_estadios.GetInt32(dr_estadios.GetOrdinal("CodEstadio"));
+                    objEstadioBE.Codigo_pais = dr_estadios.GetInt32(dr_estadios.GetOrdinal("CodPais"));
+                    objEstadioBE.Anho_fundacion = dr_estadios.GetInt32(dr_estadios.GetOrdinal("AnioFundacion"));
+                    objEstadioBE.Nombre_estadio = dr_estadios.GetString(dr_estadios.GetOrdinal("Nombre"));
+                    objEstadioBE.Ciudad_estadio = dr_estadios.GetString(dr_estadios.GetOrdinal("Ciudad"));
+                    objEstadioBE.Aforo_estadio = dr_estadios.GetInt32(dr_estadios.GetOrdinal("Aforo"));
+
+                    lista_estadios.Add(objEstadioBE);
+                }
+
+                cmd_estadios.Connection.Close();
+                conexion.Dispose();
+
+                return lista_estadios;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+        }
+
     }
 }
