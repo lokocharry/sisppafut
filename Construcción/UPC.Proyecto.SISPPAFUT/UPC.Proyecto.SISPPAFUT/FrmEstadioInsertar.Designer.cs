@@ -116,6 +116,8 @@
             // 
             this.cmb_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_pais.FormattingEnabled = true;
+            this.cmb_pais.Items.AddRange(new object[] {
+            "(Seleccione un país)"});
             this.cmb_pais.Location = new System.Drawing.Point(84, 75);
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(152, 21);
@@ -262,7 +264,7 @@
             this.btn_cancelar.TabIndex = 10;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_Cancelar);
             // 
             // btn_guardar
             // 
@@ -272,9 +274,9 @@
             this.btn_guardar.TabIndex = 11;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.btn_guardar.Click += new System.EventHandler(this.btn_GuardarEstadio);
             // 
-            // FrmEstadioInsertar
+            // frmEstadioInsertar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -291,9 +293,8 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FrmEstadioInsertar";
+            this.Name = "frmEstadioInsertar";
             this.Text = "Estadio";
-            this.Load += new System.EventHandler(this.FrmEstadioInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

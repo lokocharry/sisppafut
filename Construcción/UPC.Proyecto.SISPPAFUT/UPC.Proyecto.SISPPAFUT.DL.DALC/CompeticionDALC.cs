@@ -105,6 +105,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 {
                     objCompeticionBE = new CompeticionBE();
 
+                    objCompeticionBE.Codigo_competicion = dr_Competicion.GetInt32(dr_Competicion.GetOrdinal("CodCompeticion"));
                     objCompeticionBE.Nombre_competicion = dr_Competicion.GetString(dr_Competicion.GetOrdinal("Nombre"));
 
                     lst.Add(objCompeticionBE);

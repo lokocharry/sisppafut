@@ -88,54 +88,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                     conexion = null;
                 }
             }
-        }
-
-        public void insertar_equipoEnLiga(int codigoLiga, int codigoEquipo)
-        {
-            SqlConnection conexion = null;
-            SqlCommand cmd_EquipoInsertarEnLiga;
-
-            SqlParameter prm_CodigoLiga;
-            SqlParameter prm_CodigoEquipo;
-
-            String sqlEquipoInsertarEnLiga;
-
-            try
-            {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
-
-                sqlEquipoInsertarEnLiga = "spCreateLigaEquipo";
-
-                cmd_EquipoInsertarEnLiga = new SqlCommand(sqlEquipoInsertarEnLiga, conexion);
-                cmd_EquipoInsertarEnLiga.CommandType = CommandType.StoredProcedure;
-
-                prm_CodigoLiga = new SqlParameter();
-                prm_CodigoLiga.ParameterName = "@codLiga";
-                prm_CodigoLiga.SqlDbType = SqlDbType.Int;
-                prm_CodigoLiga.Value = codigoLiga;
-
-                prm_CodigoEquipo = new SqlParameter();
-                prm_CodigoEquipo.ParameterName = "@codEquipo";
-                prm_CodigoEquipo.SqlDbType = SqlDbType.Int;
-                prm_CodigoEquipo.Value = codigoEquipo;
-
-                cmd_EquipoInsertarEnLiga.Parameters.Add(prm_CodigoLiga);
-                cmd_EquipoInsertarEnLiga.Parameters.Add(prm_CodigoEquipo);
-
-                cmd_EquipoInsertarEnLiga.Connection.Open();
-                cmd_EquipoInsertarEnLiga.ExecuteNonQuery();
-
-                cmd_EquipoInsertarEnLiga.Connection.Close();
-                conexion.Dispose();
-
-            }
-            catch (Exception ex)
-            {
-                conexion.Dispose();
-                throw;
-            }
-
-        }
+        }        
 
         public int existe_Liga(String nombre)
         {
@@ -150,7 +103,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             try
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
-                sqlLigaValidar = "spVerificarLigaRepetida";
+                sqlLigaValidar = "spLigaVerificarRepetido";
 
                 cmd_LigaValidar = new SqlCommand(sqlLigaValidar, conexion);
                 cmd_LigaValidar.CommandType = CommandType.StoredProcedure;
@@ -225,6 +178,5 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
 
         }
-
     }
 }

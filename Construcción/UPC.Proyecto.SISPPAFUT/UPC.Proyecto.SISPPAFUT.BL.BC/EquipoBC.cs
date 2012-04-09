@@ -42,5 +42,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public EquipoBE obtenerEquipo(String _equipo)
+        {
+            try
+            {
+                EquipoBE objEquipoBE;
+                EquipoDALC objEquipoDALC = new EquipoDALC();
+                objEquipoBE = objEquipoDALC.obtener_Equipo(_equipo);
+                return objEquipoBE;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

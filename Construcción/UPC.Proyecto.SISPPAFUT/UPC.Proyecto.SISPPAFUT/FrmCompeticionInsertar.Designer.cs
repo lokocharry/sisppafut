@@ -66,7 +66,7 @@
             this.btn_guardar.TabIndex = 2;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.btn_guardar.Click += new System.EventHandler(this.btn_GuardarCompeticion);
             // 
             // btn_salir
             // 
@@ -76,7 +76,7 @@
             this.btn_salir.TabIndex = 3;
             this.btn_salir.Text = "Cancelar";
             this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.btn_salir.Click += new System.EventHandler(this.btn_Salir);
             // 
             // cmb_paises
             // 
@@ -94,7 +94,7 @@
             this.txt_nombre.Size = new System.Drawing.Size(298, 20);
             this.txt_nombre.TabIndex = 5;
             // 
-            // FrmCompeticionInsertar
+            // frmCompeticionInsertar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -105,7 +105,7 @@
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "FrmCompeticionInsertar";
+            this.Name = "frmCompeticionInsertar";
             this.Text = "Competicion";
             this.Load += new System.EventHandler(this.FrmCompeticionInsertar_Load);
             this.ResumeLayout(false);

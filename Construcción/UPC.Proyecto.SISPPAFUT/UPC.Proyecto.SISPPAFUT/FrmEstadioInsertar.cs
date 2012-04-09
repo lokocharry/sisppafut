@@ -13,6 +13,9 @@ namespace UPC.Proyecto.SISPPAFUT
 {
     public partial class frmEstadioInsertar : Form
     {
+        //--Área de variables globales
+        List<PaisBE> lista_paises;
+
         private static frmEstadioInsertar frmEstadio = null;
         public static frmEstadioInsertar Instance()
         {
@@ -26,44 +29,65 @@ namespace UPC.Proyecto.SISPPAFUT
         public frmEstadioInsertar()
         {
             InitializeComponent();
+            iniciarPais();
         }
-
-        private void FrmEstadioInsertar_Load(object sender, EventArgs e)
+        
+        private void iniciarPais()
         {
-            PaisBC objPaisBC = new PaisBC();
-            List<PaisBE> lista_paises = objPaisBC.listarPaises();
-
-            for (int i = 0; i < lista_paises.Count; i++)
+            try
             {
-                cmb_pais.Items.Add(lista_paises[i].NombrePais);
+                cmb_pais.SelectedIndex = 0;
+                lista_paises = new List<PaisBE>();
+                PaisBC objPaisBC = new PaisBC();
+
+                lista_paises = objPaisBC.listarPaises();
+
+                for (int i = 0; i < lista_paises.Count; i++)
+                {
+                    cmb_pais.Items.Add(lista_paises[i].NombrePais);
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+        
+        private void btn_GuardarEstadio(object sender, EventArgs e)
+        {
+            try
+            {
+                int codigo = 0;
+
+                EstadioBE objEstadioBE = new EstadioBE();
+
+                objEstadioBE.Codigo_pais = Convert.ToInt32(cmb_pais.SelectedIndex);
+                objEstadioBE.Anho_fundacion = Convert.ToInt32(cmb_anho.Items[cmb_anho.SelectedIndex]);
+                objEstadioBE.Nombre_estadio = txt_nombre.Text;
+                objEstadioBE.Ciudad_estadio = txt_ciudad.Text;
+                objEstadioBE.Aforo_estadio = Convert.ToInt32(txt_aforo.Text);
+
+                EstadioBC objEstadioBC = new EstadioBC();
+                codigo = objEstadioBC.insertar_Estadio(objEstadioBE);
+
+                if (codigo != 0)
+                {
+                    MessageBox.Show("El estadio ha sido registrada satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("El estadio no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
-        private void btn_cancelar_Click(object sender, EventArgs e)
+        private void btn_Cancelar(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void btn_guardar_Click(object sender, EventArgs e)
-        {
-            int codigo = 0;
-
-            EstadioBE objEstadioBE = new EstadioBE();
-
-            objEstadioBE.Codigo_pais = Convert.ToInt32(cmb_pais.SelectedIndex + 1);
-            objEstadioBE.Anho_fundacion = Convert.ToInt32(cmb_anho.Items[cmb_anho.SelectedIndex]);
-            objEstadioBE.Nombre_estadio = txt_nombre.Text;
-            objEstadioBE.Ciudad_estadio = txt_ciudad.Text;
-            objEstadioBE.Aforo_estadio = Convert.ToInt32(txt_aforo.Text);
-
-            EstadioBC objEstadioBC = new EstadioBC();
-            codigo = objEstadioBC.insertar_Estadio(objEstadioBE);
-
-            if (codigo != 0)
-                MessageBox.Show("EL ESTADIO HA SIDO REGISTRADO SATISFACTORIAMENTE");
-
-            else
-                MessageBox.Show("HUBO UN PROBLEMA AL REGISTRAR EL ESTADIO");
         }
     }
 }

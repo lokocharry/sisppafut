@@ -62,7 +62,7 @@
             // lbl_equipo
             // 
             this.lbl_equipo.AutoSize = true;
-            this.lbl_equipo.Location = new System.Drawing.Point(31, 81);
+            this.lbl_equipo.Location = new System.Drawing.Point(31, 66);
             this.lbl_equipo.Name = "lbl_equipo";
             this.lbl_equipo.Size = new System.Drawing.Size(44, 13);
             this.lbl_equipo.TabIndex = 1;
@@ -71,7 +71,7 @@
             // lbl_pais
             // 
             this.lbl_pais.AutoSize = true;
-            this.lbl_pais.Location = new System.Drawing.Point(31, 115);
+            this.lbl_pais.Location = new System.Drawing.Point(31, 100);
             this.lbl_pais.Name = "lbl_pais";
             this.lbl_pais.Size = new System.Drawing.Size(27, 13);
             this.lbl_pais.TabIndex = 2;
@@ -80,7 +80,7 @@
             // lbl_anio
             // 
             this.lbl_anio.AutoSize = true;
-            this.lbl_anio.Location = new System.Drawing.Point(31, 145);
+            this.lbl_anio.Location = new System.Drawing.Point(31, 130);
             this.lbl_anio.Name = "lbl_anio";
             this.lbl_anio.Size = new System.Drawing.Size(76, 13);
             this.lbl_anio.TabIndex = 3;
@@ -89,7 +89,7 @@
             // lbl_estadioPrincipal
             // 
             this.lbl_estadioPrincipal.AutoSize = true;
-            this.lbl_estadioPrincipal.Location = new System.Drawing.Point(267, 115);
+            this.lbl_estadioPrincipal.Location = new System.Drawing.Point(267, 100);
             this.lbl_estadioPrincipal.Name = "lbl_estadioPrincipal";
             this.lbl_estadioPrincipal.Size = new System.Drawing.Size(85, 13);
             this.lbl_estadioPrincipal.TabIndex = 4;
@@ -98,7 +98,7 @@
             // lbl_EstadioAlterno
             // 
             this.lbl_EstadioAlterno.AutoSize = true;
-            this.lbl_EstadioAlterno.Location = new System.Drawing.Point(267, 145);
+            this.lbl_EstadioAlterno.Location = new System.Drawing.Point(267, 130);
             this.lbl_EstadioAlterno.Name = "lbl_EstadioAlterno";
             this.lbl_EstadioAlterno.Size = new System.Drawing.Size(78, 13);
             this.lbl_EstadioAlterno.TabIndex = 5;
@@ -107,7 +107,7 @@
             // lbl_ciudad
             // 
             this.lbl_ciudad.AutoSize = true;
-            this.lbl_ciudad.Location = new System.Drawing.Point(31, 177);
+            this.lbl_ciudad.Location = new System.Drawing.Point(31, 162);
             this.lbl_ciudad.Name = "lbl_ciudad";
             this.lbl_ciudad.Size = new System.Drawing.Size(40, 13);
             this.lbl_ciudad.TabIndex = 6;
@@ -115,14 +115,14 @@
             // 
             // txt_nombre
             // 
-            this.txt_nombre.Location = new System.Drawing.Point(112, 78);
+            this.txt_nombre.Location = new System.Drawing.Point(112, 63);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(391, 20);
             this.txt_nombre.TabIndex = 7;
             // 
             // txt_ciudad
             // 
-            this.txt_ciudad.Location = new System.Drawing.Point(112, 174);
+            this.txt_ciudad.Location = new System.Drawing.Point(112, 159);
             this.txt_ciudad.Name = "txt_ciudad";
             this.txt_ciudad.Size = new System.Drawing.Size(149, 20);
             this.txt_ciudad.TabIndex = 8;
@@ -133,7 +133,7 @@
             this.cmb_pais.FormattingEnabled = true;
             this.cmb_pais.Items.AddRange(new object[] {
             "(Seleccione un pais...)"});
-            this.cmb_pais.Location = new System.Drawing.Point(112, 112);
+            this.cmb_pais.Location = new System.Drawing.Point(112, 97);
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(149, 21);
             this.cmb_pais.TabIndex = 9;
@@ -144,7 +144,7 @@
             this.cmb_anio.FormattingEnabled = true;
             this.cmb_anio.Items.AddRange(new object[] {
             "(Seleccione un año...)"});
-            this.cmb_anio.Location = new System.Drawing.Point(113, 142);
+            this.cmb_anio.Location = new System.Drawing.Point(113, 127);
             this.cmb_anio.Name = "cmb_anio";
             this.cmb_anio.Size = new System.Drawing.Size(148, 21);
             this.cmb_anio.TabIndex = 10;
@@ -155,7 +155,7 @@
             this.cmb_estadioPrincipal.FormattingEnabled = true;
             this.cmb_estadioPrincipal.Items.AddRange(new object[] {
             "(Seleccionar estadio...)"});
-            this.cmb_estadioPrincipal.Location = new System.Drawing.Point(358, 112);
+            this.cmb_estadioPrincipal.Location = new System.Drawing.Point(358, 97);
             this.cmb_estadioPrincipal.Name = "cmb_estadioPrincipal";
             this.cmb_estadioPrincipal.Size = new System.Drawing.Size(145, 21);
             this.cmb_estadioPrincipal.TabIndex = 11;
@@ -166,36 +166,36 @@
             this.cmb_estadioAlterno.FormattingEnabled = true;
             this.cmb_estadioAlterno.Items.AddRange(new object[] {
             "(Seleccionar un estadio...)"});
-            this.cmb_estadioAlterno.Location = new System.Drawing.Point(358, 142);
+            this.cmb_estadioAlterno.Location = new System.Drawing.Point(358, 127);
             this.cmb_estadioAlterno.Name = "cmb_estadioAlterno";
             this.cmb_estadioAlterno.Size = new System.Drawing.Size(145, 21);
             this.cmb_estadioAlterno.TabIndex = 12;
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(328, 226);
+            this.btn_guardar.Location = new System.Drawing.Point(347, 186);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_guardar.TabIndex = 13;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.btn_guardar.Click += new System.EventHandler(this.btn_GuardarEquipo);
             // 
             // brn_cancelar
             // 
-            this.brn_cancelar.Location = new System.Drawing.Point(428, 226);
+            this.brn_cancelar.Location = new System.Drawing.Point(428, 186);
             this.brn_cancelar.Name = "brn_cancelar";
             this.brn_cancelar.Size = new System.Drawing.Size(75, 23);
             this.brn_cancelar.TabIndex = 14;
             this.brn_cancelar.Text = "Cancelar";
             this.brn_cancelar.UseVisualStyleBackColor = true;
-            this.brn_cancelar.Click += new System.EventHandler(this.brn_cancelar_Click);
+            this.brn_cancelar.Click += new System.EventHandler(this.brn_Cancelar);
             // 
             // frmEquipoInsertar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(554, 273);
+            this.ClientSize = new System.Drawing.Size(544, 232);
             this.Controls.Add(this.brn_cancelar);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.cmb_estadioAlterno);
@@ -213,7 +213,6 @@
             this.Controls.Add(this.lbl_titulo);
             this.Name = "frmEquipoInsertar";
             this.Text = "Equipo";
-            this.Load += new System.EventHandler(this.frmEquipoInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

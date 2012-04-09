@@ -28,5 +28,26 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public CompeticionBE obtenerCompeticion(String _competicion, String pais)
+        {
+            try
+            {
+                List<CompeticionBE> lst = new List<CompeticionBE>();
+                lst = ListarCompeticion(pais);
+                CompeticionBE competicion = new CompeticionBE();
+                competicion = null;
+                foreach (CompeticionBE cDto in lst)
+                {
+                    if (cDto.Nombre_competicion == _competicion)
+                        return cDto;
+                }
+                return competicion;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

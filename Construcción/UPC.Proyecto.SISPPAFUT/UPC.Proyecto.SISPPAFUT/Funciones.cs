@@ -38,7 +38,7 @@ namespace UPC.Proyecto.SISPPAFUT
             {
 
             }
-            MessageBox.Show("Ocurrió un error en la aplicación. Por favor intente luego.", "Sistema de Gestión Aereo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Ocurrió un error en la aplicación. Por favor intente luego.", "Sistema Inteligente de Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         public static String ObtenerIP()

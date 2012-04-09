@@ -37,16 +37,23 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void iniciarPais()
         {
-            cmb_pais.SelectedIndex = 0;
-            listaPaises = new List<PaisBE>();
-            PaisBC objPaisBC = new PaisBC();
-
-            listaPaises = objPaisBC.listarPaises();
-
-            for (int i = 0; i < listaPaises.Count; i++)
+            try
             {
-                PaisBE objPais = listaPaises[i];
-                cmb_pais.Items.Add(objPais.NombrePais);
+                cmb_pais.SelectedIndex = 0;
+                listaPaises = new List<PaisBE>();
+                PaisBC objPaisBC = new PaisBC();
+
+                listaPaises = objPaisBC.listarPaises();
+
+                for (int i = 0; i < listaPaises.Count; i++)
+                {
+                    PaisBE objPais = listaPaises[i];
+                    cmb_pais.Items.Add(objPais.NombrePais);
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -61,64 +68,74 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void iniciarEstadios()
         {
-            cmb_estadioPrincipal.SelectedIndex = 0;
-            cmb_estadioAlterno.SelectedIndex = 0;
-
-            listaEstadios = new List<EstadioBE>();
-            EstadioBC objEstadioBC = new EstadioBC();
-
-            listaEstadios = objEstadioBC.listarEstadios();
-
-            for (int i = 0; i < listaEstadios.Count; i++)
+            try
             {
-                EstadioBE objEstadio = listaEstadios[i];
-                cmb_estadioPrincipal.Items.Add(objEstadio.Nombre_estadio);
-                cmb_estadioAlterno.Items.Add(objEstadio.Nombre_estadio);
+                cmb_estadioPrincipal.SelectedIndex = 0;
+                cmb_estadioAlterno.SelectedIndex = 0;
+
+                listaEstadios = new List<EstadioBE>();
+                EstadioBC objEstadioBC = new EstadioBC();
+
+                listaEstadios = objEstadioBC.listarEstadios();
+
+                for (int i = 0; i < listaEstadios.Count; i++)
+                {
+                    EstadioBE objEstadio = listaEstadios[i];
+                    cmb_estadioPrincipal.Items.Add(objEstadio.Nombre_estadio);
+                    cmb_estadioAlterno.Items.Add(objEstadio.Nombre_estadio);
+                }
             }
-        }
-                
-        private void btn_guardar_Click(object sender, EventArgs e)
-        {
-            int iCodigo = 0;
-
-            EquipoBE objEquipoBE;
-            EquipoBC objEquipoBC;
-
-            objEquipoBE = new EquipoBE();
-            objEquipoBC = new EquipoBC();
-
-            objEquipoBE.CodigoPais = listaPaises[cmb_pais.SelectedIndex-1].CodigoPais;
-            objEquipoBE.NombreEquipo = txt_nombre.Text;
-            objEquipoBE.AnioFundacion = Convert.ToInt32(cmb_anio.SelectedItem.ToString());
-            objEquipoBE.CiudadEquipo = txt_ciudad.Text;
-            objEquipoBE.CodigoEstadioPrincipal = listaEstadios[cmb_estadioPrincipal.SelectedIndex-1].Codigo_estadio;
-            if (cmb_estadioAlterno.SelectedIndex>0)
-                objEquipoBE.CodigoEstadioAlterno = listaEstadios[cmb_estadioAlterno.SelectedIndex - 1].Codigo_estadio;
-
-            iCodigo = objEquipoBC.insertarEquipo(objEquipoBE);
-
-            if (iCodigo == -1)
+            catch (Exception ex)
             {
-                MessageBox.Show("ESTE EQUIPO YA HA SIDO INGRESADO ANTERIORMENTE");
-            }
-            else if (iCodigo == 0 || objEquipoBE.CodigoEstadioPrincipal==objEquipoBE.CodigoEstadioAlterno)
-            {
-                MessageBox.Show("NO SE PUDO REGISTRAR EL EQUIPO");
-            }
-            else
-            {
-                MessageBox.Show("EL EQUIPO SE REGISTRO SATISFACTORIAMENTE");
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
-        private void brn_cancelar_Click(object sender, EventArgs e)
+        private void brn_Cancelar(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void frmEquipoInsertar_Load(object sender, EventArgs e)
+        private void btn_GuardarEquipo(object sender, EventArgs e)
         {
+            try
+            {
+                int iCodigo = 0;
 
+                EquipoBE objEquipoBE;
+                EquipoBC objEquipoBC;
+
+                objEquipoBE = new EquipoBE();
+                objEquipoBC = new EquipoBC();
+
+                objEquipoBE.CodigoPais = listaPaises[cmb_pais.SelectedIndex - 1].CodigoPais;
+                objEquipoBE.NombreEquipo = txt_nombre.Text;
+                objEquipoBE.AnioFundacion = Convert.ToInt32(cmb_anio.SelectedItem.ToString());
+                objEquipoBE.CiudadEquipo = txt_ciudad.Text;
+                objEquipoBE.CodigoEstadioPrincipal = listaEstadios[cmb_estadioPrincipal.SelectedIndex - 1].Codigo_estadio;
+                if (cmb_estadioAlterno.SelectedIndex > 0)
+                    objEquipoBE.CodigoEstadioAlterno = listaEstadios[cmb_estadioAlterno.SelectedIndex - 1].Codigo_estadio;
+
+                iCodigo = objEquipoBC.insertarEquipo(objEquipoBE);
+
+                if (iCodigo == -1)
+                {
+                    MessageBox.Show("El equipo ya ha sido registrado anteriormente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                    else
+                    if (iCodigo == 0 || objEquipoBE.CodigoEstadioPrincipal == objEquipoBE.CodigoEstadioAlterno)
+                    {
+                        MessageBox.Show("El equipo no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        MessageBox.Show("El equipo ha sido registrado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }
     }
 }

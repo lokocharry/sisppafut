@@ -41,6 +41,7 @@
     <Compile Include="EstadioBE.cs" />
     <Compile Include="ExcepcionBE.cs" />
     <Compile Include="LigaBE.cs" />
+    <Compile Include="LigaEquipoBE.cs" />
     <Compile Include="LogBE.cs" />
     <Compile Include="PaisBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

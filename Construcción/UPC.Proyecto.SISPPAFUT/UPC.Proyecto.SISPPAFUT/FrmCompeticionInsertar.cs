@@ -28,39 +28,56 @@ namespace UPC.Proyecto.SISPPAFUT
             InitializeComponent();
         }
 
-        private void btn_salir_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void FrmCompeticionInsertar_Load(object sender, EventArgs e)
         {
-            PaisBC objPaisBC = new PaisBC();
-            List<PaisBE> lista_paises = objPaisBC.listarPaises();
-
-            for (int i = 0; i < lista_paises.Count; i++)
+            try
             {
-                cmb_paises.Items.Add(lista_paises[i].NombrePais);
+                PaisBC objPaisBC = new PaisBC();
+                List<PaisBE> lista_paises = objPaisBC.listarPaises();
+
+                for (int i = 0; i < lista_paises.Count; i++)
+                {
+                    cmb_paises.Items.Add(lista_paises[i].NombrePais);
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+        
+        private void btn_GuardarCompeticion(object sender, EventArgs e)
+        {
+            try
+            {
+                int codigo = 0;
+
+                CompeticionBE objCompeticionBE = new CompeticionBE();
+
+                objCompeticionBE.Codigo_pais = Convert.ToInt32(cmb_paises.SelectedIndex + 1);
+                objCompeticionBE.Nombre_competicion = txt_nombre.Text;
+
+                CompeticionBC objCompeticionBC = new CompeticionBC();
+                codigo = objCompeticionBC.insertar_Competicion(objCompeticionBE);
+
+                if (codigo != 0)
+                {
+                    MessageBox.Show("La Competición ha sido registrada satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("La Competición no ha sido registrada por un error interno.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
-        private void btn_guardar_Click(object sender, EventArgs e)
+        private void btn_Salir(object sender, EventArgs e)
         {
-            int codigo = 0;
-
-            CompeticionBE objCompeticionBE = new CompeticionBE();
-
-            objCompeticionBE.Codigo_pais = Convert.ToInt32(cmb_paises.SelectedIndex + 1);
-            objCompeticionBE.Nombre_competicion = txt_nombre.Text;
-
-            CompeticionBC objCompeticionBC = new CompeticionBC();
-            codigo = objCompeticionBC.insertar_Competicion(objCompeticionBE);
-
-            if (codigo != 0)
-                MessageBox.Show("LA COMPETICIÓN HA SIDO REGISTRADO SATISFACTORIAMENTE");
-
-            else
-                MessageBox.Show("HUBO UN PROBLEMA AL REGISTRAR LA COMPETICIÓN");
+            this.Close();
         }
     }
 }

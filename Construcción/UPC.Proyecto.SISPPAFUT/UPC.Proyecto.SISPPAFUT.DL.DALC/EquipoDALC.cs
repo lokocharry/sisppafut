@@ -204,5 +204,57 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
 
         }
+
+        public EquipoBE obtener_Equipo(String Equipo)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_equipo;
+            SqlCommand cmd;
+            String sqlEquipoObtener;
+            SqlParameter _Equipo;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlEquipoObtener = "spReadEquipo";
+                cmd = conexion.CreateCommand();
+                cmd.CommandText = sqlEquipoObtener;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                _Equipo = cmd.CreateParameter();
+                _Equipo.ParameterName = "@Nombre";
+                _Equipo.SqlDbType = SqlDbType.VarChar;
+                _Equipo.Size = 20;
+                _Equipo.SqlValue = Equipo;
+
+                cmd.Parameters.Add(_Equipo);
+
+                cmd.Connection.Open();
+                dr_equipo = cmd.ExecuteReader();
+
+                EquipoBE objEquipoBE;
+
+                objEquipoBE = new EquipoBE();
+
+                if (dr_equipo.Read())
+                {
+                    objEquipoBE.CodigoEquipo = dr_equipo.GetInt32(dr_equipo.GetOrdinal("CodEquipo"));
+                    objEquipoBE.NombreEquipo = dr_equipo.GetString(dr_equipo.GetOrdinal("Nombre"));
+                    objEquipoBE.CiudadEquipo = dr_equipo.GetString(dr_equipo.GetOrdinal("Ciudad"));
+                    //-- Falta poner el nombre del País
+                }
+
+                cmd.Connection.Close();
+                conexion.Dispose();
+
+                return objEquipoBE;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+
+        }
     }
 }
