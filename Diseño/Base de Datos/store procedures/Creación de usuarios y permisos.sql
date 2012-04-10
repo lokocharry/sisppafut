@@ -33,17 +33,24 @@ CREATE SCHEMA administrador AUTHORIZATION dbo
 	GRANT EXECUTE ON OBJECT::dbo.spCreateCompeticion TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spCreateEquipo TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spCreateEstadio TO adminn
+	GRANT EXECUTE ON OBJECT::dbo.spCreateExcepcion TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spCreateLiga TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spCreateLigaEquipo TO adminn
+	GRANT EXECUTE ON OBJECT::dbo.spCreateLog TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spCreatePais TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spEquipoVerificarRepetido TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spLigaVerificarRepetido TO adminn
+	GRANT EXECUTE ON OBJECT::dbo.spListarCompeticion TO adminn
+	GRANT EXECUTE ON OBJECT::dbo.spListarEquipos TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spListarEstadios TO adminn
+	GRANT EXECUTE ON OBJECT::dbo.spListarEstadiosDeEquipo TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spListarLigas TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spListarPaises TO adminn
 	GRANT EXECUTE ON OBJECT::dbo.spPaisVerificarRepetido TO adminn
-	GRANT EXECUTE ON OBJECT::dbo.spCreateLog TO adminn
-	GRANT EXECUTE ON OBJECT::dbo.spCreateExcepcion TO adminn
+	GRANT EXECUTE ON OBJECT::dbo.spReadEquipo TO adminn
+
+
+
 GO
 
 ALTER USER adminn with DEFAULT_SCHEMA = administrador;
