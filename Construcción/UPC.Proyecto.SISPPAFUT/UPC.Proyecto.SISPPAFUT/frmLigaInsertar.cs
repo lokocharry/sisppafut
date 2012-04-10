@@ -105,6 +105,8 @@ namespace UPC.Proyecto.SISPPAFUT
                 CompeticionBC objCompeticionBC = new CompeticionBC();
                 List<CompeticionBE> lstCompeticion = objCompeticionBC.ListarCompeticion(cmb_pais.Text);
 
+                cmb_competicion.Items.Clear();
+
                 for (int i = 0; i < lstCompeticion.Count; i++)
                 {
                     cmb_competicion.Items.Add(lstCompeticion[i].Nombre_competicion);
@@ -113,6 +115,8 @@ namespace UPC.Proyecto.SISPPAFUT
                 //-- Se listan los equipos del país seleccionado
                 EquipoBC objEquipoBC = new EquipoBC();
                 List<EquipoBE> lstEquipo = objEquipoBC.listarEquipos(cmb_pais.Text);
+
+                cmb_equipo.Items.Clear();
 
                 for (int i = 0; i < lstEquipo.Count; i++)
                 {

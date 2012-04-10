@@ -41,6 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmJugadorInsertar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJugadorInsertar.Designer.cs">
+      <DependentUpon>frmJugadorInsertar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPartidoInsertar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPartidoInsertar.Designer.cs">
+      <DependentUpon>frmPartidoInsertar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funciones.cs" />
     <Compile Include="SISPPAFUTmdi.cs">
       <SubType>Form</SubType>
@@ -89,8 +101,14 @@
     <EmbeddedResource Include="frmEstadioInsertar.resx">
       <DependentUpon>frmEstadioInsertar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmJugadorInsertar.resx">
+      <DependentUpon>frmJugadorInsertar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLigaInsertar.resx">
       <DependentUpon>frmLigaInsertar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPartidoInsertar.resx">
+      <DependentUpon>frmPartidoInsertar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SISPPAFUTmdi.resx">
       <DependentUpon>SISPPAFUTmdi.cs</DependentUpon>

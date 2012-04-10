@@ -101,6 +101,36 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
+        private void InNuevoJugador(object sender, EventArgs e)
+        {
+            try
+            {
+                frmJugadorInsertar frmJugador = frmJugadorInsertar.Instance();
+                frmJugador.MdiParent = this;
+                frmJugador.Show();
+                frmJugador.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                //Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void InNuevoPartido(object sender, EventArgs e)
+        {
+            try
+            {
+                frmPartidoInsertar frmPartido = frmPartidoInsertar.Instance();
+                frmPartido.MdiParent = this;
+                frmPartido.Show();
+                frmPartido.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                //Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
         private void InSalir(object sender, EventArgs e)
         {
             this.Close();
