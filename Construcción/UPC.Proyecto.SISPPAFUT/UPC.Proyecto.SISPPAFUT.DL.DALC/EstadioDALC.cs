@@ -145,12 +145,24 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             SqlDataReader dr_estadios;
             SqlCommand cmd_estadios;
             String sqlEstadiosListar;
+            SqlParameter prm_equipo;
 
             try
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+
                 sqlEstadiosListar = "spListarEstadiosDeEquipo";
+
                 cmd_estadios = new SqlCommand(sqlEstadiosListar, conexion);
+                cmd_estadios.CommandType = CommandType.StoredProcedure;
+
+                prm_equipo = new SqlParameter();
+                prm_equipo.ParameterName = "@Codigo";
+                prm_equipo.SqlDbType = SqlDbType.Int;
+                prm_equipo.Value = codigo_equipo;
+
+                cmd_estadios.Parameters.Add(prm_equipo);
+
                 cmd_estadios.Connection.Open();
                 dr_estadios = cmd_estadios.ExecuteReader();
 

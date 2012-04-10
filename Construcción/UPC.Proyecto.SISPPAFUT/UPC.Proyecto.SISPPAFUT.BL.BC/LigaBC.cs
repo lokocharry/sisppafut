@@ -69,6 +69,18 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
-        
+        public List<LigaBE> listaLigasPorCompeticion(int codigoCompeticion)
+        {
+            try
+            {
+                LigaDALC objLigaDALC = new LigaDALC();
+                return objLigaDALC.listarLigasDeCompeticion(codigoCompeticion);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+                
     }
 }

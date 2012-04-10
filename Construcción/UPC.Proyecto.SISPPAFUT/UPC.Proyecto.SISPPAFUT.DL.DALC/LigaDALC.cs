@@ -160,7 +160,11 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 {
                     objLigaBE = new LigaBE();
 
+                    objLigaBE.CodigoLiga = dr_ligas.GetInt32(dr_ligas.GetOrdinal("CodLiga"));
+                    objLigaBE.CodigoCompeticion = dr_ligas.GetInt32(dr_ligas.GetOrdinal("CodCompeticion"));
+                    objLigaBE.TemporadaLiga = dr_ligas.GetString(dr_ligas.GetOrdinal("Temporada"));
                     objLigaBE.NombreLiga = dr_ligas.GetString(dr_ligas.GetOrdinal("Nombre"));
+                    objLigaBE.CantidadEquipos = dr_ligas.GetInt32(dr_ligas.GetOrdinal("QEquipos"));
 
                     lista_ligas.Add(objLigaBE);
                 }
@@ -177,6 +181,62 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 throw;
             }
 
+        }
+
+        public List<LigaBE> listarLigasDeCompeticion(int codigoCompeticion)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_ligas;
+            SqlCommand cmd_ligas;
+            String sqlLigasListar;
+            SqlParameter prm_competicion;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlLigasListar = "spListarLigasPorCompeticion";
+
+                cmd_ligas = new SqlCommand(sqlLigasListar, conexion);
+                cmd_ligas.CommandType = CommandType.StoredProcedure;
+
+                prm_competicion = new SqlParameter();
+                prm_competicion.ParameterName = "@CodCompeticion";
+                prm_competicion.SqlDbType = SqlDbType.Int;
+                prm_competicion.Value = codigoCompeticion;
+
+                cmd_ligas.Parameters.Add(prm_competicion);
+
+                cmd_ligas.Connection.Open();
+                dr_ligas = cmd_ligas.ExecuteReader();
+
+                List<LigaBE> lista_ligas;
+                LigaBE objLigaBE;
+
+                lista_ligas = new List<LigaBE>();
+
+                while (dr_ligas.Read())
+                {
+                    objLigaBE = new LigaBE();
+
+                    objLigaBE.CodigoLiga = dr_ligas.GetInt32(dr_ligas.GetOrdinal("CodLiga"));
+                    objLigaBE.CodigoCompeticion = dr_ligas.GetInt32(dr_ligas.GetOrdinal("CodCompeticion"));
+                    objLigaBE.TemporadaLiga = dr_ligas.GetString(dr_ligas.GetOrdinal("Temporada"));
+                    objLigaBE.NombreLiga = dr_ligas.GetString(dr_ligas.GetOrdinal("Nombre"));
+                    objLigaBE.CantidadEquipos = dr_ligas.GetInt32(dr_ligas.GetOrdinal("QEquipos"));
+
+                    lista_ligas.Add(objLigaBE);
+                }
+
+                cmd_ligas.Connection.Close();
+                conexion.Dispose();
+
+                return lista_ligas;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
         }
     }
 }
