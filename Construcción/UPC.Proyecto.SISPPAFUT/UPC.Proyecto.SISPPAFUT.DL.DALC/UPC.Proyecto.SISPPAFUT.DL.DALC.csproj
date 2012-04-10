@@ -40,6 +40,7 @@
     <Compile Include="EquipoDALC.cs" />
     <Compile Include="EstadioDALC.cs" />
     <Compile Include="ExcepcionDALC.cs" />
+    <Compile Include="JugadorDALC.cs" />
     <Compile Include="LigaDALC.cs" />
     <Compile Include="LigaEquipoDALC.cs" />
     <Compile Include="LogDALC.cs" />
