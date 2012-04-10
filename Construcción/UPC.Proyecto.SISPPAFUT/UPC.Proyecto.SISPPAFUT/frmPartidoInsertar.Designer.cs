@@ -103,10 +103,13 @@
             // 
             this.cmb_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_pais.FormattingEnabled = true;
+            this.cmb_pais.Items.AddRange(new object[] {
+            "(Seleccione un pais...)"});
             this.cmb_pais.Location = new System.Drawing.Point(121, 31);
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(199, 21);
             this.cmb_pais.TabIndex = 6;
+            this.cmb_pais.SelectedIndexChanged += new System.EventHandler(this.cmb_pais_SelectedIndexChanged);
             // 
             // cmb_estadio
             // 
@@ -125,6 +128,7 @@
             this.cmb_local.Name = "cmb_local";
             this.cmb_local.Size = new System.Drawing.Size(199, 21);
             this.cmb_local.TabIndex = 10;
+            this.cmb_local.SelectedIndexChanged += new System.EventHandler(this.cmb_local_SelectedIndexChanged);
             // 
             // cmb_competicion
             // 

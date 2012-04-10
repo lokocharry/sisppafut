@@ -60,3 +60,5 @@ C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Pr
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.SISPPAFUTmdi.resources
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmPaisInsertar.resources
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmPartidoInsertar.resources
+C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmJugadorInsertar.resources
+C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmPartidoInsertar.resources

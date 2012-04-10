@@ -4,7 +4,14 @@ CREATE procedure [dbo].[spListarEquipos]
 )
 as
 begin
-	select e.Nombre
+	select
+	e.CodEquipo,
+	e.CodPais,
+	e.Nombre,
+	e.AnioFundacion,
+	e.Ciudad,
+	e.CodEstadioPrincipal,
+	e.CodEstadioAlterno	
 	from Equipo e join Pais p on e.CodPais = p.CodPais
 	where p.Nombre = @Pais
 end
