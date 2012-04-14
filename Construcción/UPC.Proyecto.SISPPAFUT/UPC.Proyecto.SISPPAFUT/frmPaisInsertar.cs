@@ -35,29 +35,45 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btn_registrar_Click(object sender, EventArgs e)
         {
-            int iCodigo = 0;
-
-            PaisBE objPaidBE = new PaisBE();
-            PaisBC objPaisBC = new PaisBC();
-
-            objPaidBE.NombrePais = txt_pais.Text;
-
-            iCodigo = objPaisBC.insertarPais(objPaidBE);
-
-            if(iCodigo == -1)
+            try
             {
-                MessageBox.Show("ESTE PAIS YA HA SIDO INGRESADO ANTERIORMENTE");
-            }
+                int iCodigo = 0;
 
-            else if (iCodigo == 0)
-            {
-                MessageBox.Show("NO SE PUDO REGISTRAR ESTE PAIS");
-            }
+                PaisBE objPaidBE = new PaisBE();
+                PaisBC objPaisBC = new PaisBC();
 
-            else
-            {
-                MessageBox.Show("EL PAIS HA SIDO REGISTRADO SATISFACTORIAMENTE");
+                if (ValidarCampos(txt_pais))
+                {
+                    objPaidBE.NombrePais = txt_pais.Text;
+
+                    iCodigo = objPaisBC.insertarPais(objPaidBE);
+
+                    if (iCodigo == -1)
+                    {
+                        MessageBox.Show("El país ya ha sido registrado anteriormente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        if (iCodigo == 0)
+                        {
+                            MessageBox.Show("El país no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("El país ha sido registrado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                }
+                else
+                    MessageBox.Show("Todos los campos son obligatorios.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private bool ValidarCampos(TextBox campo)
+        {
+            return !(campo.Text == "");
         }
     }
 }
