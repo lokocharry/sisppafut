@@ -52,21 +52,31 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 int codigo = 0;
 
-                CompeticionBE objCompeticionBE = new CompeticionBE();
+                CompeticionBE objCompeticionBE;
+                CompeticionBC objCompeticionBC;
 
-                objCompeticionBE.Codigo_pais = Convert.ToInt32(cmb_paises.SelectedIndex + 1);
-                objCompeticionBE.Nombre_competicion = txt_nombre.Text;
-
-                CompeticionBC objCompeticionBC = new CompeticionBC();
-                codigo = objCompeticionBC.insertar_Competicion(objCompeticionBE);
-
-                if (codigo != 0)
+                if (ValidarCampos(txt_nombre,cmb_paises))
                 {
-                    MessageBox.Show("La Competición ha sido registrada satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    objCompeticionBE = new CompeticionBE();
+
+                    objCompeticionBE.Codigo_pais = Convert.ToInt32(cmb_paises.SelectedIndex + 1);
+                    objCompeticionBE.Nombre_competicion = txt_nombre.Text;
+
+                    objCompeticionBC = new CompeticionBC();
+                    codigo = objCompeticionBC.insertar_Competicion(objCompeticionBE);
+
+                    if (codigo != 0)
+                    {
+                        MessageBox.Show("La Competición ha sido registrada satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("La Competición no ha sido registrada por un error interno.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("La Competición no ha sido registrada por un error interno.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Todos los campos son obligatorios.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -78,6 +88,11 @@ namespace UPC.Proyecto.SISPPAFUT
         private void btn_Salir(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private bool ValidarCampos(TextBox campo, ComboBox cmb)
+        {
+            return !(campo.Text == "") && cmb.SelectedIndex>=0;
         }
     }
 }
