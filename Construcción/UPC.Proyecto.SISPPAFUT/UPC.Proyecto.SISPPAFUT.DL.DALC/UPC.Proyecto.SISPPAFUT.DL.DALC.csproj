@@ -37,7 +37,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CompeticionDALC.cs" />
-    <Compile Include="EquipoDALC.cs" />
+    <Compile Include="EquipoDALC.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="EstadioDALC.cs" />
     <Compile Include="ExcepcionDALC.cs" />
     <Compile Include="JugadorDALC.cs" />
