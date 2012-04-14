@@ -11,8 +11,7 @@ BEGIN
 	e.AnioFundacion,
 	e.Ciudad,
 	e.CodEstadioPrincipal,
-	e.CodEstadioAlterno
-	
+	isNull(e.CodEstadioAlterno,0) as 'CodEstadioAlterno'
 	FROM Equipo e
 	WHERE e.Nombre = @Nombre
 END
