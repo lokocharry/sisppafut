@@ -89,5 +89,11 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             this.Close();
         }
+
+        private bool ValidarCampos()
+        {
+            return (!(txt_nombre.Text == "") && !(txt_ciudad.Text == "") 
+                    && !(txt_aforo.Text == "") && (cmb_anho.SelectedIndex>=0) && (cmb_pais.SelectedIndex>=0));
+        }
     }
 }
