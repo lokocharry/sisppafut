@@ -62,3 +62,5 @@ C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Pr
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmPartidoInsertar.resources
 C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmJugadorInsertar.resources
 C:\Users\alumnos\Documents\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmPartidoInsertar.resources
+C:\Users\rcordero\Desktop\Universidad\20121\arquitectura\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.exe
+C:\Users\rcordero\Desktop\Universidad\20121\arquitectura\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.pdb

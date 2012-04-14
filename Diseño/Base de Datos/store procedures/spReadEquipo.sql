@@ -1,10 +1,18 @@
-CREATE PROCEDURE spReadEquipo
+CREATE PROCEDURE [dbo].[spReadEquipo]
 (
 	@Nombre varchar(20)
 )
 AS
 BEGIN
-	SELECT e.CodEquipo, e.Nombre, e.Ciudad
+	SELECT 
+	e.CodEquipo,
+	e.CodPais,
+	e.Nombre,
+	e.AnioFundacion,
+	e.Ciudad,
+	e.CodEstadioPrincipal,
+	e.CodEstadioAlterno
+	
 	FROM Equipo e
 	WHERE e.Nombre = @Nombre
 END
