@@ -105,37 +105,49 @@ namespace UPC.Proyecto.SISPPAFUT
                 EquipoBE objEquipoBE;
                 EquipoBC objEquipoBC;
 
-                objEquipoBE = new EquipoBE();
-                objEquipoBC = new EquipoBC();
-
-                objEquipoBE.CodigoPais = listaPaises[cmb_pais.SelectedIndex - 1].CodigoPais;
-                objEquipoBE.NombreEquipo = txt_nombre.Text;
-                objEquipoBE.AnioFundacion = Convert.ToInt32(cmb_anio.SelectedItem.ToString());
-                objEquipoBE.CiudadEquipo = txt_ciudad.Text;
-                objEquipoBE.CodigoEstadioPrincipal = listaEstadios[cmb_estadioPrincipal.SelectedIndex - 1].Codigo_estadio;
-                if (cmb_estadioAlterno.SelectedIndex > 0)
-                    objEquipoBE.CodigoEstadioAlterno = listaEstadios[cmb_estadioAlterno.SelectedIndex - 1].Codigo_estadio;
-
-                iCodigo = objEquipoBC.insertarEquipo(objEquipoBE);
-
-                if (iCodigo == -1)
+                if (ValidarCampos())
                 {
-                    MessageBox.Show("El equipo ya ha sido registrado anteriormente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    objEquipoBE = new EquipoBE();
+                    objEquipoBC = new EquipoBC();
+
+                    objEquipoBE.CodigoPais = listaPaises[cmb_pais.SelectedIndex - 1].CodigoPais;
+                    objEquipoBE.NombreEquipo = txt_nombre.Text;
+                    objEquipoBE.AnioFundacion = Convert.ToInt32(cmb_anio.SelectedItem.ToString());
+                    objEquipoBE.CiudadEquipo = txt_ciudad.Text;
+                    objEquipoBE.CodigoEstadioPrincipal = listaEstadios[cmb_estadioPrincipal.SelectedIndex - 1].Codigo_estadio;
+                    if (cmb_estadioAlterno.SelectedIndex > 0)
+                        objEquipoBE.CodigoEstadioAlterno = listaEstadios[cmb_estadioAlterno.SelectedIndex - 1].Codigo_estadio;
+
+                    iCodigo = objEquipoBC.insertarEquipo(objEquipoBE);
+
+                    if (iCodigo == -1)
+                    {
+                        MessageBox.Show("El equipo ya ha sido registrado anteriormente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        if (iCodigo == 0 || objEquipoBE.CodigoEstadioPrincipal == objEquipoBE.CodigoEstadioAlterno)
+                        {
+                            MessageBox.Show("El equipo no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                        {
+                            MessageBox.Show("El equipo ha sido registrado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
                 }
-                    else
-                    if (iCodigo == 0 || objEquipoBE.CodigoEstadioPrincipal == objEquipoBE.CodigoEstadioAlterno)
-                    {
-                        MessageBox.Show("El equipo no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        MessageBox.Show("El equipo ha sido registrado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
+                else
+                    MessageBox.Show("Todos los campos son obligatorios.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private bool ValidarCampos()
+        {
+            return (!(txt_nombre.Text == "") && !(txt_ciudad.Text == "") 
+                    && (cmb_pais.SelectedIndex >= 0) && (cmb_anio.SelectedIndex >= 0) 
+                    && (cmb_estadioPrincipal.SelectedIndex >= 0) && (cmb_estadioAlterno.SelectedIndex >= 0));
         }
     }
 }
