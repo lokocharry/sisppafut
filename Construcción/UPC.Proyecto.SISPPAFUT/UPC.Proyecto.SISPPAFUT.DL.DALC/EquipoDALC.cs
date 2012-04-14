@@ -192,7 +192,10 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                     objEquipoBE.AnioFundacion = dr_equipos.GetInt32(dr_equipos.GetOrdinal("AnioFundacion"));
                     objEquipoBE.CiudadEquipo = dr_equipos.GetString(dr_equipos.GetOrdinal("Ciudad"));
                     objEquipoBE.CodigoEstadioPrincipal = dr_equipos.GetInt32(dr_equipos.GetOrdinal("CodEstadioPrincipal"));
-                    objEquipoBE.CodigoEstadioAlterno = dr_equipos.GetInt32(dr_equipos.GetOrdinal("CodEstadioAlterno"));
+	    if (dr_equipos.GetInt32(dr_equipos.GetOrdinal("CodEstadioAlterno")) != 0)
+                        objEquipoBE.CodigoEstadioAlterno = dr_equipos.GetInt32(dr_equipos.GetOrdinal("CodEstadioAlterno"));
+                    else
+                        objEquipoBE.CodigoEstadioAlterno = 0;
 
                     lista_equipos.Add(objEquipoBE);
                 }
