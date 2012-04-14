@@ -153,10 +153,19 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                EquipoBC objEquipoBC = new EquipoBC();
+                EquipoBC objEquipoBC;
                 EquipoBE objEquipoBE;
-                objEquipoBE = objEquipoBC.obtenerEquipo(cmb_equipo.Text);
-                dg_equipos.Rows.Add(objEquipoBE.CodigoEquipo,objEquipoBE.NombreEquipo,objEquipoBE.CiudadEquipo);                
+
+                if (cmb_equipo.SelectedIndex >= 0)
+                {
+                    objEquipoBC = new EquipoBC();
+                    objEquipoBE = objEquipoBC.obtenerEquipo(cmb_equipo.Text);
+                    dg_equipos.Rows.Add(objEquipoBE.CodigoEquipo, objEquipoBE.NombreEquipo, objEquipoBE.CiudadEquipo);
+                }
+                else
+                {
+                    MessageBox.Show("Debe elegir un equipo de fútbol.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
@@ -168,46 +177,75 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                LigaBE objLigaBE = new LigaBE();
-                LigaEquipoBE objLigaEquipoBE;
-                List<LigaEquipoBE> lstEquipos = new List<LigaEquipoBE>();
                 int iCodigo = 0;
+                LigaBE objLigaBE;
+                LigaEquipoBE objLigaEquipoBE;
+                List<LigaEquipoBE> lstEquipos;
 
-                String _pais = cmb_pais.Text;
-                String _competicion = cmb_competicion.Text;
-                objLigaBE.TemporadaLiga = txt_temporada.Text;
-                objLigaBE.NombreLiga = txt_nombre.Text;
-                objLigaBE.CantidadEquipos = Convert.ToInt32(txt_cantidad.Text);
-
-                for (int i = 0; i < dg_equipos.Rows.Count; i++)
+                if (ValidarCampos())
                 {
-                    objLigaEquipoBE = new LigaEquipoBE();
-                    objLigaEquipoBE.CodigoEquipo = Convert.ToInt32(dg_equipos.Rows[i].Cells[0].Value.ToString());
-                    lstEquipos.Add(objLigaEquipoBE);
-                }
+                    objLigaBE = new LigaBE();
+                    lstEquipos = new List<LigaEquipoBE>();
 
-                LigaBC objLigaBC = new LigaBC();
-                iCodigo = objLigaBC.insertarLiga(_pais, _competicion, objLigaBE, lstEquipos);
+                    String _pais = cmb_pais.Text;
+                    String _competicion = cmb_competicion.Text;
+                    objLigaBE.TemporadaLiga = txt_temporada.Text;
+                    objLigaBE.NombreLiga = txt_nombre.Text;
+                    objLigaBE.CantidadEquipos = Convert.ToInt32(txt_cantidad.Text);
 
-                if (iCodigo == -1)
-                {
-                    MessageBox.Show("La liga ya ha sido registrada anteriormente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                    if (iCodigo == 0)
+                    if (dg_equipos.Rows.Count == objLigaBE.CantidadEquipos)
                     {
-                        MessageBox.Show("La liga no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        if (objLigaBE.CantidadEquipos >= 2)
+                        {
+                            for (int i = 0; i < dg_equipos.Rows.Count; i++)
+                            {
+                                objLigaEquipoBE = new LigaEquipoBE();
+                                objLigaEquipoBE.CodigoEquipo = Convert.ToInt32(dg_equipos.Rows[i].Cells[0].Value.ToString());
+                                lstEquipos.Add(objLigaEquipoBE);
+                            }
+
+                            LigaBC objLigaBC = new LigaBC();
+                            iCodigo = objLigaBC.insertarLiga(_pais, _competicion, objLigaBE, lstEquipos);
+
+                            if (iCodigo == -1)
+                            {
+                                MessageBox.Show("La liga ya ha sido registrada anteriormente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                                if (iCodigo == 0)
+                                {
+                                    MessageBox.Show("La liga no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                }
+                                else
+                                {
+                                    MessageBox.Show("La liga ha sido registrada satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                }
+                        }
+                        else
+                        {
+                            MessageBox.Show("La cantidad de equipos de una la liga debe contener al menos 2 equipos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("La liga ha sido registrada satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("La cantidad de equipos seleccionados debe ser igual a la cantidad de equipos que componen la liga.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                
+                }
+                else
+                {
+                    MessageBox.Show("Todos los campos son obligatorios.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private bool ValidarCampos()
+        {
+            return ((cmb_pais.SelectedIndex >= 0) && (cmb_competicion.SelectedIndex >= 0) 
+                    && !(txt_temporada.Text == "") && !(txt_nombre.Text == "") && !(txt_cantidad.Text == ""));
         }
     }
 }
