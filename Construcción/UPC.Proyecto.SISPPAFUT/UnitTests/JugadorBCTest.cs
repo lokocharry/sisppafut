@@ -88,8 +88,8 @@ namespace UnitTests
             objJugadorBE.Apellidos = "Messi";
             objJugadorBE.Nacionalidad = "Argentina";
             objJugadorBE.FechaNacimiento = Convert.ToDateTime(DateTime.Today.ToShortDateString());
-            objJugadorBE.Altura = Convert.ToDecimal("1.69");
-            objJugadorBE.Peso = Convert.ToDecimal("60");
+            objJugadorBE.Altura = 1.69m;
+            objJugadorBE.Peso = 60.0m;
             objJugadorBE.Posicion = "Delantero";
 
             int expected = 0;

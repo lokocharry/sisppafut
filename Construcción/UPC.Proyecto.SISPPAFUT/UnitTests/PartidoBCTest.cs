@@ -96,7 +96,6 @@ namespace UnitTests
         public void PartidoBCConstructorTest()
         {
             PartidoBC target = new PartidoBC();
-            Assert.Inconclusive("TODO: Implement code to verify target");
         }
     }
 }

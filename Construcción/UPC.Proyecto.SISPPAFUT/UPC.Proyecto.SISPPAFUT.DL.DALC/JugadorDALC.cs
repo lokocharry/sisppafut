@@ -86,6 +86,16 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_Peso.SqlDbType = SqlDbType.Decimal;
                 prm_Peso.Value = objJugadorBE.Peso;
 
+                cmd_JugadorInsertar.Parameters.Add(prm_CodigoJugador);
+                cmd_JugadorInsertar.Parameters.Add(prm_CodigoEquipo);
+                cmd_JugadorInsertar.Parameters.Add(prm_Nombres);
+                cmd_JugadorInsertar.Parameters.Add(prm_Apellidos);
+                cmd_JugadorInsertar.Parameters.Add(prm_Nacionalidad);
+                cmd_JugadorInsertar.Parameters.Add(prm_Posicion);
+                cmd_JugadorInsertar.Parameters.Add(prm_Peso);
+                cmd_JugadorInsertar.Parameters.Add(prm_Altura);
+                cmd_JugadorInsertar.Parameters.Add(prm_Fecha);
+
                 cmd_JugadorInsertar.Connection.Open();
                 cmd_JugadorInsertar.ExecuteNonQuery();
 

@@ -76,6 +76,15 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_Fecha.SqlDbType = SqlDbType.Date;
                 prm_Fecha.Value = objPartidoBE.Fecha_partido;
 
+                cmd_PartidoInsertar.Parameters.Add(prm_CodigoPartido);
+                cmd_PartidoInsertar.Parameters.Add(prm_CodigoLiga);
+                cmd_PartidoInsertar.Parameters.Add(prm_CodigoEstadio);
+                cmd_PartidoInsertar.Parameters.Add(prm_CodigoEquipoLocal);
+                cmd_PartidoInsertar.Parameters.Add(prm_CodigoEquipoVisitante);
+                cmd_PartidoInsertar.Parameters.Add(prm_GolesLocal);
+                cmd_PartidoInsertar.Parameters.Add(prm_GolesVisita);
+                cmd_PartidoInsertar.Parameters.Add(prm_Fecha);
+
                 cmd_PartidoInsertar.Connection.Open();
                 cmd_PartidoInsertar.ExecuteNonQuery();
 
