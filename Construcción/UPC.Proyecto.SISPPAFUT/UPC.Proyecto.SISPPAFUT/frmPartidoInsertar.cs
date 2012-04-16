@@ -19,6 +19,7 @@ namespace UPC.Proyecto.SISPPAFUT
         List<EquipoBE> lista_locales;
         List<EquipoBE> lista_visitantes;
         List<EstadioBE> lista_estadios;
+        List<LigaBE> lista_temporadas;
 
         private static frmPartidoInsertar frmPartido = null;
         public static frmPartidoInsertar Instance()
@@ -132,6 +133,31 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
+        private void iniciar_temporadas()
+        {
+            try
+            {
+                cmb_temporada.Items.Clear();
+                cmb_temporada.Items.Add("(Seleccione una temporada...)");
+                cmb_temporada.SelectedIndex = 0;
+
+                lista_temporadas = new List<LigaBE>();
+                LigaBC objLigaBC = new LigaBC();
+
+                lista_temporadas = objLigaBC.listaLigasPorCompeticion(lista_competiciones[cmb_competicion.SelectedIndex - 1].Codigo_competicion);
+
+                for (int i = 0; i < lista_temporadas.Count; i++)
+                {
+                    cmb_temporada.Items.Add(lista_temporadas[i].TemporadaLiga);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
         private void cmb_pais_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cmb_pais.SelectedIndex > 0)
@@ -146,6 +172,14 @@ namespace UPC.Proyecto.SISPPAFUT
             if (cmb_local.SelectedIndex > 0)
             {
                 iniciar_estadios();
+            }
+        }
+
+        private void cmb_competicion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_competicion.SelectedIndex > 0)
+            {
+                iniciar_temporadas();
             }
         }
     }

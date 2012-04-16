@@ -138,6 +138,7 @@
             this.cmb_competicion.Name = "cmb_competicion";
             this.cmb_competicion.Size = new System.Drawing.Size(199, 21);
             this.cmb_competicion.TabIndex = 11;
+            this.cmb_competicion.SelectedIndexChanged += new System.EventHandler(this.cmb_competicion_SelectedIndexChanged);
             // 
             // cmb_temporada
             // 
