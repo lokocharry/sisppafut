@@ -104,18 +104,13 @@ namespace UnitTests
 
             List<PaisBE> expected = new List<PaisBE>();
 
-            PaisBE pais1 = new PaisBE(); pais1.CodigoPais = 0; pais1.NombrePais = "Argentina"; expected.Add(pais1);
-            PaisBE pais2 = new PaisBE(); pais2.CodigoPais = 0; pais2.NombrePais = "Brasil"; expected.Add(pais2);
-            PaisBE pais3 = new PaisBE(); pais3.CodigoPais = 0; pais3.NombrePais = "Holanda"; expected.Add(pais3);
-            PaisBE pais4 = new PaisBE(); pais4.CodigoPais = 0; pais4.NombrePais = "Francia"; expected.Add(pais4);
-            PaisBE pais5 = new PaisBE(); pais5.CodigoPais = 0; pais5.NombrePais = "Alemania"; expected.Add(pais5);
-            PaisBE pais6 = new PaisBE(); pais6.CodigoPais = 0; pais6.NombrePais = "España"; expected.Add(pais6);
-            PaisBE pais7 = new PaisBE(); pais7.CodigoPais = 0; pais7.NombrePais = "Portugal"; expected.Add(pais7);
-            
+            PaisBE pais1 = new PaisBE(); pais1.CodigoPais = 1; pais1.NombrePais = "España"; expected.Add(pais1);
+                        
             List<PaisBE> actual;
             
             actual = target.listarPaises();
-            Assert.AreEqual(expected, actual);
+
+            Assert.AreEqual(expected.Count, actual.Count);
         }
     }
 }
