@@ -148,6 +148,7 @@
             this.cmb_temporada.Name = "cmb_temporada";
             this.cmb_temporada.Size = new System.Drawing.Size(199, 21);
             this.cmb_temporada.TabIndex = 12;
+            this.cmb_temporada.SelectedIndexChanged += new System.EventHandler(this.cmb_temporada_SelectedIndexChanged);
             // 
             // cmb_visitante
             // 

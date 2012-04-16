@@ -214,6 +214,69 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
         }
 
+        public List<EquipoBE> listar_EquiposDeLiga(int codigoLiga)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_equipos;
+            SqlCommand cmd_equipos;
+            String sqlEquiposListar;
+            SqlParameter _Liga;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlEquiposListar = "spListarEquiposDeLiga";
+                cmd_equipos = conexion.CreateCommand();
+                cmd_equipos.CommandText = sqlEquiposListar;
+                cmd_equipos.CommandType = CommandType.StoredProcedure;
+
+                _Liga = cmd_equipos.CreateParameter();
+                _Liga.ParameterName = "@CodigoLiga";
+                _Liga.SqlDbType = SqlDbType.Int;
+                _Liga.SqlValue = codigoLiga;
+
+                cmd_equipos.Parameters.Add(_Liga);
+
+                cmd_equipos.Connection.Open();
+                dr_equipos = cmd_equipos.ExecuteReader();
+
+                List<EquipoBE> lista_equipos;
+                EquipoBE objEquipoBE;
+
+                lista_equipos = new List<EquipoBE>();
+
+                while (dr_equipos.Read())
+                {
+                    objEquipoBE = new EquipoBE();
+
+                    objEquipoBE.CodigoEquipo = dr_equipos.GetInt32(dr_equipos.GetOrdinal("CodEquipo"));
+                    objEquipoBE.CodigoPais = dr_equipos.GetInt32(dr_equipos.GetOrdinal("CodPais"));
+                    objEquipoBE.NombreEquipo = dr_equipos.GetString(dr_equipos.GetOrdinal("Nombre"));
+                    objEquipoBE.AnioFundacion = dr_equipos.GetInt32(dr_equipos.GetOrdinal("AnioFundacion"));
+                    objEquipoBE.CiudadEquipo = dr_equipos.GetString(dr_equipos.GetOrdinal("Ciudad"));
+                    objEquipoBE.CodigoEstadioPrincipal = dr_equipos.GetInt32(dr_equipos.GetOrdinal("CodEstadioPrincipal"));
+                    if (dr_equipos.GetInt32(dr_equipos.GetOrdinal("CodEstadioAlterno")) != 0)
+                        objEquipoBE.CodigoEstadioAlterno = dr_equipos.GetInt32(dr_equipos.GetOrdinal("CodEstadioAlterno"));
+                    else
+                        objEquipoBE.CodigoEstadioAlterno = 0;
+
+                    lista_equipos.Add(objEquipoBE);
+                }
+
+                cmd_equipos.Connection.Close();
+                conexion.Dispose();
+
+                return lista_equipos;
+            }
+
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+
+        }
+
         public EquipoBE obtener_Equipo(String Equipo)
         {
             SqlConnection conexion = null;

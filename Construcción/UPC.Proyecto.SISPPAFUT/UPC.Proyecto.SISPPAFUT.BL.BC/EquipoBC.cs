@@ -43,6 +43,19 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
+        public List<EquipoBE> listarEquiposDeLiga(int Liga)
+        {
+            try
+            {
+                EquipoDALC objEquipoDALC = new EquipoDALC();
+                return objEquipoDALC.listar_EquiposDeLiga(Liga);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public EquipoBE obtenerEquipo(String _equipo)
         {
             try

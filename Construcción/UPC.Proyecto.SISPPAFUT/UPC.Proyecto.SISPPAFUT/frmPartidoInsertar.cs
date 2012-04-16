@@ -16,8 +16,7 @@ namespace UPC.Proyecto.SISPPAFUT
         //--Área de variables globales
         List<PaisBE> lista_paises;
         List<CompeticionBE> lista_competiciones;
-        List<EquipoBE> lista_locales;
-        List<EquipoBE> lista_visitantes;
+        List<EquipoBE> lista_equipos;
         List<EstadioBE> lista_estadios;
         List<LigaBE> lista_temporadas;
 
@@ -69,14 +68,19 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmb_local.Items.Add("(Seleccion un equipo...)");
                 cmb_local.SelectedIndex = 0;
 
-                lista_locales = new List<EquipoBE>();
+                cmb_visitante.Items.Clear();
+                cmb_visitante.Items.Add("(Seleccione un equipo...)");
+                cmb_visitante.SelectedIndex = 0;
+
+                lista_equipos = new List<EquipoBE>();
                 EquipoBC objEquipoBC = new EquipoBC();
 
-                lista_locales = objEquipoBC.listarEquipos(lista_paises[cmb_pais.SelectedIndex-1].NombrePais);
+                lista_equipos = objEquipoBC.listarEquiposDeLiga(lista_temporadas[cmb_temporada.SelectedIndex - 1].CodigoLiga);
 
-                for (int i = 0; i < lista_locales.Count; i++)
+                for (int i = 0; i < lista_equipos.Count; i++)
                 {
-                    cmb_local.Items.Add(lista_locales[i].NombreEquipo);
+                    cmb_local.Items.Add(lista_equipos[i].NombreEquipo);
+                    cmb_visitante.Items.Add(lista_equipos[i].NombreEquipo);
                 }
             }
             catch (Exception ex)
@@ -120,7 +124,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 lista_estadios = new List<EstadioBE>();
                 EstadioBC objEstadioBC = new EstadioBC();
 
-                lista_estadios = objEstadioBC.listarEstadiosDeEquipo(lista_locales[cmb_local.SelectedIndex-1].CodigoEquipo);
+                lista_estadios = objEstadioBC.listarEstadiosDeEquipo(lista_equipos[cmb_local.SelectedIndex-1].CodigoEquipo);
 
                 for (int i = 0; i < lista_estadios.Count; i++)
                 {
@@ -163,7 +167,6 @@ namespace UPC.Proyecto.SISPPAFUT
             if (cmb_pais.SelectedIndex > 0)
             {
                 iniciar_competicion();
-                iniciar_equipos();
             }
         }
 
@@ -180,6 +183,14 @@ namespace UPC.Proyecto.SISPPAFUT
             if (cmb_competicion.SelectedIndex > 0)
             {
                 iniciar_temporadas();
+            }
+        }
+
+        private void cmb_temporada_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_temporada.SelectedIndex > 0)
+            {
+                iniciar_equipos();
             }
         }
     }
