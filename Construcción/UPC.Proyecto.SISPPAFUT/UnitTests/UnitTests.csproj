@@ -70,8 +70,10 @@
     <Compile Include="CompeticionBCTest.cs" />
     <Compile Include="EquipoBCTest.cs" />
     <Compile Include="EstadioBCTest.cs" />
+    <Compile Include="JugadorBCTest.cs" />
     <Compile Include="LigaBCTest.cs" />
     <Compile Include="PaisBCTest.cs" />
+    <Compile Include="PartidoBCTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -2,18 +2,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
-using System.Collections.Generic;
 
 namespace UnitTests
 {
     
     
     /// <summary>
-    ///This is a test class for CompeticionBCTest and is intended
-    ///to contain all CompeticionBCTest Unit Tests
+    ///This is a test class for JugadorBCTest and is intended
+    ///to contain all JugadorBCTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class CompeticionBCTest
+    public class JugadorBCTest
     {
 
 
@@ -67,46 +66,36 @@ namespace UnitTests
 
 
         /// <summary>
-        ///A test for CompeticionBC Constructor
+        ///A test for JugadorBC Constructor
         ///</summary>
         [TestMethod()]
-        public void CompeticionBCConstructorTest()
+        public void JugadorBCConstructorTest()
         {
-            CompeticionBC target = new CompeticionBC();
-            Assert.Inconclusive("TODO: Implement code to verify target");
+            JugadorBC target = new JugadorBC();
         }
 
         /// <summary>
-        ///A test for insertar_Competicion
+        ///A test for insertar_Jugador
         ///</summary>
         [TestMethod()]
-        public void insertar_CompeticionTest()
+        public void insertar_JugadorTest()
         {
-            CompeticionBC target = new CompeticionBC();
-            
-            CompeticionBE objCompeticionBE = new CompeticionBE();
-            objCompeticionBE.Codigo_pais = 7;
-            objCompeticionBE.Nombre_competicion = "Copa de Portugal";
+            JugadorBC target = new JugadorBC();
+            JugadorBE objJugadorBE = new JugadorBE();
+
+            objJugadorBE.CodigoEquipo = 1;
+            objJugadorBE.Nombres = "Lionel";
+            objJugadorBE.Apellidos = "Messi";
+            objJugadorBE.Nacionalidad = "Argentina";
+            objJugadorBE.FechaNacimiento = Convert.ToDateTime(DateTime.Today.ToShortDateString());
+            objJugadorBE.Altura = Convert.ToDecimal("1.69");
+            objJugadorBE.Peso = Convert.ToDecimal("60");
+            objJugadorBE.Posicion = "Delantero";
 
             int expected = 0;
             int actual;
-            actual = target.insertar_Competicion(objCompeticionBE);
+            actual = target.insertar_Jugador(objJugadorBE);
             Assert.AreNotEqual(expected, actual);
-        }
-
-        /// <summary>
-        ///A test for ListarCompeticion
-        ///</summary>
-        [TestMethod()]
-        public void ListarCompeticionTest()
-        {
-            CompeticionBC target = new CompeticionBC(); // TODO: Initialize to an appropriate value
-            string Pais = string.Empty; // TODO: Initialize to an appropriate value
-            List<CompeticionBE> expected = null; // TODO: Initialize to an appropriate value
-            List<CompeticionBE> actual;
-            actual = target.ListarCompeticion(Pais);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
         }
     }
 }

@@ -2,18 +2,17 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
-using System.Collections.Generic;
 
 namespace UnitTests
 {
     
     
     /// <summary>
-    ///This is a test class for CompeticionBCTest and is intended
-    ///to contain all CompeticionBCTest Unit Tests
+    ///This is a test class for PartidoBCTest and is intended
+    ///to contain all PartidoBCTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class CompeticionBCTest
+    public class PartidoBCTest
     {
 
 
@@ -67,46 +66,37 @@ namespace UnitTests
 
 
         /// <summary>
-        ///A test for CompeticionBC Constructor
+        ///A test for insertar_Partido
         ///</summary>
         [TestMethod()]
-        public void CompeticionBCConstructorTest()
+        public void insertar_PartidoTest()
         {
-            CompeticionBC target = new CompeticionBC();
-            Assert.Inconclusive("TODO: Implement code to verify target");
-        }
+            PartidoBC target = new PartidoBC(); 
+            PartidoBE objPartidoBE = new PartidoBE();
 
-        /// <summary>
-        ///A test for insertar_Competicion
-        ///</summary>
-        [TestMethod()]
-        public void insertar_CompeticionTest()
-        {
-            CompeticionBC target = new CompeticionBC();
-            
-            CompeticionBE objCompeticionBE = new CompeticionBE();
-            objCompeticionBE.Codigo_pais = 7;
-            objCompeticionBE.Nombre_competicion = "Copa de Portugal";
+            objPartidoBE.Codigo_liga = 3;
+            objPartidoBE.Codigo_equipo_local = 1;
+            objPartidoBE.Codigo_equipo_visitante = 3;
+            objPartidoBE.Codigo_estadio = 2;
+            objPartidoBE.Goles_local = 0;
+            objPartidoBE.Goles_visita = 0;
+            objPartidoBE.Fecha_partido = DateTime.Today;
 
             int expected = 0;
             int actual;
-            actual = target.insertar_Competicion(objCompeticionBE);
+            
+            actual = target.insertar_Partido(objPartidoBE);
             Assert.AreNotEqual(expected, actual);
         }
 
         /// <summary>
-        ///A test for ListarCompeticion
+        ///A test for PartidoBC Constructor
         ///</summary>
         [TestMethod()]
-        public void ListarCompeticionTest()
+        public void PartidoBCConstructorTest()
         {
-            CompeticionBC target = new CompeticionBC(); // TODO: Initialize to an appropriate value
-            string Pais = string.Empty; // TODO: Initialize to an appropriate value
-            List<CompeticionBE> expected = null; // TODO: Initialize to an appropriate value
-            List<CompeticionBE> actual;
-            actual = target.ListarCompeticion(Pais);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            PartidoBC target = new PartidoBC();
+            Assert.Inconclusive("TODO: Implement code to verify target");
         }
     }
 }
