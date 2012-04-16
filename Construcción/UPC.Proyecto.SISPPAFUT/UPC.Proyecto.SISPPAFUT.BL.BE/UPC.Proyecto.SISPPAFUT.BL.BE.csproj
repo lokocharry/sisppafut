@@ -45,6 +45,7 @@
     <Compile Include="LigaEquipoBE.cs" />
     <Compile Include="LogBE.cs" />
     <Compile Include="PaisBE.cs" />
+    <Compile Include="PartidoBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
