@@ -97,5 +97,34 @@ namespace UnitTests
             actual = target.insertarEquipo(objEquipoBE);
             Assert.AreNotEqual(expected, actual);
         }
+               
+        /// <summary>
+        ///A test for listarEquiposDeLiga
+        ///</summary>
+        [TestMethod()]
+        public void listarEquiposDeLigaTest()
+        {
+            EquipoBC target = new EquipoBC();
+            int Liga = 3;
+            List<EquipoBE> expected = new List<EquipoBE>();
+
+            EquipoBE equipo = new EquipoBE();
+            equipo.CodigoEquipo = 21; equipo.CodigoPais = 1; equipo.NombreEquipo = "Sporting de Gijón"; equipo.AnioFundacion = 1905;
+            equipo.CiudadEquipo = "Gijón"; equipo.CodigoEstadioPrincipal = 20; expected.Add(equipo);
+            
+            List<EquipoBE> actual;
+            actual = target.listarEquiposDeLiga(Liga);
+
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(expected[i].CodigoEquipo, actual[i].CodigoEquipo);
+                Assert.AreEqual(expected[i].CodigoPais, actual[i].CodigoPais);
+                Assert.AreEqual(expected[i].NombreEquipo, actual[i].NombreEquipo);
+                Assert.AreEqual(expected[i].AnioFundacion, actual[i].AnioFundacion);
+                Assert.AreEqual(expected[i].CiudadEquipo, actual[i].CiudadEquipo);
+                Assert.AreEqual(expected[i].CodigoEstadioPrincipal, actual[i].CodigoEstadioPrincipal);
+            }
+        }
     }
 }
