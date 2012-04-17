@@ -137,6 +137,7 @@
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(149, 21);
             this.cmb_pais.TabIndex = 9;
+            this.cmb_pais.SelectedIndexChanged += new System.EventHandler(this.cmb_pais_SelectedIndexChanged);
             // 
             // cmb_anio
             // 

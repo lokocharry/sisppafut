@@ -67,5 +67,18 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
+        public List<EstadioBE> listarEstadiosDePais(int codigo_pais)
+        {
+            try
+            {
+                EstadioDALC objEstadioDALC = new EstadioDALC();
+                return objEstadioDALC.obtenerEstadioDePais(codigo_pais);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
     }
 }

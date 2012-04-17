@@ -70,7 +70,14 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_CodigoEstadioAlterno = new SqlParameter();
                 prm_CodigoEstadioAlterno.ParameterName = "@codEstadioAlterno";
                 prm_CodigoEstadioAlterno.SqlDbType = SqlDbType.Int;
-                prm_CodigoEstadioAlterno.Value = objEquipoBE.CodigoEstadioAlterno;
+                if (objEquipoBE.CodigoEstadioAlterno != 0)
+                {
+                    prm_CodigoEstadioAlterno.Value = objEquipoBE.CodigoEstadioAlterno;
+                }
+                else
+                {
+                    prm_CodigoEstadioAlterno.Value = DBNull.Value;
+                }
 
                 cmd_EquipoInsertar.Parameters.Add(prm_Codigo);
                 cmd_EquipoInsertar.Parameters.Add(prm_CodigoPais);

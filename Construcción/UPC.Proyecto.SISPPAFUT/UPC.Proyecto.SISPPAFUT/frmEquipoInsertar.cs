@@ -32,7 +32,6 @@ namespace UPC.Proyecto.SISPPAFUT
 
             iniciarPais();
             inicarAnio();
-            iniciarEstadios();
         }
 
         private void iniciarPais()
@@ -70,13 +69,17 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
+                cmb_estadioPrincipal.Items.Clear();
+                cmb_estadioAlterno.Items.Clear();
+                cmb_estadioPrincipal.Items.Add("(Seleccione un estadio...)");
+                cmb_estadioAlterno.Items.Add("(Seleccione un estadio...)");
                 cmb_estadioPrincipal.SelectedIndex = 0;
                 cmb_estadioAlterno.SelectedIndex = 0;
 
                 listaEstadios = new List<EstadioBE>();
                 EstadioBC objEstadioBC = new EstadioBC();
 
-                listaEstadios = objEstadioBC.listarEstadios();
+                listaEstadios = objEstadioBC.listarEstadiosDePais(listaPaises[cmb_pais.SelectedIndex - 1].CodigoPais);
 
                 for (int i = 0; i < listaEstadios.Count; i++)
                 {
@@ -117,6 +120,8 @@ namespace UPC.Proyecto.SISPPAFUT
                     objEquipoBE.CodigoEstadioPrincipal = listaEstadios[cmb_estadioPrincipal.SelectedIndex - 1].Codigo_estadio;
                     if (cmb_estadioAlterno.SelectedIndex > 0)
                         objEquipoBE.CodigoEstadioAlterno = listaEstadios[cmb_estadioAlterno.SelectedIndex - 1].Codigo_estadio;
+                    else
+                        objEquipoBE.CodigoEstadioAlterno = 0;
 
                     iCodigo = objEquipoBC.insertarEquipo(objEquipoBE);
 
@@ -148,6 +153,14 @@ namespace UPC.Proyecto.SISPPAFUT
             return (!(txt_nombre.Text == "") && !(txt_ciudad.Text == "") 
                     && (cmb_pais.SelectedIndex >= 0) && (cmb_anio.SelectedIndex >= 0) 
                     && (cmb_estadioPrincipal.SelectedIndex >= 0) && (cmb_estadioAlterno.SelectedIndex >= 0));
+        }
+
+        private void cmb_pais_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmb_pais.SelectedIndex > 0)
+            {
+                iniciarEstadios();
+            }
         }
     }
 }
