@@ -154,7 +154,11 @@ namespace UnitTests
             for (int i = 0; i < expected.Count; i++)
             {
                 Assert.AreEqual(expected[i].Codigo_estadio, actual[i].Codigo_estadio);
+                Assert.AreEqual(expected[i].Codigo_pais, actual[i].Codigo_pais);
+                Assert.AreEqual(expected[i].Anho_fundacion, actual[i].Anho_fundacion);
                 Assert.AreEqual(expected[i].Nombre_estadio, actual[i].Nombre_estadio);
+                Assert.AreEqual(expected[i].Ciudad_estadio, actual[i].Ciudad_estadio);
+                Assert.AreEqual(expected[i].Aforo_estadio, actual[i].Aforo_estadio);
             }
         }
 
@@ -178,7 +182,11 @@ namespace UnitTests
             for (int i = 0; i < expected.Count; i++)
             {
                 Assert.AreEqual(expected[i].Codigo_estadio, actual[i].Codigo_estadio);
+                Assert.AreEqual(expected[i].Codigo_pais, actual[i].Codigo_pais);
+                Assert.AreEqual(expected[i].Anho_fundacion, actual[i].Anho_fundacion);
                 Assert.AreEqual(expected[i].Nombre_estadio, actual[i].Nombre_estadio);
+                Assert.AreEqual(expected[i].Ciudad_estadio, actual[i].Ciudad_estadio);
+                Assert.AreEqual(expected[i].Aforo_estadio, actual[i].Aforo_estadio);
             }
         }
     }
