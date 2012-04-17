@@ -48,11 +48,11 @@
             this.cmb_equipo = new System.Windows.Forms.ComboBox();
             this.btn_agregarEquipo = new System.Windows.Forms.Button();
             this.dg_equipos = new System.Windows.Forms.DataGridView();
-            this.bnt_guardar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bnt_guardar = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_equipos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,6 +123,7 @@
             // txt_temporada
             // 
             this.txt_temporada.Location = new System.Drawing.Point(372, 92);
+            this.txt_temporada.MaxLength = 10;
             this.txt_temporada.Name = "txt_temporada";
             this.txt_temporada.Size = new System.Drawing.Size(186, 20);
             this.txt_temporada.TabIndex = 7;
@@ -132,6 +133,7 @@
             // 
             this.txt_nombre.Enabled = false;
             this.txt_nombre.Location = new System.Drawing.Point(134, 131);
+            this.txt_nombre.MaxLength = 30;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(346, 20);
             this.txt_nombre.TabIndex = 8;
@@ -139,6 +141,7 @@
             // txt_cantidad
             // 
             this.txt_cantidad.Location = new System.Drawing.Point(134, 165);
+            this.txt_cantidad.MaxLength = 3;
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(54, 20);
             this.txt_cantidad.TabIndex = 9;
@@ -156,6 +159,7 @@
             // 
             // cmb_competicion
             // 
+            this.cmb_competicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_competicion.FormattingEnabled = true;
             this.cmb_competicion.Location = new System.Drawing.Point(134, 92);
             this.cmb_competicion.Name = "cmb_competicion";
@@ -164,6 +168,7 @@
             // 
             // cmb_pais
             // 
+            this.cmb_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_pais.FormattingEnabled = true;
             this.cmb_pais.Location = new System.Drawing.Point(134, 59);
             this.cmb_pais.Name = "cmb_pais";
@@ -173,15 +178,16 @@
             // 
             // cmb_equipo
             // 
+            this.cmb_equipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_equipo.FormattingEnabled = true;
             this.cmb_equipo.Location = new System.Drawing.Point(134, 199);
             this.cmb_equipo.Name = "cmb_equipo";
-            this.cmb_equipo.Size = new System.Drawing.Size(121, 21);
+            this.cmb_equipo.Size = new System.Drawing.Size(137, 21);
             this.cmb_equipo.TabIndex = 13;
             // 
             // btn_agregarEquipo
             // 
-            this.btn_agregarEquipo.Location = new System.Drawing.Point(261, 197);
+            this.btn_agregarEquipo.Location = new System.Drawing.Point(277, 197);
             this.btn_agregarEquipo.Name = "btn_agregarEquipo";
             this.btn_agregarEquipo.Size = new System.Drawing.Size(105, 23);
             this.btn_agregarEquipo.TabIndex = 14;
@@ -200,6 +206,22 @@
             this.dg_equipos.Name = "dg_equipos";
             this.dg_equipos.Size = new System.Drawing.Size(532, 150);
             this.dg_equipos.TabIndex = 15;
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.Visible = false;
+            // 
+            // Equipo
+            // 
+            this.Equipo.HeaderText = "Equipo";
+            this.Equipo.Name = "Equipo";
+            // 
+            // Ciudad
+            // 
+            this.Ciudad.HeaderText = "Ciudad";
+            this.Ciudad.Name = "Ciudad";
             // 
             // bnt_guardar
             // 
@@ -220,22 +242,6 @@
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btnCancelar);
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.Visible = false;
-            // 
-            // Equipo
-            // 
-            this.Equipo.HeaderText = "Equipo";
-            this.Equipo.Name = "Equipo";
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
             // 
             // frmLigaInsertar
             // 
