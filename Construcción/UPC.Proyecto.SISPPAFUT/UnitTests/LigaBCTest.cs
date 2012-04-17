@@ -102,5 +102,58 @@ namespace UnitTests
             actual = target.insertarLiga(pais, competicion, objLigaBE, lstEquipos);
             Assert.AreNotEqual(expected, actual);
         }
+
+        /// <summary>
+        ///A test for listaLigasPorCompeticion
+        ///</summary>
+        [TestMethod()]
+        public void listaLigasPorCompeticionTest()
+        {
+            LigaBC target = new LigaBC();
+            int codigoCompeticion = 1;
+            List<LigaBE> expected = new List<LigaBE>();
+
+            LigaBE liga = new LigaBE();
+            liga.CodigoLiga = 3; liga.CodigoCompeticion = 1; liga.NombreLiga = "La Liga BBVA 2011/2012";
+            liga.TemporadaLiga = "2011/2012"; liga.CantidadEquipos = 20; expected.Add(liga);
+
+            List<LigaBE> actual;
+            actual = target.listaLigasPorCompeticion(codigoCompeticion);
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(expected[i].CodigoLiga, actual[i].CodigoLiga);
+                Assert.AreEqual(expected[i].CodigoCompeticion, actual[i].CodigoCompeticion);
+                Assert.AreEqual(expected[i].NombreLiga, actual[i].NombreLiga);
+                Assert.AreEqual(expected[i].TemporadaLiga, actual[i].TemporadaLiga);
+                Assert.AreEqual(expected[i].CantidadEquipos, actual[i].CantidadEquipos);
+            }
+        }
+
+        /// <summary>
+        ///A test for listarLigas
+        ///</summary>
+        [TestMethod()]
+        public void listarLigasTest()
+        {
+            LigaBC target = new LigaBC();
+            List<LigaBE> expected = new List<LigaBE>();
+
+            LigaBE liga = new LigaBE();
+            liga.CodigoLiga = 3; liga.CodigoCompeticion = 1; liga.NombreLiga = "La Liga BBVA 2011/2012";
+            liga.TemporadaLiga = "2011/2012"; liga.CantidadEquipos = 20; expected.Add(liga);
+
+            List<LigaBE> actual;
+            actual = target.listarLigas();
+            Assert.AreEqual(expected, actual);
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(expected[i].CodigoLiga, actual[i].CodigoLiga);
+                Assert.AreEqual(expected[i].CodigoCompeticion, actual[i].CodigoCompeticion);
+                Assert.AreEqual(expected[i].NombreLiga, actual[i].NombreLiga);
+                Assert.AreEqual(expected[i].TemporadaLiga, actual[i].TemporadaLiga);
+                Assert.AreEqual(expected[i].CantidadEquipos, actual[i].CantidadEquipos);
+            }
+        }
     }
 }

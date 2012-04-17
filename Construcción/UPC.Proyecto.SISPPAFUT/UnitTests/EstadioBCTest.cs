@@ -170,13 +170,16 @@ namespace UnitTests
             List<EstadioBE> actual;
 
             EstadioBE estadio = new EstadioBE();
-
-
-
-
+            estadio.Codigo_estadio = 2; estadio.Codigo_pais = 1; estadio.Anho_fundacion = 1957; estadio.Nombre_estadio="Camp Nou";
+            estadio.Ciudad_estadio = "Barcelona"; estadio.Aforo_estadio = 98772; expected.Add(estadio);
 
             actual = target.listarEstadiosDeEquipo(codigo_equipo);
-            Assert.AreEqual(expected, actual);
+            Assert.AreEqual(expected.Count, actual.Count);
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Codigo_estadio, actual[i].Codigo_estadio);
+                Assert.AreEqual(expected[i].Nombre_estadio, actual[i].Nombre_estadio);
+            }
         }
     }
 }
