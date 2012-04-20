@@ -1,6 +1,6 @@
-<mockup version="1.0" skin="sketch" measuredW="1040" measuredH="344" mockupW="987" mockupH="327">
+<mockup version="1.0" skin="sketch" measuredW="1180" measuredH="344" mockupW="1127" mockupH="327">
   <controls>
-    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="53" y="17" w="987" h="327" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="53" y="17" w="1127" h="327" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Pron%F3sticos</text>
       </controlProperties>
@@ -10,11 +10,11 @@
         <text>Apuestas%20por%20Pa%EDs</text>
       </controlProperties>
     </control>
-    <control controlID="11" controlTypeID="com.balsamiq.mockups::DataGrid" x="280" y="64" w="330" h="240" measuredW="309" measuredH="205" zOrder="3" locked="false" isInGroup="-1">
+    <control controlID="11" controlTypeID="com.balsamiq.mockups::DataGrid" x="280" y="64" w="455" h="240" measuredW="381" measuredH="205" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
         <hLines>false</hLines>
         <rowHeight>16</rowHeight>
-        <text>Equipo%20Local%2C%20Equipo%20Visitante%2C%20Pron%F3stico%0AMallorca%2C%20Osasuna%2C%20LE%20%0AGetafe%2C%20M%E1laga%2C%20V%0ARayo%20Vallecano%2C%20Racing%20Santander%2C%20L%0ABarcelona%2C%20Sporting%20Gij%F3n%2C%20L%0ASevilla%2C%20Atl.%20Madrid%2C%20EV%0AZaragoza%2C%20Villareal%2C%20V%0AAthletic%2C%20Real%20Sociedad%2C%20L%0AGranada%2C%20Valencia%2C%20V%0AReal%20Madrid%2C%20Espanyol%2C%20L%0ALevante%2C%20Real%20Betis%2C%20LE%0A%7B60L%2C%2060L%2C%200C%7D</text>
+        <text>Equipo%20Local%2C%20Equipo%20Visitante%2C%20Fecha%2C%20Pron%F3stico%0AMallorca%2C%20Osasuna%2C%2008/09/2012%2C%20LE%20%0AGetafe%2C%20M%E1laga%2C%2008/09/2012%2C%20V%0ARayo%20Vallecano%2C%20Racing%20Santander%2C%2008/09/2012%2C%20L%0ABarcelona%2C%20Sporting%20Gij%F3n%2C%2008/09/2012%2C%20L%0ASevilla%2C%20Atl.%20Madrid%2C%2008/09/2012%2C%20EV%0AZaragoza%2C%20Villareal%2C%2008/09/2012%2C%20V%0AAthletic%2C%20Real%20Sociedad%2C%2008/09/2012%2C%20L%0AGranada%2C%20Valencia%2C%2009/09/2012%2C%20V%0AReal%20Madrid%2C%20Espanyol%2C%2009/09/2012%2C%20L%0ALevante%2C%20Real%20Betis%2C%2010/09/2012%2C%20LE%0A%7B60L%2C%2060L%2C%200C%2C%200C%7D</text>
         <verticalScrollbar>true</verticalScrollbar>
         <vLines>true</vLines>
       </controlProperties>
@@ -25,7 +25,7 @@
         <text>Espa%F1a%0A-%20Liga%20BBVA%0A-%20Liga%20Adelante%0A-%20Copa%20del%20Rey%0AInglaterra%0A-%20Premier%20League%0A-%20Championship%0A-%20The%20FA%20Cup%0A-%20Carling%20Cup%0A-%20Supercopa%0AItalia</text>
       </controlProperties>
     </control>
-    <control controlID="14" controlTypeID="__group__" x="625" y="64" w="400" h="113" measuredW="400" measuredH="113" zOrder="2" locked="false" isInGroup="-1">
+    <control controlID="14" controlTypeID="__group__" x="750" y="66" w="400" h="113" measuredW="400" measuredH="113" zOrder="2" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
         <control controlID="0" controlTypeID="__group__" x="0" y="21" w="200" h="92" measuredW="200" measuredH="92" zOrder="0" locked="false" isInGroup="14">
           <groupChildrenDescriptors>
@@ -89,16 +89,16 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="15" controlTypeID="com.balsamiq.mockups::Button" x="758" y="185" w="-1" h="-1" measuredW="135" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
+    <control controlID="15" controlTypeID="com.balsamiq.mockups::Button" x="883" y="187" w="-1" h="-1" measuredW="135" measuredH="27" zOrder="5" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Generar%20pron%F3stico</text>
       </controlProperties>
     </control>
-    <control controlID="16" controlTypeID="com.balsamiq.mockups::TextInput" x="786" y="219" w="-1" h="-1" measuredW="79" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::TextInput" x="911" y="221" w="-1" h="-1" measuredW="79" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
         <text/>
       </controlProperties>
     </control>
-    <control controlID="17" controlTypeID="com.balsamiq.mockups::VRule" x="615" y="66" w="-1" h="235" measuredW="5" measuredH="100" zOrder="7" locked="false" isInGroup="-1"/>
+    <control controlID="17" controlTypeID="com.balsamiq.mockups::VRule" x="735" y="63" w="-1" h="235" measuredW="5" measuredH="100" zOrder="7" locked="false" isInGroup="-1"/>
   </controls>
 </mockup>
