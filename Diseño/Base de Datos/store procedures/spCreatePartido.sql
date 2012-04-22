@@ -1,27 +1,29 @@
-CREATE PROCEDURE spCreatePartido
+USE [SISPPAFUT]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spCreatePartido]    Script Date: 04/21/2012 22:54:20 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[spCreatePartido]
 (
 			@CodLiga int
            ,@CodEquipoL int
            ,@CodEquipoV int
            ,@CodEstadio int
-           ,@GolesLocal int
-           ,@GolesVisita int
+           --,@GolesLocal int
+           --,@GolesVisita int
            ,@Fecha date
 )
 AS
 BEGIN
-if(@GolesLocal = null)
-begin
-	set @GolesLocal = 0;
-end
-if(@GolesVisita = 0)
-begin
-	set @GolesVisita = 0;
-end
-if(@Fecha = null)
-begin
-	set @Fecha = null;
-end
+declare @GolesLocal int
+declare @GolesVisita int
+set @GolesLocal = NULL;
+set @GolesVisita = NULL;
 INSERT INTO [SISPPAFUT].[dbo].[Partido]
            ([CodLiga]
            ,[CodEquipoL]
@@ -40,6 +42,7 @@ INSERT INTO [SISPPAFUT].[dbo].[Partido]
            ,@Fecha)
     RETURN @@IDENTITY
 END
+
 GO
 
 

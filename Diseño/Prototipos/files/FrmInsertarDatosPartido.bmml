@@ -172,27 +172,17 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="44" controlTypeID="com.balsamiq.mockups::Label" x="88" y="51" w="-1" h="-1" measuredW="42" measuredH="21" zOrder="7" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>Fecha</text>
-      </controlProperties>
-    </control>
-    <control controlID="45" controlTypeID="com.balsamiq.mockups::DateChooser" x="148" y="49" w="125" h="-1" measuredW="90" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
-      <controlProperties>
-        <text>%20%20/%20%20/%20%20%20%20</text>
-      </controlProperties>
-    </control>
-    <control controlID="46" controlTypeID="com.balsamiq.mockups::Button" x="448" y="580" w="-1" h="-1" measuredW="78" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
+    <control controlID="46" controlTypeID="com.balsamiq.mockups::Button" x="448" y="580" w="-1" h="-1" measuredW="78" measuredH="27" zOrder="7" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Actualizar</text>
       </controlProperties>
     </control>
-    <control controlID="47" controlTypeID="com.balsamiq.mockups::Button" x="828" y="580" w="-1" h="-1" measuredW="78" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
+    <control controlID="47" controlTypeID="com.balsamiq.mockups::Button" x="828" y="580" w="-1" h="-1" measuredW="78" measuredH="27" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Actualizar</text>
       </controlProperties>
     </control>
-    <control controlID="48" controlTypeID="__group__" x="922" y="382" w="325" h="237" measuredW="325" measuredH="237" zOrder="11" locked="false" isInGroup="-1">
+    <control controlID="48" controlTypeID="__group__" x="922" y="382" w="325" h="237" measuredW="325" measuredH="237" zOrder="9" locked="false" isInGroup="-1">
       <groupChildrenDescriptors>
         <control controlID="6" controlTypeID="__group__" x="0" y="0" w="325" h="237" measuredW="325" measuredH="237" zOrder="0" locked="false" isInGroup="48">
           <groupChildrenDescriptors>
@@ -230,7 +220,7 @@
         </control>
       </groupChildrenDescriptors>
     </control>
-    <control controlID="49" controlTypeID="com.balsamiq.mockups::Button" x="1156" y="580" w="-1" h="-1" measuredW="78" measuredH="27" zOrder="12" locked="false" isInGroup="-1">
+    <control controlID="49" controlTypeID="com.balsamiq.mockups::Button" x="1156" y="580" w="-1" h="-1" measuredW="78" measuredH="27" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
         <text>Actualizar</text>
       </controlProperties>
