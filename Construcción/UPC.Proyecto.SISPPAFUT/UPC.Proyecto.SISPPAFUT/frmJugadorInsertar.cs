@@ -28,9 +28,115 @@ namespace UPC.Proyecto.SISPPAFUT
             InitializeComponent();
         }
 
-        private void frmJugadorInsertar_Load(object sender, EventArgs e)
+        private void inGuardarJugador(object sender, EventArgs e)
         {
+            try
+            {
+                if (ValidarCampos())
+                {
+                    //-- Basado el la altura máx. alcanzada por el hombre y peso máx. registrado en un jugador de fútbol.
+                    if(Convert.ToDouble(txt_altura.Text) <= 2.72 && Convert.ToDouble(txt_peso.Text) <= 165)
+                    {
+                        JugadorBE objJugadorBE;
+                        JugadorBC objJugadorBC;
 
+                        objJugadorBE = new JugadorBE();
+                        objJugadorBE.Nombres = txt_nombre.Text;
+                        objJugadorBE.Apellidos = txt_apellido.Text;
+                        objJugadorBE.Nacionalidad = txt_nacionalidad.Text;
+                        objJugadorBE.Altura = Convert.ToDecimal(txt_altura.Text);
+                        objJugadorBE.Peso = Convert.ToDecimal(txt_peso.Text);
+                        objJugadorBE.FechaNacimiento = Convert.ToDateTime(dtp_fecha.Value.Date);
+                        objJugadorBE.Posicion = cmb_posicion.Text;
+
+                        objJugadorBC = new JugadorBC();
+                        int r = 0;
+                        r = objJugadorBC.insertar_Jugador(objJugadorBE);
+
+                        if(r != 0)
+                            MessageBox.Show("El jugador ha sido registrado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        else
+                            MessageBox.Show("El jugador no ha sido registrado debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                        MessageBox.Show("Corriga la altura y/o peso del jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Todos los campos son obligatorios.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private Boolean ValidarCampos()
+        {
+            return (!(txt_nombre.Text == "") && !(txt_apellido.Text == "")
+                    && !(txt_nacionalidad.Text == "") && !(txt_altura.Text == "") 
+                    && !(txt_peso.Text == "") && (cmb_posicion.SelectedIndex >= 0));
+        }
+
+        private void ValidarEntradaNumerico(object sender, KeyPressEventArgs e)
+        {
+            //-- fuente: http://social.msdn.microsoft.com/Forums/es/vcses/thread/0bfbee6c-219e-4895-a458-ae3d59c81079 --
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+            bool IsDec = false;
+            int nroDec = 0;
+            for (int i = 0; i < txt_altura.Text.Length; i++)
+            {
+                if (txt_altura.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
+        }
+
+        private void ValidarEntradaNumerica(object sender, KeyPressEventArgs e)
+        {
+            //-- fuente: http://social.msdn.microsoft.com/Forums/es/vcses/thread/0bfbee6c-219e-4895-a458-ae3d59c81079 --
+            if (e.KeyChar == 8){    
+                e.Handled = false;
+                return;
+            }
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txt_peso.Text.Length; i++)
+            {
+                if (txt_peso.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
     }
 }

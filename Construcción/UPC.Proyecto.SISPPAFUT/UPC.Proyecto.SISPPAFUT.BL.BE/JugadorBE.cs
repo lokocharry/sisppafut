@@ -14,14 +14,6 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
             set { _codigoJugador = value; }
         }
 
-        private int _codigoEquipo;
-
-        public int CodigoEquipo
-        {
-            get { return _codigoEquipo; }
-            set { _codigoEquipo = value; }
-        }
-
         private String _nombres;
 
         public String Nombres

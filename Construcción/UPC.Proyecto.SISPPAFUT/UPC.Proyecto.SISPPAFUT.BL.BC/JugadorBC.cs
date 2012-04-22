@@ -12,11 +12,12 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
         public int insertar_Jugador(JugadorBE objJugadorBE)
         {
             JugadorDALC objJugadorDALC;
-
+            int resultado = 0;
             try
             {
                 objJugadorDALC = new JugadorDALC();
-                return objJugadorDALC.insertar_Jugador(objJugadorBE);
+                resultado = objJugadorDALC.insertar_Jugador(objJugadorBE);
+                return resultado;
             }
 
             catch (Exception)

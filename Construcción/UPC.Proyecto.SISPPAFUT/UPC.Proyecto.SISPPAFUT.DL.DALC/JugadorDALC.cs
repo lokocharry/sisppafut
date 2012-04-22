@@ -16,7 +16,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             SqlCommand cmd_JugadorInsertar = null;
 
             SqlParameter prm_CodigoJugador;
-            SqlParameter prm_CodigoEquipo;
             SqlParameter prm_Nombres;
             SqlParameter prm_Apellidos;
             SqlParameter prm_Nacionalidad;
@@ -41,11 +40,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_CodigoJugador = new SqlParameter();
                 prm_CodigoJugador.Direction = ParameterDirection.ReturnValue;
                 prm_CodigoJugador.SqlDbType = SqlDbType.Int;
-
-                prm_CodigoEquipo = new SqlParameter();
-                prm_CodigoEquipo.ParameterName = "@CodEquipo";
-                prm_CodigoEquipo.SqlDbType = SqlDbType.Int;
-                prm_CodigoEquipo.Value = objJugadorBE.CodigoEquipo;
 
                 prm_Nombres = new SqlParameter();
                 prm_Nombres.ParameterName = "@Nombres";
@@ -87,7 +81,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_Peso.Value = objJugadorBE.Peso;
 
                 cmd_JugadorInsertar.Parameters.Add(prm_CodigoJugador);
-                cmd_JugadorInsertar.Parameters.Add(prm_CodigoEquipo);
                 cmd_JugadorInsertar.Parameters.Add(prm_Nombres);
                 cmd_JugadorInsertar.Parameters.Add(prm_Apellidos);
                 cmd_JugadorInsertar.Parameters.Add(prm_Nacionalidad);
@@ -104,7 +97,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 return iCodigoJugador;
             }
 
-            catch (Exception)
+            catch (Exception ex)
             {
                 if (conexion != null && conexion.State == ConnectionState.Open)
                 {

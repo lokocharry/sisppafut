@@ -83,7 +83,6 @@ namespace UnitTests
             JugadorBC target = new JugadorBC();
             JugadorBE objJugadorBE = new JugadorBE();
 
-            objJugadorBE.CodigoEquipo = 1;
             objJugadorBE.Nombres = "Lionel";
             objJugadorBE.Apellidos = "Messi";
             objJugadorBE.Nacionalidad = "Argentina";

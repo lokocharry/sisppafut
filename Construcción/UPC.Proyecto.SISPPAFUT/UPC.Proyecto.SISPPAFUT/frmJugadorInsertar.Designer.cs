@@ -35,7 +35,6 @@
             this.lbl_altura = new System.Windows.Forms.Label();
             this.lbl_peso = new System.Windows.Forms.Label();
             this.lbl_posicion = new System.Windows.Forms.Label();
-            this.lbl_equipo = new System.Windows.Forms.Label();
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.txt_apellido = new System.Windows.Forms.TextBox();
             this.txt_nacionalidad = new System.Windows.Forms.TextBox();
@@ -43,8 +42,6 @@
             this.txt_peso = new System.Windows.Forms.TextBox();
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.cmb_posicion = new System.Windows.Forms.ComboBox();
-            this.cmb_equipo = new System.Windows.Forms.ComboBox();
-            this.ckb_sinequipo = new System.Windows.Forms.CheckBox();
             this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -112,27 +109,18 @@
             this.lbl_posicion.TabIndex = 6;
             this.lbl_posicion.Text = "Posicion :";
             // 
-            // lbl_equipo
-            // 
-            this.lbl_equipo.AutoSize = true;
-            this.lbl_equipo.Location = new System.Drawing.Point(34, 187);
-            this.lbl_equipo.Name = "lbl_equipo";
-            this.lbl_equipo.Size = new System.Drawing.Size(79, 13);
-            this.lbl_equipo.TabIndex = 7;
-            this.lbl_equipo.Text = "Equipo Actual :";
-            // 
             // txt_nombre
             // 
             this.txt_nombre.Location = new System.Drawing.Point(118, 25);
             this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(453, 20);
+            this.txt_nombre.Size = new System.Drawing.Size(344, 20);
             this.txt_nombre.TabIndex = 9;
             // 
             // txt_apellido
             // 
             this.txt_apellido.Location = new System.Drawing.Point(118, 55);
             this.txt_apellido.Name = "txt_apellido";
-            this.txt_apellido.Size = new System.Drawing.Size(453, 20);
+            this.txt_apellido.Size = new System.Drawing.Size(344, 20);
             this.txt_apellido.TabIndex = 10;
             // 
             // txt_nacionalidad
@@ -145,55 +133,46 @@
             // txt_altura
             // 
             this.txt_altura.Location = new System.Drawing.Point(118, 118);
+            this.txt_altura.MaxLength = 4;
             this.txt_altura.Name = "txt_altura";
-            this.txt_altura.Size = new System.Drawing.Size(153, 20);
+            this.txt_altura.Size = new System.Drawing.Size(65, 20);
             this.txt_altura.TabIndex = 12;
+            this.txt_altura.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntradaNumerico);
             // 
             // txt_peso
             // 
             this.txt_peso.Location = new System.Drawing.Point(358, 118);
+            this.txt_peso.MaxLength = 6;
             this.txt_peso.Name = "txt_peso";
-            this.txt_peso.Size = new System.Drawing.Size(153, 20);
+            this.txt_peso.Size = new System.Drawing.Size(65, 20);
             this.txt_peso.TabIndex = 13;
+            this.txt_peso.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntradaNumerica);
             // 
             // dtp_fecha
             // 
+            this.dtp_fecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtp_fecha.Location = new System.Drawing.Point(358, 86);
             this.dtp_fecha.Name = "dtp_fecha";
-            this.dtp_fecha.Size = new System.Drawing.Size(213, 20);
+            this.dtp_fecha.Size = new System.Drawing.Size(104, 20);
             this.dtp_fecha.TabIndex = 14;
             // 
             // cmb_posicion
             // 
             this.cmb_posicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_posicion.FormattingEnabled = true;
+            this.cmb_posicion.Items.AddRange(new object[] {
+            "Portero",
+            "Defensa",
+            "Centrocampista",
+            "Delantero"});
             this.cmb_posicion.Location = new System.Drawing.Point(118, 151);
             this.cmb_posicion.Name = "cmb_posicion";
             this.cmb_posicion.Size = new System.Drawing.Size(153, 21);
             this.cmb_posicion.TabIndex = 15;
             // 
-            // cmb_equipo
-            // 
-            this.cmb_equipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_equipo.FormattingEnabled = true;
-            this.cmb_equipo.Location = new System.Drawing.Point(118, 184);
-            this.cmb_equipo.Name = "cmb_equipo";
-            this.cmb_equipo.Size = new System.Drawing.Size(153, 21);
-            this.cmb_equipo.TabIndex = 16;
-            // 
-            // ckb_sinequipo
-            // 
-            this.ckb_sinequipo.AutoSize = true;
-            this.ckb_sinequipo.Location = new System.Drawing.Point(289, 186);
-            this.ckb_sinequipo.Name = "ckb_sinequipo";
-            this.ckb_sinequipo.Size = new System.Drawing.Size(77, 17);
-            this.ckb_sinequipo.TabIndex = 17;
-            this.ckb_sinequipo.Text = "Sin Equipo";
-            this.ckb_sinequipo.UseVisualStyleBackColor = true;
-            // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(496, 228);
+            this.btn_cancelar.Location = new System.Drawing.Point(387, 191);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_cancelar.TabIndex = 18;
@@ -202,22 +181,21 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(404, 228);
+            this.btn_guardar.Location = new System.Drawing.Point(306, 191);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_guardar.TabIndex = 19;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.inGuardarJugador);
             // 
             // frmJugadorInsertar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(608, 277);
+            this.ClientSize = new System.Drawing.Size(505, 233);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.btn_cancelar);
-            this.Controls.Add(this.ckb_sinequipo);
-            this.Controls.Add(this.cmb_equipo);
             this.Controls.Add(this.cmb_posicion);
             this.Controls.Add(this.dtp_fecha);
             this.Controls.Add(this.txt_peso);
@@ -225,7 +203,6 @@
             this.Controls.Add(this.txt_nacionalidad);
             this.Controls.Add(this.txt_apellido);
             this.Controls.Add(this.txt_nombre);
-            this.Controls.Add(this.lbl_equipo);
             this.Controls.Add(this.lbl_posicion);
             this.Controls.Add(this.lbl_peso);
             this.Controls.Add(this.lbl_altura);
@@ -235,7 +212,6 @@
             this.Controls.Add(this.lbl_nombre);
             this.Name = "frmJugadorInsertar";
             this.Text = "Jugador";
-            this.Load += new System.EventHandler(this.frmJugadorInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -250,7 +226,6 @@
         private System.Windows.Forms.Label lbl_altura;
         private System.Windows.Forms.Label lbl_peso;
         private System.Windows.Forms.Label lbl_posicion;
-        private System.Windows.Forms.Label lbl_equipo;
         private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.TextBox txt_apellido;
         private System.Windows.Forms.TextBox txt_nacionalidad;
@@ -258,8 +233,6 @@
         private System.Windows.Forms.TextBox txt_peso;
         private System.Windows.Forms.DateTimePicker dtp_fecha;
         private System.Windows.Forms.ComboBox cmb_posicion;
-        private System.Windows.Forms.ComboBox cmb_equipo;
-        private System.Windows.Forms.CheckBox ckb_sinequipo;
         private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_guardar;
     }

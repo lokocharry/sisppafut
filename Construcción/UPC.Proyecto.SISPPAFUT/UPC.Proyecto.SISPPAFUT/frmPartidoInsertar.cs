@@ -65,7 +65,7 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 cmb_local.Items.Clear();
-                cmb_local.Items.Add("(Seleccion un equipo...)");
+                cmb_local.Items.Add("(Seleccione un equipo...)");
                 cmb_local.SelectedIndex = 0;
 
                 cmb_visitante.Items.Clear();
