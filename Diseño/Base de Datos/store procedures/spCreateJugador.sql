@@ -1,19 +1,27 @@
-CREATE PROCEDURE spCreateJugador
+USE [SISPPAFUT]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spCreateJugador]    Script Date: 04/21/2012 18:36:44 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[spCreateJugador]
 (
-			@CodEquipo int
-           ,@Nombres varchar(20)
+			@Nombres varchar(20)
            ,@Apellidos varchar(20)
            ,@Nacionalidad varchar(20)
            ,@FechaNacimiento date
            ,@Posicion varchar(15)
-           ,@Altura decimal(3,2)
-           ,@Peso decimal(3,2)
+           ,@Altura numeric(5,2)
+           ,@Peso numeric(5,2)
 )
 AS
 BEGIN
 INSERT INTO [SISPPAFUT].[dbo].[Jugador]
-           ([CodEquipo]
-           ,[Nombres]
+           ([Nombres]
            ,[Apellidos]
            ,[Nacionalidad]
            ,[FechaNacimiento]
@@ -21,8 +29,7 @@ INSERT INTO [SISPPAFUT].[dbo].[Jugador]
            ,[Altura]
            ,[Peso])
      VALUES
-           (@CodEquipo
-           ,@Nombres
+           (@Nombres
            ,@Apellidos
            ,@Nacionalidad
            ,@FechaNacimiento
@@ -31,4 +38,7 @@ INSERT INTO [SISPPAFUT].[dbo].[Jugador]
            ,@Peso)
      RETURN @@IDENTITY
 END
+
 GO
+
+
