@@ -30,7 +30,6 @@ namespace UPC.Proyecto.SISPPAFUT
             return frmPartido;
         }
 
-
         public frmPartidoInsertar()
         {
             InitializeComponent();
@@ -65,11 +64,11 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 cmb_local.Items.Clear();
-                cmb_local.Items.Add("(Seleccione un equipo...)");
+                cmb_local.Items.Add("(Seleccione un equipo)");
                 cmb_local.SelectedIndex = 0;
 
                 cmb_visitante.Items.Clear();
-                cmb_visitante.Items.Add("(Seleccione un equipo...)");
+                cmb_visitante.Items.Add("(Seleccione un equipo)");
                 cmb_visitante.SelectedIndex = 0;
 
                 lista_equipos = new List<EquipoBE>();
@@ -94,13 +93,13 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 cmb_competicion.Items.Clear();
-                cmb_competicion.Items.Add("(Seleccione una competicion...)");
+                cmb_competicion.Items.Add("(Seleccione una competicion)");
                 cmb_competicion.SelectedIndex = 0;
 
                 lista_competiciones = new List<CompeticionBE>();
                 CompeticionBC objCompeticionBC = new CompeticionBC();
-
-                lista_competiciones = objCompeticionBC.ListarCompeticion(lista_paises[cmb_pais.SelectedIndex-1].NombrePais);
+                
+                lista_competiciones = objCompeticionBC.ListarCompeticion(lista_paises[cmb_pais.SelectedIndex - 1].NombrePais);
 
                 for (int i = 0; i < lista_competiciones.Count; i++)
                 {
@@ -118,13 +117,13 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 cmb_estadio.Items.Clear();
-                cmb_estadio.Items.Add("(Seleccione un estadio..)");
+                cmb_estadio.Items.Add("(Seleccione un estadio)");
                 cmb_estadio.SelectedIndex = 0;
 
                 lista_estadios = new List<EstadioBE>();
                 EstadioBC objEstadioBC = new EstadioBC();
 
-                lista_estadios = objEstadioBC.listarEstadiosDeEquipo(lista_equipos[cmb_local.SelectedIndex-1].CodigoEquipo);
+                lista_estadios = objEstadioBC.listarEstadiosDeEquipo(lista_equipos[cmb_local.SelectedIndex - 1].CodigoEquipo);
 
                 for (int i = 0; i < lista_estadios.Count; i++)
                 {
@@ -142,7 +141,7 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 cmb_temporada.Items.Clear();
-                cmb_temporada.Items.Add("(Seleccione una temporada...)");
+                cmb_temporada.Items.Add("(Seleccione una temporada)");
                 cmb_temporada.SelectedIndex = 0;
 
                 lista_temporadas = new List<LigaBE>();
@@ -162,7 +161,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void cmb_pais_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmb_SeleccionarPais(object sender, EventArgs e)
         {
             if (cmb_pais.SelectedIndex > 0)
             {
@@ -170,7 +169,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void cmb_local_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmb_SeleccionarEquipoLocal(object sender, EventArgs e)
         {
             if (cmb_local.SelectedIndex > 0)
             {
@@ -178,7 +177,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void cmb_competicion_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmb_SeleccionarCompeticion(object sender, EventArgs e)
         {
             if (cmb_competicion.SelectedIndex > 0)
             {
@@ -186,12 +185,68 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void cmb_temporada_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmb_SeleccionarTemporada(object sender, EventArgs e)
         {
             if (cmb_temporada.SelectedIndex > 0)
             {
                 iniciar_equipos();
             }
+        }
+
+        private void inCancelar(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void inGuardarPartido(object sender, EventArgs e)
+        {
+            try
+            {
+                if (ValidarCampos())
+                {
+                    int codigo_partido = 0;
+
+                    PartidoBE objPartidoBE = new PartidoBE();
+                    PartidoBC objPartidoBC = new PartidoBC();
+
+                    //-- Se debería validar total de partidos registrados para esta temporada
+                    //-- Se debería validar que no haya partido igual
+                    if (cmb_local.Text != cmb_visitante.Text)
+                    {
+                        //-- Un partido siempre se guarda sin resultado, ya que o bien pudo haberse jugado, o aún no
+                        //--objPartidoBE.Goles_local = 0;
+                        //--objPartidoBE.Goles_visita = 0;
+                        objPartidoBE.Codigo_liga = lista_temporadas[cmb_temporada.SelectedIndex - 1].CodigoLiga;
+                        objPartidoBE.Codigo_equipo_local = lista_equipos[cmb_local.SelectedIndex - 1].CodigoEquipo;
+                        objPartidoBE.Codigo_equipo_visitante = lista_equipos[cmb_visitante.SelectedIndex - 1].CodigoEquipo;
+                        objPartidoBE.Codigo_estadio = lista_estadios[cmb_estadio.SelectedIndex - 1].Codigo_estadio;
+                        objPartidoBE.Fecha_partido = dtp_fecha.Value.Date;
+
+                        codigo_partido = objPartidoBC.insertar_Partido(objPartidoBE);
+
+                        if (codigo_partido == 0)
+                            MessageBox.Show("No se pudo Regitrar al Partido correctamente", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        else
+                            MessageBox.Show("El Nuevo Partido ha sido Registrado correctamente", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("El equipo local no puede ser el mismo que el equipo visitante", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                    MessageBox.Show("Todos los campos son obligatorios", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private Boolean ValidarCampos()
+        {
+            return ((cmb_pais.SelectedIndex>=1) && (cmb_competicion.SelectedIndex>=1)
+                    && (cmb_temporada.SelectedIndex >= 1) && (cmb_local.SelectedIndex >= 1)
+                    && (cmb_visitante.SelectedIndex >= 1) && (cmb_estadio.SelectedIndex >= 1));
         }
     }
 }

@@ -20,8 +20,8 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             SqlParameter prm_CodigoEquipoLocal;
             SqlParameter prm_CodigoEquipoVisitante;
             SqlParameter prm_CodigoEstadio;
-            SqlParameter prm_GolesLocal;
-            SqlParameter prm_GolesVisita;
+            //--SqlParameter prm_GolesLocal;
+            //--SqlParameter prm_GolesVisita;
             SqlParameter prm_Fecha;
 
             int iCodigoPartido;
@@ -61,6 +61,8 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_CodigoEstadio.SqlDbType = SqlDbType.Int;
                 prm_CodigoEstadio.Value = objPartidoBE.Codigo_estadio;
 
+                /* -- Los GOLES se actualizan de forma automática después de haberse jugado el partido
+                 *      y de haber guardado la información de los datos del partido (goles_x_jugador, amonestaciones, lesiones)
                 prm_GolesLocal = new SqlParameter();
                 prm_GolesLocal.ParameterName = "@GolesLocal";
                 prm_GolesLocal.SqlDbType = SqlDbType.Int;
@@ -70,6 +72,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_GolesVisita.ParameterName = "@GolesVisita";
                 prm_GolesVisita.SqlDbType = SqlDbType.Int;
                 prm_GolesVisita.Value = objPartidoBE.Goles_visita;
+                */
 
                 prm_Fecha = new SqlParameter();
                 prm_Fecha.ParameterName = "@Fecha";
@@ -81,8 +84,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd_PartidoInsertar.Parameters.Add(prm_CodigoEstadio);
                 cmd_PartidoInsertar.Parameters.Add(prm_CodigoEquipoLocal);
                 cmd_PartidoInsertar.Parameters.Add(prm_CodigoEquipoVisitante);
-                cmd_PartidoInsertar.Parameters.Add(prm_GolesLocal);
-                cmd_PartidoInsertar.Parameters.Add(prm_GolesVisita);
                 cmd_PartidoInsertar.Parameters.Add(prm_Fecha);
 
                 cmd_PartidoInsertar.Connection.Open();

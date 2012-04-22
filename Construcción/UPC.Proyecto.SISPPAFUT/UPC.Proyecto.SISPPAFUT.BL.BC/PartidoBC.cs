@@ -12,11 +12,12 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
         public int insertar_Partido(PartidoBE objPartidoBE)
         {
             PartidoDALC objPartidoDALC;
-
+            int resultado = 0;
             try
             {
                 objPartidoDALC = new PartidoDALC();
-                return objPartidoDALC.insertar_partido(objPartidoBE);
+                resultado = objPartidoDALC.insertar_partido(objPartidoBE);
+                return resultado;
             }
 
             catch (Exception)
