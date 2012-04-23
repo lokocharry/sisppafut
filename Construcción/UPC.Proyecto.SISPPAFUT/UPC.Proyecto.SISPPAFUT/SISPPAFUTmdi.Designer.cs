@@ -49,9 +49,10 @@
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPartidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,7 +123,7 @@
             // nuevaLigaToolStripMenuItem
             // 
             this.nuevaLigaToolStripMenuItem.Name = "nuevaLigaToolStripMenuItem";
-            this.nuevaLigaToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.nuevaLigaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nuevaLigaToolStripMenuItem.Text = "Nueva Liga";
             this.nuevaLigaToolStripMenuItem.Click += new System.EventHandler(this.inNuevaLiga);
             // 
@@ -137,7 +138,7 @@
             // nuevoEstadioToolStripMenuItem
             // 
             this.nuevoEstadioToolStripMenuItem.Name = "nuevoEstadioToolStripMenuItem";
-            this.nuevoEstadioToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.nuevoEstadioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nuevoEstadioToolStripMenuItem.Text = "Nuevo Estadio";
             this.nuevoEstadioToolStripMenuItem.Click += new System.EventHandler(this.inNuevoEstadio);
             // 
@@ -145,6 +146,7 @@
             // 
             this.equiposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoEquipoToolStripMenuItem,
+            this.editarEquipoToolStripMenuItem,
             this.asignarJugadoresToolStripMenuItem});
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
             this.equiposToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
@@ -195,6 +197,13 @@
             this.nuevoPartidoToolStripMenuItem1.Text = "Nuevo Partido";
             this.nuevoPartidoToolStripMenuItem1.Click += new System.EventHandler(this.InNuevoPartido);
             // 
+            // listaDePartidosToolStripMenuItem
+            // 
+            this.listaDePartidosToolStripMenuItem.Name = "listaDePartidosToolStripMenuItem";
+            this.listaDePartidosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.listaDePartidosToolStripMenuItem.Text = "Lista de Partidos";
+            this.listaDePartidosToolStripMenuItem.Click += new System.EventHandler(this.inListarPartidosSinJugar);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -207,12 +216,11 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
-            // listaDePartidosToolStripMenuItem
+            // editarEquipoToolStripMenuItem
             // 
-            this.listaDePartidosToolStripMenuItem.Name = "listaDePartidosToolStripMenuItem";
-            this.listaDePartidosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.listaDePartidosToolStripMenuItem.Text = "Lista de Partidos";
-            this.listaDePartidosToolStripMenuItem.Click += new System.EventHandler(this.inListarPartidosSinJugar);
+            this.editarEquipoToolStripMenuItem.Name = "editarEquipoToolStripMenuItem";
+            this.editarEquipoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.editarEquipoToolStripMenuItem.Text = "Editar Equipo";
             // 
             // SISPPAFUTmdi
             // 
@@ -255,6 +263,7 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoPartidoToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem asignarJugadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDePartidosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarEquipoToolStripMenuItem;
     }
 }
 

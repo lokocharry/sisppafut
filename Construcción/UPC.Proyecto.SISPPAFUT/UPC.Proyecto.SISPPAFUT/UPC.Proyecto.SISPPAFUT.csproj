@@ -47,6 +47,12 @@
     <Compile Include="frmAsignarJugadoresaEquipo.Designer.cs">
       <DependentUpon>frmAsignarJugadoresaEquipo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEditarEquipos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarEquipos.Designer.cs">
+      <DependentUpon>frmEditarEquipos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmJugadorInsertar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCompeticionInsertar.resx">
       <DependentUpon>frmCompeticionInsertar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditarEquipos.resx">
+      <DependentUpon>frmEditarEquipos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEquipoInsertar.resx">
       <DependentUpon>frmEquipoInsertar.cs</DependentUpon>
