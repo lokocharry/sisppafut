@@ -100,13 +100,32 @@ namespace UnitTests
         [TestMethod()]
         public void ListarCompeticionTest()
         {
-            CompeticionBC target = new CompeticionBC(); // TODO: Initialize to an appropriate value
-            string Pais = string.Empty; // TODO: Initialize to an appropriate value
-            List<CompeticionBE> expected = null; // TODO: Initialize to an appropriate value
-            List<CompeticionBE> actual;
+            CompeticionBC target = new CompeticionBC();
+            string Pais = "España";
+
+            List<CompeticionBE> expected = new List<CompeticionBE>();
+
+            CompeticionBE comp1 = new CompeticionBE();
+            comp1.Codigo_competicion = 1; comp1.Codigo_pais = 0; comp1.Nombre_competicion = "La liga";
+            expected.Add(comp1);
+            CompeticionBE comp2 = new CompeticionBE();
+            comp2.Codigo_competicion = 2; comp2.Codigo_pais = 0; comp2.Nombre_competicion = "Segunda División";
+            expected.Add(comp2);
+            CompeticionBE comp3 = new CompeticionBE();
+            comp3.Codigo_competicion = 3; comp3.Codigo_pais = 0; comp3.Nombre_competicion = "Copa del Rey";
+            expected.Add(comp3);
+
+            List<CompeticionBE> actual = new List<CompeticionBE>();
             actual = target.ListarCompeticion(Pais);
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+
+            Assert.AreEqual(expected.Count, actual.Count);
+
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Codigo_competicion, actual[i].Codigo_competicion);
+                Assert.AreEqual(expected[i].Codigo_pais, actual[i].Codigo_pais);
+                Assert.AreEqual(expected[i].Nombre_competicion, actual[i].Nombre_competicion);
+            }
         }
     }
 }

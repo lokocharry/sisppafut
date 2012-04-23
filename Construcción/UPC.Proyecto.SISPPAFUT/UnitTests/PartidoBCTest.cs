@@ -80,7 +80,7 @@ namespace UnitTests
             objPartidoBE.Codigo_estadio = 2;
             objPartidoBE.Goles_local = 0;
             objPartidoBE.Goles_visita = 0;
-            objPartidoBE.Fecha_partido = DateTime.Today;
+            objPartidoBE.Fecha_partido = Convert.ToDateTime("2012-04-24");
 
             int expected = 0;
             int actual;
