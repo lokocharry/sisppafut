@@ -135,5 +135,35 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             this.Close();
         }
+
+        private void inAsignarJugadores(object sender, EventArgs e)
+        {
+            try
+            {
+                frmAsignarJugadoresaEquipo frm = frmAsignarJugadoresaEquipo.Instance();
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                //Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void inListarPartidosSinJugar(object sender, EventArgs e)
+        {
+            try
+            {
+                frmListaPartidosSinJugar frm = frmListaPartidosSinJugar.Instance();
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                //Funciones.RegistrarExcepcion(ex);
+            }
+        }
     }
 }

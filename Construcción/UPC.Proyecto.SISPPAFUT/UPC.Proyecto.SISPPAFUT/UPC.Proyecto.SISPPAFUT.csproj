@@ -41,11 +41,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAsignarJugadoresaEquipo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAsignarJugadoresaEquipo.Designer.cs">
+      <DependentUpon>frmAsignarJugadoresaEquipo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmJugadorInsertar.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmJugadorInsertar.Designer.cs">
       <DependentUpon>frmJugadorInsertar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmListaPartidosSinJugar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListaPartidosSinJugar.Designer.cs">
+      <DependentUpon>frmListaPartidosSinJugar.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPartidoInsertar.cs">
       <SubType>Form</SubType>
@@ -92,6 +104,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmAsignarJugadoresaEquipo.resx">
+      <DependentUpon>frmAsignarJugadoresaEquipo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCompeticionInsertar.resx">
       <DependentUpon>frmCompeticionInsertar.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLigaInsertar.resx">
       <DependentUpon>frmLigaInsertar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListaPartidosSinJugar.resx">
+      <DependentUpon>frmListaPartidosSinJugar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPartidoInsertar.resx">
       <DependentUpon>frmPartidoInsertar.cs</DependentUpon>
