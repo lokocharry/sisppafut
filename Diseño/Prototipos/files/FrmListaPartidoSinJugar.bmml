@@ -17,5 +17,10 @@
         <text>Editar%20Datos%20del%20Partido</text>
       </controlProperties>
     </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Button" x="456" y="387" w="-1" h="-1" measuredW="100" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Editar%20Partido</text>
+      </controlProperties>
+    </control>
   </controls>
 </mockup>

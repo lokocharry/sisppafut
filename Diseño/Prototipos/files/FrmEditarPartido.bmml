@@ -12,6 +12,7 @@
     </control>
     <control controlID="2" controlTypeID="com.balsamiq.mockups::ComboBox" x="202" y="71" w="-1" h="-1" measuredW="149" measuredH="23" zOrder="2" locked="false" isInGroup="-1">
       <controlProperties>
+        <state>disabled</state>
         <text>%28Seleccione%20un%20pa%EDs%29</text>
       </controlProperties>
     </control>
@@ -22,6 +23,7 @@
     </control>
     <control controlID="4" controlTypeID="com.balsamiq.mockups::ComboBox" x="202" y="107" w="-1" h="-1" measuredW="200" measuredH="23" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
+        <state>disabled</state>
         <text>%28Seleccione%20una%20competici%F3n%29</text>
       </controlProperties>
     </control>
@@ -32,6 +34,7 @@
     </control>
     <control controlID="6" controlTypeID="com.balsamiq.mockups::ComboBox" x="518" y="107" w="-1" h="-1" measuredW="195" measuredH="23" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
+        <state>disabled</state>
         <text>%28Seleccione%20una%20temporada%29</text>
       </controlProperties>
     </control>
@@ -42,6 +45,7 @@
     </control>
     <control controlID="8" controlTypeID="com.balsamiq.mockups::ComboBox" x="202" y="143" w="-1" h="-1" measuredW="162" measuredH="23" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
+        <state>disabled</state>
         <text>%28Seleccione%20un%20equipo%29</text>
       </controlProperties>
     </control>
@@ -52,6 +56,7 @@
     </control>
     <control controlID="10" controlTypeID="com.balsamiq.mockups::ComboBox" x="518" y="143" w="162" h="-1" measuredW="162" measuredH="23" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
+        <state>disabled</state>
         <text>%28Seleccione%20un%20equipo%29</text>
       </controlProperties>
     </control>
@@ -62,6 +67,7 @@
     </control>
     <control controlID="12" controlTypeID="com.balsamiq.mockups::ComboBox" x="202" y="181" w="162" h="-1" measuredW="166" measuredH="23" zOrder="12" locked="false" isInGroup="-1">
       <controlProperties>
+        <state>disabled</state>
         <text>%28Seleccione%20un%20estadio%29</text>
       </controlProperties>
     </control>
@@ -75,9 +81,14 @@
         <text>Guardar</text>
       </controlProperties>
     </control>
-    <control controlID="23" controlTypeID="com.balsamiq.mockups::Button" x="666" y="179" w="-1" h="-1" measuredW="47" measuredH="27" zOrder="15" locked="false" isInGroup="-1">
+    <control controlID="24" controlTypeID="com.balsamiq.mockups::DateChooser" x="518" y="180" w="-1" h="-1" measuredW="90" measuredH="25" zOrder="15" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>M%E1s</text>
+        <text>%20%20/%20%20/%20%20%20%20</text>
+      </controlProperties>
+    </control>
+    <control controlID="25" controlTypeID="com.balsamiq.mockups::Label" x="417" y="182" w="-1" h="-1" measuredW="42" measuredH="21" zOrder="16" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Fecha</text>
       </controlProperties>
     </control>
   </controls>
