@@ -214,6 +214,7 @@
             this.Controls.Add(this.lbl_titulo);
             this.Name = "frmEquipoInsertar";
             this.Text = "Equipo";
+            this.Load += new System.EventHandler(this.frmEquipoInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

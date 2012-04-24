@@ -91,6 +91,8 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 frmEquipoInsertar frmEquipo = frmEquipoInsertar.Instance();
+                frmEquipo.NombreEquipo = null;
+                frmEquipo.Modo = 1;
                 frmEquipo.MdiParent = this;
                 frmEquipo.Show();
                 frmEquipo.BringToFront();
@@ -156,6 +158,21 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 frmListaPartidosSinJugar frm = frmListaPartidosSinJugar.Instance();
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                //Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void editarEquipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmEditarEquipos frm = frmEditarEquipos.Instance();
                 frm.MdiParent = this;
                 frm.Show();
                 frm.BringToFront();

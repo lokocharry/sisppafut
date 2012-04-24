@@ -44,6 +44,7 @@
             this.nuevoEstadioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +53,6 @@
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -123,7 +123,7 @@
             // nuevaLigaToolStripMenuItem
             // 
             this.nuevaLigaToolStripMenuItem.Name = "nuevaLigaToolStripMenuItem";
-            this.nuevaLigaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevaLigaToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.nuevaLigaToolStripMenuItem.Text = "Nueva Liga";
             this.nuevaLigaToolStripMenuItem.Click += new System.EventHandler(this.inNuevaLiga);
             // 
@@ -138,7 +138,7 @@
             // nuevoEstadioToolStripMenuItem
             // 
             this.nuevoEstadioToolStripMenuItem.Name = "nuevoEstadioToolStripMenuItem";
-            this.nuevoEstadioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoEstadioToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.nuevoEstadioToolStripMenuItem.Text = "Nuevo Estadio";
             this.nuevoEstadioToolStripMenuItem.Click += new System.EventHandler(this.inNuevoEstadio);
             // 
@@ -158,6 +158,13 @@
             this.nuevoEquipoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.nuevoEquipoToolStripMenuItem.Text = "Nuevo Equipo";
             this.nuevoEquipoToolStripMenuItem.Click += new System.EventHandler(this.InNuevoEquipo);
+            // 
+            // editarEquipoToolStripMenuItem
+            // 
+            this.editarEquipoToolStripMenuItem.Name = "editarEquipoToolStripMenuItem";
+            this.editarEquipoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.editarEquipoToolStripMenuItem.Text = "Editar Equipo";
+            this.editarEquipoToolStripMenuItem.Click += new System.EventHandler(this.editarEquipoToolStripMenuItem_Click);
             // 
             // asignarJugadoresToolStripMenuItem
             // 
@@ -215,12 +222,6 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
-            // 
-            // editarEquipoToolStripMenuItem
-            // 
-            this.editarEquipoToolStripMenuItem.Name = "editarEquipoToolStripMenuItem";
-            this.editarEquipoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.editarEquipoToolStripMenuItem.Text = "Editar Equipo";
             // 
             // SISPPAFUTmdi
             // 

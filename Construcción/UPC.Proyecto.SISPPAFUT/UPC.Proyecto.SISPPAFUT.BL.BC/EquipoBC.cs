@@ -70,5 +70,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public void actualizarEquipo(int codigo_equipo, int estadio_principal, int estadio_alterno)
+        {
+            try
+            {
+                EquipoDALC objEquipoDALC = new EquipoDALC();
+                objEquipoDALC.actualizar_equipo(codigo_equipo, estadio_principal, estadio_alterno);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+
     }
 }

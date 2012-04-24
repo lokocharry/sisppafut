@@ -338,5 +338,65 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
 
         }
+
+        public void actualizar_equipo(int codigo_equipo, int codigo_estadioPrincipal, int codigo_estadioAlterno)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd;
+            String sqlEquipoObtener;
+            SqlParameter _Equipo;
+            SqlParameter prm_estadioPrincipal;
+            SqlParameter prm_estadioAlterno;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlEquipoObtener = "spUpdateEquipo";
+                cmd = conexion.CreateCommand();
+                cmd.CommandText = sqlEquipoObtener;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                _Equipo = cmd.CreateParameter();
+                _Equipo.ParameterName = "@CodEquipo";
+                _Equipo.SqlDbType = SqlDbType.Int;
+                _Equipo.SqlValue = codigo_equipo;
+
+                prm_estadioPrincipal = cmd.CreateParameter();
+                prm_estadioPrincipal.ParameterName = "@CodEstadioPrincipal";
+                prm_estadioPrincipal.SqlDbType = SqlDbType.Int;
+                if (codigo_estadioPrincipal != 0)
+                {
+                    prm_estadioPrincipal.SqlValue = codigo_estadioPrincipal;
+                }
+                else
+                {
+                    prm_estadioPrincipal.SqlValue = DBNull.Value;
+                }
+
+                prm_estadioAlterno = cmd.CreateParameter();
+                prm_estadioAlterno.ParameterName = "@CodEstadioAlterno";
+                prm_estadioAlterno.SqlDbType = SqlDbType.Int;
+                if (codigo_estadioAlterno != 0)
+                {
+                    prm_estadioAlterno.SqlValue = codigo_estadioAlterno;
+                }
+                else
+                {
+                    prm_estadioAlterno.SqlValue = DBNull.Value;
+                }
+
+                cmd.Parameters.Add(_Equipo);
+                cmd.Parameters.Add(prm_estadioPrincipal);
+                cmd.Parameters.Add(prm_estadioAlterno);
+
+                cmd.Connection.Open();
+                cmd.ExecuteNonQuery();                
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+        }
     }
 }

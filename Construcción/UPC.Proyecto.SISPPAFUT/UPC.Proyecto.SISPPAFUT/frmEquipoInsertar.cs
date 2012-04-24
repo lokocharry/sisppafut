@@ -15,6 +15,18 @@ namespace UPC.Proyecto.SISPPAFUT
     {
         private List<PaisBE> listaPaises;
         private List<EstadioBE> listaEstadios;
+        private String _NombreEquipo;
+        private int _Modo; //Indica el modo en que se inicia el formulario 1-Registrar 2-Editar
+        public int Modo
+        {
+            get { return _Modo; }
+            set { _Modo = value; }
+        }
+        public String NombreEquipo
+        {
+            get { return _NombreEquipo; }
+            set { _NombreEquipo = value; }
+        }
 
         private static frmEquipoInsertar frmEquipo = null;
         public static frmEquipoInsertar Instance()
@@ -29,10 +41,98 @@ namespace UPC.Proyecto.SISPPAFUT
         public frmEquipoInsertar()
         {
             InitializeComponent();
-
-            iniciarPais();
-            inicarAnio();
         }
+
+        private void frmEquipoInsert()
+        {
+            iniciarPais();
+            iniciarAnio();
+        }
+
+        private void frmEquipoEditar()
+        {
+            iniciarControles();
+            iniciarPais();
+            llenarDatosEquipo();
+        }
+
+        private void llenarDatosEquipo()
+        {
+            EquipoBC objEquipoBC = new EquipoBC();
+            PaisBC objPaisBC=new PaisBC();
+            EquipoBE objEquipoBE = objEquipoBC.obtenerEquipo(_NombreEquipo);
+
+            txt_nombre.Text = objEquipoBE.NombreEquipo;
+            for (int i = 0; i < listaPaises.Count; i++)
+            {
+                if (listaPaises[i].CodigoPais == objEquipoBE.CodigoPais)
+                {
+                    cmb_pais.Items.Clear();
+                    cmb_pais.Items.Add(listaPaises[i].NombrePais);
+                    cmb_pais.SelectedIndex = 0;
+                }
+            }
+            cmb_anio.Items.Clear();
+            cmb_anio.Items.Add(objEquipoBE.AnioFundacion.ToString());
+            cmb_anio.SelectedIndex = 0;
+            txt_ciudad.Text = objEquipoBE.CiudadEquipo;
+            for (int i = 0; i < listaEstadios.Count; i++)
+            {
+                if (listaEstadios[i].Codigo_estadio == objEquipoBE.CodigoEstadioPrincipal)
+                {
+                    cmb_estadioPrincipal.Items.Clear();
+                    cmb_estadioPrincipal.Items.Add(listaEstadios[i].Nombre_estadio);
+                    cmb_estadioPrincipal.SelectedIndex = 0;
+                }
+            }
+            for (int i = 0; i < listaEstadios.Count; i++)
+            {
+                if (listaEstadios[i].Codigo_estadio == objEquipoBE.CodigoEstadioAlterno)
+                {
+                    cmb_estadioAlterno.Items.Clear();
+                    cmb_estadioAlterno.Items.Add(listaEstadios[i].Nombre_estadio);
+                    cmb_estadioAlterno.SelectedIndex = 0;
+                }
+            }
+        }
+
+        private void iniciarControles()
+        {
+            if (_Modo == 1)
+            {
+                lbl_titulo.Text = "Registro de Equipos";
+                txt_nombre.Enabled = true;
+                cmb_pais.Enabled = true;
+                cmb_anio.Enabled = true;
+                txt_ciudad.Enabled = true;
+                cmb_estadioPrincipal.Enabled = true;
+                cmb_estadioAlterno.Enabled = true;
+            }
+            if (_Modo == 2)
+            {
+                lbl_titulo.Text = "Actualizacion de Equipo";
+                txt_nombre.Enabled = false;
+                cmb_pais.Enabled = false;
+                cmb_anio.Enabled = false;
+                txt_ciudad.Enabled = false;
+                cmb_estadioPrincipal.Enabled = true;
+                cmb_estadioAlterno.Enabled = true;
+            }
+        }
+
+        private void iniciarModo()
+        {
+            switch (_Modo)
+            {
+                case 1: //Insertar
+                    frmEquipoInsert();
+                    break;
+                case 2: //Editar
+                    frmEquipoEditar();
+                    break;
+            }
+        }
+
 
         private void iniciarPais()
         {
@@ -56,7 +156,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void inicarAnio()
+        private void iniciarAnio()
         {
             cmb_anio.SelectedIndex = 0;
             for (int i = 1857; i < 2013; i++)
@@ -160,6 +260,19 @@ namespace UPC.Proyecto.SISPPAFUT
             if (cmb_pais.SelectedIndex > 0)
             {
                 iniciarEstadios();
+            }
+        }
+
+        private void frmEquipoInsertar_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                iniciarControles();
+                iniciarModo();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
             }
         }
     }
