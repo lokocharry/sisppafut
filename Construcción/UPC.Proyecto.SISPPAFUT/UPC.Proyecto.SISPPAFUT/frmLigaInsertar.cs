@@ -161,9 +161,14 @@ namespace UPC.Proyecto.SISPPAFUT
 
                 if (cmb_equipo.SelectedIndex >= 0)
                 {
-                    objEquipoBC = new EquipoBC();
-                    objEquipoBE = objEquipoBC.obtenerEquipo(cmb_equipo.Text);
-                    dg_equipos.Rows.Add(objEquipoBE.CodigoEquipo, objEquipoBE.NombreEquipo, objEquipoBE.CiudadEquipo);
+                    if (!EquipoExisteEnLista(cmb_equipo.Text))
+                    {
+                        objEquipoBC = new EquipoBC();
+                        objEquipoBE = objEquipoBC.obtenerEquipo(cmb_equipo.Text);
+                        dg_equipos.Rows.Add(objEquipoBE.CodigoEquipo, objEquipoBE.NombreEquipo, objEquipoBE.CiudadEquipo);
+                    }
+                    else
+                        MessageBox.Show("Equipo seleccionado ya está en la lista.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
@@ -174,6 +179,16 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private bool EquipoExisteEnLista(String nombre)
+        {
+            for (int i = 0; i < dg_equipos.Rows.Count; i++)
+            {
+                if (dg_equipos.Rows[i].Cells[1].Value.ToString() == nombre)
+                    return true;
+            }
+            return false;
         }
 
         private void btnGuardarLiga(object sender, EventArgs e)

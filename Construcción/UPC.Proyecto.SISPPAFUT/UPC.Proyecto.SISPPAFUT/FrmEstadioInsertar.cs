@@ -77,26 +77,31 @@ namespace UPC.Proyecto.SISPPAFUT
 
                 if (ValidarCampos())
                 {
-                    objEstadioBE = new EstadioBE();
-
-                    objEstadioBE.Codigo_pais = lista_paises[cmb_pais.SelectedIndex - 1].CodigoPais;
-                    objEstadioBE.Anho_fundacion = Convert.ToInt32(cmb_anho.Items[cmb_anho.SelectedIndex]);
-                    objEstadioBE.Nombre_estadio = txt_nombre.Text;
-                    objEstadioBE.Ciudad_estadio = txt_ciudad.Text;
-                    objEstadioBE.Aforo_estadio = Convert.ToInt32(txt_aforo.Text);
-
-                    EstadioBC objEstadioBC = new EstadioBC();
-                    codigo = objEstadioBC.insertar_Estadio(objEstadioBE);
-
-                    if (codigo != 0)
+                    if (Convert.ToInt32(txt_aforo.Text) >= 1000)
                     {
-                        MessageBox.Show("El estadio ha sido registrada satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimpiarCampos();
+                        objEstadioBE = new EstadioBE();
+
+                        objEstadioBE.Codigo_pais = lista_paises[cmb_pais.SelectedIndex - 1].CodigoPais;
+                        objEstadioBE.Anho_fundacion = Convert.ToInt32(cmb_anho.Items[cmb_anho.SelectedIndex]);
+                        objEstadioBE.Nombre_estadio = txt_nombre.Text;
+                        objEstadioBE.Ciudad_estadio = txt_ciudad.Text;
+                        objEstadioBE.Aforo_estadio = Convert.ToInt32(txt_aforo.Text);
+
+                        EstadioBC objEstadioBC = new EstadioBC();
+                        codigo = objEstadioBC.insertar_Estadio(objEstadioBE);
+
+                        if (codigo != 0)
+                        {
+                            MessageBox.Show("El estadio ha sido registrada satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimpiarCampos();
+                        }
+                        else
+                        {
+                            MessageBox.Show("El estadio no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
-                    {
-                        MessageBox.Show("El estadio no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                        MessageBox.Show("El aforo mínimo de un estadio de fútbol es 1000 personas.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
