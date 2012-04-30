@@ -135,6 +135,16 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            frmEquipoInsertar frmEquipo = new frmEquipoInsertar();
+            frmEquipo.MdiParent = this.MdiParent;
+            frmEquipo.Modo = 2;
+            frmEquipo.NombreEquipo = dgEquipos.SelectedRows[0].Cells["Nombre"].Value.ToString();
+            frmEquipo.Show();
+            frmEquipo.BringToFront();
+        }
+
 
 
     }

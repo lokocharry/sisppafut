@@ -51,7 +51,6 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void frmEquipoEditar()
         {
-            iniciarControles();
             iniciarPais();
             llenarDatosEquipo();
         }
@@ -67,31 +66,28 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 if (listaPaises[i].CodigoPais == objEquipoBE.CodigoPais)
                 {
-                    cmb_pais.Items.Clear();
-                    cmb_pais.Items.Add(listaPaises[i].NombrePais);
-                    cmb_pais.SelectedIndex = 0;
+                    cmb_pais.SelectedIndex = i+1;
                 }
             }
             cmb_anio.Items.Clear();
             cmb_anio.Items.Add(objEquipoBE.AnioFundacion.ToString());
             cmb_anio.SelectedIndex = 0;
             txt_ciudad.Text = objEquipoBE.CiudadEquipo;
+
+            iniciarEstadios();
+
             for (int i = 0; i < listaEstadios.Count; i++)
             {
                 if (listaEstadios[i].Codigo_estadio == objEquipoBE.CodigoEstadioPrincipal)
                 {
-                    cmb_estadioPrincipal.Items.Clear();
-                    cmb_estadioPrincipal.Items.Add(listaEstadios[i].Nombre_estadio);
-                    cmb_estadioPrincipal.SelectedIndex = 0;
+                    cmb_estadioPrincipal.SelectedIndex = i + 1;
                 }
             }
             for (int i = 0; i < listaEstadios.Count; i++)
             {
                 if (listaEstadios[i].Codigo_estadio == objEquipoBE.CodigoEstadioAlterno)
                 {
-                    cmb_estadioAlterno.Items.Clear();
-                    cmb_estadioAlterno.Items.Add(listaEstadios[i].Nombre_estadio);
-                    cmb_estadioAlterno.SelectedIndex = 0;
+                    cmb_estadioAlterno.SelectedIndex = i + 1;
                 }
             }
         }
@@ -206,6 +202,58 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btn_GuardarEquipo(object sender, EventArgs e)
         {
+            if (_Modo == 1)
+            {
+                guardarEquipo();
+            }
+            if (_Modo == 2)
+            {
+                editarEquipo();
+            }
+        }
+
+        private void editarEquipo()
+        {
+            try
+            {
+                int iCodigo = 0;
+                EquipoBE objEquipoBE;
+                EquipoBC objEquipoBC;
+
+                if (ValidarCampos())
+                {
+                    objEquipoBC = new EquipoBC();
+                    objEquipoBE=objEquipoBC.obtenerEquipo(txt_nombre.Text);
+
+                    iCodigo = objEquipoBE.CodigoEquipo;
+                    if (cmb_estadioPrincipal.SelectedIndex > 0)
+                    {
+                        objEquipoBE.CodigoEstadioPrincipal = listaEstadios[cmb_estadioPrincipal.SelectedIndex - 1].Codigo_estadio;
+                    }
+                    if (cmb_estadioAlterno.SelectedIndex > 0)
+                    {
+                        objEquipoBE.CodigoEstadioAlterno = listaEstadios[cmb_estadioAlterno.SelectedIndex - 1].Codigo_estadio;
+                    }
+
+                    if (cmb_estadioPrincipal.SelectedIndex == 0)
+                    {
+                        MessageBox.Show("El equipo debe tener un estadio designado.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        objEquipoBC.actualizarEquipo(iCodigo, objEquipoBE.CodigoEstadioPrincipal, objEquipoBE.CodigoEstadioAlterno);
+                        MessageBox.Show("El equipo ha sido actualizado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void guardarEquipo()
+        {
             try
             {
                 int iCodigo = 0;
@@ -263,7 +311,7 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void cmb_pais_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmb_pais.SelectedIndex > 0)
+            if (cmb_pais.SelectedIndex > 0 && _Modo == 1)
             {
                 iniciarEstadios();
             }
