@@ -128,6 +128,7 @@
             this.txt_temporada.Size = new System.Drawing.Size(186, 20);
             this.txt_temporada.TabIndex = 7;
             this.txt_temporada.TextChanged += new System.EventHandler(this.inTemporada);
+            this.txt_temporada.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarTemporada);
             // 
             // txt_nombre
             // 
@@ -145,6 +146,7 @@
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(54, 20);
             this.txt_cantidad.TabIndex = 9;
+            this.txt_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntradaNumerica);
             // 
             // chb_editar
             // 
@@ -225,7 +227,7 @@
             // 
             // bnt_guardar
             // 
-            this.bnt_guardar.Location = new System.Drawing.Point(402, 382);
+            this.bnt_guardar.Location = new System.Drawing.Point(483, 392);
             this.bnt_guardar.Name = "bnt_guardar";
             this.bnt_guardar.Size = new System.Drawing.Size(75, 23);
             this.bnt_guardar.TabIndex = 16;
@@ -235,7 +237,7 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(483, 382);
+            this.btn_cancelar.Location = new System.Drawing.Point(402, 392);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_cancelar.TabIndex = 17;
@@ -248,6 +250,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 427);
+            this.ControlBox = false;
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.bnt_guardar);
             this.Controls.Add(this.dg_equipos);
@@ -266,6 +269,9 @@
             this.Controls.Add(this.lbl_competicion);
             this.Controls.Add(this.lbl_pais);
             this.Controls.Add(this.lbl_titulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmLigaInsertar";
             this.Text = "Liga";
             ((System.ComponentModel.ISupportInitialize)(this.dg_equipos)).EndInit();

@@ -116,23 +116,25 @@
             // txt_nombre
             // 
             this.txt_nombre.Location = new System.Drawing.Point(112, 63);
+            this.txt_nombre.MaxLength = 50;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(391, 20);
             this.txt_nombre.TabIndex = 7;
+            this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarCampoNombre);
             // 
             // txt_ciudad
             // 
             this.txt_ciudad.Location = new System.Drawing.Point(112, 159);
+            this.txt_ciudad.MaxLength = 30;
             this.txt_ciudad.Name = "txt_ciudad";
             this.txt_ciudad.Size = new System.Drawing.Size(149, 20);
             this.txt_ciudad.TabIndex = 8;
+            this.txt_ciudad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarCampoCiudad);
             // 
             // cmb_pais
             // 
             this.cmb_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_pais.FormattingEnabled = true;
-            this.cmb_pais.Items.AddRange(new object[] {
-            "(Seleccione un pais...)"});
             this.cmb_pais.Location = new System.Drawing.Point(112, 97);
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(149, 21);
@@ -174,7 +176,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(347, 186);
+            this.btn_guardar.Location = new System.Drawing.Point(428, 185);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_guardar.TabIndex = 13;
@@ -184,7 +186,7 @@
             // 
             // brn_cancelar
             // 
-            this.brn_cancelar.Location = new System.Drawing.Point(428, 186);
+            this.brn_cancelar.Location = new System.Drawing.Point(347, 185);
             this.brn_cancelar.Name = "brn_cancelar";
             this.brn_cancelar.Size = new System.Drawing.Size(75, 23);
             this.brn_cancelar.TabIndex = 14;
@@ -197,6 +199,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 232);
+            this.ControlBox = false;
             this.Controls.Add(this.brn_cancelar);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.cmb_estadioAlterno);
@@ -212,6 +215,9 @@
             this.Controls.Add(this.lbl_pais);
             this.Controls.Add(this.lbl_equipo);
             this.Controls.Add(this.lbl_titulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEquipoInsertar";
             this.Text = "Equipo";
             this.Load += new System.EventHandler(this.frmEquipoInsertar_Load);

@@ -30,10 +30,17 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void FrmCompeticionInsertar_Load(object sender, EventArgs e)
         {
+            IniciarPais();
+        }
+
+        private void IniciarPais()
+        {
             try
             {
                 PaisBC objPaisBC = new PaisBC();
                 List<PaisBE> lista_paises = objPaisBC.listarPaises();
+
+                cmb_paises.Items.Clear();
 
                 for (int i = 0; i < lista_paises.Count; i++)
                 {
@@ -45,7 +52,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 Funciones.RegistrarExcepcion(ex);
             }
         }
-        
+
         private void btn_GuardarCompeticion(object sender, EventArgs e)
         {
             try
@@ -55,7 +62,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 CompeticionBE objCompeticionBE;
                 CompeticionBC objCompeticionBC;
 
-                if (ValidarCampos(txt_nombre,cmb_paises))
+                if (ValidarCampos())
                 {
                     objCompeticionBE = new CompeticionBE();
 
@@ -68,6 +75,7 @@ namespace UPC.Proyecto.SISPPAFUT
                     if (codigo != 0)
                     {
                         MessageBox.Show("La Competición ha sido registrada satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarCampos();
                     }
                     else
                     {
@@ -87,12 +95,39 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btn_Salir(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
         }
 
-        private bool ValidarCampos(TextBox campo, ComboBox cmb)
+        private bool ValidarCampos()
         {
-            return !(campo.Text == "") && cmb.SelectedIndex>=0;
+            return (!(txt_nombre.Text == "") && cmb_paises.SelectedIndex>=0);
+        }
+
+        private void ValidarEntradaTexto(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            txt_nombre.Clear();
+            IniciarPais();
         }
     }
 }

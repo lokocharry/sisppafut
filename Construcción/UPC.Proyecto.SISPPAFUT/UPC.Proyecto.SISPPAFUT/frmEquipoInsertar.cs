@@ -138,11 +138,13 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
+                cmb_pais.Items.Clear();
+                cmb_pais.Items.Add("(Seleccione un país...)");
                 cmb_pais.SelectedIndex = 0;
                 listaPaises = new List<PaisBE>();
                 PaisBC objPaisBC = new PaisBC();
 
-                listaPaises = objPaisBC.listarPaises();
+                listaPaises = objPaisBC.listarPaises();                
 
                 for (int i = 0; i < listaPaises.Count; i++)
                 {
@@ -158,6 +160,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void iniciarAnio()
         {
+            cmb_anio.Items.Clear();
+            cmb_anio.Items.Add("(Seleccione un país)");
             cmb_anio.SelectedIndex = 0;
             for (int i = 1857; i < 2013; i++)
             {
@@ -196,7 +200,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void brn_Cancelar(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
         }
 
         private void btn_GuardarEquipo(object sender, EventArgs e)
@@ -237,6 +242,7 @@ namespace UPC.Proyecto.SISPPAFUT
                         else
                         {
                             MessageBox.Show("El equipo ha sido registrado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimpiarCampos();
                         }
                 }
                 else
@@ -273,6 +279,58 @@ namespace UPC.Proyecto.SISPPAFUT
             catch (Exception ex)
             {
                 Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            txt_ciudad.Clear();
+            txt_nombre.Clear();
+            iniciarAnio();
+            iniciarPais();
+            cmb_estadioPrincipal.Items.Clear();
+            cmb_estadioAlterno.Items.Clear();
+        }
+
+        private void ValidarCampoCiudad(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void ValidarCampoNombre(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else
+            {
+                e.Handled = true;
             }
         }
     }

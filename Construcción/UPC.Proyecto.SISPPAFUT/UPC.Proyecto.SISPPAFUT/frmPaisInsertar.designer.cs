@@ -62,9 +62,11 @@
             // txt_pais
             // 
             this.txt_pais.Location = new System.Drawing.Point(115, 60);
+            this.txt_pais.MaxLength = 30;
             this.txt_pais.Name = "txt_pais";
             this.txt_pais.Size = new System.Drawing.Size(185, 20);
             this.txt_pais.TabIndex = 2;
+            this.txt_pais.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntradaTexto);
             // 
             // lbl_pais
             // 
@@ -85,17 +87,21 @@
             this.btn_salir.UseVisualStyleBackColor = true;
             this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
-            // PaisInsertar
+            // frmPaisInsertar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 147);
+            this.ControlBox = false;
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.lbl_pais);
             this.Controls.Add(this.txt_pais);
             this.Controls.Add(this.lbl_titulo);
             this.Controls.Add(this.btn_registrar);
-            this.Name = "PaisInsertar";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.Name = "frmPaisInsertar";
             this.Text = "Pais";
             this.ResumeLayout(false);
             this.PerformLayout();

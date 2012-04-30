@@ -60,7 +60,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(241, 109);
+            this.btn_guardar.Location = new System.Drawing.Point(336, 110);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_guardar.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // btn_salir
             // 
-            this.btn_salir.Location = new System.Drawing.Point(336, 109);
+            this.btn_salir.Location = new System.Drawing.Point(255, 110);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(75, 23);
             this.btn_salir.TabIndex = 3;
@@ -90,21 +90,27 @@
             // txt_nombre
             // 
             this.txt_nombre.Location = new System.Drawing.Point(113, 35);
+            this.txt_nombre.MaxLength = 40;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(298, 20);
             this.txt_nombre.TabIndex = 5;
+            this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntradaTexto);
             // 
             // frmCompeticionInsertar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(457, 165);
+            this.ClientSize = new System.Drawing.Size(457, 153);
+            this.ControlBox = false;
             this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.cmb_paises);
             this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCompeticionInsertar";
             this.Text = "Competicion";
             this.Load += new System.EventHandler(this.FrmCompeticionInsertar_Load);

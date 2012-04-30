@@ -30,7 +30,13 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (ValidarCampos())
+            {
+                if(MessageBox.Show("¿Seguro que desea salir? Hay datos que no han sido guardados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question)==System.Windows.Forms.DialogResult.Yes)
+                    this.Close();
+            }
+            else
+                this.Close();
         }
 
         private void btn_registrar_Click(object sender, EventArgs e)
@@ -42,7 +48,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 PaisBE objPaidBE = new PaisBE();
                 PaisBC objPaisBC = new PaisBC();
 
-                if (ValidarCampos(txt_pais))
+                if (ValidarCampos())
                 {
                     objPaidBE.NombrePais = txt_pais.Text;
 
@@ -51,6 +57,7 @@ namespace UPC.Proyecto.SISPPAFUT
                     if (iCodigo == -1)
                     {
                         MessageBox.Show("El país ya ha sido registrado anteriormente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        LimpiarCampos();
                     }
                     else
                         if (iCodigo == 0)
@@ -71,9 +78,34 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private bool ValidarCampos(TextBox campo)
+        private bool ValidarCampos()
         {
-            return !(campo.Text == "");
+            return !(txt_pais.Text == "");
+        }
+
+        private void ValidarEntradaTexto(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void LimpiarCampos()
+        {
+            txt_pais.Clear();
         }
     }
 }

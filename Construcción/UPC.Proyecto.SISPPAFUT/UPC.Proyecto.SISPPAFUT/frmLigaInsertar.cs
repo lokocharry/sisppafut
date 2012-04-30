@@ -38,6 +38,8 @@ namespace UPC.Proyecto.SISPPAFUT
                 lista_paises = new List<PaisBE>();
                 lista_paises = objPaisBC.listarPaises();
 
+                cmb_pais.Items.Clear();
+
                 for (int i = 0; i < lista_paises.Count; i++)
                 {
                     cmb_pais.Items.Add(lista_paises[i].NombrePais);
@@ -146,7 +148,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btnCancelar(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
         }
 
         private void inAgregarEquipoaLista(object sender, EventArgs e)
@@ -219,6 +222,7 @@ namespace UPC.Proyecto.SISPPAFUT
                                 else
                                 {
                                     MessageBox.Show("La liga ha sido registrada satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    LimpiarCampos();
                                 }
                         }
                         else
@@ -246,6 +250,72 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             return ((cmb_pais.SelectedIndex >= 0) && (cmb_competicion.SelectedIndex >= 0) 
                     && !(txt_temporada.Text == "") && !(txt_nombre.Text == "") && !(txt_cantidad.Text == ""));
+        }
+        
+        private void ValidarEntradaNumerica(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+            int nroDec = 0;
+
+            for (int i = 0; i < txt_cantidad.Text.Length; i++)
+            {
+                if (nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void LimpiarCampos()
+        {
+            txt_cantidad.Clear();
+            txt_nombre.Clear();
+            txt_temporada.Clear();
+            chb_editar.CheckState = CheckState.Unchecked;
+            iniciarPais();
+            cmb_competicion.Items.Clear();
+            cmb_equipo.Items.Clear();            
+            dg_equipos.DataSource = null;
+        }
+
+        private void ValidarTemporada(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txt_temporada.Text.Length; i++)
+            {
+                if (txt_temporada.Text[i] == '/')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 4)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 47)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
     }
 }
