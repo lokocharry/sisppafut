@@ -167,6 +167,7 @@
             this.cmb_competicion.Name = "cmb_competicion";
             this.cmb_competicion.Size = new System.Drawing.Size(165, 21);
             this.cmb_competicion.TabIndex = 11;
+            this.cmb_competicion.SelectionChangeCommitted += new System.EventHandler(this.inCambiarSeleccionCompeticion);
             // 
             // cmb_pais
             // 
@@ -176,6 +177,7 @@
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(165, 21);
             this.cmb_pais.TabIndex = 12;
+            this.cmb_pais.SelectionChangeCommitted += new System.EventHandler(this.inCambiarSeleccionPais);
             this.cmb_pais.SelectedValueChanged += new System.EventHandler(this.inPaisSeleccionado);
             // 
             // cmb_equipo

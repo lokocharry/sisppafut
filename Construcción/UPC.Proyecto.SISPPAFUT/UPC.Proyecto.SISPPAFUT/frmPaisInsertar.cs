@@ -57,7 +57,6 @@ namespace UPC.Proyecto.SISPPAFUT
                     if (iCodigo == -1)
                     {
                         MessageBox.Show("El país ya ha sido registrado anteriormente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LimpiarCampos();
                     }
                     else
                         if (iCodigo == 0)
@@ -67,6 +66,7 @@ namespace UPC.Proyecto.SISPPAFUT
                         else
                         {
                             MessageBox.Show("El país ha sido registrado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimpiarCampos();
                         }
                 }
                 else

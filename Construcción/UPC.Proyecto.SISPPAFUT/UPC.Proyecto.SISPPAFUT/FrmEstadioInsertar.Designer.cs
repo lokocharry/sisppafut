@@ -142,7 +142,7 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(376, 155);
+            this.btn_cancelar.Location = new System.Drawing.Point(295, 149);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_cancelar.TabIndex = 10;
@@ -152,7 +152,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(280, 155);
+            this.btn_guardar.Location = new System.Drawing.Point(376, 149);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_guardar.TabIndex = 11;
@@ -164,7 +164,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 197);
+            this.ClientSize = new System.Drawing.Size(486, 188);
             this.ControlBox = false;
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.btn_cancelar);

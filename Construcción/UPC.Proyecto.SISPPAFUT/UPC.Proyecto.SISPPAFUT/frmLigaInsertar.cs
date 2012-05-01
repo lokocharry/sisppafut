@@ -299,8 +299,8 @@ namespace UPC.Proyecto.SISPPAFUT
             chb_editar.CheckState = CheckState.Unchecked;
             iniciarPais();
             cmb_competicion.Items.Clear();
-            cmb_equipo.Items.Clear();            
-            dg_equipos.DataSource = null;
+            cmb_equipo.Items.Clear();
+            dg_equipos.Rows.Clear();
         }
 
         private void ValidarTemporada(object sender, KeyPressEventArgs e)
@@ -331,6 +331,22 @@ namespace UPC.Proyecto.SISPPAFUT
                 e.Handled = (IsDec) ? true : false;
             else
                 e.Handled = true;
+        }
+
+        private void inCambiarSeleccionPais(object sender, EventArgs e)
+        {
+            int pais_select = cmb_pais.SelectedIndex;
+            LimpiarCampos();
+            cmb_pais.SelectedIndex = pais_select;            
+        }
+
+        private void inCambiarSeleccionCompeticion(object sender, EventArgs e)
+        {
+            int pais_select = cmb_pais.SelectedIndex;
+            int competicion_select = cmb_competicion.SelectedIndex;
+            LimpiarCampos();
+            cmb_pais.SelectedIndex = pais_select;
+            cmb_competicion.SelectedIndex = competicion_select;
         }
     }
 }

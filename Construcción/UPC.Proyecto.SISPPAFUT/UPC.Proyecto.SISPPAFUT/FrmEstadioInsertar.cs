@@ -103,6 +103,8 @@ namespace UPC.Proyecto.SISPPAFUT
                     else
                         MessageBox.Show("El aforo mínimo de un estadio de fútbol es 1000 personas.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+                else
+                    MessageBox.Show("Todos los campos son obligatorios.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
