@@ -26,6 +26,18 @@ namespace UPC.Proyecto.SISPPAFUT
         public frmJugadorInsertar()
         {
             InitializeComponent();
+            IniciarPosiciones();
+        }
+
+        private void IniciarPosiciones()
+        {
+            cmb_posicion.Items.Clear();
+            cmb_posicion.Items.Add("Seleccione una posición...");
+            cmb_posicion.Items.Add("Portero");
+            cmb_posicion.Items.Add("Defensa");
+            cmb_posicion.Items.Add("Centrocampista");
+            cmb_posicion.Items.Add("Delantero");
+            cmb_posicion.SelectedIndex = 0;
         }
 
         private void inGuardarJugador(object sender, EventArgs e)
@@ -53,8 +65,11 @@ namespace UPC.Proyecto.SISPPAFUT
                         int r = 0;
                         r = objJugadorBC.insertar_Jugador(objJugadorBE);
 
-                        if(r != 0)
+                        if (r != 0)
+                        {
                             MessageBox.Show("El jugador ha sido registrado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimpiarCampos();
+                        }
                         else
                             MessageBox.Show("El jugador no ha sido registrado debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
@@ -137,6 +152,48 @@ namespace UPC.Proyecto.SISPPAFUT
                 e.Handled = (IsDec) ? true : false;
             else
                 e.Handled = true;
+        }
+
+        private void ValidarEntradaNombre(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void inSalir(object sender, EventArgs e)
+        {
+            if (ValidarCampos())
+            {
+                if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                    this.Close();
+            }
+            else
+                this.Close();
+        }
+
+        private void LimpiarCampos()
+        {
+            txt_nombre.Clear();
+            txt_apellido.Clear();
+            txt_nacionalidad.Clear();
+            txt_peso.Clear();
+            txt_altura.Clear();
+            dtp_fecha.Text = DateTime.Today.ToShortDateString();
+            IniciarPosiciones();
         }
     }
 }

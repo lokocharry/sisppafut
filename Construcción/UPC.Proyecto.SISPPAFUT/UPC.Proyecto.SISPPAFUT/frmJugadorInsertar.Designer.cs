@@ -112,23 +112,29 @@
             // txt_nombre
             // 
             this.txt_nombre.Location = new System.Drawing.Point(118, 25);
+            this.txt_nombre.MaxLength = 40;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(344, 20);
             this.txt_nombre.TabIndex = 9;
+            this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntradaNombre);
             // 
             // txt_apellido
             // 
             this.txt_apellido.Location = new System.Drawing.Point(118, 55);
+            this.txt_apellido.MaxLength = 40;
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(344, 20);
             this.txt_apellido.TabIndex = 10;
+            this.txt_apellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntradaNombre);
             // 
             // txt_nacionalidad
             // 
             this.txt_nacionalidad.Location = new System.Drawing.Point(118, 86);
+            this.txt_nacionalidad.MaxLength = 40;
             this.txt_nacionalidad.Name = "txt_nacionalidad";
             this.txt_nacionalidad.Size = new System.Drawing.Size(153, 20);
             this.txt_nacionalidad.TabIndex = 11;
+            this.txt_nacionalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntradaNombre);
             // 
             // txt_altura
             // 
@@ -160,11 +166,6 @@
             // 
             this.cmb_posicion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_posicion.FormattingEnabled = true;
-            this.cmb_posicion.Items.AddRange(new object[] {
-            "Portero",
-            "Defensa",
-            "Centrocampista",
-            "Delantero"});
             this.cmb_posicion.Location = new System.Drawing.Point(118, 151);
             this.cmb_posicion.Name = "cmb_posicion";
             this.cmb_posicion.Size = new System.Drawing.Size(153, 21);
@@ -178,6 +179,7 @@
             this.btn_cancelar.TabIndex = 18;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.inSalir);
             // 
             // btn_guardar
             // 
@@ -194,6 +196,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 233);
+            this.ControlBox = false;
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.cmb_posicion);
@@ -210,6 +213,9 @@
             this.Controls.Add(this.lbl_nacionalidad);
             this.Controls.Add(this.lbl_apellido);
             this.Controls.Add(this.lbl_nombre);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmJugadorInsertar";
             this.Text = "Jugador";
             this.ResumeLayout(false);
