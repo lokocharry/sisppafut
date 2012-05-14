@@ -218,6 +218,7 @@
             this.MinimizeBox = false;
             this.Name = "frmJugadorInsertar";
             this.Text = "Jugador";
+            this.Load += new System.EventHandler(this.frmJugadorInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

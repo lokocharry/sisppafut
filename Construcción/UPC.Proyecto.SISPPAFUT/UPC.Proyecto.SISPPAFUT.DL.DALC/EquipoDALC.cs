@@ -343,25 +343,24 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
         {
             SqlConnection conexion = null;
             SqlCommand cmd;
-            String sqlEquipoObtener;
-            SqlParameter _Equipo;
+            String sqlEquipoEditar;
+            SqlParameter prm_equipo;
             SqlParameter prm_estadioPrincipal;
             SqlParameter prm_estadioAlterno;
 
             try
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
-                sqlEquipoObtener = "spUpdateEquipo";
-                cmd = conexion.CreateCommand();
-                cmd.CommandText = sqlEquipoObtener;
+                sqlEquipoEditar = "spUpdateEquipo";
+                cmd = new SqlCommand(sqlEquipoEditar, conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                _Equipo = cmd.CreateParameter();
-                _Equipo.ParameterName = "@CodEquipo";
-                _Equipo.SqlDbType = SqlDbType.Int;
-                _Equipo.SqlValue = codigo_equipo;
+                prm_equipo = new SqlParameter();
+                prm_equipo.ParameterName = "@CodEquipo";
+                prm_equipo.SqlDbType = SqlDbType.Int;
+                prm_equipo.SqlValue = codigo_equipo;
 
-                prm_estadioPrincipal = cmd.CreateParameter();
+                prm_estadioPrincipal = new SqlParameter();
                 prm_estadioPrincipal.ParameterName = "@CodEstadioPrincipal";
                 prm_estadioPrincipal.SqlDbType = SqlDbType.Int;
                 if (codigo_estadioPrincipal != 0)
@@ -373,7 +372,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                     prm_estadioPrincipal.SqlValue = DBNull.Value;
                 }
 
-                prm_estadioAlterno = cmd.CreateParameter();
+                prm_estadioAlterno = new SqlParameter();
                 prm_estadioAlterno.ParameterName = "@CodEstadioAlterno";
                 prm_estadioAlterno.SqlDbType = SqlDbType.Int;
                 if (codigo_estadioAlterno != 0)
@@ -385,7 +384,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                     prm_estadioAlterno.SqlValue = DBNull.Value;
                 }
 
-                cmd.Parameters.Add(_Equipo);
+                cmd.Parameters.Add(prm_equipo);
                 cmd.Parameters.Add(prm_estadioPrincipal);
                 cmd.Parameters.Add(prm_estadioAlterno);
 

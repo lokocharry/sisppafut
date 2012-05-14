@@ -182,5 +182,20 @@ namespace UPC.Proyecto.SISPPAFUT
                 //Funciones.RegistrarExcepcion(ex);
             }
         }
+
+        private void editarJugadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmEditarJugadores frm = frmEditarJugadores.Instance();
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                //Funciones.RegistrarExcepcion(ex);
+            }
+        }
     }
 }

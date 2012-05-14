@@ -227,5 +227,63 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 conexion.Dispose();
             }
         }
+
+        public void editarJugador(int codigoJugador, Decimal nAltura, Decimal nPeso)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_JugadorEditar = null;
+
+            SqlParameter prm_CodigoJugador;
+            SqlParameter prm_Altura;
+            SqlParameter prm_Peso;
+
+            String sqlJugadorEditar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlJugadorEditar = "spUpdateJugador";
+
+                cmd_JugadorEditar = new SqlCommand(sqlJugadorEditar, conexion);
+                cmd_JugadorEditar.CommandType = CommandType.StoredProcedure;
+
+                prm_CodigoJugador = new SqlParameter();
+                prm_CodigoJugador.ParameterName = "@CodJugador";
+                prm_CodigoJugador.SqlDbType = SqlDbType.Int;
+                prm_CodigoJugador.Value = codigoJugador;
+
+                prm_Altura = new SqlParameter();
+                prm_Altura.ParameterName = "@Altura";
+                prm_Altura.SqlDbType = SqlDbType.Decimal;
+                prm_Altura.Value = nAltura;
+
+                prm_Peso = new SqlParameter();
+                prm_Peso.ParameterName = "@Peso";
+                prm_Peso.SqlDbType = SqlDbType.Decimal;
+                prm_Peso.Value = nPeso;
+
+                cmd_JugadorEditar.Parameters.Add(prm_CodigoJugador);
+                cmd_JugadorEditar.Parameters.Add(prm_Altura);
+                cmd_JugadorEditar.Parameters.Add(prm_Peso);
+
+                cmd_JugadorEditar.Connection.Open();
+                cmd_JugadorEditar.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+                throw;
+            }
+            finally
+            {
+                cmd_JugadorEditar.Connection.Close();
+                conexion.Dispose();
+            }
+        }
+
+
     }
 }

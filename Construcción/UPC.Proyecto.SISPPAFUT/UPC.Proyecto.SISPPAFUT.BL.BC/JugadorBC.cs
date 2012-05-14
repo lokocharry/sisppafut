@@ -61,5 +61,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public void editar_Jugador(int codigoJugador, Decimal nAltura, Decimal nPeso)
+        {
+            JugadorDALC objJugadorDALC;
+
+            try
+            {
+                objJugadorDALC = new JugadorDALC();
+                objJugadorDALC.editarJugador(codigoJugador, nAltura, nPeso);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

@@ -13,6 +13,68 @@ namespace UPC.Proyecto.SISPPAFUT
 {
     public partial class frmJugadorInsertar : Form
     {
+        private JugadorBE _Jugador;
+        private int _Modo;
+
+        public JugadorBE Jugador
+        {
+            get { return _Jugador; }
+            set { _Jugador = value; }
+        } 
+        public int Modo
+        {
+            get { return _Modo; }
+            set { _Modo = value; }
+        }
+
+        private void iniciarModo()
+        {
+            switch (_Modo)
+            {
+                case 1: //Insertar
+                    frmJugadorInsert();
+                    break;
+                case 2: //Editar
+                    frmJugadorEdit();
+                    break;
+            }
+        }
+
+        private void iniciarControles()
+        {
+            if (_Modo == 1)
+            {
+                txt_nombre.Enabled = true;
+                txt_apellido.Enabled = true;
+                txt_nacionalidad.Enabled = true;
+                txt_altura.Enabled = true;
+                dtp_fecha.Enabled = true;
+                txt_peso.Enabled = true;
+                cmb_posicion.Enabled = true;
+            }
+            if (_Modo == 2)
+            {
+                txt_nombre.Enabled = false;
+                txt_apellido.Enabled = false;
+                txt_nacionalidad.Enabled = false;
+                txt_altura.Enabled = true;
+                dtp_fecha.Enabled = false;
+                txt_peso.Enabled = true;
+                cmb_posicion.Enabled = false;
+            }
+        }
+
+
+        private void frmJugadorInsert()
+        {
+            IniciarPosiciones();
+        }
+
+        private void frmJugadorEdit()
+        {
+            llenarDatosJugador();
+        }
+        
         private static frmJugadorInsertar frmJugador = null;
         public static frmJugadorInsertar Instance()
         {
@@ -26,7 +88,6 @@ namespace UPC.Proyecto.SISPPAFUT
         public frmJugadorInsertar()
         {
             InitializeComponent();
-            IniciarPosiciones();
         }
 
         private void IniciarPosiciones()
@@ -39,6 +100,28 @@ namespace UPC.Proyecto.SISPPAFUT
             cmb_posicion.Items.Add("Delantero");
             cmb_posicion.SelectedIndex = 0;
         }
+
+        private void llenarDatosJugador()
+        {
+            try
+            {
+                txt_nombre.Text = _Jugador.Nombres;
+                txt_apellido.Text = _Jugador.Apellidos;
+                txt_nacionalidad.Text = _Jugador.Nacionalidad;
+                dtp_fecha.Value = _Jugador.FechaNacimiento;
+                txt_altura.Text = _Jugador.Altura.ToString();
+                txt_peso.Text = _Jugador.Peso.ToString() ;
+
+                cmb_posicion.Items.Clear();
+                cmb_posicion.Items.Add(_Jugador.Posicion);
+                cmb_posicion.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
 
         private void inGuardarJugador(object sender, EventArgs e)
         {
@@ -194,6 +277,19 @@ namespace UPC.Proyecto.SISPPAFUT
             txt_altura.Clear();
             dtp_fecha.Text = DateTime.Today.ToShortDateString();
             IniciarPosiciones();
+        }
+
+        private void frmJugadorInsertar_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                iniciarControles();
+                iniciarModo();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }
     }
 }

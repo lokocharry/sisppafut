@@ -17,17 +17,15 @@ CREATE PROCEDURE [dbo].[spUpdateEquipo]
 )
 AS
 BEGIN
-	IF(@CodEstadioPrincipal != NULL)
 	BEGIN
 		UPDATE [SISPPAFUT].[dbo].[Equipo]
 		SET [CodEstadioPrincipal] = @CodEstadioPrincipal
 		WHERE CodEquipo = @CodEquipo
 	END
-	IF(@CodEstadioAlterno != NULL)
 	BEGIN
 		UPDATE [SISPPAFUT].[dbo].[Equipo]
 		SET [CodEstadioAlterno] = @CodEstadioAlterno
-	WHERE CodEquipo = @CodEquipo
+		WHERE CodEquipo = @CodEquipo
 	END
 END
 

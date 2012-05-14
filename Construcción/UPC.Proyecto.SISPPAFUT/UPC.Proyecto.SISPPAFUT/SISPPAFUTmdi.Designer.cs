@@ -53,6 +53,7 @@
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -176,7 +177,8 @@
             // jugadorToolStripMenuItem
             // 
             this.jugadorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoJugadorToolStripMenuItem});
+            this.nuevoJugadorToolStripMenuItem,
+            this.editarJugadoresToolStripMenuItem});
             this.jugadorToolStripMenuItem.Name = "jugadorToolStripMenuItem";
             this.jugadorToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.jugadorToolStripMenuItem.Text = "Jugadores";
@@ -223,6 +225,13 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
+            // editarJugadoresToolStripMenuItem
+            // 
+            this.editarJugadoresToolStripMenuItem.Name = "editarJugadoresToolStripMenuItem";
+            this.editarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.editarJugadoresToolStripMenuItem.Text = "Editar Jugador";
+            this.editarJugadoresToolStripMenuItem.Click += new System.EventHandler(this.editarJugadoresToolStripMenuItem_Click);
+            // 
             // SISPPAFUTmdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +275,7 @@
         private System.Windows.Forms.ToolStripMenuItem asignarJugadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDePartidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarEquipoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editarJugadoresToolStripMenuItem;
     }
 }
 
