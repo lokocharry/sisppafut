@@ -36,6 +36,14 @@
             this.cmb_jugadores = new System.Windows.Forms.ComboBox();
             this.btn_agregar_jugadores = new System.Windows.Forms.Button();
             this.dgv_jugadores = new System.Windows.Forms.DataGridView();
+            this.h_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.h_apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.h_nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.h_posicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.h_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.h_codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.h_peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.h_altura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jugadores)).BeginInit();
@@ -78,13 +86,12 @@
             this.cmb_paises.Name = "cmb_paises";
             this.cmb_paises.Size = new System.Drawing.Size(178, 21);
             this.cmb_paises.TabIndex = 3;
+            this.cmb_paises.SelectedIndexChanged += new System.EventHandler(this.inSeleccionarPais);
             // 
             // cmb_equipos
             // 
             this.cmb_equipos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_equipos.FormattingEnabled = true;
-            this.cmb_equipos.Items.AddRange(new object[] {
-            "(Elija un equipo)"});
             this.cmb_equipos.Location = new System.Drawing.Point(359, 28);
             this.cmb_equipos.Name = "cmb_equipos";
             this.cmb_equipos.Size = new System.Drawing.Size(178, 21);
@@ -109,14 +116,76 @@
             this.btn_agregar_jugadores.TabIndex = 6;
             this.btn_agregar_jugadores.Text = "Agregar a equipo";
             this.btn_agregar_jugadores.UseVisualStyleBackColor = true;
+            this.btn_agregar_jugadores.Click += new System.EventHandler(this.btn_agregar_jugadores_Click);
             // 
             // dgv_jugadores
             // 
             this.dgv_jugadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_jugadores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.h_nombre,
+            this.h_apellido,
+            this.h_nacionalidad,
+            this.h_posicion,
+            this.h_fecha,
+            this.h_codigo,
+            this.h_peso,
+            this.h_altura});
             this.dgv_jugadores.Location = new System.Drawing.Point(40, 112);
             this.dgv_jugadores.Name = "dgv_jugadores";
-            this.dgv_jugadores.Size = new System.Drawing.Size(399, 150);
+            this.dgv_jugadores.Size = new System.Drawing.Size(461, 150);
             this.dgv_jugadores.TabIndex = 7;
+            // 
+            // h_nombre
+            // 
+            this.h_nombre.DataPropertyName = "Nombres";
+            this.h_nombre.HeaderText = "Nombre";
+            this.h_nombre.Name = "h_nombre";
+            // 
+            // h_apellido
+            // 
+            this.h_apellido.DataPropertyName = "Apellidos";
+            this.h_apellido.HeaderText = "Apellido";
+            this.h_apellido.Name = "h_apellido";
+            // 
+            // h_nacionalidad
+            // 
+            this.h_nacionalidad.DataPropertyName = "Nacionalidad";
+            this.h_nacionalidad.HeaderText = "Nacionalidad";
+            this.h_nacionalidad.Name = "h_nacionalidad";
+            // 
+            // h_posicion
+            // 
+            this.h_posicion.DataPropertyName = "Posicion";
+            this.h_posicion.HeaderText = "Posición";
+            this.h_posicion.Name = "h_posicion";
+            // 
+            // h_fecha
+            // 
+            this.h_fecha.DataPropertyName = "FechaNacimiento";
+            this.h_fecha.HeaderText = "Nacimiento";
+            this.h_fecha.Name = "h_fecha";
+            this.h_fecha.Visible = false;
+            // 
+            // h_codigo
+            // 
+            this.h_codigo.DataPropertyName = "CodigoJugador";
+            this.h_codigo.HeaderText = "Codigo";
+            this.h_codigo.Name = "h_codigo";
+            this.h_codigo.Visible = false;
+            // 
+            // h_peso
+            // 
+            this.h_peso.DataPropertyName = "Peso";
+            this.h_peso.HeaderText = "Peso";
+            this.h_peso.Name = "h_peso";
+            this.h_peso.Visible = false;
+            // 
+            // h_altura
+            // 
+            this.h_altura.DataPropertyName = "Altura";
+            this.h_altura.HeaderText = "Altura";
+            this.h_altura.Name = "h_altura";
+            this.h_altura.Visible = false;
             // 
             // btn_guardar
             // 
@@ -126,6 +195,7 @@
             this.btn_guardar.TabIndex = 8;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_cancelar
             // 
@@ -173,5 +243,13 @@
         private System.Windows.Forms.DataGridView dgv_jugadores;
         private System.Windows.Forms.Button btn_guardar;
         private System.Windows.Forms.Button btn_cancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn h_nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn h_apellido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn h_nacionalidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn h_posicion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn h_fecha;
+        private System.Windows.Forms.DataGridViewTextBoxColumn h_codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn h_peso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn h_altura;
     }
 }

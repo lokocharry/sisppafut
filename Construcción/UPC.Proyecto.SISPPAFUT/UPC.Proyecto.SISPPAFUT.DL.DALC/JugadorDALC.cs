@@ -113,5 +113,119 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 conexion.Dispose();
             }
         }
+
+        public List<JugadorBE> listar_Jugadores()
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_jugadores;
+            SqlCommand cmd_jugadores = null;
+            String sqlListarJugadores;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlListarJugadores = "spListarJugadores";
+                cmd_jugadores = conexion.CreateCommand();
+                cmd_jugadores.CommandText = sqlListarJugadores;
+                cmd_jugadores.CommandType = CommandType.StoredProcedure;
+
+                cmd_jugadores.Connection.Open();
+                dr_jugadores = cmd_jugadores.ExecuteReader();
+
+                List<JugadorBE> lista_jugadores;
+                JugadorBE objJugadorBE;
+
+                lista_jugadores = new List<JugadorBE>();
+
+                while (dr_jugadores.Read())
+                {
+                    objJugadorBE = new JugadorBE();
+
+                    objJugadorBE.CodigoJugador = dr_jugadores.GetInt32(dr_jugadores.GetOrdinal("CodJugador"));
+                    objJugadorBE.Nombres = dr_jugadores.GetString(dr_jugadores.GetOrdinal("Nombres"));
+                    objJugadorBE.Apellidos = dr_jugadores.GetString(dr_jugadores.GetOrdinal("Apellidos"));
+                    objJugadorBE.Posicion = dr_jugadores.GetString(dr_jugadores.GetOrdinal("Posicion"));
+                    objJugadorBE.Nacionalidad = dr_jugadores.GetString(dr_jugadores.GetOrdinal("Nacionalidad"));
+                    objJugadorBE.FechaNacimiento = dr_jugadores.GetDateTime(dr_jugadores.GetOrdinal("FechaNacimiento"));
+                    objJugadorBE.Peso = dr_jugadores.GetDecimal(dr_jugadores.GetOrdinal("Peso"));
+                    objJugadorBE.Altura = dr_jugadores.GetDecimal(dr_jugadores.GetOrdinal("Altura"));
+
+                    lista_jugadores.Add(objJugadorBE);
+                }
+
+                return lista_jugadores;
+            }
+
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    cmd_jugadores.Connection.Close();
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_jugadores.Connection.Close();
+                conexion.Dispose();
+            }
+        }
+
+        public void asignarJugador_aEquipo(JugadorEquipoBE objJugadorEquipoBE)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_JugadorAsignar = null;
+
+            SqlParameter prm_CodigoEquipo;
+            SqlParameter prm_CodigoJugador;
+
+            String sqlJugadorAsignar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+
+                sqlJugadorAsignar = "spCreateJugadorEquipo";
+
+                cmd_JugadorAsignar = new SqlCommand(sqlJugadorAsignar, conexion);
+                cmd_JugadorAsignar.CommandType = CommandType.StoredProcedure;
+
+                prm_CodigoEquipo = new SqlParameter();
+                prm_CodigoEquipo.ParameterName = "@CodEquipo";
+                prm_CodigoEquipo.SqlDbType = SqlDbType.Int;
+                prm_CodigoEquipo.Value = objJugadorEquipoBE.Codigo_equipo;
+
+                prm_CodigoJugador = new SqlParameter();
+                prm_CodigoJugador.ParameterName = "@CodJugador";
+                prm_CodigoJugador.SqlDbType = SqlDbType.Int;
+                prm_CodigoJugador.Value = objJugadorEquipoBE.Codigo_jugador;
+
+                cmd_JugadorAsignar.Parameters.Add(prm_CodigoEquipo);
+                cmd_JugadorAsignar.Parameters.Add(prm_CodigoJugador);
+
+                cmd_JugadorAsignar.Connection.Open();
+                cmd_JugadorAsignar.ExecuteNonQuery();
+            }
+
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    cmd_JugadorAsignar.Connection.Close();
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_JugadorAsignar.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }

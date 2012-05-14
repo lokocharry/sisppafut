@@ -110,5 +110,62 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 conexion.Dispose();
             }
         }
+
+        public List<PartidoSinJugarBE> listar_partidos_sinjugar()
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_partidos;
+            SqlCommand cmd_partidos = null;
+            String sqlPartidosListar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlPartidosListar = "spListaPartidosSinJugar";
+                cmd_partidos = conexion.CreateCommand();
+                cmd_partidos.CommandText = sqlPartidosListar;
+                cmd_partidos.CommandType = CommandType.StoredProcedure;
+
+                cmd_partidos.Connection.Open();
+                dr_partidos = cmd_partidos.ExecuteReader();
+
+                List<PartidoSinJugarBE> lista_partidos;
+                PartidoSinJugarBE objPartidoBE;
+
+                lista_partidos = new List<PartidoSinJugarBE>();
+
+                while(dr_partidos.Read())
+                {
+                    objPartidoBE = new PartidoSinJugarBE();
+
+                    objPartidoBE.Codigo_partido = dr_partidos.GetInt32(0);
+                    objPartidoBE.Pais = dr_partidos.GetString(1);
+                    objPartidoBE.Liga = dr_partidos.GetString(2);
+                    objPartidoBE.Equipo_local = dr_partidos.GetString(3);
+                    objPartidoBE.Equipo_visitante = dr_partidos.GetString(4);
+                    objPartidoBE.Fecha = dr_partidos.GetDateTime(5);
+
+                    lista_partidos.Add(objPartidoBE);
+                }
+
+                return lista_partidos;
+            }
+
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_partidos.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }

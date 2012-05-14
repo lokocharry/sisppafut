@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmEditarDatosPartido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditarDatosPartido.Designer.cs">
+      <DependentUpon>frmEditarDatosPartido.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAsignarJugadoresaEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmEditarDatosPartido.resx">
+      <DependentUpon>frmEditarDatosPartido.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAsignarJugadoresaEquipo.resx">
       <DependentUpon>frmAsignarJugadoresaEquipo.cs</DependentUpon>
     </EmbeddedResource>
