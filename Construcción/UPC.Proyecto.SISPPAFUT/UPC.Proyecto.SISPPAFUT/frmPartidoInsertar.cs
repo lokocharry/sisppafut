@@ -40,6 +40,8 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
+                cmb_pais.Items.Clear();
+                cmb_pais.Items.Add("(Seleccione un equipo)");
                 cmb_pais.SelectedIndex = 0;
                 lista_paises = new List<PaisBE>();
                 PaisBC objPaisBC = new PaisBC();
@@ -71,6 +73,9 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmb_visitante.Items.Add("(Seleccione un equipo)");
                 cmb_visitante.SelectedIndex = 0;
 
+                //-- No se muestran equipos ya que no se ha seleccionado ni competición ni temporada
+                cmb_estadio.Items.Clear();
+
                 lista_equipos = new List<EquipoBE>();
                 EquipoBC objEquipoBC = new EquipoBC();
 
@@ -95,6 +100,12 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmb_competicion.Items.Clear();
                 cmb_competicion.Items.Add("(Seleccione una competicion)");
                 cmb_competicion.SelectedIndex = 0;
+
+                //-- No se muestran equipos ya que no se ha seleccionado ni competición ni temporada
+                cmb_local.Items.Clear();
+                cmb_visitante.Items.Clear();
+                cmb_estadio.Items.Clear();
+                cmb_temporada.Items.Clear();
 
                 lista_competiciones = new List<CompeticionBE>();
                 CompeticionBC objCompeticionBC = new CompeticionBC();
@@ -144,6 +155,11 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmb_temporada.Items.Add("(Seleccione una temporada)");
                 cmb_temporada.SelectedIndex = 0;
 
+                //-- No se muestran equipos ya que no se ha seleccionado temporada
+                cmb_local.Items.Clear();
+                cmb_visitante.Items.Clear();
+                cmb_estadio.Items.Clear();
+
                 lista_temporadas = new List<LigaBE>();
                 LigaBC objLigaBC = new LigaBC();
 
@@ -163,17 +179,42 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void cmb_SeleccionarPais(object sender, EventArgs e)
         {
-            if (cmb_pais.SelectedIndex > 0)
+            if (cmb_pais.SelectedIndex == 0)
             {
-                iniciar_competicion();
+                cmb_competicion.Items.Clear();
+                cmb_temporada.Items.Clear();
+                cmb_local.Items.Clear();
+                cmb_visitante.Items.Clear();
+                cmb_estadio.Items.Clear();
+                dtp_fecha.Text = DateTime.Today.ToShortDateString();
             }
+            else
+                if (cmb_pais.SelectedIndex > 0)
+                {
+                    iniciar_competicion();
+                }
         }
 
         private void cmb_SeleccionarEquipoLocal(object sender, EventArgs e)
         {
-            if (cmb_local.SelectedIndex > 0)
+            if (cmb_local.Text == cmb_visitante.Text)
             {
-                iniciar_estadios();
+                cmb_local.SelectedIndex = 0;
+                cmb_estadio.Items.Clear();
+            }
+            else
+                if (cmb_local.SelectedIndex > 0)
+                {
+                    iniciar_estadios();
+                }
+        }
+
+        private void cmb_SeleccionarEquipoVisitante(object sender, EventArgs e)
+        {
+            //-- Impedimento de seleccionar como equipo local y visitante al mismo equipo
+            if (cmb_visitante.Text == cmb_local.Text)
+            {
+                cmb_visitante.SelectedIndex = 0;
             }
         }
 
@@ -195,7 +236,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void inCancelar(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
         }
 
         private void inGuardarPartido(object sender, EventArgs e)
@@ -228,7 +270,10 @@ namespace UPC.Proyecto.SISPPAFUT
                             MessageBox.Show("No se pudo Regitrar al Partido correctamente", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         else
+                        {
                             MessageBox.Show("El Nuevo Partido ha sido Registrado correctamente", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimpiarCampos();
+                        }
                     }
                     else
                         MessageBox.Show("El equipo local no puede ser el mismo que el equipo visitante", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -247,6 +292,12 @@ namespace UPC.Proyecto.SISPPAFUT
             return ((cmb_pais.SelectedIndex>=1) && (cmb_competicion.SelectedIndex>=1)
                     && (cmb_temporada.SelectedIndex >= 1) && (cmb_local.SelectedIndex >= 1)
                     && (cmb_visitante.SelectedIndex >= 1) && (cmb_estadio.SelectedIndex >= 1));
+        }
+
+        private void LimpiarCampos()
+        {
+            iniciar_pais();
+            dtp_fecha.Text = DateTime.Today.ToShortDateString();
         }
     }
 }

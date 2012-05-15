@@ -104,8 +104,6 @@
             // 
             this.cmb_pais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_pais.FormattingEnabled = true;
-            this.cmb_pais.Items.AddRange(new object[] {
-            "(Seleccione un pais...)"});
             this.cmb_pais.Location = new System.Drawing.Point(121, 31);
             this.cmb_pais.Name = "cmb_pais";
             this.cmb_pais.Size = new System.Drawing.Size(199, 21);
@@ -159,6 +157,7 @@
             this.cmb_visitante.Name = "cmb_visitante";
             this.cmb_visitante.Size = new System.Drawing.Size(199, 21);
             this.cmb_visitante.TabIndex = 13;
+            this.cmb_visitante.SelectedIndexChanged += new System.EventHandler(this.cmb_SeleccionarEquipoVisitante);
             // 
             // btn_guardar
             // 
@@ -201,7 +200,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 242);
+            this.ClientSize = new System.Drawing.Size(672, 228);
+            this.ControlBox = false;
             this.Controls.Add(this.dtp_fecha);
             this.Controls.Add(this.lbl_nacimiento);
             this.Controls.Add(this.btn_cancelar);
@@ -218,6 +218,9 @@
             this.Controls.Add(this.lbl_liga);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbl_pais);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmPartidoInsertar";
             this.Text = "Partido";
             this.ResumeLayout(false);
