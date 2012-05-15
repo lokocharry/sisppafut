@@ -41,5 +41,19 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public void editar_Partido(int codigoPartido, DateTime nuevaFecha)
+        {
+            PartidoDALC objPartidoDALC;
+            try
+            {
+                objPartidoDALC = new PartidoDALC();
+                objPartidoDALC.editar_partido(codigoPartido, nuevaFecha);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

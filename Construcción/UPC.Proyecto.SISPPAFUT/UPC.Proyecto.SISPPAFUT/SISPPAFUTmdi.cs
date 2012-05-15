@@ -108,6 +108,8 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 frmJugadorInsertar frmJugador = frmJugadorInsertar.Instance();
+                frmJugador.Jugador = null;
+                frmJugador.Modo = 1;
                 frmJugador.MdiParent = this;
                 frmJugador.Show();
                 frmJugador.BringToFront();
@@ -123,6 +125,8 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 frmPartidoInsertar frmPartido = frmPartidoInsertar.Instance();
+                frmPartido.Partido = null;
+                frmPartido.Modo = 1;
                 frmPartido.MdiParent = this;
                 frmPartido.Show();
                 frmPartido.BringToFront();

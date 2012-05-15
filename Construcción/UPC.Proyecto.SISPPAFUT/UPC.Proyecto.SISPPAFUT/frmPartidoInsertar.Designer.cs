@@ -223,6 +223,7 @@
             this.MinimizeBox = false;
             this.Name = "frmPartidoInsertar";
             this.Text = "Partido";
+            this.Load += new System.EventHandler(this.frmPartidoInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

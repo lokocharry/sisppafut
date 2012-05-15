@@ -167,5 +167,54 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 conexion.Dispose();
             }
         }
+
+        public void editar_partido(int codigoPartido, DateTime nuevaFecha)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_PartidoEditar = null;
+
+            SqlParameter prm_CodigoPartido;
+            SqlParameter prm_Fecha;
+
+            String sqlUpdatePartido;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlUpdatePartido = "spUpdatePartido";
+
+                cmd_PartidoEditar = new SqlCommand(sqlUpdatePartido, conexion);
+                cmd_PartidoEditar.CommandType = CommandType.StoredProcedure;
+
+                prm_CodigoPartido = new SqlParameter();
+                prm_CodigoPartido.ParameterName = "@CodPartido";
+                prm_CodigoPartido.SqlDbType = SqlDbType.Int;
+                prm_CodigoPartido.Value = codigoPartido;
+
+                prm_Fecha = new SqlParameter();
+                prm_Fecha.ParameterName = "@Fecha";
+                prm_Fecha.SqlDbType = SqlDbType.Date;
+                prm_Fecha.Value = nuevaFecha;
+
+                cmd_PartidoEditar.Parameters.Add(prm_CodigoPartido);
+                cmd_PartidoEditar.Parameters.Add(prm_Fecha);
+
+                cmd_PartidoEditar.Connection.Open();
+                cmd_PartidoEditar.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+                throw;
+            }
+            finally
+            {
+                cmd_PartidoEditar.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }

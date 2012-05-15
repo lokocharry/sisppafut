@@ -127,10 +127,29 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
+                if (_Modo == 1)
+                {
+                    guardarJugador();
+                }
+                else if (_Modo == 2)
+                {
+                    editarJugador();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        private void guardarJugador()
+        {
+            try
+            {
                 if (ValidarCampos())
                 {
                     //-- Basado el la altura máx. alcanzada por el hombre y peso máx. registrado en un jugador de fútbol.
-                    if(Convert.ToDouble(txt_altura.Text) <= 2.72 && Convert.ToDouble(txt_peso.Text) <= 165)
+                    if (Convert.ToDouble(txt_altura.Text) <= 2.72 && Convert.ToDouble(txt_peso.Text) <= 165)
                     {
                         JugadorBE objJugadorBE;
                         JugadorBC objJugadorBC;
@@ -158,6 +177,36 @@ namespace UPC.Proyecto.SISPPAFUT
                     }
                     else
                         MessageBox.Show("Corriga la altura y/o peso del jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Todos los campos son obligatorios.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void editarJugador()
+        {
+            try
+            {
+                if (ValidarCampos())
+                {
+                    if (Convert.ToDouble(txt_altura.Text) <= 2.72 && Convert.ToDouble(txt_peso.Text) <= 165)
+                    {
+                        JugadorBC objJugadorBC = new JugadorBC();
+                        objJugadorBC.editar_Jugador(Jugador.CodigoJugador, Convert.ToDecimal(txt_altura.Text),
+                            Convert.ToDecimal(txt_peso.Text));
+
+                        MessageBox.Show("El jugador ha sido actualizado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Corriga la altura y/o peso del jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {

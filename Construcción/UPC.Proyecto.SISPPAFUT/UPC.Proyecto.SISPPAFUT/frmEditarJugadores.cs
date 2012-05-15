@@ -109,5 +109,19 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            frmJugadorInsertar frmEquipo = new frmJugadorInsertar();
+            frmEquipo.MdiParent = this.MdiParent;
+            frmEquipo.Modo = 2;
+
+            JugadorBE objJugador;
+            objJugador = listaJugadores[dgJugadores.SelectedRows[0].Index];
+
+            frmEquipo.Jugador = objJugador;
+            frmEquipo.Show();
+            frmEquipo.BringToFront();
+        }
+
     }
 }

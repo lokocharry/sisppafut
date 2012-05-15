@@ -19,6 +19,19 @@ namespace UPC.Proyecto.SISPPAFUT
         List<EquipoBE> lista_equipos;
         List<EstadioBE> lista_estadios;
         List<LigaBE> lista_temporadas;
+        int _Modo;
+        PartidoBE _Partido;
+
+        public int Modo
+        {
+            get { return _Modo; }
+            set { _Modo = value; }
+        }
+        public PartidoBE Partido
+        {
+            get { return _Partido; }
+            set { _Partido = value; }
+        }
 
         private static frmPartidoInsertar frmPartido = null;
         public static frmPartidoInsertar Instance()
@@ -30,10 +43,62 @@ namespace UPC.Proyecto.SISPPAFUT
             return frmPartido;
         }
 
+        private void iniciarModo()
+        {
+            if (_Modo == 1)
+            {
+                frmPartidoInsert();
+            }
+            else if (_Modo == 2)
+            {
+                frmPartidoEdit();
+            }
+        }
+
+        private void iniciarControles()
+        {
+            if (_Modo == 1)
+            {
+                cmb_pais.Enabled = true;
+                cmb_competicion.Enabled = true;
+                cmb_temporada.Enabled = true;
+                cmb_local.Enabled = true;
+                cmb_visitante.Enabled = true;
+                cmb_estadio.Enabled = true;
+                dtp_fecha.Enabled = true;
+            }
+            if (_Modo == 2)
+            {
+                cmb_pais.Enabled = false;
+                cmb_pais.Visible = false;
+                lbl_pais.Visible = false;
+                cmb_competicion.Enabled = false;
+                cmb_temporada.Enabled = false;
+                cmb_local.Enabled = false;
+                cmb_visitante.Enabled = false;
+                cmb_estadio.Enabled = false;
+                dtp_fecha.Enabled = true;
+            }
+        }
+
         public frmPartidoInsertar()
         {
             InitializeComponent();
+        }
+
+        private void frmPartidoInsert()
+        {
             iniciar_pais();
+        }
+
+        private void frmPartidoEdit()
+        {
+            llenarDatosPartido();
+        }
+
+        private void llenarDatosPartido()
+        {
+            
         }
 
         private void iniciar_pais()
@@ -298,6 +363,19 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             iniciar_pais();
             dtp_fecha.Text = DateTime.Today.ToShortDateString();
+        }
+
+        private void frmPartidoInsertar_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                iniciarControles();
+                iniciarModo();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }
     }
 }
