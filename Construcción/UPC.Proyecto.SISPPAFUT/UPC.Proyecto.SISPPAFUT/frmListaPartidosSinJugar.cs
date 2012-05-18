@@ -52,12 +52,17 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 frmEditarDatosPartido frm = frmEditarDatosPartido.Instance();
                 frm.MdiParent = this.MdiParent;
+                
+                frm.Codigo_partido = Convert.ToInt32(dgv_lista_partidos.Rows[dgv_lista_partidos.CurrentRow.Index].Cells["cod_partido"].Value);
+                frm.Equipo_local = dgv_lista_partidos.Rows[dgv_lista_partidos.CurrentRow.Index].Cells["partido_local"].Value.ToString();
+                frm.Equipo_visita = dgv_lista_partidos.Rows[dgv_lista_partidos.CurrentRow.Index].Cells["partido_visita"].Value.ToString();
+                
                 frm.Show();
                 frm.BringToFront();
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 

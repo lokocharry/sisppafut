@@ -36,6 +36,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmonestacionDALC.cs" />
     <Compile Include="CompeticionDALC.cs" />
     <Compile Include="EquipoDALC.cs">
       <SubType>Code</SubType>
@@ -43,6 +44,7 @@
     <Compile Include="EstadioDALC.cs" />
     <Compile Include="ExcepcionDALC.cs" />
     <Compile Include="JugadorDALC.cs" />
+    <Compile Include="JugadorEquipoDALC.cs" />
     <Compile Include="LigaDALC.cs" />
     <Compile Include="LigaEquipoDALC.cs" />
     <Compile Include="LogDALC.cs" />

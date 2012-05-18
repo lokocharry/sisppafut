@@ -42,6 +42,22 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
+        public List<JugadorBE> listar_Jugadores_xEquipo(int codigo_equipo)
+        {
+            JugadorDALC objJugadorDALC;
+
+            try
+            {
+                objJugadorDALC = new JugadorDALC();
+                return objJugadorDALC.listar_Jugadores_xEquipo(codigo_equipo);
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public void asignar_JugadoraEquipo(List<JugadorEquipoBE> lista_jugadores)
         {
             JugadorDALC objJugadorDALC;

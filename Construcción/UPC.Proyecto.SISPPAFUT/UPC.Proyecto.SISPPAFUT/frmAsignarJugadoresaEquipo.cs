@@ -16,6 +16,7 @@ namespace UPC.Proyecto.SISPPAFUT
         List<PaisBE> lista_paises;
         List<EquipoBE> lista_equipos;
         List<JugadorBE> lista_jugadores;
+        List<JugadorEquipoBE> lista_jugadores_equipo;
         List<JugadorEquipoBE> lista_jugadores_seleccionados;
 
         private static frmAsignarJugadoresaEquipo frmAsignarJugador = null;
@@ -44,6 +45,10 @@ namespace UPC.Proyecto.SISPPAFUT
             llenar_combo_jugadores();
 
             lista_jugadores_seleccionados = new List<JugadorEquipoBE>();
+            lista_jugadores_equipo = new List<JugadorEquipoBE>();
+
+            JugadorEquipoBC obj = new JugadorEquipoBC();
+            lista_jugadores_equipo = obj.listaJugadorEquipo();
 
             cmb_paises.SelectedIndex = 0;
             cmb_equipos.SelectedIndex = 0;
@@ -98,14 +103,33 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btn_agregar_jugadores_Click(object sender, EventArgs e)
         {
-            if(cmb_jugadores.SelectedIndex != 0)
+            int pos_equipo = cmb_equipos.SelectedIndex;
+            int pos_jugador = cmb_jugadores.SelectedIndex;
+            bool con_equipo = false;
+
+            if(pos_jugador != 0 || pos_equipo != 0)
             {
                 JugadorEquipoBE obj = new JugadorEquipoBE();
-                obj.Codigo_equipo = lista_equipos[cmb_equipos.SelectedIndex - 1].CodigoEquipo;
-                obj.Codigo_jugador = lista_jugadores[cmb_jugadores.SelectedIndex - 1].CodigoJugador;
+                obj.Codigo_equipo = lista_equipos[pos_equipo - 1].CodigoEquipo;
+                obj.Codigo_jugador = lista_jugadores[pos_jugador - 1].CodigoJugador;
 
-                lista_jugadores_seleccionados.Add(obj);
-                dgvJugadoresDataBind();
+                for (int i = 0; i < lista_jugadores_equipo.Count; i++)
+                    if (obj.Codigo_jugador == lista_jugadores_equipo[i].Codigo_jugador)
+                    {
+                        con_equipo = true;
+                        break;
+                    }
+
+                if (!con_equipo)
+                {
+                    lista_jugadores_seleccionados.Add(obj);
+                    dgvJugadoresDataBind();
+                }
+
+                else
+                {
+                    MessageBox.Show("El jugador ya se encuentra registrado en un equipo.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }   
         }
 

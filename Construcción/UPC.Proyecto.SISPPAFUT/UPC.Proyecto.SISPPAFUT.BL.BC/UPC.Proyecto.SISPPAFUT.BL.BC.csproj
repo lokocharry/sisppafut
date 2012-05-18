@@ -36,11 +36,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmonestacionBC.cs" />
     <Compile Include="CompeticionBC.cs" />
     <Compile Include="EquipoBC.cs" />
     <Compile Include="EstadioBC.cs" />
     <Compile Include="ExcepcionBC.cs" />
     <Compile Include="JugadorBC.cs" />
+    <Compile Include="JugadorEquipoBC.cs" />
     <Compile Include="LigaBC.cs" />
     <Compile Include="LigaEquipoBC.cs" />
     <Compile Include="LogBC.cs" />

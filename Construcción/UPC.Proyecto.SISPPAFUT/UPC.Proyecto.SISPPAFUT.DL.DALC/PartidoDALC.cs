@@ -168,6 +168,64 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
+        public PartidoBE obtener_Partido(int codigo_partido)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_partido;
+            SqlCommand cmd_partido = null;
+            String sqlPartidoObtener;
+            SqlParameter prm_codigo_partido;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlPartidoObtener = "spReadPartido";
+                cmd_partido = conexion.CreateCommand();
+                cmd_partido.CommandText = sqlPartidoObtener;
+                cmd_partido.CommandType = CommandType.StoredProcedure;
+
+                prm_codigo_partido = new SqlParameter();
+                prm_codigo_partido.ParameterName = "@CodPartido";
+                prm_codigo_partido.SqlDbType = SqlDbType.Int;
+                prm_codigo_partido.Value = codigo_partido;
+
+                cmd_partido.Parameters.Add(prm_codigo_partido);
+
+                cmd_partido.Connection.Open();
+                dr_partido = cmd_partido.ExecuteReader();
+
+                PartidoBE objPartidoBE = new PartidoBE();
+
+                if(dr_partido.Read())
+                {
+                    objPartidoBE.Codigo_partido = dr_partido.GetInt32(dr_partido.GetOrdinal("CodPartido"));
+                    objPartidoBE.Codigo_liga = dr_partido.GetInt32(dr_partido.GetOrdinal("CodLiga"));
+                    objPartidoBE.Codigo_equipo_local = dr_partido.GetInt32(dr_partido.GetOrdinal("CodEquipoL"));
+                    objPartidoBE.Codigo_equipo_visitante = dr_partido.GetInt32(dr_partido.GetOrdinal("CodEquipoV"));
+                    objPartidoBE.Codigo_estadio = dr_partido.GetInt32(dr_partido.GetOrdinal("CodEstadio"));
+                    objPartidoBE.Fecha_partido = dr_partido.GetDateTime(dr_partido.GetOrdinal("Fecha"));
+                }
+
+                return objPartidoBE;
+            }
+
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_partido.Connection.Close();
+                conexion.Dispose();
+            }
+        }
+
         public void editar_partido(int codigoPartido, DateTime nuevaFecha)
         {
             SqlConnection conexion = null;

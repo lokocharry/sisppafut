@@ -42,9 +42,26 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
+        public PartidoBE obtener_Partido(int codigo_partido)
+        {
+            PartidoDALC objPartidoDALC;
+
+            try
+            {
+                objPartidoDALC = new PartidoDALC();
+                return objPartidoDALC.obtener_Partido(codigo_partido);
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public void editar_Partido(int codigoPartido, DateTime nuevaFecha)
         {
             PartidoDALC objPartidoDALC;
+            
             try
             {
                 objPartidoDALC = new PartidoDALC();
