@@ -57,6 +57,118 @@ namespace UPC.Proyecto.SISPPAFUT
         public frmEditarDatosPartido()
         {
             InitializeComponent();
+            iniciarGrillaEquipoLocal();
+            iniciarGrillaEquipoVisitante();
+        }
+
+        public void iniciarGrillaEquipoLocal()
+        {
+            try
+            {
+                dgv_equipo_local.AllowUserToAddRows = false;
+                dgv_equipo_local.AllowUserToDeleteRows = false;
+                dgv_equipo_local.AllowUserToResizeColumns = false;
+                dgv_equipo_local.AllowUserToResizeRows = false;
+
+                dgv_equipo_local.AllowDrop = false;
+
+                dgv_equipo_local.MultiSelect = false; //-- Se protege la grilla para evitar seleccionar varios registros
+
+                //dgv_equipo_local.ReadOnly = true; //-- Se protege la grilla para evitar poder modificar los datos de la grilla
+
+                // Lo siguiente es para elegir toda la fila selecionada
+                dgv_equipo_local.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                dgv_equipo_local.Columns[0].Visible = false;
+                dgv_equipo_local.Columns[1].Visible = true;
+                dgv_equipo_local.Columns[2].Visible = true;
+                dgv_equipo_local.Columns[3].Visible = false;
+                dgv_equipo_local.Columns[4].Visible = false;
+                dgv_equipo_local.Columns[5].Visible = true;
+                dgv_equipo_local.Columns[6].Visible = false;
+                dgv_equipo_local.Columns[7].Visible = false;
+                dgv_equipo_local.Columns[8].Visible = true;
+                dgv_equipo_local.Columns[9].Visible = true;
+
+                DataGridViewCellStyle csFilaPar = new DataGridViewCellStyle();
+                DataGridViewCellStyle csFilaImpar = new DataGridViewCellStyle();
+
+                csFilaPar.BackColor = dgv_equipo_local.BackgroundColor;
+                csFilaImpar.BackColor = dgv_equipo_local.GridColor;
+
+                int elemento;
+
+                for (elemento = 0; elemento < dgv_equipo_local.Rows.Count; elemento++)
+                {
+                    if (elemento % 2 == 0)
+                    {
+                        dgv_equipo_local.Rows[elemento].DefaultCellStyle = csFilaPar;
+                    }
+                    else
+                    {
+                        dgv_equipo_local.Rows[elemento].DefaultCellStyle = csFilaImpar;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        public void iniciarGrillaEquipoVisitante()
+        {
+            try
+            {
+                dgv_equipo_visitante.AllowUserToAddRows = false;
+                dgv_equipo_visitante.AllowUserToDeleteRows = false;
+                dgv_equipo_visitante.AllowUserToResizeColumns = false;
+                dgv_equipo_visitante.AllowUserToResizeRows = false;
+
+                dgv_equipo_visitante.AllowDrop = false;
+
+                dgv_equipo_visitante.MultiSelect = false; //-- Se protege la grilla para evitar seleccionar varios registros
+
+                //dgv_equipo_visitante.ReadOnly = true; //-- Se protege la grilla para evitar poder modificar los datos de la grilla
+
+                // Lo siguiente es para elegir toda la fila selecionada
+                dgv_equipo_visitante.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+                dgv_equipo_visitante.Columns[0].Visible = false;
+                dgv_equipo_visitante.Columns[1].Visible = true;
+                dgv_equipo_visitante.Columns[2].Visible = true;
+                dgv_equipo_visitante.Columns[3].Visible = false;
+                dgv_equipo_visitante.Columns[4].Visible = false;
+                dgv_equipo_visitante.Columns[5].Visible = true;
+                dgv_equipo_visitante.Columns[6].Visible = false;
+                dgv_equipo_visitante.Columns[7].Visible = false;
+                dgv_equipo_visitante.Columns[8].Visible = true;
+                dgv_equipo_visitante.Columns[9].Visible = true;
+
+                DataGridViewCellStyle csFilaPar = new DataGridViewCellStyle();
+                DataGridViewCellStyle csFilaImpar = new DataGridViewCellStyle();
+
+                csFilaPar.BackColor = dgv_equipo_visitante.BackgroundColor;
+                csFilaImpar.BackColor = dgv_equipo_visitante.GridColor;
+
+                int elemento;
+
+                for (elemento = 0; elemento < dgv_equipo_visitante.Rows.Count; elemento++)
+                {
+                    if (elemento % 2 == 0)
+                    {
+                        dgv_equipo_visitante.Rows[elemento].DefaultCellStyle = csFilaPar;
+                    }
+                    else
+                    {
+                        dgv_equipo_visitante.Rows[elemento].DefaultCellStyle = csFilaImpar;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }
 
         private void setearCombos()
@@ -117,7 +229,7 @@ namespace UPC.Proyecto.SISPPAFUT
             lista_equipo_visita = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_visitante);
 
             dgv_equipo_local.DataSource = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_local);
-            dgv_equip_visitante.DataSource = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_visitante);
+            dgv_equipo_visitante.DataSource = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_visitante);
         }
 
         private void cmb_amonestaciones_equipo_SelectedIndexChanged(object sender, EventArgs e)
@@ -206,6 +318,11 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             AmonestacionBC objAmonestaionesBC = new AmonestacionBC();
             objAmonestaionesBC.insertar_Amonestacion(lista_amonestaciones);
+        }
+
+        private void inSalir(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

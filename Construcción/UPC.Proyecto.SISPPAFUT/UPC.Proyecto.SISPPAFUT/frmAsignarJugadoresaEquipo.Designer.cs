@@ -112,7 +112,7 @@
             // 
             this.btn_agregar_jugadores.Location = new System.Drawing.Point(301, 64);
             this.btn_agregar_jugadores.Name = "btn_agregar_jugadores";
-            this.btn_agregar_jugadores.Size = new System.Drawing.Size(138, 23);
+            this.btn_agregar_jugadores.Size = new System.Drawing.Size(105, 23);
             this.btn_agregar_jugadores.TabIndex = 6;
             this.btn_agregar_jugadores.Text = "Agregar a equipo";
             this.btn_agregar_jugadores.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             this.h_altura});
             this.dgv_jugadores.Location = new System.Drawing.Point(40, 112);
             this.dgv_jugadores.Name = "dgv_jugadores";
-            this.dgv_jugadores.Size = new System.Drawing.Size(461, 150);
+            this.dgv_jugadores.Size = new System.Drawing.Size(497, 150);
             this.dgv_jugadores.TabIndex = 7;
             // 
             // h_nombre
@@ -212,6 +212,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(570, 342);
+            this.ControlBox = false;
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.dgv_jugadores);
@@ -222,6 +223,9 @@
             this.Controls.Add(this.lbl_jugador);
             this.Controls.Add(this.lbl_equipo);
             this.Controls.Add(this.lbl_pais);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAsignarJugadoresaEquipo";
             this.Text = "Asignar Jugadores a un Equipo";
             this.Load += new System.EventHandler(this.frmAsignarJugadoresaEquipo_Load);

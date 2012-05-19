@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dgv_lista_partidos = new System.Windows.Forms.DataGridView();
-            this.btn_editar_partido = new System.Windows.Forms.Button();
-            this.btn_editar_datos_partido = new System.Windows.Forms.Button();
             this.cod_partido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partido_pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partido_liga = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partido_local = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partido_visita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.partido_fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btn_editar_partido = new System.Windows.Forms.Button();
+            this.btn_editar_datos_partido = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_lista_partidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,28 +52,8 @@
             this.partido_fecha});
             this.dgv_lista_partidos.Location = new System.Drawing.Point(22, 25);
             this.dgv_lista_partidos.Name = "dgv_lista_partidos";
-            this.dgv_lista_partidos.Size = new System.Drawing.Size(611, 354);
+            this.dgv_lista_partidos.Size = new System.Drawing.Size(546, 354);
             this.dgv_lista_partidos.TabIndex = 0;
-            // 
-            // btn_editar_partido
-            // 
-            this.btn_editar_partido.Location = new System.Drawing.Point(346, 402);
-            this.btn_editar_partido.Name = "btn_editar_partido";
-            this.btn_editar_partido.Size = new System.Drawing.Size(113, 23);
-            this.btn_editar_partido.TabIndex = 1;
-            this.btn_editar_partido.Text = "Editar Partido";
-            this.btn_editar_partido.UseVisualStyleBackColor = true;
-            this.btn_editar_partido.Click += new System.EventHandler(this.btn_editar_partido_Click);
-            // 
-            // btn_editar_datos_partido
-            // 
-            this.btn_editar_datos_partido.Location = new System.Drawing.Point(465, 402);
-            this.btn_editar_datos_partido.Name = "btn_editar_datos_partido";
-            this.btn_editar_datos_partido.Size = new System.Drawing.Size(168, 23);
-            this.btn_editar_datos_partido.TabIndex = 2;
-            this.btn_editar_datos_partido.Text = "Editar Datos del Partido";
-            this.btn_editar_datos_partido.UseVisualStyleBackColor = true;
-            this.btn_editar_datos_partido.Click += new System.EventHandler(this.btn_editar_datos_partido_Click);
             // 
             // cod_partido
             // 
@@ -112,14 +92,37 @@
             this.partido_fecha.HeaderText = "Fecha";
             this.partido_fecha.Name = "partido_fecha";
             // 
+            // btn_editar_partido
+            // 
+            this.btn_editar_partido.Location = new System.Drawing.Point(281, 397);
+            this.btn_editar_partido.Name = "btn_editar_partido";
+            this.btn_editar_partido.Size = new System.Drawing.Size(113, 23);
+            this.btn_editar_partido.TabIndex = 1;
+            this.btn_editar_partido.Text = "Editar Partido";
+            this.btn_editar_partido.UseVisualStyleBackColor = true;
+            this.btn_editar_partido.Click += new System.EventHandler(this.btn_editar_partido_Click);
+            // 
+            // btn_editar_datos_partido
+            // 
+            this.btn_editar_datos_partido.Location = new System.Drawing.Point(400, 397);
+            this.btn_editar_datos_partido.Name = "btn_editar_datos_partido";
+            this.btn_editar_datos_partido.Size = new System.Drawing.Size(168, 23);
+            this.btn_editar_datos_partido.TabIndex = 2;
+            this.btn_editar_datos_partido.Text = "Editar Datos del Partido";
+            this.btn_editar_datos_partido.UseVisualStyleBackColor = true;
+            this.btn_editar_datos_partido.Click += new System.EventHandler(this.btn_editar_datos_partido_Click);
+            // 
             // frmListaPartidosSinJugar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(656, 441);
+            this.ClientSize = new System.Drawing.Size(592, 441);
             this.Controls.Add(this.btn_editar_datos_partido);
             this.Controls.Add(this.btn_editar_partido);
             this.Controls.Add(this.dgv_lista_partidos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListaPartidosSinJugar";
             this.Text = "Lista de Partidos sin Jugar";
             this.Load += new System.EventHandler(this.frmListaPartidosSinJugar_Load);

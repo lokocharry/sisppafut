@@ -48,6 +48,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 
             try
             {
+                //-- Se lista solo los jugadores que estén habilitados para jugar (excluir jugadores lesionados y suspendidos)
                 objJugadorDALC = new JugadorDALC();
                 return objJugadorDALC.listar_Jugadores_xEquipo(codigo_equipo);
             }

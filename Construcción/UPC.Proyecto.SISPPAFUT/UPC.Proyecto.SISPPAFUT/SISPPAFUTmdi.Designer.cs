@@ -48,12 +48,12 @@
             this.asignarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPartidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -190,6 +190,13 @@
             this.nuevoJugadorToolStripMenuItem.Text = "Nuevo Jugador";
             this.nuevoJugadorToolStripMenuItem.Click += new System.EventHandler(this.InNuevoJugador);
             // 
+            // editarJugadoresToolStripMenuItem
+            // 
+            this.editarJugadoresToolStripMenuItem.Name = "editarJugadoresToolStripMenuItem";
+            this.editarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.editarJugadoresToolStripMenuItem.Text = "Editar Jugador";
+            this.editarJugadoresToolStripMenuItem.Click += new System.EventHandler(this.editarJugadoresToolStripMenuItem_Click);
+            // 
             // partidoToolStripMenuItem1
             // 
             this.partidoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -225,13 +232,6 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
-            // editarJugadoresToolStripMenuItem
-            // 
-            this.editarJugadoresToolStripMenuItem.Name = "editarJugadoresToolStripMenuItem";
-            this.editarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.editarJugadoresToolStripMenuItem.Text = "Editar Jugador";
-            this.editarJugadoresToolStripMenuItem.Click += new System.EventHandler(this.editarJugadoresToolStripMenuItem_Click);
-            // 
             // SISPPAFUTmdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -245,6 +245,7 @@
             this.Name = "SISPPAFUTmdi";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sistema Inteligente para Pronóstico de Partidos de Fútbol";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
