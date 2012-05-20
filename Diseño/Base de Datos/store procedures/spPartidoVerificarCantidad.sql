@@ -1,7 +1,7 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spPartidoVerificarCantidad]    Script Date: 05/20/2012 00:14:13 ******/
+/****** Object:  StoredProcedure [dbo].[spPartidoVerificarCantidad]    Script Date: 05/20/2012 00:44:31 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -23,7 +23,7 @@ BEGIN
 	declare @codigoLiga int
 	declare @resultado varchar(13)
 	set @codigoLiga = @codLiga;
-	set @tPartidos = (select (L.QEquipos-1)*2 from Liga L where L.CodLiga = @codigoLiga);
+	set @tPartidos = (select (L.QEquipos-1)*L.QEquipos from Liga L where L.CodLiga = @codigoLiga);
 	if(@tPartidos > (select COUNT(*) from Partido P where P.CodLiga = @codigoLiga))
     	set @resultado = 'Registrar'
     else
