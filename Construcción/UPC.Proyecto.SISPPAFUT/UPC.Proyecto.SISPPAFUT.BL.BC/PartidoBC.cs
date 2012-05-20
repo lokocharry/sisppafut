@@ -11,12 +11,25 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
     {
         public int insertar_Partido(PartidoBE objPartidoBE)
         {
-            PartidoDALC objPartidoDALC;
+            PartidoDALC objPartidoDALC = new PartidoDALC();
             int resultado = 0;
             try
             {
-                objPartidoDALC = new PartidoDALC();
-                resultado = objPartidoDALC.insertar_partido(objPartidoBE);
+                if (objPartidoDALC.existePartido(objPartidoBE.Codigo_equipo_local, objPartidoBE.Codigo_equipo_visitante, objPartidoBE.Codigo_liga) == 1)
+                {
+                    return -1;
+                }
+                else
+                {
+                    if (objPartidoDALC.limitePartidosLiga(objPartidoBE.Codigo_liga) == "No registrar")
+                    {
+                        return -1;
+                    }
+                    else
+                    {
+                        resultado = objPartidoDALC.insertar_partido(objPartidoBE);
+                    }
+                }
                 return resultado;
             }
 

@@ -331,6 +331,11 @@ namespace UPC.Proyecto.SISPPAFUT
 
                         codigo_partido = objPartidoBC.insertar_Partido(objPartidoBE);
 
+                        if (codigo_partido == -1)
+                        {
+                            MessageBox.Show("Partido ya ha sido registrado para dicha liga ó la cantidad de partidos para la liga ha llegado a su límite. Verifique los datos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
                         if (codigo_partido == 0)
                             MessageBox.Show("No se pudo Regitrar al Partido correctamente", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
 

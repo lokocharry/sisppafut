@@ -274,5 +274,112 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 conexion.Dispose();
             }
         }
+
+        public int existePartido(int codEqLocal, int codEqVisitante, int codLiga)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_Partido;
+            SqlCommand cmd_PartidoValidar;
+            String sqlPartidoValidar;
+            SqlParameter prm_codEqLocal;
+            SqlParameter prm_codEqVisitante;
+            SqlParameter prm_codLiga;
+
+            int cantidad = 0;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlPartidoValidar = "spPartidoVerificarRepetido";
+
+                cmd_PartidoValidar = new SqlCommand(sqlPartidoValidar, conexion);
+                cmd_PartidoValidar.CommandType = CommandType.StoredProcedure;
+
+                prm_codEqLocal = new SqlParameter();
+                prm_codEqLocal.ParameterName = "@codEqLocal";
+                prm_codEqLocal.SqlDbType = SqlDbType.Int;
+                prm_codEqLocal.Value = codEqLocal;
+
+                prm_codEqVisitante = new SqlParameter();
+                prm_codEqVisitante.ParameterName = "@codEqVisitante";
+                prm_codEqVisitante.SqlDbType = SqlDbType.Int;
+                prm_codEqVisitante.Value = codEqVisitante;
+
+                prm_codLiga = new SqlParameter();
+                prm_codLiga.ParameterName = "@codLiga";
+                prm_codLiga.SqlDbType = SqlDbType.Int;
+                prm_codLiga.Value = codLiga;
+
+                cmd_PartidoValidar.Parameters.Add(prm_codEqLocal);
+                cmd_PartidoValidar.Parameters.Add(prm_codEqVisitante);
+                cmd_PartidoValidar.Parameters.Add(prm_codLiga);
+
+                cmd_PartidoValidar.Connection.Open();
+                dr_Partido = cmd_PartidoValidar.ExecuteReader();
+
+                if (dr_Partido.Read())
+                {
+                    cantidad = dr_Partido.GetInt32(dr_Partido.GetOrdinal("Cantidad"));
+                }
+
+            cmd_PartidoValidar.Connection.Close();
+                conexion.Dispose();
+
+                return cantidad;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+        }
+
+        public String limitePartidosLiga(int codLiga)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_Partido;
+            SqlCommand cmd_PartidoValidar;
+            String sqlPartidoValidar;
+            SqlParameter prm_codLiga;    
+
+            String resultado = "";
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlPartidoValidar = "spPartidoVerificarCantidad";
+
+                cmd_PartidoValidar = new SqlCommand(sqlPartidoValidar, conexion);
+                cmd_PartidoValidar.CommandType = CommandType.StoredProcedure;
+
+                prm_codLiga = new SqlParameter();
+                prm_codLiga.ParameterName = "@codLiga";
+                prm_codLiga.SqlDbType = SqlDbType.Int;
+                prm_codLiga.Value = codLiga;
+
+                cmd_PartidoValidar.Parameters.Add(prm_codLiga);
+
+                cmd_PartidoValidar.Connection.Open();
+                dr_Partido = cmd_PartidoValidar.ExecuteReader();
+
+                if (dr_Partido.Read())
+                {
+                    resultado = dr_Partido.GetString(dr_Partido.GetOrdinal("Resultado"));
+                }
+
+                cmd_PartidoValidar.Connection.Close();
+                conexion.Dispose();
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+            /*
+            String resultado = "";
+            return resultado;*/
+        }
     }
 }
