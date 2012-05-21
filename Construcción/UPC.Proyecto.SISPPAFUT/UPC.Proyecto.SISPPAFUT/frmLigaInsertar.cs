@@ -39,6 +39,8 @@ namespace UPC.Proyecto.SISPPAFUT
                 lista_paises = objPaisBC.listarPaises();
 
                 cmb_pais.Items.Clear();
+                cmb_pais.Items.Add("Seleccione un pais...");
+                cmb_pais.SelectedIndex = 0;
 
                 for (int i = 0; i < lista_paises.Count; i++)
                 {
@@ -105,24 +107,35 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 //-- Se lista las competiciones del país seleccionado
                 CompeticionBC objCompeticionBC = new CompeticionBC();
-                List<CompeticionBE> lstCompeticion = objCompeticionBC.ListarCompeticion(cmb_pais.Text);
-
-                cmb_competicion.Items.Clear();
-
-                for (int i = 0; i < lstCompeticion.Count; i++)
+                if (cmb_pais.SelectedIndex > 0)
                 {
-                    cmb_competicion.Items.Add(lstCompeticion[i].Nombre_competicion);
-                }
+                    List<CompeticionBE> lstCompeticion = objCompeticionBC.ListarCompeticion(cmb_pais.Text);
 
-                //-- Se listan los equipos del país seleccionado
-                EquipoBC objEquipoBC = new EquipoBC();
-                List<EquipoBE> lstEquipo = objEquipoBC.listarEquipos(cmb_pais.Text);
+                    if (lstCompeticion.Count != 0)
+                    {
+                        cmb_competicion.Items.Clear();
 
-                cmb_equipo.Items.Clear();
+                        for (int i = 0; i < lstCompeticion.Count; i++)
+                        {
+                            cmb_competicion.Items.Add(lstCompeticion[i].Nombre_competicion);
+                        }
 
-                for (int i = 0; i < lstEquipo.Count; i++)
-                {
-                    cmb_equipo.Items.Add(lstEquipo[i].NombreEquipo);
+                        //-- Se listan los equipos del país seleccionado
+                        EquipoBC objEquipoBC = new EquipoBC();
+                        List<EquipoBE> lstEquipo = objEquipoBC.listarEquipos(cmb_pais.Text);
+
+                        cmb_equipo.Items.Clear();
+
+                        for (int i = 0; i < lstEquipo.Count; i++)
+                        {
+                            cmb_equipo.Items.Add(lstEquipo[i].NombreEquipo);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("El país seleccionado no dispone de ligar para mostrar.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        cmb_pais.SelectedIndex = 0;
+                    }
                 }
             }
             catch (Exception ex)
@@ -263,7 +276,7 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private bool ValidarCampos()
         {
-            return ((cmb_pais.SelectedIndex >= 0) && (cmb_competicion.SelectedIndex >= 0) 
+            return ((cmb_pais.SelectedIndex >= 1) && (cmb_competicion.SelectedIndex >= 0) 
                     && !(txt_temporada.Text == "") && !(txt_nombre.Text == "") && !(txt_cantidad.Text == ""));
         }
         

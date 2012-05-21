@@ -43,15 +43,15 @@ namespace UPC.Proyecto.SISPPAFUT
         private List<JugadorBE> lista_equipo_visita;
         private List<AmonestacionBE> lista_amonestaciones;
 
-        private static frmEditarDatosPartido frm = null;
+        private static frmEditarDatosPartido frmEditarDPartido = null;
         
         public static frmEditarDatosPartido Instance()
         {
-            if (frm == null)
+            if (frmEditarDPartido == null)
             {
-                frm = new frmEditarDatosPartido();
+                frmEditarDPartido = new frmEditarDatosPartido();
             }
-            return frm;
+            return frmEditarDPartido;
         }
 
         public frmEditarDatosPartido()
