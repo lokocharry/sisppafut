@@ -93,5 +93,21 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public String verificar_EstadoSuspension(int codigo_jugador)
+        {
+            JugadorDALC objJugadorDALC;
+
+            try
+            {
+                objJugadorDALC = new JugadorDALC();
+                return objJugadorDALC.verificar_Suspendido(codigo_jugador);
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

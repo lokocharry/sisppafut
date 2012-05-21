@@ -352,5 +352,56 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
+        public String verificar_Suspendido(int codigo_jugador)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_JugadorInsertar = null;
+            SqlDataReader dr_jugadores;
+
+            SqlParameter prm_CodigoJugador;
+
+            String result;
+
+            String sqlJugadorInsertar;
+
+            try
+            { 
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlJugadorInsertar = "spReadEstadoSuspension";
+                cmd_JugadorInsertar = conexion.CreateCommand();
+                cmd_JugadorInsertar.CommandText = sqlJugadorInsertar;
+                cmd_JugadorInsertar.CommandType = CommandType.StoredProcedure;
+
+                prm_CodigoJugador = new SqlParameter();
+                prm_CodigoJugador.ParameterName = "@CodJugador";
+                prm_CodigoJugador.SqlDbType = SqlDbType.Int;
+                prm_CodigoJugador.Value = codigo_jugador;
+
+                cmd_JugadorInsertar.Parameters.Add(prm_CodigoJugador);
+
+                cmd_JugadorInsertar.Connection.Open();
+                dr_jugadores = cmd_JugadorInsertar.ExecuteReader();
+
+                result = dr_jugadores.GetString(0);
+
+                return result;
+            }
+
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_JugadorInsertar.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }

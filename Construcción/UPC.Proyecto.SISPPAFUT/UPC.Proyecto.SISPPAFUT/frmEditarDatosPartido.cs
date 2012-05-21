@@ -42,6 +42,9 @@ namespace UPC.Proyecto.SISPPAFUT
         private List<JugadorBE> lista_equipo_local;
         private List<JugadorBE> lista_equipo_visita;
         private List<AmonestacionBE> lista_amonestaciones;
+        private List<GolBE> lista_goles;
+        private List<LesionPartidoBE> lista_lesiones;
+        private List<JugadorPartidoBE> lista_jugadores_partido;
 
         private static frmEditarDatosPartido frmEditarDPartido = null;
         
@@ -61,6 +64,9 @@ namespace UPC.Proyecto.SISPPAFUT
             iniciarGrillaEquipoVisitante();
         }
 
+<<<<<<< .mine
+        private void EditarDatosPartido_Load(object sender, EventArgs e)
+=======
         public void iniciarGrillaEquipoLocal()
         {
             try
@@ -172,6 +178,256 @@ namespace UPC.Proyecto.SISPPAFUT
         }
 
         private void setearCombos()
+>>>>>>> .r177
+        {
+            objPartidoBE = obtenerPartido();
+
+            lista_equipo_local = new List<JugadorBE>();
+            lista_equipo_visita = new List<JugadorBE>();
+            lista_amonestaciones = new List<AmonestacionBE>();
+            lista_goles = new List<GolBE>();
+            lista_lesiones = new List<LesionPartidoBE>();
+
+            lbl_equipo_local.Text = Equipo_local;
+            lbl_equipo_visitante.Text = Equipo_visita;
+
+            obtenerPartido();
+
+            dgvJugadoresDataBind();
+            setearCombos();
+            llenarCombos();
+        }
+
+        private void cmb_amonestaciones_equipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenar_comboJugadores(cmb_amonestaciones_equipo, cmb_amonestaciones_jugador);
+        }
+
+        private void cmb_goles_equipos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenar_comboJugadores(cmb_goles_equipos, cmb_goles_jugadores); 
+        }
+
+        private void cmb_lesiones_equipos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            llenar_comboJugadores(cmb_lesiones_equipos, cmb_lesiones_jugadores);
+        }
+
+        private void btn_amonestaciones_agregar_Click(object sender, EventArgs e)
+        {
+            int equipo = cmb_amonestaciones_equipo.SelectedIndex;
+
+            AmonestacionBE objAmonestacionBE = new AmonestacionBE();
+
+            objAmonestacionBE.Codigo_partido = Codigo_partido;
+            objAmonestacionBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_amonestaciones_jugador);
+            objAmonestacionBE.Minuto = Convert.ToInt32(cmb_amonestaciones_minuto.SelectedIndex - 1);
+            objAmonestacionBE.Tipo = cmb_amonestaciones_amonestacion.SelectedIndex;
+
+            dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem, 
+                                        cmb_amonestaciones_amonestacion.SelectedItem, cmb_amonestaciones_minuto.SelectedItem);
+
+            lista_amonestaciones.Add(objAmonestacionBE);
+        }
+
+        private void btn_goles_agregar_Click(object sender, EventArgs e)
+        {
+            int equipo = cmb_goles_equipos.SelectedIndex;
+
+            GolBE objGolBE = new GolBE();
+
+            objGolBE.Codigo_partido = Codigo_partido;
+            objGolBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_goles_jugadores);
+            objGolBE.Minuto_gol = Convert.ToInt32(cmb_goles_minuto.SelectedIndex - 1);
+
+            lista_goles.Add(objGolBE);
+
+            dgv_goles.Rows.Add(dame_nombre_jugador(cmb_goles_equipos.SelectedIndex, cmb_goles_jugadores), cmb_goles_equipos.SelectedItem,
+                               cmb_goles_minuto.SelectedItem);
+        }
+
+        private void btn_lesiones_agregar_Click(object sender, EventArgs e)
+        {
+            int equipo = cmb_lesiones_equipos.SelectedIndex;
+
+            LesionPartidoBE objLesionPartidoBE = new LesionPartidoBE();
+
+            objLesionPartidoBE.Codigo_partido = Codigo_partido;
+            objLesionPartidoBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_lesiones_jugadores);
+            objLesionPartidoBE.Tipo_lesion = "";
+            objLesionPartidoBE.Dias_descanso = 0;
+
+            lista_lesiones.Add(objLesionPartidoBE);
+
+            dgv_lesiones.Rows.Add(dame_nombre_jugador(cmb_lesiones_equipos.SelectedIndex, cmb_lesiones_jugadores), cmb_lesiones_equipos.SelectedItem,
+                                cmb_lesiones_minuto.SelectedItem);
+        }
+
+        private void btn_guardar_datos_Click(object sender, EventArgs e)
+        {
+            AmonestacionBC objAmonestaionesBC = new AmonestacionBC();
+            objAmonestaionesBC.insertar_Amonestacion(lista_amonestaciones);
+
+            GolBC objGolBC = new GolBC();
+            objGolBC.insertar_Goles(lista_goles);
+
+            LesionPartidoBC objLesionesBC = new LesionPartidoBC();
+            objLesionesBC.insertar_Lesiones(lista_lesiones);
+
+            JugadorPartidoBC objJugadorPartio = new JugadorPartidoBC();
+            objJugadorPartio.insertar_jugadores(lista_jugadores_partido);
+        }
+
+        private void btn_terminar_Click(object sender, EventArgs e)
+        {
+            dgv_equipo_local.Enabled = false;
+            dgv_equip_visitante.Enabled = false;
+            btn_terminar.Enabled = false;
+            btn_editar.Enabled = true;
+
+            gb_amonestaciones.Enabled = true;
+            gb_goles.Enabled = true;
+            gb_lesiones.Enabled = true;
+
+            lista_jugadores_partido = new List<JugadorPartidoBE>();
+
+            DataGridViewCheckBoxCell check_titular = new DataGridViewCheckBoxCell();
+            DataGridViewCheckBoxCell check_suplente = new DataGridViewCheckBoxCell();
+
+            JugadorPartidoBE objJugadorPartidoBE;
+
+            for (int i = 0; i < lista_equipo_local.Count; i++)
+            {
+                check_titular = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[i].Cells["col_titular"];
+                check_suplente = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[i].Cells["col_suplente"];
+
+                if (check_suplente.Value != null || check_titular.Value != null)
+                {
+                    objJugadorPartidoBE = new JugadorPartidoBE();
+
+                    objJugadorPartidoBE.Codigo_partido = Codigo_partido;
+                    objJugadorPartidoBE.Codigo_jugador = lista_equipo_local[i].CodigoJugador;
+
+                    if (check_titular.Value != null)
+                    {
+                        if((bool)check_titular.Value.Equals(true))
+                            objJugadorPartidoBE.Estado = 1;
+                    }
+
+                    if (check_suplente.Value != null)
+                    {
+                        if ((bool)check_suplente.Value.Equals(true))
+                            objJugadorPartidoBE.Estado = 0;
+                    }
+
+                    lista_jugadores_partido.Add(objJugadorPartidoBE);
+                }
+            }
+
+            for (int i = 0; i < lista_equipo_visita.Count; i++)
+            {
+                check_titular = (DataGridViewCheckBoxCell)dgv_equip_visitante.Rows[i].Cells["col_titular_v"];
+                check_suplente = (DataGridViewCheckBoxCell)dgv_equip_visitante.Rows[i].Cells["col_suplente_v"];
+
+                if (check_suplente.Value != null || check_titular.Value != null)
+                {
+                    objJugadorPartidoBE = new JugadorPartidoBE();
+
+                    objJugadorPartidoBE.Codigo_partido = Codigo_partido;
+                    objJugadorPartidoBE.Codigo_jugador = lista_equipo_visita[i].CodigoJugador;
+
+                    if (check_titular.Value != null)
+                    {
+                        if ((bool)check_titular.Value.Equals(true))
+                            objJugadorPartidoBE.Estado = 1;
+                    }
+
+                    if (check_suplente.Value != null)
+                    {
+                        if ((bool)check_suplente.Value.Equals(true))
+                            objJugadorPartidoBE.Estado = 0;
+                    }
+
+                    lista_jugadores_partido.Add(objJugadorPartidoBE);
+                }
+            }
+        }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            dgv_equipo_local.Enabled = true;
+            dgv_equip_visitante.Enabled = true;
+            btn_terminar.Enabled = true;
+            btn_editar.Enabled = false;
+        }
+
+        private void dgv_equipo_local_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCheckBoxCell check_titular = new DataGridViewCheckBoxCell();
+            check_titular = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[dgv_equipo_local.CurrentRow.Index].Cells["col_titular"];
+
+            DataGridViewCheckBoxCell check_suplente = new DataGridViewCheckBoxCell();
+            check_suplente = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[dgv_equipo_local.CurrentRow.Index].Cells["col_suplente"];
+
+            if (check_titular.Value != null)
+            {
+                check_suplente.Value = false;
+            }
+
+            if (check_suplente.Value != null)
+            {
+                check_titular.Value = false;
+            }
+
+            /*
+            if (ch1.Value == null)
+                ch1.Value = false;
+            switch (ch1.Value.ToString())
+            {
+                case "True":
+                    ch1.Value = false;
+                    break;
+                case "False":
+                    ch1.Value = true;
+                    break;
+            }
+            MessageBox.Show(ch1.Value.ToString());
+            */
+        }
+
+        private void dgv_equip_visitante_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCheckBoxCell check_titular = new DataGridViewCheckBoxCell();
+            check_titular = (DataGridViewCheckBoxCell)dgv_equip_visitante.Rows[dgv_equip_visitante.CurrentRow.Index].Cells["col_titular_v"];
+
+            DataGridViewCheckBoxCell check_suplente = new DataGridViewCheckBoxCell();
+            check_suplente = (DataGridViewCheckBoxCell)dgv_equip_visitante.Rows[dgv_equip_visitante.CurrentRow.Index].Cells["col_suplente_v"];
+
+            if (check_titular.Value != null)
+            {
+                check_suplente.Value = false;
+            }
+
+            if (check_suplente.Value != null)
+            {
+                check_titular.Value = false;
+            }
+        }
+        
+        //------------------------------------------------------------------------------------------
+
+        private void dgvJugadoresDataBind()
+        {
+            JugadorBC objJugadorBC = new JugadorBC();
+
+            lista_equipo_local = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_local);
+            lista_equipo_visita = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_visitante);
+
+            dgv_equipo_local.DataSource = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_local);
+            dgv_equipo_visitante.DataSource = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_visitante);
+        }
+
+        private void setearCombos()
         {
             cmb_amonestaciones_equipo.SelectedIndex = 0;
             cmb_amonestaciones_jugador.SelectedIndex = 0;
@@ -199,54 +455,6 @@ namespace UPC.Proyecto.SISPPAFUT
             cmb_lesiones_equipos.Items.Add(Equipo_visita);
         }
 
-        private void EditarDatosPartido_Load(object sender, EventArgs e)
-        {
-            lista_equipo_local = new List<JugadorBE>();
-            lista_equipo_visita = new List<JugadorBE>();
-            lista_amonestaciones = new List<AmonestacionBE>();
-
-            lbl_equipo_local.Text = Equipo_local;
-            lbl_equipo_visitante.Text = Equipo_visita;
-
-            obtenerPartido();
-
-            dgvJugadoresDataBind();
-            setearCombos();
-            llenarCombos();
-        }
-
-        public void obtenerPartido()
-        {
-            PartidoBC objPartidoBC = new PartidoBC();
-            objPartidoBE = objPartidoBC.obtener_Partido(Codigo_partido);
-        }
-
-        private void dgvJugadoresDataBind()
-        {
-            JugadorBC objJugadorBC = new JugadorBC();
-
-            lista_equipo_local = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_local);
-            lista_equipo_visita = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_visitante);
-
-            dgv_equipo_local.DataSource = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_local);
-            dgv_equipo_visitante.DataSource = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_visitante);
-        }
-
-        private void cmb_amonestaciones_equipo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            llenar_comboJugadores(cmb_amonestaciones_equipo, cmb_amonestaciones_jugador);
-        }
-
-        private void cmb_goles_equipos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            llenar_comboJugadores(cmb_goles_equipos, cmb_goles_jugadores); 
-        }
-
-        private void cmb_lesiones_equipos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            llenar_comboJugadores(cmb_lesiones_equipos, cmb_lesiones_jugadores);
-        }
-
         private void llenar_comboJugadores(ComboBox combo_equipos, ComboBox combo_jugadores)
         {
             combo_jugadores.Items.Clear();
@@ -266,32 +474,24 @@ namespace UPC.Proyecto.SISPPAFUT
 
             combo_jugadores.SelectedIndex = 0;
         }
+        
+        //------------------------------------------------------------------------------------------
 
-        private void btn_amonestaciones_agregar_Click(object sender, EventArgs e)
+        public PartidoBE obtenerPartido()
         {
-            int equipo = cmb_amonestaciones_equipo.SelectedIndex;
-
-            AmonestacionBE objAmonestacionBE = new AmonestacionBE();
-
-            objAmonestacionBE.Codigo_partido = Codigo_partido;
-            objAmonestacionBE.Codigo_jugador = dame_codigo_jugador(equipo);
-            objAmonestacionBE.Minuto = Convert.ToInt32(cmb_amonestaciones_minuto.SelectedIndex - 1);
-            objAmonestacionBE.Tipo = cmb_amonestaciones_amonestacion.SelectedIndex;
-
-            dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex), cmb_amonestaciones_equipo.SelectedItem, cmb_amonestaciones_amonestacion.SelectedItem, cmb_amonestaciones_minuto.SelectedItem);
-
-            lista_amonestaciones.Add(objAmonestacionBE);
+            PartidoBC objPartidoBC = new PartidoBC();
+            return objPartidoBC.obtener_Partido(Codigo_partido);
         }
 
-        private int dame_codigo_jugador(int pos_equipo)
+        private int dame_codigo_jugador(int pos_equipo, ComboBox combo)
         {
             int code;
 
             if (pos_equipo == 1)
-                code = lista_equipo_local[cmb_amonestaciones_jugador.SelectedIndex - 1].CodigoJugador;
+                code = lista_equipo_local[combo.SelectedIndex - 1].CodigoJugador;
 
             else if (pos_equipo == 2)
-                code = lista_equipo_visita[cmb_amonestaciones_jugador.SelectedIndex - 1].CodigoJugador;
+                code = lista_equipo_visita[combo.SelectedIndex - 1].CodigoJugador;
 
             else
                 code = 0;
@@ -299,10 +499,10 @@ namespace UPC.Proyecto.SISPPAFUT
             return code;
         }
 
-        private String dame_nombre_jugador(int pos_equipo)
+        private String dame_nombre_jugador(int pos_equipo, ComboBox combo)
         {
             String nombre;
-            int posicion = cmb_amonestaciones_jugador.SelectedIndex - 1;
+            int posicion = combo.SelectedIndex - 1;
 
             if (pos_equipo == 1)
                 nombre = lista_equipo_local[posicion].Nombres + " " + lista_equipo_local[posicion].Apellidos;
@@ -314,11 +514,6 @@ namespace UPC.Proyecto.SISPPAFUT
             return nombre;
         }
 
-        private void btn_guardar_datos_Click(object sender, EventArgs e)
-        {
-            AmonestacionBC objAmonestaionesBC = new AmonestacionBC();
-            objAmonestaionesBC.insertar_Amonestacion(lista_amonestaciones);
-        }
 
         private void inSalir(object sender, EventArgs e)
         {

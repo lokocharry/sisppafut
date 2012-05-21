@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
+using System.Collections.Generic;
 
 namespace UnitTests
 {
@@ -95,6 +96,62 @@ namespace UnitTests
             int actual;
             actual = target.insertar_Jugador(objJugadorBE);
             Assert.AreNotEqual(expected, actual);
+        }
+
+        /// <summary>
+        ///A test for verificar_EstadoSuspension
+        ///</summary>
+        [TestMethod()]
+        public void verificar_EstadoSuspensionTest()
+        {
+            JugadorBC target = new JugadorBC(); 
+            int codigo_jugador = 40; 
+            string expected = "NO SUSPENDIDO";
+            string actual;
+            actual = target.verificar_EstadoSuspension(codigo_jugador);
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        ///A test for listar_Jugadores_xEquipo
+        ///</summary>
+        [TestMethod()]
+        public void listar_Jugadores_xEquipoTest()
+        {
+            JugadorBC target = new JugadorBC();
+            int codigo_equipo = 1;
+            
+            int expected = 21;
+            List<JugadorBE> actual;
+            actual = target.listar_Jugadores_xEquipo(codigo_equipo);
+            Assert.AreEqual(expected, actual.Count);
+        }
+
+        /// <summary>
+        ///A test for asignar_JugadoraEquipo
+        ///</summary>
+        [TestMethod()]
+        public void asignar_JugadoraEquipoTest()
+        {
+            List<JugadorEquipoBE> lista_jugadores = new List<JugadorEquipoBE>();
+
+            JugadorEquipoBE obj = new JugadorEquipoBE();
+            obj.Codigo_equipo = 1;
+            obj.Codigo_jugador = 14;
+            lista_jugadores.Add(obj);
+
+            JugadorEquipoBE obj1 = new JugadorEquipoBE();
+            obj1.Codigo_equipo = 1;
+            obj1.Codigo_jugador = 15;
+            lista_jugadores.Add(obj1);
+
+            JugadorEquipoBE obj2 = new JugadorEquipoBE();
+            obj2.Codigo_equipo = 3;
+            obj2.Codigo_jugador = 40;
+            lista_jugadores.Add(obj2);
+
+            JugadorBC target = new JugadorBC();
+            target.asignar_JugadoraEquipo(lista_jugadores);
         }
     }
 }

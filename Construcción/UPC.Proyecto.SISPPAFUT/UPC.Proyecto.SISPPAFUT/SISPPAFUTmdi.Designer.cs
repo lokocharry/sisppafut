@@ -48,7 +48,12 @@
             this.asignarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+<<<<<<< .mine
             this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarSuspensionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+=======
+            this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+>>>>>>> .r177
             this.partidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPartidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -178,7 +183,8 @@
             // 
             this.jugadorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoJugadorToolStripMenuItem,
-            this.editarJugadoresToolStripMenuItem});
+            this.editarJugadoresToolStripMenuItem,
+            this.consultarSuspensionesToolStripMenuItem});
             this.jugadorToolStripMenuItem.Name = "jugadorToolStripMenuItem";
             this.jugadorToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.jugadorToolStripMenuItem.Text = "Jugadores";
@@ -186,10 +192,26 @@
             // nuevoJugadorToolStripMenuItem
             // 
             this.nuevoJugadorToolStripMenuItem.Name = "nuevoJugadorToolStripMenuItem";
-            this.nuevoJugadorToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.nuevoJugadorToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.nuevoJugadorToolStripMenuItem.Text = "Nuevo Jugador";
             this.nuevoJugadorToolStripMenuItem.Click += new System.EventHandler(this.InNuevoJugador);
             // 
+<<<<<<< .mine
+            // editarJugadoresToolStripMenuItem
+            // 
+            this.editarJugadoresToolStripMenuItem.Name = "editarJugadoresToolStripMenuItem";
+            this.editarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.editarJugadoresToolStripMenuItem.Text = "Editar Jugador";
+            this.editarJugadoresToolStripMenuItem.Click += new System.EventHandler(this.editarJugadoresToolStripMenuItem_Click);
+            // 
+            // consultarSuspensionesToolStripMenuItem
+            // 
+            this.consultarSuspensionesToolStripMenuItem.Name = "consultarSuspensionesToolStripMenuItem";
+            this.consultarSuspensionesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.consultarSuspensionesToolStripMenuItem.Text = "Consultar Suspensiones";
+            this.consultarSuspensionesToolStripMenuItem.Click += new System.EventHandler(this.inConsultaDeSuspensiones);
+            // 
+=======
             // editarJugadoresToolStripMenuItem
             // 
             this.editarJugadoresToolStripMenuItem.Name = "editarJugadoresToolStripMenuItem";
@@ -197,6 +219,7 @@
             this.editarJugadoresToolStripMenuItem.Text = "Editar Jugador";
             this.editarJugadoresToolStripMenuItem.Click += new System.EventHandler(this.editarJugadoresToolStripMenuItem_Click);
             // 
+>>>>>>> .r177
             // partidoToolStripMenuItem1
             // 
             this.partidoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -277,6 +300,7 @@
         private System.Windows.Forms.ToolStripMenuItem listaDePartidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarEquipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarJugadoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarSuspensionesToolStripMenuItem;
     }
 }
 

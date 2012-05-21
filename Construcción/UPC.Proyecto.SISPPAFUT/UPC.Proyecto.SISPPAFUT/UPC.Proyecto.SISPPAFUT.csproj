@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmConsultaSuspensiones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaSuspensiones.Designer.cs">
+      <DependentUpon>frmConsultaSuspensiones.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditarDatosPartido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +128,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmConsultaSuspensiones.resx">
+      <DependentUpon>frmConsultaSuspensiones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditarDatosPartido.resx">
       <DependentUpon>frmEditarDatosPartido.cs</DependentUpon>
     </EmbeddedResource>

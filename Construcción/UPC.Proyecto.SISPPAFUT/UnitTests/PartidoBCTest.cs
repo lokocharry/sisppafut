@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
+using System.Collections.Generic;
 
 namespace UnitTests
 {
@@ -96,6 +97,66 @@ namespace UnitTests
         public void PartidoBCConstructorTest()
         {
             PartidoBC target = new PartidoBC();
+        }
+
+        /// <summary>
+        ///A test for obtener_Partido
+        ///</summary>
+        [TestMethod()]
+        public void obtener_PartidoTest()
+        {
+            PartidoBE expected = new PartidoBE();
+            expected.Codigo_partido = 2;
+            expected.Codigo_liga = 3;
+            expected.Codigo_equipo_local = 1;
+            expected.Codigo_equipo_visitante = 12;
+            expected.Codigo_estadio = 2;
+            expected.Fecha_partido = Convert.ToDateTime("2012-04-28");
+
+            PartidoBC target = new PartidoBC(); 
+            int codigo_partido = 2;
+
+            PartidoBE actual;
+            actual = target.obtener_Partido(codigo_partido);
+
+            Assert.AreEqual(expected.Codigo_partido, actual.Codigo_partido);
+            Assert.AreEqual(expected.Codigo_liga, actual.Codigo_liga);
+            Assert.AreEqual(expected.Codigo_equipo_local, actual.Codigo_equipo_local);
+            Assert.AreEqual(expected.Codigo_equipo_visitante, actual.Codigo_equipo_visitante);
+            Assert.AreEqual(expected.Codigo_estadio, actual.Codigo_estadio);
+            Assert.AreEqual(expected.Fecha_partido, actual.Fecha_partido);
+        }
+
+        /// <summary>
+        ///A test for lista_partidos_sinjugar
+        ///</summary>
+        [TestMethod()]
+        public void lista_partidos_sinjugarTest()
+        {
+            List<PartidoSinJugarBE> expected = new List<PartidoSinJugarBE>();
+
+            PartidoSinJugarBE obj = new PartidoSinJugarBE();
+            obj.Codigo_partido = 6;
+            obj.Equipo_local = "Real Madrid";
+            obj.Equipo_visitante = "FC Barcelona";
+            obj.Liga = "La Liga BBVA 2011/2012";
+            obj.Pais = "España";
+            obj.Fecha = Convert.ToDateTime("2012-06-02");
+            expected.Add(obj);
+
+            PartidoBC target = new PartidoBC();
+            List<PartidoSinJugarBE> actual = new List<PartidoSinJugarBE>();
+            actual = target.lista_partidos_sinjugar();
+
+            for (int i = 0; i < expected.Count; i++)
+            {
+                Assert.AreEqual(expected[i].Codigo_partido, actual[i].Codigo_partido);
+                Assert.AreEqual(expected[i].Equipo_local, actual[i].Equipo_local);
+                Assert.AreEqual(expected[i].Equipo_visitante, actual[i].Equipo_visitante);
+                Assert.AreEqual(expected[i].Liga, actual[i].Liga);
+                Assert.AreEqual(expected[i].Pais, actual[i].Pais);
+                Assert.AreEqual(expected[i].Fecha, actual[i].Fecha);
+            }
         }
     }
 }

@@ -67,10 +67,15 @@
     </CodeAnalysisDependentAssemblyPaths>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmonestacionBCTest.cs" />
     <Compile Include="CompeticionBCTest.cs" />
     <Compile Include="EquipoBCTest.cs" />
     <Compile Include="EstadioBCTest.cs" />
+    <Compile Include="GolBCTest.cs" />
     <Compile Include="JugadorBCTest.cs" />
+    <Compile Include="JugadorEquipoBCTest.cs" />
+    <Compile Include="JugadorPartidoBCTest.cs" />
+    <Compile Include="LesionPartidoBCTest.cs" />
     <Compile Include="LigaBCTest.cs" />
     <Compile Include="PaisBCTest.cs" />
     <Compile Include="PartidoBCTest.cs" />
