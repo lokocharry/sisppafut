@@ -43,7 +43,28 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btn_editar_partido_Click(object sender, EventArgs e)
         {
+            try
+            {
+                frmPartidoInsertar frm = frmPartidoInsertar.Instance();
+                frm.MdiParent = this.MdiParent;
+                PartidoSinJugarBE objPartido = new PartidoSinJugarBE();
 
+                objPartido.Codigo_partido = Convert.ToInt32(dgv_lista_partidos.Rows[dgv_lista_partidos.CurrentRow.Index].Cells["cod_partido"].Value);
+                objPartido.Pais = dgv_lista_partidos.Rows[dgv_lista_partidos.CurrentRow.Index].Cells["partido_pais"].Value.ToString();
+                objPartido.Liga = dgv_lista_partidos.Rows[dgv_lista_partidos.CurrentRow.Index].Cells["partido_liga"].Value.ToString();
+                objPartido.Equipo_local = dgv_lista_partidos.Rows[dgv_lista_partidos.CurrentRow.Index].Cells["partido_local"].Value.ToString();
+                objPartido.Equipo_visitante = dgv_lista_partidos.Rows[dgv_lista_partidos.CurrentRow.Index].Cells["partido_visita"].Value.ToString();
+                objPartido.Fecha = Convert.ToDateTime(dgv_lista_partidos.Rows[dgv_lista_partidos.CurrentRow.Index].Cells["partido_fecha"].Value);
+
+                frm.Partido = objPartido;
+                frm.Modo = 2;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }
 
         private void btn_editar_datos_partido_Click(object sender, EventArgs e)

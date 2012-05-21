@@ -202,10 +202,11 @@ namespace UPC.Proyecto.SISPPAFUT
                             Convert.ToDecimal(txt_peso.Text));
 
                         MessageBox.Show("El jugador ha sido actualizado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
                     }
                     else
                     {
-                        MessageBox.Show("Corriga la altura y/o peso del jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Corrija la altura y/o peso del jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else

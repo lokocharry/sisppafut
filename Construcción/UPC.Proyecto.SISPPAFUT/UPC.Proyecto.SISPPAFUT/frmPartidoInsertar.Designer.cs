@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.lbl_pais = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_competicion = new System.Windows.Forms.Label();
             this.lbl_liga = new System.Windows.Forms.Label();
             this.lbl_local = new System.Windows.Forms.Label();
             this.lbl_visitante = new System.Windows.Forms.Label();
@@ -55,14 +55,14 @@
             this.lbl_pais.TabIndex = 0;
             this.lbl_pais.Text = "Pais :";
             // 
-            // label2
+            // lbl_competicion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 72);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Competicion :";
+            this.lbl_competicion.AutoSize = true;
+            this.lbl_competicion.Location = new System.Drawing.Point(36, 72);
+            this.lbl_competicion.Name = "lbl_competicion";
+            this.lbl_competicion.Size = new System.Drawing.Size(71, 13);
+            this.lbl_competicion.TabIndex = 1;
+            this.lbl_competicion.Text = "Competicion :";
             // 
             // lbl_liga
             // 
@@ -216,7 +216,7 @@
             this.Controls.Add(this.lbl_visitante);
             this.Controls.Add(this.lbl_local);
             this.Controls.Add(this.lbl_liga);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.lbl_competicion);
             this.Controls.Add(this.lbl_pais);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -232,7 +232,7 @@
         #endregion
 
         private System.Windows.Forms.Label lbl_pais;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_competicion;
         private System.Windows.Forms.Label lbl_liga;
         private System.Windows.Forms.Label lbl_local;
         private System.Windows.Forms.Label lbl_visitante;

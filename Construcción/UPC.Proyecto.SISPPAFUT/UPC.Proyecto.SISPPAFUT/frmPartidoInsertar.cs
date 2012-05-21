@@ -20,14 +20,14 @@ namespace UPC.Proyecto.SISPPAFUT
         List<EstadioBE> lista_estadios;
         List<LigaBE> lista_temporadas;
         int _Modo;
-        PartidoBE _Partido;
+        PartidoSinJugarBE _Partido;
 
         public int Modo
         {
             get { return _Modo; }
             set { _Modo = value; }
         }
-        public PartidoBE Partido
+        public PartidoSinJugarBE Partido
         {
             get { return _Partido; }
             set { _Partido = value; }
@@ -70,14 +70,16 @@ namespace UPC.Proyecto.SISPPAFUT
             if (_Modo == 2)
             {
                 cmb_pais.Enabled = false;
-                cmb_pais.Visible = false;
-                lbl_pais.Visible = false;
                 cmb_competicion.Enabled = false;
                 cmb_temporada.Enabled = false;
                 cmb_local.Enabled = false;
                 cmb_visitante.Enabled = false;
                 cmb_estadio.Enabled = false;
                 dtp_fecha.Enabled = true;
+
+                lbl_liga.Visible = false;
+                cmb_temporada.Visible = false;
+                lbl_competicion.Text = "Liga:";
             }
         }
 
@@ -98,7 +100,47 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void llenarDatosPartido()
         {
-            
+            try
+            {
+                PartidoBC objPartidoBC = new PartidoBC();
+                PartidoBE objPartidoBE = objPartidoBC.obtener_Partido(Partido.Codigo_partido);
+
+                cmb_pais.Items.Clear();
+                cmb_pais.Items.Add(Partido.Pais);
+                cmb_pais.SelectedIndex = 0;
+
+                cmb_competicion.Items.Clear();
+                cmb_competicion.Items.Add(Partido.Liga);
+                cmb_competicion.SelectedIndex = 0;
+
+                cmb_local.Items.Clear();
+                cmb_local.Items.Add(Partido.Equipo_local);
+                cmb_local.SelectedIndex = 0;
+
+                cmb_visitante.Items.Clear();
+                cmb_visitante.Items.Add(Partido.Equipo_visitante);
+                cmb_visitante.SelectedIndex = 0;
+
+                dtp_fecha.Value = Partido.Fecha;
+
+                lista_estadios = new List<EstadioBE>();
+                EstadioBC objEstadioBC = new EstadioBC();
+
+                lista_estadios = objEstadioBC.listarEstadios();
+                for (int i = 0; i < lista_estadios.Count; i++)
+                {
+                    if (lista_estadios[i].Codigo_estadio == objPartidoBE.Codigo_estadio)
+                    {
+                        cmb_estadio.Items.Clear();
+                        cmb_estadio.Items.Add(lista_estadios[i].Nombre_estadio);
+                        cmb_estadio.SelectedIndex = 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }
 
         private void iniciar_pais()
@@ -307,6 +349,18 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void inGuardarPartido(object sender, EventArgs e)
         {
+            if (_Modo == 1)
+            {
+                guardar_partido();
+            }
+            else if (_Modo == 2)
+            {
+                editar_partido();
+            }
+        }
+
+        private void guardar_partido()
+        {
             try
             {
                 if (ValidarCampos())
@@ -336,20 +390,35 @@ namespace UPC.Proyecto.SISPPAFUT
                             MessageBox.Show("Partido ya ha sido registrado para dicha liga ó la cantidad de partidos para la liga ha llegado a su límite. Verifique los datos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
-                        if (codigo_partido == 0)
-                            MessageBox.Show("No se pudo Regitrar al Partido correctamente", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            if (codigo_partido == 0)
+                                MessageBox.Show("No se pudo Registrar al Partido correctamente", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        else
-                        {
-                            MessageBox.Show("El Nuevo Partido ha sido Registrado correctamente", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LimpiarCampos();
-                        }
+                            else
+                            {
+                                MessageBox.Show("El Nuevo Partido ha sido Registrado correctamente", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                LimpiarCampos();
+                            }
                     }
                     else
                         MessageBox.Show("El equipo local no puede ser el mismo que el equipo visitante", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                     MessageBox.Show("Todos los campos son obligatorios", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void editar_partido()
+        {
+            try
+            {
+                PartidoBC objPartidoBC = new PartidoBC();
+                objPartidoBC.editar_Partido(Partido.Codigo_partido, dtp_fecha.Value);
+                MessageBox.Show("El Nuevo Partido ha sido Registrado correctamente", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             catch (Exception ex)
             {
