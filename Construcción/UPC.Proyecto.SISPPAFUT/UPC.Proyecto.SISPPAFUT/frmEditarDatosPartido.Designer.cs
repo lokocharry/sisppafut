@@ -34,7 +34,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarDatosPartido));
             this.gb_equipos = new System.Windows.Forms.GroupBox();
-<<<<<<< .mine
             this.dgv_equip_visitante = new System.Windows.Forms.DataGridView();
             this.col_cod_jugador_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_nombre_jugador_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,9 +45,7 @@
             this.col_peso_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_titular_v = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.col_suplente_v = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-=======
             this.dgv_equipo_visitante = new System.Windows.Forms.DataGridView();
->>>>>>> .r177
             this.dgv_equipo_local = new System.Windows.Forms.DataGridView();
             this.col_cod_jugador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,14 +101,6 @@
             this.btn_lesiones_agregar = new System.Windows.Forms.Button();
             this.btn_cancelar_datos = new System.Windows.Forms.Button();
             this.btn_guardar_datos = new System.Windows.Forms.Button();
-            this.col_cod_jugador_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_nombre_jugador_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_apellidos_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_nacionalidad_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_fecha_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_posicion_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_altura_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_peso_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gb_equipos.SuspendLayout();
@@ -164,7 +153,6 @@
             this.dgv_equipo_visitante.TabIndex = 5;
             this.dgv_equip_visitante.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_equip_visitante_CellContentClick);
             // 
-<<<<<<< .mine
             // col_cod_jugador_v
             // 
             this.col_cod_jugador_v.HeaderText = "Código";
@@ -231,8 +219,6 @@
             this.col_suplente_v.Name = "col_suplente_v";
             this.col_suplente_v.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
-=======
->>>>>>> .r177
             // dgv_equipo_local
             // 
             this.dgv_equipo_local.AllowUserToResizeRows = false;
