@@ -216,5 +216,20 @@ namespace UPC.Proyecto.SISPPAFUT
                 //Funciones.RegistrarExcepcion(ex);
             }
         }
+
+        private void rankingToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmActualizarRanking frm = frmActualizarRanking.Instance();
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                //Funciones.RegistrarExcepcion(ex);
+            }
+        }
     }
 }

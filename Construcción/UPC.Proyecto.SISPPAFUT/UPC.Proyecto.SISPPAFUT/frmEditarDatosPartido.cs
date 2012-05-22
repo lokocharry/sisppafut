@@ -63,10 +63,7 @@ namespace UPC.Proyecto.SISPPAFUT
             iniciarGrillaEquipoLocal();
             iniciarGrillaEquipoVisitante();
         }
-
-<<<<<<< .mine
-        private void EditarDatosPartido_Load(object sender, EventArgs e)
-=======
+                
         public void iniciarGrillaEquipoLocal()
         {
             try
@@ -177,8 +174,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void setearCombos()
->>>>>>> .r177
+        private void EditarDatosPartido_Load(object sender, EventArgs e)
         {
             objPartidoBE = obtenerPartido();
 
@@ -194,7 +190,6 @@ namespace UPC.Proyecto.SISPPAFUT
             obtenerPartido();
 
             dgvJugadoresDataBind();
-            setearCombos();
             llenarCombos();
         }
 
@@ -281,7 +276,7 @@ namespace UPC.Proyecto.SISPPAFUT
         private void btn_terminar_Click(object sender, EventArgs e)
         {
             dgv_equipo_local.Enabled = false;
-            dgv_equip_visitante.Enabled = false;
+            dgv_equipo_visitante.Enabled = false;
             btn_terminar.Enabled = false;
             btn_editar.Enabled = true;
 
@@ -326,8 +321,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
             for (int i = 0; i < lista_equipo_visita.Count; i++)
             {
-                check_titular = (DataGridViewCheckBoxCell)dgv_equip_visitante.Rows[i].Cells["col_titular_v"];
-                check_suplente = (DataGridViewCheckBoxCell)dgv_equip_visitante.Rows[i].Cells["col_suplente_v"];
+                check_titular = (DataGridViewCheckBoxCell)dgv_equipo_visitante.Rows[i].Cells["col_titular_v"];
+                check_suplente = (DataGridViewCheckBoxCell)dgv_equipo_visitante.Rows[i].Cells["col_suplente_v"];
 
                 if (check_suplente.Value != null || check_titular.Value != null)
                 {
@@ -356,7 +351,7 @@ namespace UPC.Proyecto.SISPPAFUT
         private void btn_editar_Click(object sender, EventArgs e)
         {
             dgv_equipo_local.Enabled = true;
-            dgv_equip_visitante.Enabled = true;
+            dgv_equipo_visitante.Enabled = true;
             btn_terminar.Enabled = true;
             btn_editar.Enabled = false;
         }
@@ -398,10 +393,10 @@ namespace UPC.Proyecto.SISPPAFUT
         private void dgv_equip_visitante_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewCheckBoxCell check_titular = new DataGridViewCheckBoxCell();
-            check_titular = (DataGridViewCheckBoxCell)dgv_equip_visitante.Rows[dgv_equip_visitante.CurrentRow.Index].Cells["col_titular_v"];
+            check_titular = (DataGridViewCheckBoxCell)dgv_equipo_visitante.Rows[dgv_equipo_visitante.CurrentRow.Index].Cells["col_titular_v"];
 
             DataGridViewCheckBoxCell check_suplente = new DataGridViewCheckBoxCell();
-            check_suplente = (DataGridViewCheckBoxCell)dgv_equip_visitante.Rows[dgv_equip_visitante.CurrentRow.Index].Cells["col_suplente_v"];
+            check_suplente = (DataGridViewCheckBoxCell)dgv_equipo_visitante.Rows[dgv_equipo_visitante.CurrentRow.Index].Cells["col_suplente_v"];
 
             if (check_titular.Value != null)
             {

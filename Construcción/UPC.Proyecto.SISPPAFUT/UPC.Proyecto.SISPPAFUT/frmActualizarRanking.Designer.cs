@@ -100,14 +100,17 @@
             // 
             // cmbPais
             // 
+            this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPais.FormattingEnabled = true;
             this.cmbPais.Location = new System.Drawing.Point(62, 35);
             this.cmbPais.Name = "cmbPais";
             this.cmbPais.Size = new System.Drawing.Size(181, 21);
             this.cmbPais.TabIndex = 6;
+            this.cmbPais.SelectedIndexChanged += new System.EventHandler(this.cmbPais_SelectedIndexChanged);
             // 
             // cmbAnio
             // 
+            this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAnio.FormattingEnabled = true;
             this.cmbAnio.Location = new System.Drawing.Point(62, 79);
             this.cmbAnio.Name = "cmbAnio";
@@ -116,6 +119,7 @@
             // 
             // cmbMes
             // 
+            this.cmbMes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMes.FormattingEnabled = true;
             this.cmbMes.Location = new System.Drawing.Point(62, 124);
             this.cmbMes.Name = "cmbMes";
@@ -124,6 +128,7 @@
             // 
             // cmbEquipo
             // 
+            this.cmbEquipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEquipo.FormattingEnabled = true;
             this.cmbEquipo.Location = new System.Drawing.Point(307, 35);
             this.cmbEquipo.Name = "cmbEquipo";
@@ -152,6 +157,7 @@
             this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
@@ -183,6 +189,7 @@
             this.Controls.Add(this.lbl_pais);
             this.Name = "frmActualizarRanking";
             this.Text = "Actualizar Ranking Mundial de Clubes";
+            this.Load += new System.EventHandler(this.frmActualizarRanking_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

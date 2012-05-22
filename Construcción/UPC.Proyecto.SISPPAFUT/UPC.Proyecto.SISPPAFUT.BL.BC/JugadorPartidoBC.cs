@@ -12,7 +12,6 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
         public void insertar_jugadores(List<JugadorPartidoBE> lista_jugadores)
         {
             JugadorPartidoDALC objJugadorPartidoDALC;
-
             try
             {
                 for (int i = 0; i < lista_jugadores.Count; i++)

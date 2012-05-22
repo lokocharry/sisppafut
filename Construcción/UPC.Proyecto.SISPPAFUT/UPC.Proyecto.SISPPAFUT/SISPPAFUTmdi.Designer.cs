@@ -48,17 +48,14 @@
             this.asignarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-<<<<<<< .mine
             this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarSuspensionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-=======
-            this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
->>>>>>> .r177
             this.partidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPartidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rankingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -153,7 +150,8 @@
             this.equiposToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoEquipoToolStripMenuItem,
             this.editarEquipoToolStripMenuItem,
-            this.asignarJugadoresToolStripMenuItem});
+            this.asignarJugadoresToolStripMenuItem,
+            this.rankingToolStripMenuItem});
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
             this.equiposToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.equiposToolStripMenuItem.Text = "Equipos";
@@ -196,7 +194,6 @@
             this.nuevoJugadorToolStripMenuItem.Text = "Nuevo Jugador";
             this.nuevoJugadorToolStripMenuItem.Click += new System.EventHandler(this.InNuevoJugador);
             // 
-<<<<<<< .mine
             // editarJugadoresToolStripMenuItem
             // 
             this.editarJugadoresToolStripMenuItem.Name = "editarJugadoresToolStripMenuItem";
@@ -211,15 +208,6 @@
             this.consultarSuspensionesToolStripMenuItem.Text = "Consultar Suspensiones";
             this.consultarSuspensionesToolStripMenuItem.Click += new System.EventHandler(this.inConsultaDeSuspensiones);
             // 
-=======
-            // editarJugadoresToolStripMenuItem
-            // 
-            this.editarJugadoresToolStripMenuItem.Name = "editarJugadoresToolStripMenuItem";
-            this.editarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.editarJugadoresToolStripMenuItem.Text = "Editar Jugador";
-            this.editarJugadoresToolStripMenuItem.Click += new System.EventHandler(this.editarJugadoresToolStripMenuItem_Click);
-            // 
->>>>>>> .r177
             // partidoToolStripMenuItem1
             // 
             this.partidoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -254,6 +242,13 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
+            // 
+            // rankingToolStripMenuItem
+            // 
+            this.rankingToolStripMenuItem.Name = "rankingToolStripMenuItem";
+            this.rankingToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.rankingToolStripMenuItem.Text = "Actualizar Ranking";
+            this.rankingToolStripMenuItem.Click += new System.EventHandler(this.rankingToolStripMenuItem_Click);
             // 
             // SISPPAFUTmdi
             // 
@@ -301,6 +296,7 @@
         private System.Windows.Forms.ToolStripMenuItem editarEquipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarJugadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarSuspensionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rankingToolStripMenuItem;
     }
 }
 

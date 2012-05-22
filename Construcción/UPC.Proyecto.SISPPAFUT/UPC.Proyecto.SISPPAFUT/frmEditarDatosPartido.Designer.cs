@@ -34,7 +34,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmEditarDatosPartido));
             this.gb_equipos = new System.Windows.Forms.GroupBox();
-            this.dgv_equip_visitante = new System.Windows.Forms.DataGridView();
+            this.dgv_equipo_visitante = new System.Windows.Forms.DataGridView();
             this.col_cod_jugador_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_nombre_jugador_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_apellidos_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -101,8 +101,8 @@
             this.btn_lesiones_agregar = new System.Windows.Forms.Button();
             this.btn_cancelar_datos = new System.Windows.Forms.Button();
             this.btn_guardar_datos = new System.Windows.Forms.Button();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            //this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            //this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gb_equipos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_equipo_visitante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_equipo_local)).BeginInit();
@@ -151,7 +151,7 @@
             this.dgv_equipo_visitante.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgv_equipo_visitante.Size = new System.Drawing.Size(370, 172);
             this.dgv_equipo_visitante.TabIndex = 5;
-            this.dgv_equip_visitante.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_equip_visitante_CellContentClick);
+            this.dgv_equipo_visitante.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_equip_visitante_CellContentClick);
             // 
             // col_cod_jugador_v
             // 
@@ -1076,15 +1076,15 @@
             // 
             // dataGridViewTextBoxColumn3
             // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Titular";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            //this.dataGridViewTextBoxColumn3.HeaderText = "Titular";
+            //this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            //this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // dataGridViewTextBoxColumn4
             // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Suplente";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            //this.dataGridViewTextBoxColumn4.HeaderText = "Suplente";
+            //this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            //this.dataGridViewTextBoxColumn4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // frmEditarDatosPartido
             // 

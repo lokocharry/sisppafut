@@ -52,6 +52,7 @@
     <Compile Include="PaisBC.cs" />
     <Compile Include="PartidoBC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RankingEquipoBC.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BL.BE\UPC.Proyecto.SISPPAFUT.BL.BE.csproj">
