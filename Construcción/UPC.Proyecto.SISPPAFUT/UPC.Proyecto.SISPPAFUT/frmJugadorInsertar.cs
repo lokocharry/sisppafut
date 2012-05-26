@@ -149,7 +149,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 if (ValidarCampos())
                 {
                     //-- Basado el la altura máx. alcanzada por el hombre y peso máx. registrado en un jugador de fútbol.
-                    if (Convert.ToDouble(txt_altura.Text) <= 2.72 && Convert.ToDouble(txt_peso.Text) <= 165)
+                    if (Convert.ToDouble(txt_altura.Text) <= 2.72 && Convert.ToDouble(txt_peso.Text) <= 165 && dtp_fecha.Value.Date<DateTime.Today)
                     {
                         JugadorBE objJugadorBE;
                         JugadorBC objJugadorBC;
@@ -176,7 +176,7 @@ namespace UPC.Proyecto.SISPPAFUT
                             MessageBox.Show("El jugador no ha sido registrado debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
-                        MessageBox.Show("Corriga la altura y/o peso del jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Corriga la altura y/o peso y/o fecha de nacimiento del jugador .", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
