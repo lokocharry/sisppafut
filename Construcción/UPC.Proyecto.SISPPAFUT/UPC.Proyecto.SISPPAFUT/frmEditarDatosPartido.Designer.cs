@@ -67,12 +67,21 @@
             this.cmb_amonestaciones_jugador = new System.Windows.Forms.ComboBox();
             this.btn_amonestaciones_actualizar = new System.Windows.Forms.Button();
             this.dgv_amonestaciones = new System.Windows.Forms.DataGridView();
+            this.col_jugador_amonestacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_equipo_amonestacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_tipo_amonestacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_minuto_amonestacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_eliminar_amonestacion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btn_amonestaciones_agregar = new System.Windows.Forms.Button();
             this.cmb_amonestaciones_amonestacion = new System.Windows.Forms.ComboBox();
             this.cmb_amonestaciones_equipo = new System.Windows.Forms.ComboBox();
             this.imagen_formacion = new System.Windows.Forms.PictureBox();
             this.btn_goles_agregar = new System.Windows.Forms.Button();
             this.dgv_goles = new System.Windows.Forms.DataGridView();
+            this.col_jugador_goles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_equipo_goles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_minuto_goles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_eliminar_goles = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cmb_goles_actualizar = new System.Windows.Forms.Button();
             this.cmb_goles_equipos = new System.Windows.Forms.ComboBox();
             this.gb_goles = new System.Windows.Forms.GroupBox();
@@ -84,22 +93,13 @@
             this.cmb_lesiones_equipos = new System.Windows.Forms.ComboBox();
             this.btn_lesiones_actualizar = new System.Windows.Forms.Button();
             this.dgv_lesiones = new System.Windows.Forms.DataGridView();
-            this.btn_lesiones_agregar = new System.Windows.Forms.Button();
-            this.btn_cancelar_datos = new System.Windows.Forms.Button();
-            this.btn_guardar_datos = new System.Windows.Forms.Button();
-            this.col_jugador_amonestacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_equipo_amonestacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_tipo_amonestacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_minuto_amonestacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_eliminar_amonestacion = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.col_jugador_goles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_equipo_goles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_minuto_goles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_eliminar_goles = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.col_jugador_lesiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_equipo_lesiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_minuto_lesiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_eliminar_lesiones = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.btn_lesiones_agregar = new System.Windows.Forms.Button();
+            this.btn_cancelar_datos = new System.Windows.Forms.Button();
+            this.btn_guardar_datos = new System.Windows.Forms.Button();
             this.gb_equipos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_equipo_visitante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_equipo_local)).BeginInit();
@@ -131,6 +131,8 @@
             // 
             // dgv_equipo_visitante
             // 
+            this.dgv_equipo_visitante.AllowUserToAddRows = false;
+            this.dgv_equipo_visitante.AllowUserToDeleteRows = false;
             this.dgv_equipo_visitante.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_cod_jugador_v,
             this.col_nombre_jugador_v,
@@ -218,7 +220,8 @@
             // 
             // dgv_equipo_local
             // 
-            this.dgv_equipo_local.AllowUserToResizeRows = false;
+            this.dgv_equipo_local.AllowUserToAddRows = false;
+            this.dgv_equipo_local.AllowUserToDeleteRows = false;
             this.dgv_equipo_local.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_cod_jugador,
             this.col_nombre,
@@ -232,7 +235,6 @@
             this.col_suplente});
             this.dgv_equipo_local.Location = new System.Drawing.Point(16, 51);
             this.dgv_equipo_local.Name = "dgv_equipo_local";
-            this.dgv_equipo_local.ReadOnly = true;
             this.dgv_equipo_local.RowHeadersVisible = false;
             this.dgv_equipo_local.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dgv_equipo_local.Size = new System.Drawing.Size(369, 172);
@@ -244,7 +246,6 @@
             this.col_cod_jugador.DataPropertyName = "CodJugador";
             this.col_cod_jugador.HeaderText = "Código";
             this.col_cod_jugador.Name = "col_cod_jugador";
-            this.col_cod_jugador.ReadOnly = true;
             this.col_cod_jugador.Visible = false;
             // 
             // col_nombre
@@ -252,7 +253,6 @@
             this.col_nombre.DataPropertyName = "Nombres";
             this.col_nombre.HeaderText = "Nombre";
             this.col_nombre.Name = "col_nombre";
-            this.col_nombre.ReadOnly = true;
             this.col_nombre.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // col_apellidos
@@ -260,7 +260,6 @@
             this.col_apellidos.DataPropertyName = "Apellidos";
             this.col_apellidos.HeaderText = "Apellidos";
             this.col_apellidos.Name = "col_apellidos";
-            this.col_apellidos.ReadOnly = true;
             this.col_apellidos.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // col_nacionalidad
@@ -268,7 +267,6 @@
             this.col_nacionalidad.DataPropertyName = "Nacionalidad";
             this.col_nacionalidad.HeaderText = "Nacionalidad";
             this.col_nacionalidad.Name = "col_nacionalidad";
-            this.col_nacionalidad.ReadOnly = true;
             this.col_nacionalidad.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.col_nacionalidad.Visible = false;
             // 
@@ -277,7 +275,6 @@
             this.col_Fecha.DataPropertyName = "FechaNacimiento";
             this.col_Fecha.HeaderText = "Fecha";
             this.col_Fecha.Name = "col_Fecha";
-            this.col_Fecha.ReadOnly = true;
             this.col_Fecha.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.col_Fecha.Visible = false;
             // 
@@ -286,7 +283,6 @@
             this.col_posicion.DataPropertyName = "Posicion";
             this.col_posicion.HeaderText = "Posición";
             this.col_posicion.Name = "col_posicion";
-            this.col_posicion.ReadOnly = true;
             this.col_posicion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // col_altura
@@ -294,7 +290,6 @@
             this.col_altura.DataPropertyName = "Altura";
             this.col_altura.HeaderText = "Altura";
             this.col_altura.Name = "col_altura";
-            this.col_altura.ReadOnly = true;
             this.col_altura.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.col_altura.Visible = false;
             // 
@@ -303,7 +298,6 @@
             this.col_peso.DataPropertyName = "Peso";
             this.col_peso.HeaderText = "Peso";
             this.col_peso.Name = "col_peso";
-            this.col_peso.ReadOnly = true;
             this.col_peso.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.col_peso.Visible = false;
             // 
@@ -311,14 +305,12 @@
             // 
             this.col_titular.HeaderText = "Titular";
             this.col_titular.Name = "col_titular";
-            this.col_titular.ReadOnly = true;
             this.col_titular.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // col_suplente
             // 
             this.col_suplente.HeaderText = "Suplente";
             this.col_suplente.Name = "col_suplente";
-            this.col_suplente.ReadOnly = true;
             this.col_suplente.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // btn_editar
@@ -517,6 +509,8 @@
             // 
             // dgv_amonestaciones
             // 
+            this.dgv_amonestaciones.AllowUserToAddRows = false;
+            this.dgv_amonestaciones.AllowUserToDeleteRows = false;
             this.dgv_amonestaciones.AllowUserToResizeColumns = false;
             this.dgv_amonestaciones.AllowUserToResizeRows = false;
             this.dgv_amonestaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -531,6 +525,37 @@
             this.dgv_amonestaciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgv_amonestaciones.Size = new System.Drawing.Size(422, 138);
             this.dgv_amonestaciones.TabIndex = 5;
+            // 
+            // col_jugador_amonestacion
+            // 
+            this.col_jugador_amonestacion.HeaderText = "Jugador";
+            this.col_jugador_amonestacion.Name = "col_jugador_amonestacion";
+            this.col_jugador_amonestacion.ReadOnly = true;
+            this.col_jugador_amonestacion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // col_equipo_amonestacion
+            // 
+            this.col_equipo_amonestacion.HeaderText = "Equipo";
+            this.col_equipo_amonestacion.Name = "col_equipo_amonestacion";
+            this.col_equipo_amonestacion.ReadOnly = true;
+            // 
+            // col_tipo_amonestacion
+            // 
+            this.col_tipo_amonestacion.HeaderText = "Tipo";
+            this.col_tipo_amonestacion.Name = "col_tipo_amonestacion";
+            this.col_tipo_amonestacion.ReadOnly = true;
+            // 
+            // col_minuto_amonestacion
+            // 
+            this.col_minuto_amonestacion.HeaderText = "Minuto";
+            this.col_minuto_amonestacion.Name = "col_minuto_amonestacion";
+            this.col_minuto_amonestacion.ReadOnly = true;
+            // 
+            // col_eliminar_amonestacion
+            // 
+            this.col_eliminar_amonestacion.HeaderText = "Eliminar";
+            this.col_eliminar_amonestacion.Name = "col_eliminar_amonestacion";
+            this.col_eliminar_amonestacion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             // 
             // btn_amonestaciones_agregar
             // 
@@ -589,6 +614,8 @@
             // 
             // dgv_goles
             // 
+            this.dgv_goles.AllowUserToAddRows = false;
+            this.dgv_goles.AllowUserToDeleteRows = false;
             this.dgv_goles.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_jugador_goles,
             this.col_equipo_goles,
@@ -600,6 +627,32 @@
             this.dgv_goles.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgv_goles.Size = new System.Drawing.Size(354, 138);
             this.dgv_goles.TabIndex = 8;
+            // 
+            // col_jugador_goles
+            // 
+            this.col_jugador_goles.HeaderText = "Jugador";
+            this.col_jugador_goles.Name = "col_jugador_goles";
+            this.col_jugador_goles.ReadOnly = true;
+            this.col_jugador_goles.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // col_equipo_goles
+            // 
+            this.col_equipo_goles.HeaderText = "Equipo";
+            this.col_equipo_goles.Name = "col_equipo_goles";
+            this.col_equipo_goles.ReadOnly = true;
+            // 
+            // col_minuto_goles
+            // 
+            this.col_minuto_goles.HeaderText = "Minuto";
+            this.col_minuto_goles.Name = "col_minuto_goles";
+            this.col_minuto_goles.ReadOnly = true;
+            // 
+            // col_eliminar_goles
+            // 
+            this.col_eliminar_goles.HeaderText = "Eliminar";
+            this.col_eliminar_goles.Name = "col_eliminar_goles";
+            this.col_eliminar_goles.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_eliminar_goles.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // cmb_goles_actualizar
             // 
@@ -905,6 +958,8 @@
             // 
             // dgv_lesiones
             // 
+            this.dgv_lesiones.AllowUserToAddRows = false;
+            this.dgv_lesiones.AllowUserToDeleteRows = false;
             this.dgv_lesiones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_jugador_lesiones,
             this.col_equipo_lesiones,
@@ -916,6 +971,31 @@
             this.dgv_lesiones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgv_lesiones.Size = new System.Drawing.Size(354, 138);
             this.dgv_lesiones.TabIndex = 8;
+            // 
+            // col_jugador_lesiones
+            // 
+            this.col_jugador_lesiones.HeaderText = "Jugador";
+            this.col_jugador_lesiones.Name = "col_jugador_lesiones";
+            this.col_jugador_lesiones.ReadOnly = true;
+            // 
+            // col_equipo_lesiones
+            // 
+            this.col_equipo_lesiones.HeaderText = "Equipo";
+            this.col_equipo_lesiones.Name = "col_equipo_lesiones";
+            this.col_equipo_lesiones.ReadOnly = true;
+            // 
+            // col_minuto_lesiones
+            // 
+            this.col_minuto_lesiones.HeaderText = "Minuto";
+            this.col_minuto_lesiones.Name = "col_minuto_lesiones";
+            this.col_minuto_lesiones.ReadOnly = true;
+            // 
+            // col_eliminar_lesiones
+            // 
+            this.col_eliminar_lesiones.HeaderText = "Eliminar";
+            this.col_eliminar_lesiones.Name = "col_eliminar_lesiones";
+            this.col_eliminar_lesiones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_eliminar_lesiones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // btn_lesiones_agregar
             // 
@@ -946,88 +1026,6 @@
             this.btn_guardar_datos.Text = "Guardar";
             this.btn_guardar_datos.UseVisualStyleBackColor = true;
             this.btn_guardar_datos.Click += new System.EventHandler(this.btn_guardar_datos_Click);
-            // 
-            // col_jugador_amonestacion
-            // 
-            this.col_jugador_amonestacion.HeaderText = "Jugador";
-            this.col_jugador_amonestacion.Name = "col_jugador_amonestacion";
-            this.col_jugador_amonestacion.ReadOnly = true;
-            this.col_jugador_amonestacion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // col_equipo_amonestacion
-            // 
-            this.col_equipo_amonestacion.HeaderText = "Equipo";
-            this.col_equipo_amonestacion.Name = "col_equipo_amonestacion";
-            this.col_equipo_amonestacion.ReadOnly = true;
-            // 
-            // col_tipo_amonestacion
-            // 
-            this.col_tipo_amonestacion.HeaderText = "Tipo";
-            this.col_tipo_amonestacion.Name = "col_tipo_amonestacion";
-            this.col_tipo_amonestacion.ReadOnly = true;
-            // 
-            // col_minuto_amonestacion
-            // 
-            this.col_minuto_amonestacion.HeaderText = "Minuto";
-            this.col_minuto_amonestacion.Name = "col_minuto_amonestacion";
-            this.col_minuto_amonestacion.ReadOnly = true;
-            // 
-            // col_eliminar_amonestacion
-            // 
-            this.col_eliminar_amonestacion.HeaderText = "Eliminar";
-            this.col_eliminar_amonestacion.Name = "col_eliminar_amonestacion";
-            this.col_eliminar_amonestacion.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // col_jugador_goles
-            // 
-            this.col_jugador_goles.HeaderText = "Jugador";
-            this.col_jugador_goles.Name = "col_jugador_goles";
-            this.col_jugador_goles.ReadOnly = true;
-            this.col_jugador_goles.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // col_equipo_goles
-            // 
-            this.col_equipo_goles.HeaderText = "Equipo";
-            this.col_equipo_goles.Name = "col_equipo_goles";
-            this.col_equipo_goles.ReadOnly = true;
-            // 
-            // col_minuto_goles
-            // 
-            this.col_minuto_goles.HeaderText = "Minuto";
-            this.col_minuto_goles.Name = "col_minuto_goles";
-            this.col_minuto_goles.ReadOnly = true;
-            // 
-            // col_eliminar_goles
-            // 
-            this.col_eliminar_goles.HeaderText = "Eliminar";
-            this.col_eliminar_goles.Name = "col_eliminar_goles";
-            this.col_eliminar_goles.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_eliminar_goles.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // col_jugador_lesiones
-            // 
-            this.col_jugador_lesiones.HeaderText = "Jugador";
-            this.col_jugador_lesiones.Name = "col_jugador_lesiones";
-            this.col_jugador_lesiones.ReadOnly = true;
-            // 
-            // col_equipo_lesiones
-            // 
-            this.col_equipo_lesiones.HeaderText = "Equipo";
-            this.col_equipo_lesiones.Name = "col_equipo_lesiones";
-            this.col_equipo_lesiones.ReadOnly = true;
-            // 
-            // col_minuto_lesiones
-            // 
-            this.col_minuto_lesiones.HeaderText = "Minuto";
-            this.col_minuto_lesiones.Name = "col_minuto_lesiones";
-            this.col_minuto_lesiones.ReadOnly = true;
-            // 
-            // col_eliminar_lesiones
-            // 
-            this.col_eliminar_lesiones.HeaderText = "Eliminar";
-            this.col_eliminar_lesiones.Name = "col_eliminar_lesiones";
-            this.col_eliminar_lesiones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_eliminar_lesiones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmEditarDatosPartido
             // 

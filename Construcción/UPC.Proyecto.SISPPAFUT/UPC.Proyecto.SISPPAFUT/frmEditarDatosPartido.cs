@@ -68,8 +68,8 @@ namespace UPC.Proyecto.SISPPAFUT
         public frmEditarDatosPartido()
         {
             InitializeComponent();
-            //iniciarGrillaEquipoLocal();
-            //iniciarGrillaEquipoVisitante();
+            iniciarGrillaEquipoLocal();
+            iniciarGrillaEquipoVisitante();
         }
                 
         public void iniciarGrillaEquipoLocal()
