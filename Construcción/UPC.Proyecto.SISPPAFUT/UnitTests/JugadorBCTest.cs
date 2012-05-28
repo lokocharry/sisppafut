@@ -96,21 +96,7 @@ namespace UnitTests
             int actual;
             actual = target.insertar_Jugador(objJugadorBE);
             Assert.AreNotEqual(expected, actual);
-        }
-
-        /// <summary>
-        ///A test for verificar_EstadoSuspension
-        ///</summary>
-        [TestMethod()]
-        public void verificar_EstadoSuspensionTest()
-        {
-            JugadorBC target = new JugadorBC(); 
-            int codigo_jugador = 40; 
-            string expected = "NO SUSPENDIDO";
-            string actual;
-            actual = target.verificar_EstadoSuspension(codigo_jugador);
-            Assert.AreEqual(expected, actual);
-        }
+        }               
 
         /// <summary>
         ///A test for listar_Jugadores_xEquipo

@@ -51,8 +51,8 @@ namespace UPC.Proyecto.SISPPAFUT
         private List<AmonestacionBE> lista_amonestaciones;
         private List<GolBE> lista_goles;
         private List<LesionPartidoBE> lista_lesiones;
-
         private List<JugadorPartidoBE> lista_jugadores_partido;
+        private List<JugadorBE> lista_jugadores_suspendidos;
 
         private static frmEditarDatosPartido frmEditarDPartido = null;
         
@@ -225,12 +225,29 @@ namespace UPC.Proyecto.SISPPAFUT
             objAmonestacionBE.Codigo_partido = Codigo_partido;
             objAmonestacionBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_amonestaciones_jugador);
             objAmonestacionBE.Minuto = Convert.ToInt32(cmb_amonestaciones_minuto.SelectedIndex - 1);
-            objAmonestacionBE.Tipo = cmb_amonestaciones_amonestacion.SelectedIndex;
+            objAmonestacionBE.Tipo = -1;
 
-            dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem, 
-                                        cmb_amonestaciones_amonestacion.SelectedItem, cmb_amonestaciones_minuto.SelectedItem);
+            if (cmb_amonestaciones_amonestacion.SelectedIndex == 1)
+            {
+                objAmonestacionBE.Tipo = 0;
+            }
+            else if (cmb_amonestaciones_amonestacion.SelectedIndex == 2)
+            {
+                objAmonestacionBE.Tipo = 1;
+            }
 
-            lista_amonestaciones.Add(objAmonestacionBE);
+            //Se debe escoger tarjeta amarilla o roja
+            if (objAmonestacionBE.Tipo != -1)
+            {
+                dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem,
+                                            cmb_amonestaciones_amonestacion.SelectedItem, cmb_amonestaciones_minuto.SelectedItem);
+
+                lista_amonestaciones.Add(objAmonestacionBE);
+            }
+            else
+            {
+                MessageBox.Show("Escoger una amonestacion valida.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btn_goles_agregar_Click(object sender, EventArgs e)
@@ -268,17 +285,46 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btn_guardar_datos_Click(object sender, EventArgs e)
         {
-            AmonestacionBC objAmonestaionesBC = new AmonestacionBC();
-            objAmonestaionesBC.insertar_Amonestacion(lista_amonestaciones);
+            try
+            {
+                AmonestacionBC objAmonestaionesBC = new AmonestacionBC();
+                objAmonestaionesBC.insertar_Amonestacion(lista_amonestaciones);
 
-            GolBC objGolBC = new GolBC();
-            objGolBC.insertar_Goles(lista_goles);
+                GolBC objGolBC = new GolBC();
+                objGolBC.insertar_Goles(lista_goles);
 
-            LesionPartidoBC objLesionesBC = new LesionPartidoBC();
-            objLesionesBC.insertar_Lesiones(lista_lesiones);
+                LesionPartidoBC objLesionesBC = new LesionPartidoBC();
+                objLesionesBC.insertar_Lesiones(lista_lesiones);
 
-            JugadorPartidoBC objJugadorPartio = new JugadorPartidoBC();
-            objJugadorPartio.insertar_jugadores(lista_jugadores_partido);
+                JugadorPartidoBC objJugadorPartio = new JugadorPartidoBC();
+                objJugadorPartio.insertar_jugadores(lista_jugadores_partido);
+
+                SuspensionBC objSuspensionBC = new SuspensionBC();
+                for (int i = 0; i < lista_amonestaciones.Count; i++)
+                {
+                    if (lista_amonestaciones[i].Tipo == 0)
+                    {
+                        objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 1);
+                    }
+                    if (lista_amonestaciones[i].Tipo == 1)
+                    {
+                        objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 2);
+                    }
+                }
+
+                for (int i = 0; i < lista_jugadores_suspendidos.Count; i++)
+                {
+                    objSuspensionBC.actualizar_Suspension(lista_jugadores_suspendidos[i].CodigoJugador, 3);
+                }
+
+                MessageBox.Show("Los datos del partido han sido registrados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+
         }
 
         private void btn_terminar_Click(object sender, EventArgs e)
@@ -427,12 +473,34 @@ namespace UPC.Proyecto.SISPPAFUT
         private void dgvJugadoresDataBind()
         {
             JugadorBC objJugadorBC = new JugadorBC();
+            SuspensionBC objSuspensionBC = new SuspensionBC();
+            lista_jugadores_suspendidos = new List<JugadorBE>();
 
             lista_equipo_local = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_local);
             lista_equipo_visita = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_visitante);
 
-            dgv_equipo_local.DataSource = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_local);
-            dgv_equipo_visitante.DataSource = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_visitante);
+            for (int i = 0; i < lista_equipo_local.Count; i++)
+            {
+                if (objSuspensionBC.leer_EstadoSuspension(lista_equipo_local[i].CodigoJugador).Equals("SUSPENDIDO"))
+                {
+                    lista_jugadores_suspendidos.Add(lista_equipo_local[i]);
+                    lista_equipo_local.RemoveAt(i);
+                    i--;
+                }
+            }
+
+            for (int i = 0; i < lista_equipo_visita.Count; i++)
+            {
+                if (objSuspensionBC.leer_EstadoSuspension(lista_equipo_visita[i].CodigoJugador).Equals("SUSPENDIDO"))
+                {
+                    lista_jugadores_suspendidos.Add(lista_equipo_visita[i]);
+                    lista_equipo_visita.RemoveAt(i);
+                    i--;
+                }
+            }
+
+            dgv_equipo_local.DataSource = lista_equipo_local;
+            dgv_equipo_visitante.DataSource = lista_equipo_visita;
         }
 
         private void setearCombos()

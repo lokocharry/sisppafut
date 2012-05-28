@@ -12,11 +12,15 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
         public int insertar_Jugador(JugadorBE objJugadorBE)
         {
             JugadorDALC objJugadorDALC;
+            SuspensionBC objSuspensionBC;
             int resultado = 0;
             try
             {
                 objJugadorDALC = new JugadorDALC();
+                objSuspensionBC = new SuspensionBC();
+                                
                 resultado = objJugadorDALC.insertar_Jugador(objJugadorBE);
+                objSuspensionBC.crear_Suspension(resultado);
                 return resultado;
             }
 
@@ -88,22 +92,6 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objJugadorDALC = new JugadorDALC();
                 objJugadorDALC.editarJugador(codigoJugador, nAltura, nPeso);
             }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-
-        public String verificar_EstadoSuspension(int codigo_jugador)
-        {
-            JugadorDALC objJugadorDALC;
-
-            try
-            {
-                objJugadorDALC = new JugadorDALC();
-                return objJugadorDALC.verificar_Suspendido(codigo_jugador);
-            }
-
             catch (Exception)
             {
                 throw;

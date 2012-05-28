@@ -60,6 +60,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="RankingEquipoDALC.cs" />
+    <Compile Include="SuspensionDALC.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
