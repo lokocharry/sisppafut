@@ -153,5 +153,24 @@ namespace UnitTests
             JugadorBC target = new JugadorBC();
             target.asignar_JugadoraEquipo(lista_jugadores);
         }
+
+        /// <summary>
+        ///A test for editar_Jugador
+        ///</summary>
+        [TestMethod()]
+        public void editar_JugadorTest()
+        {
+            JugadorBC target = new JugadorBC();
+            int codigoJugador = 1;
+            Decimal nAltura = 1.70m;
+            Decimal nPeso = 68.0m;
+            target.editar_Jugador(codigoJugador, nAltura, nPeso);
+
+            List<JugadorBE> actual = target.listar_Jugadores();
+
+            Assert.AreEqual(codigoJugador, actual[0].CodigoJugador);
+            Assert.AreEqual(nAltura, actual[0].Altura);
+            Assert.AreEqual(nPeso, actual[0].Peso);
+        }
     }
 }

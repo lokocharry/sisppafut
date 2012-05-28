@@ -22,7 +22,7 @@ namespace UPC.Proyecto.SISPPAFUT
             InitializeComponent();
         }
 
-        private static frmActualizarRanking frmRanking;
+        private static frmActualizarRanking frmRanking = null;
         public static frmActualizarRanking Instance()
         {
             if (frmRanking == null)
@@ -141,6 +141,29 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
+                int iCodigo = 0;
+                RankingEquipoBC objEquipoBC;
+                RankingEquipoBE objEquipoBE;
+
+                objEquipoBE = new RankingEquipoBE();
+                objEquipoBC = new RankingEquipoBC();
+
+                objEquipoBE.CodigoEquipo = lista_equipos[cmbEquipo.SelectedIndex - 1].CodigoEquipo;
+                objEquipoBE.PosicionRanking = Convert.ToInt32(txtPosicion.Text);
+                objEquipoBE.AnioRanking = Convert.ToInt32(cmbAnio.Text);
+                objEquipoBE.MesRanking = cmbMes.SelectedIndex;
+                objEquipoBE.PuntosRanking = Convert.ToInt32(txtPuntos.Text);
+
+                iCodigo = objEquipoBC.insertar_ranking(objEquipoBE);
+                if (iCodigo == 0)
+                {
+                    MessageBox.Show("El equipo no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("El equipo ha sido registrado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                this.Close();
             }
             catch (Exception ex)
             {

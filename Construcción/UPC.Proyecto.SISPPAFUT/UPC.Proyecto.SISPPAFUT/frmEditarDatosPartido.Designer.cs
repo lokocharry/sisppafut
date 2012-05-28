@@ -45,7 +45,6 @@
             this.col_peso_v = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_titular_v = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.col_suplente_v = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dgv_equipo_visitante = new System.Windows.Forms.DataGridView();
             this.dgv_equipo_local = new System.Windows.Forms.DataGridView();
             this.col_cod_jugador = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();

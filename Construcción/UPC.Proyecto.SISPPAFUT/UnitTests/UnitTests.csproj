@@ -80,6 +80,7 @@
     <Compile Include="PaisBCTest.cs" />
     <Compile Include="PartidoBCTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RankingEquipoBCTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BL.BC\UPC.Proyecto.SISPPAFUT.BL.BC.csproj">

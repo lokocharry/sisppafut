@@ -95,6 +95,12 @@
     <Compile Include="frmPartidoInsertar.Designer.cs">
       <DependentUpon>frmPartidoInsertar.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRankingMundial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRankingMundial.Designer.cs">
+      <DependentUpon>frmRankingMundial.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funciones.cs" />
     <Compile Include="SISPPAFUTmdi.cs">
       <SubType>Form</SubType>
@@ -172,6 +178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPartidoInsertar.resx">
       <DependentUpon>frmPartidoInsertar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRankingMundial.resx">
+      <DependentUpon>frmRankingMundial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SISPPAFUTmdi.resx">
       <DependentUpon>SISPPAFUTmdi.cs</DependentUpon>

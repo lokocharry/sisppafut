@@ -46,6 +46,7 @@
             this.nuevoEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rankingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,7 @@
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rankingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verRankingMundialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -151,7 +152,8 @@
             this.nuevoEquipoToolStripMenuItem,
             this.editarEquipoToolStripMenuItem,
             this.asignarJugadoresToolStripMenuItem,
-            this.rankingToolStripMenuItem});
+            this.rankingToolStripMenuItem,
+            this.verRankingMundialToolStripMenuItem});
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
             this.equiposToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.equiposToolStripMenuItem.Text = "Equipos";
@@ -159,23 +161,30 @@
             // nuevoEquipoToolStripMenuItem
             // 
             this.nuevoEquipoToolStripMenuItem.Name = "nuevoEquipoToolStripMenuItem";
-            this.nuevoEquipoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.nuevoEquipoToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.nuevoEquipoToolStripMenuItem.Text = "Nuevo Equipo";
             this.nuevoEquipoToolStripMenuItem.Click += new System.EventHandler(this.InNuevoEquipo);
             // 
             // editarEquipoToolStripMenuItem
             // 
             this.editarEquipoToolStripMenuItem.Name = "editarEquipoToolStripMenuItem";
-            this.editarEquipoToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.editarEquipoToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.editarEquipoToolStripMenuItem.Text = "Editar Equipo";
             this.editarEquipoToolStripMenuItem.Click += new System.EventHandler(this.editarEquipoToolStripMenuItem_Click);
             // 
             // asignarJugadoresToolStripMenuItem
             // 
             this.asignarJugadoresToolStripMenuItem.Name = "asignarJugadoresToolStripMenuItem";
-            this.asignarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
+            this.asignarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.asignarJugadoresToolStripMenuItem.Text = "Asignar Jugadores";
             this.asignarJugadoresToolStripMenuItem.Click += new System.EventHandler(this.inAsignarJugadores);
+            // 
+            // rankingToolStripMenuItem
+            // 
+            this.rankingToolStripMenuItem.Name = "rankingToolStripMenuItem";
+            this.rankingToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.rankingToolStripMenuItem.Text = "Actualizar Ranking";
+            this.rankingToolStripMenuItem.Click += new System.EventHandler(this.rankingToolStripMenuItem_Click);
             // 
             // jugadorToolStripMenuItem
             // 
@@ -243,12 +252,12 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
-            // rankingToolStripMenuItem
+            // verRankingMundialToolStripMenuItem
             // 
-            this.rankingToolStripMenuItem.Name = "rankingToolStripMenuItem";
-            this.rankingToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.rankingToolStripMenuItem.Text = "Actualizar Ranking";
-            this.rankingToolStripMenuItem.Click += new System.EventHandler(this.rankingToolStripMenuItem_Click);
+            this.verRankingMundialToolStripMenuItem.Name = "verRankingMundialToolStripMenuItem";
+            this.verRankingMundialToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.verRankingMundialToolStripMenuItem.Text = "Ver Ranking Mundial";
+            this.verRankingMundialToolStripMenuItem.Click += new System.EventHandler(this.verRankingMundialToolStripMenuItem_Click);
             // 
             // SISPPAFUTmdi
             // 
@@ -297,6 +306,7 @@
         private System.Windows.Forms.ToolStripMenuItem editarJugadoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarSuspensionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rankingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verRankingMundialToolStripMenuItem;
     }
 }
 

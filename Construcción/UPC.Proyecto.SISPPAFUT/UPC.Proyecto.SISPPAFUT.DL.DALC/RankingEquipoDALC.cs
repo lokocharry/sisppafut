@@ -141,10 +141,10 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 {
                     objRankingBE = new RankingBE();
 
-                    objRankingBE.NombreEquipo = dr_ranking.GetString(dr_ranking.GetOrdinal("e.Nombre"));
-                    objRankingBE.Posicion = dr_ranking.GetInt32(dr_ranking.GetOrdinal("r.Posicion"));
-                    objRankingBE.Puntos = dr_ranking.GetInt32(dr_ranking.GetOrdinal("r.Puntos"));
-                    objRankingBE.Pais = dr_ranking.GetString(dr_ranking.GetOrdinal("p.Nombre"));
+                    objRankingBE.NombreEquipo = dr_ranking.GetString(dr_ranking.GetOrdinal("Nombre"));
+                    objRankingBE.Posicion = dr_ranking.GetInt32(dr_ranking.GetOrdinal("Posicion"));
+                    objRankingBE.Puntos = dr_ranking.GetInt32(dr_ranking.GetOrdinal("Puntos"));
+                    objRankingBE.Pais = dr_ranking.GetString(dr_ranking.GetOrdinal("Nombre"));
 
                     lista_ranking.Add(objRankingBE);
                 }

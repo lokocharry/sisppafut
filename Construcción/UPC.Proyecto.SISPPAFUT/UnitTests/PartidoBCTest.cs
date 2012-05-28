@@ -158,5 +158,22 @@ namespace UnitTests
                 Assert.AreEqual(expected[i].Fecha, actual[i].Fecha);
             }
         }
+
+        /// <summary>
+        ///A test for editar_Partido
+        ///</summary>
+        [TestMethod()]
+        public void editar_PartidoTest()
+        {
+            PartidoBC target = new PartidoBC();
+            int codigoPartido = 1;
+            DateTime nuevaFecha = new DateTime(2012,5,10);
+            target.editar_Partido(codigoPartido, nuevaFecha);
+
+            PartidoBE actual = target.obtener_Partido(codigoPartido);
+
+            Assert.AreEqual(codigoPartido, actual.Codigo_partido);
+            Assert.AreEqual(nuevaFecha, actual.Fecha_partido);
+        }
     }
 }

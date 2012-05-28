@@ -189,5 +189,24 @@ namespace UnitTests
             }
 
         }
+
+        /// <summary>
+        ///A test for actualizarEquipo
+        ///</summary>
+        [TestMethod()]
+        public void actualizarEquipoTest()
+        {
+            EquipoBC target = new EquipoBC();
+            int codigo_equipo = 5;
+            int estadio_principal = 8;
+            int estadio_alterno = 2;
+            target.actualizarEquipo(codigo_equipo, estadio_principal, estadio_alterno);
+
+            EquipoBE actual = target.obtenerEquipo("Levante");
+
+            Assert.AreEqual(codigo_equipo, actual.CodigoEquipo);
+            Assert.AreEqual(estadio_principal, actual.CodigoEstadioPrincipal);
+            Assert.AreEqual(estadio_alterno, actual.CodigoEstadioAlterno);
+        }
     }
 }
