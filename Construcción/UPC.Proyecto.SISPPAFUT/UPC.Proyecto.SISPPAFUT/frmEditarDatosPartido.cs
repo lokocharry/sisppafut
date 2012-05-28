@@ -39,11 +39,19 @@ namespace UPC.Proyecto.SISPPAFUT
         }
 
         private PartidoBE objPartidoBE;
+
+        //Lista del total del jugadores de los equipo
         private List<JugadorBE> lista_equipo_local;
         private List<JugadorBE> lista_equipo_visita;
+
+        //Lista de los jugadores que jugaron el partido
+        private List<JugadorBE> lista_jugaron_local;
+        private List<JugadorBE> lista_jugaron_visita;
+        
         private List<AmonestacionBE> lista_amonestaciones;
         private List<GolBE> lista_goles;
         private List<LesionPartidoBE> lista_lesiones;
+
         private List<JugadorPartidoBE> lista_jugadores_partido;
 
         private static frmEditarDatosPartido frmEditarDPartido = null;
@@ -60,8 +68,8 @@ namespace UPC.Proyecto.SISPPAFUT
         public frmEditarDatosPartido()
         {
             InitializeComponent();
-            iniciarGrillaEquipoLocal();
-            iniciarGrillaEquipoVisitante();
+            //iniciarGrillaEquipoLocal();
+            //iniciarGrillaEquipoVisitante();
         }
                 
         public void iniciarGrillaEquipoLocal()
@@ -286,6 +294,9 @@ namespace UPC.Proyecto.SISPPAFUT
 
             lista_jugadores_partido = new List<JugadorPartidoBE>();
 
+            lista_jugaron_local = new List<JugadorBE>();
+            lista_jugaron_visita = new List<JugadorBE>();
+
             DataGridViewCheckBoxCell check_titular = new DataGridViewCheckBoxCell();
             DataGridViewCheckBoxCell check_suplente = new DataGridViewCheckBoxCell();
 
@@ -316,6 +327,7 @@ namespace UPC.Proyecto.SISPPAFUT
                     }
 
                     lista_jugadores_partido.Add(objJugadorPartidoBE);
+                    lista_jugaron_local.Add(lista_equipo_local[i]);
                 }
             }
 
@@ -344,6 +356,7 @@ namespace UPC.Proyecto.SISPPAFUT
                     }
 
                     lista_jugadores_partido.Add(objJugadorPartidoBE);
+                    lista_jugaron_visita.Add(lista_equipo_visita[i]);
                 }
             }
         }
@@ -457,14 +470,14 @@ namespace UPC.Proyecto.SISPPAFUT
 
             if (combo_equipos.SelectedIndex == 1)
             {
-                for (int i = 0; i < lista_equipo_local.Count; i++)
-                    combo_jugadores.Items.Add(lista_equipo_local[i].Nombres + " " + lista_equipo_local[i].Apellidos);
+                for (int i = 0; i < lista_jugaron_local.Count; i++)
+                    combo_jugadores.Items.Add(lista_jugaron_local[i].Nombres + " " + lista_jugaron_local[i].Apellidos);
             }
 
             if (combo_equipos.SelectedIndex == 2)
             {
-                for (int i = 0; i < lista_equipo_visita.Count; i++)
-                    combo_jugadores.Items.Add(lista_equipo_visita[i].Nombres + " " + lista_equipo_visita[i].Apellidos);
+                for (int i = 0; i < lista_jugaron_visita.Count; i++)
+                    combo_jugadores.Items.Add(lista_jugaron_visita[i].Nombres + " " + lista_jugaron_visita[i].Apellidos);
             }
 
             combo_jugadores.SelectedIndex = 0;
@@ -483,10 +496,10 @@ namespace UPC.Proyecto.SISPPAFUT
             int code;
 
             if (pos_equipo == 1)
-                code = lista_equipo_local[combo.SelectedIndex - 1].CodigoJugador;
+                code = lista_jugaron_local[combo.SelectedIndex - 1].CodigoJugador;
 
             else if (pos_equipo == 2)
-                code = lista_equipo_visita[combo.SelectedIndex - 1].CodigoJugador;
+                code = lista_jugaron_visita[combo.SelectedIndex - 1].CodigoJugador;
 
             else
                 code = 0;
@@ -500,9 +513,9 @@ namespace UPC.Proyecto.SISPPAFUT
             int posicion = combo.SelectedIndex - 1;
 
             if (pos_equipo == 1)
-                nombre = lista_equipo_local[posicion].Nombres + " " + lista_equipo_local[posicion].Apellidos;
+                nombre = lista_jugaron_local[posicion].Nombres + " " + lista_jugaron_local[posicion].Apellidos;
             else if (pos_equipo == 2)
-                nombre = lista_equipo_visita[posicion].Nombres + " " + lista_equipo_visita[posicion].Apellidos;
+                nombre = lista_jugaron_visita[posicion].Nombres + " " + lista_jugaron_visita[posicion].Apellidos;
             else
                 nombre = "";
 
@@ -513,6 +526,60 @@ namespace UPC.Proyecto.SISPPAFUT
         private void inSalir(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_amonestaciones_actualizar_Click(object sender, EventArgs e)
+        {
+            DataGridViewCheckBoxCell check_delete = new DataGridViewCheckBoxCell();
+
+            for (int i = 0; i < lista_amonestaciones.Count; i++)
+            {
+                check_delete = (DataGridViewCheckBoxCell)dgv_amonestaciones.Rows[i].Cells["col_eliminar_amonestacion"];
+
+                if (check_delete.Value != null)
+                    if ((bool)check_delete.Value.Equals(true))
+                    {
+                        lista_amonestaciones.RemoveAt(i);
+                        dgv_amonestaciones.Rows.RemoveAt(i);
+                        i--;
+                    }
+            }            
+        }
+
+        private void cmb_goles_actualizar_Click(object sender, EventArgs e)
+        {
+            DataGridViewCheckBoxCell check_delete = new DataGridViewCheckBoxCell();
+
+            for (int i = 0; i < lista_goles.Count; i++)
+            {
+                check_delete = (DataGridViewCheckBoxCell)dgv_goles.Rows[i].Cells["col_eliminar_goles"];
+
+                if (check_delete.Value != null)
+                    if ((bool)check_delete.Value.Equals(true))
+                    {
+                        lista_goles.RemoveAt(i);
+                        dgv_goles.Rows.RemoveAt(i);
+                        i--;
+                    }
+            }   
+        }
+
+        private void btn_lesiones_actualizar_Click(object sender, EventArgs e)
+        {
+            DataGridViewCheckBoxCell check_delete = new DataGridViewCheckBoxCell();
+
+            for (int i = 0; i < lista_lesiones.Count; i++)
+            {
+                check_delete = (DataGridViewCheckBoxCell)dgv_lesiones.Rows[i].Cells["col_eliminar_lesiones"];
+
+                if (check_delete.Value != null)
+                    if ((bool)check_delete.Value.Equals(true))
+                    {
+                        lista_lesiones.RemoveAt(i);
+                        dgv_lesiones.Rows.RemoveAt(i);
+                        i--;
+                    }
+            } 
         }
     }
 }

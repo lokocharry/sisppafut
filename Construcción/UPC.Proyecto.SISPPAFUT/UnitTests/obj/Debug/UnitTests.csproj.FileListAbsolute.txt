@@ -42,3 +42,14 @@ C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyec
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\obj\Debug\UnitTests.dll
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\obj\Debug\UnitTests.pdb
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\bin\Debug\UnitTests.dll
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\bin\Debug\UnitTests.pdb
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.dll
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.pdb
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\obj\Debug\UnitTests.dll
+C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\obj\Debug\UnitTests.pdb
