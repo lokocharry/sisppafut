@@ -144,7 +144,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                     objRankingBE.NombreEquipo = dr_ranking.GetString(dr_ranking.GetOrdinal("Nombre"));
                     objRankingBE.Posicion = dr_ranking.GetInt32(dr_ranking.GetOrdinal("Posicion"));
                     objRankingBE.Puntos = dr_ranking.GetInt32(dr_ranking.GetOrdinal("Puntos"));
-                    objRankingBE.Pais = dr_ranking.GetString(dr_ranking.GetOrdinal("Nombre"));
+                    objRankingBE.Pais = dr_ranking.GetString(dr_ranking.GetOrdinal("Pais"));
 
                     lista_ranking.Add(objRankingBE);
                 }

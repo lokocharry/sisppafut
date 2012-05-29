@@ -6,7 +6,7 @@ CREATE PROCEDURE spReadRankingEquipo
 )
 AS
 BEGIN
-SELECT e.Nombre, r.Posicion, r.Puntos, p.Nombre
+SELECT e.Nombre, r.Posicion, r.Puntos, p.Nombre as "Pais"
   FROM Equipo e join RankingEquipo r on e.CodEquipo = r.CodEquipo, Pais p
   WHERE r.Anio = @anio and
 		r.Mes = @mes and
