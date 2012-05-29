@@ -389,7 +389,9 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd.Parameters.Add(prm_estadioAlterno);
 
                 cmd.Connection.Open();
-                cmd.ExecuteNonQuery();                
+                cmd.ExecuteNonQuery();
+                cmd.Connection.Close();
+                conexion.Dispose();
             }
             catch (Exception ex)
             {
