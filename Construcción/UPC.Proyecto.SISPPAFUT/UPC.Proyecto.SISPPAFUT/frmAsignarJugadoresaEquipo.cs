@@ -31,12 +31,13 @@ namespace UPC.Proyecto.SISPPAFUT
 
         public frmAsignarJugadoresaEquipo()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
         }
 
         private void frmAsignarJugadoresaEquipo_Load(object sender, EventArgs e)
@@ -73,6 +74,11 @@ namespace UPC.Proyecto.SISPPAFUT
             }
 
             cmb_equipos.SelectedIndex = 0;
+
+            if(cmb_jugadores.Items.Count>0)
+                cmb_jugadores.SelectedIndex = 0;
+
+            dgv_jugadores.Rows.Clear();
         }
 
         private void llenar_combr_paises()
@@ -82,10 +88,15 @@ namespace UPC.Proyecto.SISPPAFUT
             PaisBC objPaisBC = new PaisBC();
             lista_paises = objPaisBC.listarPaises();
 
+            cmb_paises.Items.Clear();
+            cmb_paises.Items.Add("(Elija un país)");
+            
             for (int i = 0; i < lista_paises.Count; i++)
             {
                 cmb_paises.Items.Add(lista_paises[i].NombrePais);
             }
+
+            cmb_paises.SelectedIndex = 0;
         }
 
         private void llenar_combo_jugadores()
@@ -95,10 +106,15 @@ namespace UPC.Proyecto.SISPPAFUT
             JugadorBC objJugadorBC = new JugadorBC();
             lista_jugadores = objJugadorBC.listar_Jugadores();
 
+            cmb_jugadores.Items.Clear();
+            cmb_jugadores.Items.Add("(Elija un jugador)");
+
             for (int i = 0; i < lista_jugadores.Count; i++)
             {
                 cmb_jugadores.Items.Add(lista_jugadores[i].Nombres + " " + lista_jugadores[i].Apellidos);
             }
+
+            cmb_jugadores.SelectedIndex = 0;
         }
 
         private void btn_agregar_jugadores_Click(object sender, EventArgs e)
@@ -106,8 +122,9 @@ namespace UPC.Proyecto.SISPPAFUT
             int pos_equipo = cmb_equipos.SelectedIndex;
             int pos_jugador = cmb_jugadores.SelectedIndex;
             bool con_equipo = false;
+            bool en_lista = false;
 
-            if(pos_jugador != 0 || pos_equipo != 0)
+            if(pos_jugador != 0 && pos_equipo != 0)
             {
                 JugadorEquipoBE obj = new JugadorEquipoBE();
                 obj.Codigo_equipo = lista_equipos[pos_equipo - 1].CodigoEquipo;
@@ -120,17 +137,30 @@ namespace UPC.Proyecto.SISPPAFUT
                         break;
                     }
 
+                for (int i = 0; i < lista_jugadores_seleccionados.Count; i++)
+                    if (obj.Codigo_jugador == lista_jugadores_seleccionados[i].Codigo_jugador)
+                    {
+                        en_lista = true;
+                        break;
+                    }
+
                 if (!con_equipo)
                 {
-                    lista_jugadores_seleccionados.Add(obj);
-                    dgvJugadoresDataBind();
+                    if (!en_lista)
+                    {
+                        lista_jugadores_seleccionados.Add(obj);
+                        dgvJugadoresDataBind();
+                    }
+                    else
+                        MessageBox.Show("El jugador ya se encuentra en la lista para asignar jugadores.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-
                 else
                 {
                     MessageBox.Show("El jugador ya se encuentra registrado en un equipo.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }   
+            }
+            else
+                MessageBox.Show("Verifique que haya seleccionado un equipo y/o jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void dgvJugadoresDataBind()
@@ -168,6 +198,14 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 throw;
             }
+        }
+
+        private void inSeleccionarEquipo(object sender, EventArgs e)
+        {
+            if (cmb_jugadores.Items.Count > 0)
+                cmb_jugadores.SelectedIndex = 0;
+
+            dgv_jugadores.Rows.Clear();
         }
     }
 }

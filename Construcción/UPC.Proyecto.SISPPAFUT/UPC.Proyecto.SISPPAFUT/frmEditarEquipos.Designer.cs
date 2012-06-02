@@ -66,6 +66,7 @@
             // 
             // cmbPais
             // 
+            this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPais.FormattingEnabled = true;
             this.cmbPais.Items.AddRange(new object[] {
             "(Seleccione un pais...)"});
@@ -111,9 +112,9 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(376, 330);
+            this.btnEditar.Location = new System.Drawing.Point(401, 330);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(100, 23);
+            this.btnEditar.Size = new System.Drawing.Size(75, 23);
             this.btnEditar.TabIndex = 4;
             this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
@@ -133,13 +134,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(589, 381);
+            this.ClientSize = new System.Drawing.Size(589, 375);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgEquipos);
             this.Controls.Add(this.cmbPais);
             this.Controls.Add(this.lblPais);
             this.Controls.Add(this.lblTitulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmEditarEquipos";
             this.Text = "Editar Equipos";
             ((System.ComponentModel.ISupportInitialize)(this.dgEquipos)).EndInit();

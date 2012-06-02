@@ -84,8 +84,6 @@
             // 
             this.cmb_paises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_paises.FormattingEnabled = true;
-            this.cmb_paises.Items.AddRange(new object[] {
-            "(Elija un país)"});
             this.cmb_paises.Location = new System.Drawing.Point(102, 28);
             this.cmb_paises.Name = "cmb_paises";
             this.cmb_paises.Size = new System.Drawing.Size(178, 21);
@@ -100,13 +98,12 @@
             this.cmb_equipos.Name = "cmb_equipos";
             this.cmb_equipos.Size = new System.Drawing.Size(178, 21);
             this.cmb_equipos.TabIndex = 4;
+            this.cmb_equipos.SelectedIndexChanged += new System.EventHandler(this.inSeleccionarEquipo);
             // 
             // cmb_jugadores
             // 
             this.cmb_jugadores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_jugadores.FormattingEnabled = true;
-            this.cmb_jugadores.Items.AddRange(new object[] {
-            "(Elija un jugador)"});
             this.cmb_jugadores.Location = new System.Drawing.Point(102, 66);
             this.cmb_jugadores.Name = "cmb_jugadores";
             this.cmb_jugadores.Size = new System.Drawing.Size(178, 21);
@@ -193,7 +190,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(364, 291);
+            this.btn_guardar.Location = new System.Drawing.Point(462, 280);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_guardar.TabIndex = 8;
@@ -203,7 +200,7 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(462, 291);
+            this.btn_cancelar.Location = new System.Drawing.Point(381, 280);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_cancelar.TabIndex = 9;
@@ -215,7 +212,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 342);
+            this.ClientSize = new System.Drawing.Size(570, 326);
             this.ControlBox = false;
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_guardar);

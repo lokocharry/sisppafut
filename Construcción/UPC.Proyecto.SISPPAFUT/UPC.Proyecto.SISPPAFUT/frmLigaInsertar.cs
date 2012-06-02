@@ -133,7 +133,7 @@ namespace UPC.Proyecto.SISPPAFUT
                     }
                     else
                     {
-                        MessageBox.Show("El país seleccionado no dispone de ligar para mostrar.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El país seleccionado no dispone de ligas para mostrar.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         cmb_pais.SelectedIndex = 0;
                     }
                 }
