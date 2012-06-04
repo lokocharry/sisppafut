@@ -378,18 +378,39 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
+                //Registro de amonestaciones
                 AmonestacionBC objAmonestaionesBC = new AmonestacionBC();
                 objAmonestaionesBC.insertar_Amonestacion(lista_amonestaciones);
 
+                //Registro de goles
                 GolBC objGolBC = new GolBC();
                 objGolBC.insertar_Goles(lista_goles);
 
+                //Actualizacion de goles en el partido
+                PartidoBC objPartidoBC = new PartidoBC();
+                int cont_goles_local = 0;
+                int cont_goles_visita = 0;
+
+                for (int i = 0; i < lista_goles.Count; i++)
+                {
+                    if (esJugadorLocal(lista_goles[i].Codigo_jugador))
+                        cont_goles_local++;
+
+                    else
+                        cont_goles_visita++;
+                }
+
+                objPartidoBC.actualizar_Resultado(Codigo_partido, cont_goles_local, cont_goles_visita);
+
+                //Registro de lesiones
                 LesionPartidoBC objLesionesBC = new LesionPartidoBC();
                 objLesionesBC.insertar_Lesiones(lista_lesiones);
 
+                //Registro de jugadores en el partido
                 JugadorPartidoBC objJugadorPartio = new JugadorPartidoBC();
                 objJugadorPartio.insertar_jugadores(lista_jugadores_partido);
 
+                //Actualizacion de suspensiones
                 SuspensionBC objSuspensionBC = new SuspensionBC();
                 for (int i = 0; i < lista_amonestaciones.Count; i++)
                 {
@@ -524,20 +545,20 @@ namespace UPC.Proyecto.SISPPAFUT
 
             DataGridViewCheckBoxCell check_l = new DataGridViewCheckBoxCell();
 
-            if (dgv_equipo_local.Columns["col_titular_v"].Index == e.ColumnIndex)
+            if (dgv_equipo_local.Columns["col_titular"].Index == e.ColumnIndex)
             {
-                check_l = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[e.RowIndex].Cells["col_titular_v"];
+                check_l = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[e.RowIndex].Cells["col_titular"];
 
-                dgv_equipo_local.Rows[e.RowIndex].Cells["col_titular_v"].Value = true;
-                dgv_equipo_local.Rows[e.RowIndex].Cells["col_suplente_v"].Value = false;
+                dgv_equipo_local.Rows[e.RowIndex].Cells["col_titular"].Value = true;
+                dgv_equipo_local.Rows[e.RowIndex].Cells["col_suplente"].Value = false;
             }
             else
-                if (dgv_equipo_local.Columns["col_suplente_v"].Index == e.ColumnIndex)
+                if (dgv_equipo_local.Columns["col_suplente"].Index == e.ColumnIndex)
                 {
-                    check_l = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[e.RowIndex].Cells["col_suplente_v"];
+                    check_l = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[e.RowIndex].Cells["col_suplente"];
 
-                    dgv_equipo_local.Rows[e.RowIndex].Cells["col_suplente_v"].Value = true;
-                    dgv_equipo_local.Rows[e.RowIndex].Cells["col_titular_v"].Value = false;
+                    dgv_equipo_local.Rows[e.RowIndex].Cells["col_suplente"].Value = true;
+                    dgv_equipo_local.Rows[e.RowIndex].Cells["col_titular"].Value = false;
                 } 
         }
 
@@ -688,6 +709,18 @@ namespace UPC.Proyecto.SISPPAFUT
             return nombre;
         }
 
+        private bool esJugadorLocal(int codigo_jugador)
+        {
+            //Nos permite saber si el jugador pertenece al equipo local o no
+            for (int i = 0; i < lista_jugaron_local.Count; i++)
+            {
+                if (codigo_jugador == lista_jugaron_local[i].CodigoJugador)
+                    return true;
+            }
+
+            return false;
+  
+        }
 
         private void inSalir(object sender, EventArgs e)
         {

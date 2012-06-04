@@ -51,6 +51,7 @@
     <Compile Include="LogBE.cs" />
     <Compile Include="PaisBE.cs" />
     <Compile Include="PartidoBE.cs" />
+    <Compile Include="PartidoJugadoBE.cs" />
     <Compile Include="PartidoSinJugarBE.cs" />
     <Compile Include="PronosticoBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

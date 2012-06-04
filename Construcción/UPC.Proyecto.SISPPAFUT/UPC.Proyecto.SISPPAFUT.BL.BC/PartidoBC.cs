@@ -85,5 +85,37 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public void actualizar_Resultado(int codigo_partido, int goles_local, int goles_visita)
+        {
+            PartidoDALC objPartidoDALC;
+
+            try
+            {
+                objPartidoDALC = new PartidoDALC();
+                objPartidoDALC.actualizar_Resultado(codigo_partido, goles_local, goles_visita);
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<PartidoJugadoBE> lista_ultimosPartidos(int codigo_equipo, int codigo_liga)
+        {
+            PartidoDALC objPartidoDALC;
+
+            try
+            {
+                objPartidoDALC = new PartidoDALC();
+                return objPartidoDALC.lista_ultimosPartidos(codigo_equipo, codigo_liga);
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

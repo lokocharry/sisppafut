@@ -99,6 +99,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 if (conexion != null && conexion.State == ConnectionState.Open)
                 {
                     conexion.Dispose();
+                    cmd_PartidoInsertar.Connection.Close();
                 }
 
                 throw;
@@ -380,6 +381,138 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             /*
             String resultado = "";
             return resultado;*/
+        }
+
+        public void actualizar_Resultado(int codigo_partido, int goles_local, int goles_visita)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_ResultadoActualizar = null;
+            SqlParameter prm_codigo_partido;
+            SqlParameter prm_goles_local;
+            SqlParameter prm_goles_visita;
+            String sqlActualizarResultado;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+
+                sqlActualizarResultado = "spUpdateGolesPartido";
+
+                cmd_ResultadoActualizar = new SqlCommand(sqlActualizarResultado, conexion);
+                cmd_ResultadoActualizar.CommandType = CommandType.StoredProcedure;
+
+                prm_codigo_partido = new SqlParameter();
+                prm_codigo_partido.ParameterName = "@CodPartido";
+                prm_codigo_partido.SqlDbType = SqlDbType.Int;
+                prm_codigo_partido.Value = codigo_partido;
+
+                prm_goles_local = new SqlParameter();
+                prm_goles_local.ParameterName = "@GolesLocal";
+                prm_goles_local.SqlDbType = SqlDbType.Int;
+                prm_goles_local.Value = goles_local;
+                
+                prm_goles_visita = new SqlParameter();
+                prm_goles_visita.ParameterName = "@GolesVisita";
+                prm_goles_visita.SqlDbType = SqlDbType.Int;
+                prm_goles_visita.Value = goles_visita;
+
+                cmd_ResultadoActualizar.Parameters.Add(prm_codigo_partido);
+                cmd_ResultadoActualizar.Parameters.Add(prm_goles_local);
+                cmd_ResultadoActualizar.Parameters.Add(prm_goles_visita);
+
+                cmd_ResultadoActualizar.Connection.Open();
+                cmd_ResultadoActualizar.ExecuteNonQuery();
+            }
+
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                    cmd_ResultadoActualizar.Connection.Close();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_ResultadoActualizar.Connection.Close();
+                conexion.Dispose();
+            }
+        }
+
+        public List<PartidoJugadoBE> lista_ultimosPartidos(int codigo_equipo, int codigo_liga)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_partidos;
+            SqlCommand cmd_partidos = null;
+            String sqlPartidosListar;
+
+            SqlParameter prm_equipo;
+            SqlParameter prm_liga;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlPartidosListar = "spLista5UltimosPartidos";
+                cmd_partidos = conexion.CreateCommand();
+                cmd_partidos.CommandText = sqlPartidosListar;
+                cmd_partidos.CommandType = CommandType.StoredProcedure;
+
+                prm_equipo = new SqlParameter();
+                prm_equipo.ParameterName = "@CodPartido";
+                prm_equipo.SqlDbType = SqlDbType.Int;
+                prm_equipo.Value = codigo_equipo;
+
+                prm_liga = new SqlParameter();
+                prm_liga.ParameterName = "@CodPartido";
+                prm_liga.SqlDbType = SqlDbType.Int;
+                prm_liga.Value = codigo_liga;
+
+                cmd_partidos.Parameters.Add(prm_equipo);
+                cmd_partidos.Parameters.Add(prm_liga);
+
+                cmd_partidos.Connection.Open();
+                dr_partidos = cmd_partidos.ExecuteReader();
+
+                List<PartidoJugadoBE> lista_partidos;
+                PartidoJugadoBE objPartidoBE;
+
+                lista_partidos = new List<PartidoJugadoBE>();
+
+                while (dr_partidos.Read())
+                {
+                    objPartidoBE = new PartidoJugadoBE();
+
+                    objPartidoBE.Equipo_local = dr_partidos.GetString(0);
+                    objPartidoBE.Equipo_visita = dr_partidos.GetString(1);
+                    objPartidoBE.Goles_local = dr_partidos.GetInt32(2);
+                    objPartidoBE.Goles_visita = dr_partidos.GetInt32(3);
+                    objPartidoBE.Fecha = dr_partidos.GetDateTime(4);
+                    objPartidoBE.Liga = dr_partidos.GetString(5);
+
+                    lista_partidos.Add(objPartidoBE);
+                }
+
+                return lista_partidos;
+            }
+
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_partidos.Connection.Close();
+                conexion.Dispose();
+            }
         }
     }
 }
