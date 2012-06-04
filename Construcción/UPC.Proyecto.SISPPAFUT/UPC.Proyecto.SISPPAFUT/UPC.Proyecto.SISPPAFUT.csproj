@@ -77,6 +77,12 @@
     <Compile Include="frmEditarJugadores.Designer.cs">
       <DependentUpon>frmEditarJugadores.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEntrenarPronosticos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEntrenarPronosticos.Designer.cs">
+      <DependentUpon>frmEntrenarPronosticos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmJugadorInsertar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarJugadores.resx">
       <DependentUpon>frmEditarJugadores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEntrenarPronosticos.resx">
+      <DependentUpon>frmEntrenarPronosticos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEquipoInsertar.resx">
       <DependentUpon>frmEquipoInsertar.cs</DependentUpon>

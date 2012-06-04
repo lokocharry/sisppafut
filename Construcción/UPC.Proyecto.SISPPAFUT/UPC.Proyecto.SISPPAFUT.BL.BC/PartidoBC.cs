@@ -39,6 +39,21 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
+        public List<PartidoBE> lista_todos_partidos()
+        {
+            PartidoDALC objPartidoDALC;
+
+            try
+            {
+                objPartidoDALC = new PartidoDALC();
+                return objPartidoDALC.listar_todos_partidos();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public List<PartidoSinJugarBE> lista_partidos_sinjugar()
         {
             PartidoDALC objPartidoDALC;

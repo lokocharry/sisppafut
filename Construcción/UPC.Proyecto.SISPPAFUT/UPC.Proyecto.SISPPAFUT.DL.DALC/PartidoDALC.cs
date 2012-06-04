@@ -112,6 +112,62 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
+        public List<PartidoBE> listar_todos_partidos()
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_partidos;
+            SqlCommand cmd_partidos = null;
+            String sqlPartidosListar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlPartidosListar = "spListarPartidos";
+                cmd_partidos = conexion.CreateCommand();
+                cmd_partidos.CommandText = sqlPartidosListar;
+                cmd_partidos.CommandType = CommandType.StoredProcedure;
+
+                cmd_partidos.Connection.Open();
+                dr_partidos = cmd_partidos.ExecuteReader();
+
+                List<PartidoBE> lista_partidos;
+                PartidoBE objPartidoBE;
+
+                lista_partidos = new List<PartidoBE>();
+
+                while (dr_partidos.Read())
+                {
+                    objPartidoBE = new PartidoBE();
+
+                    objPartidoBE.Codigo_partido = dr_partidos.GetInt32(dr_partidos.GetOrdinal("CodPartido"));
+                    objPartidoBE.Codigo_liga = dr_partidos.GetInt32(dr_partidos.GetOrdinal("CodLiga"));
+                    objPartidoBE.Codigo_equipo_local = dr_partidos.GetInt32(dr_partidos.GetOrdinal("CodEquipoL"));
+                    objPartidoBE.Codigo_equipo_visitante = dr_partidos.GetInt32(dr_partidos.GetOrdinal("CodEquipoV"));
+                    objPartidoBE.Codigo_estadio = dr_partidos.GetInt32(dr_partidos.GetOrdinal("CodEstadio"));
+                    objPartidoBE.Goles_local = dr_partidos.GetInt32(dr_partidos.GetOrdinal("GolesLocal"));
+                    objPartidoBE.Goles_visita = dr_partidos.GetInt32(dr_partidos.GetOrdinal("GolesVisita"));
+                    objPartidoBE.Fecha_partido = dr_partidos.GetDateTime(dr_partidos.GetOrdinal("Fecha"));
+
+                    lista_partidos.Add(objPartidoBE);
+                }
+
+                return lista_partidos;
+            }
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+                throw;
+            }
+            finally
+            {
+                cmd_partidos.Connection.Close();
+                conexion.Dispose();
+            }
+        }
+
         public List<PartidoSinJugarBE> listar_partidos_sinjugar()
         {
             SqlConnection conexion = null;

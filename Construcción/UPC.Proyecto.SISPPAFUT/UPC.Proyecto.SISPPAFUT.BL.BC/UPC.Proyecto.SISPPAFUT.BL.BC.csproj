@@ -51,6 +51,7 @@
     <Compile Include="LogBC.cs" />
     <Compile Include="PaisBC.cs" />
     <Compile Include="PartidoBC.cs" />
+    <Compile Include="PronosticoBC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RankingEquipoBC.cs" />
     <Compile Include="SuspensionBC.cs" />

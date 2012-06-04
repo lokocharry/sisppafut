@@ -152,6 +152,50 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
-        //public List<PronosticoBE> listar_Pronosticos
+        public List<PronosticoBE> listar_Pronosticos()
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_pronosticos;
+            SqlCommand cmd_pronosticos;
+            String sqlPronosticosListar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlPronosticosListar = "spListarPronosticos";
+                cmd_pronosticos = new SqlCommand(sqlPronosticosListar, conexion);
+                cmd_pronosticos.Connection.Open();
+                dr_pronosticos = cmd_pronosticos.ExecuteReader();
+
+                List<PronosticoBE> lista_pronosticos;
+                PronosticoBE objPronosticoBE;
+                lista_pronosticos = new List<PronosticoBE>();
+
+                while (dr_pronosticos.Read())
+                {
+                    objPronosticoBE = new PronosticoBE();
+
+                    objPronosticoBE.CodigoPronostico = dr_pronosticos.GetInt32(dr_pronosticos.GetOrdinal("CodPronostico"));
+                    objPronosticoBE.CodigoPartido = dr_pronosticos.GetInt32(dr_pronosticos.GetOrdinal("CodPartido"));
+                    objPronosticoBE.Pronostico = dr_pronosticos.GetString(dr_pronosticos.GetOrdinal("Pronostico"));
+                    objPronosticoBE.PorcentajeLocal = dr_pronosticos.GetDecimal(dr_pronosticos.GetOrdinal("PorcentajeLocal"));
+                    objPronosticoBE.PorcentajeEmpate = dr_pronosticos.GetDecimal(dr_pronosticos.GetOrdinal("PorcentajeEmpate"));
+                    objPronosticoBE.PorcentajeVisita = dr_pronosticos.GetDecimal(dr_pronosticos.GetOrdinal("PorcentajeVisita"));
+
+                    lista_pronosticos.Add(objPronosticoBE);
+                }
+
+                cmd_pronosticos.Connection.Close();
+                conexion.Dispose();
+
+                return lista_pronosticos;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+
+        }
     }
 }
