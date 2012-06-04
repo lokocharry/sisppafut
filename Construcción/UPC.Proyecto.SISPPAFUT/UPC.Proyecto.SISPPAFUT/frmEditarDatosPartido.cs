@@ -417,58 +417,51 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void dgv_equipo_local_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCheckBoxCell check_titular = new DataGridViewCheckBoxCell();
-            check_titular = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[dgv_equipo_local.CurrentRow.Index].Cells["col_titular"];
+            if (dgv_equipo_local.IsCurrentCellDirty)
+                dgv_equipo_local.CommitEdit(DataGridViewDataErrorContexts.Commit);
 
-            DataGridViewCheckBoxCell check_suplente = new DataGridViewCheckBoxCell();
-            check_suplente = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[dgv_equipo_local.CurrentRow.Index].Cells["col_suplente"];
+            DataGridViewCheckBoxCell check_l = new DataGridViewCheckBoxCell();
 
-            if (check_titular.Value != null)
+            if (dgv_equipo_local.Columns["col_titular_v"].Index == e.ColumnIndex)
             {
-                check_suplente.Value = false;
-            }
+                check_l = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[e.RowIndex].Cells["col_titular_v"];
 
-            if (check_suplente.Value != null)
-            {
-                check_titular.Value = false;
+                dgv_equipo_local.Rows[e.RowIndex].Cells["col_titular_v"].Value = true;
+                dgv_equipo_local.Rows[e.RowIndex].Cells["col_suplente_v"].Value = false;
             }
+            else
+                if (dgv_equipo_local.Columns["col_suplente_v"].Index == e.ColumnIndex)
+                {
+                    check_l = (DataGridViewCheckBoxCell)dgv_equipo_local.Rows[e.RowIndex].Cells["col_suplente_v"];
 
-            /*
-            if (ch1.Value == null)
-                ch1.Value = false;
-            switch (ch1.Value.ToString())
-            {
-                case "True":
-                    ch1.Value = false;
-                    break;
-                case "False":
-                    ch1.Value = true;
-                    break;
-            }
-            MessageBox.Show(ch1.Value.ToString());
-            */
+                    dgv_equipo_local.Rows[e.RowIndex].Cells["col_suplente_v"].Value = true;
+                    dgv_equipo_local.Rows[e.RowIndex].Cells["col_titular_v"].Value = false;
+                } 
         }
 
         private void dgv_equip_visitante_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewCheckBoxCell check_titular = new DataGridViewCheckBoxCell();
-            check_titular = (DataGridViewCheckBoxCell)dgv_equipo_visitante.Rows[dgv_equipo_visitante.CurrentRow.Index].Cells["col_titular_v"];
+            if (dgv_equipo_visitante.IsCurrentCellDirty)
+                dgv_equipo_visitante.CommitEdit(DataGridViewDataErrorContexts.Commit);
 
-            DataGridViewCheckBoxCell check_suplente = new DataGridViewCheckBoxCell();
-            check_suplente = (DataGridViewCheckBoxCell)dgv_equipo_visitante.Rows[dgv_equipo_visitante.CurrentRow.Index].Cells["col_suplente_v"];
+            DataGridViewCheckBoxCell check_l = new DataGridViewCheckBoxCell();
 
-            if (check_titular.Value != null)
+            if (dgv_equipo_visitante.Columns["col_titular_v"].Index == e.ColumnIndex)
             {
-                check_suplente.Value = false;
-            }
+                check_l = (DataGridViewCheckBoxCell)dgv_equipo_visitante.Rows[e.RowIndex].Cells["col_titular_v"];
 
-            if (check_suplente.Value != null)
-            {
-                check_titular.Value = false;
+                dgv_equipo_visitante.Rows[e.RowIndex].Cells["col_titular_v"].Value = true;
+                dgv_equipo_visitante.Rows[e.RowIndex].Cells["col_suplente_v"].Value = false;
             }
+            else
+                if (dgv_equipo_visitante.Columns["col_suplente_v"].Index == e.ColumnIndex)
+                {
+                    check_l = (DataGridViewCheckBoxCell)dgv_equipo_visitante.Rows[e.RowIndex].Cells["col_suplente_v"];
+
+                    dgv_equipo_visitante.Rows[e.RowIndex].Cells["col_suplente_v"].Value = true;
+                    dgv_equipo_visitante.Rows[e.RowIndex].Cells["col_titular_v"].Value = false;
+                }            
         }
-        
-        //------------------------------------------------------------------------------------------
 
         private void dgvJugadoresDataBind()
         {
@@ -647,7 +640,7 @@ namespace UPC.Proyecto.SISPPAFUT
                         dgv_lesiones.Rows.RemoveAt(i);
                         i--;
                     }
-            } 
+            }
         }
     }
 }
