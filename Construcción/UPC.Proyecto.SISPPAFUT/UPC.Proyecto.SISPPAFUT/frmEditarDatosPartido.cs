@@ -70,6 +70,7 @@ namespace UPC.Proyecto.SISPPAFUT
             InitializeComponent();
             iniciarGrillaEquipoLocal();
             iniciarGrillaEquipoVisitante();
+            btn_editar.Enabled = false;
         }
                 
         public void iniciarGrillaEquipoLocal()
@@ -219,68 +220,158 @@ namespace UPC.Proyecto.SISPPAFUT
         private void btn_amonestaciones_agregar_Click(object sender, EventArgs e)
         {
             int equipo = cmb_amonestaciones_equipo.SelectedIndex;
+            bool existe = false;
 
             AmonestacionBE objAmonestacionBE = new AmonestacionBE();
 
-            objAmonestacionBE.Codigo_partido = Codigo_partido;
-            objAmonestacionBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_amonestaciones_jugador);
-            objAmonestacionBE.Minuto = Convert.ToInt32(cmb_amonestaciones_minuto.SelectedIndex - 1);
-            objAmonestacionBE.Tipo = -1;
-
-            if (cmb_amonestaciones_amonestacion.SelectedIndex == 1)
+            if (cmb_amonestaciones_equipo.SelectedIndex > 0)
             {
-                objAmonestacionBE.Tipo = 0;
-            }
-            else if (cmb_amonestaciones_amonestacion.SelectedIndex == 2)
-            {
-                objAmonestacionBE.Tipo = 1;
-            }
+                if (cmb_amonestaciones_jugador.SelectedIndex > 0)
+                {
+                    objAmonestacionBE.Codigo_partido = Codigo_partido;
+                    objAmonestacionBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_amonestaciones_jugador);
+                    objAmonestacionBE.Minuto = Convert.ToInt32(cmb_amonestaciones_minuto.SelectedIndex - 1);
+                    objAmonestacionBE.Tipo = -1;
 
-            //Se debe escoger tarjeta amarilla o roja
-            if (objAmonestacionBE.Tipo != -1)
-            {
-                dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem,
-                                            cmb_amonestaciones_amonestacion.SelectedItem, cmb_amonestaciones_minuto.SelectedItem);
+                    if (cmb_amonestaciones_amonestacion.SelectedIndex == 1)
+                    {
+                        objAmonestacionBE.Tipo = 0;
+                    }
+                    else if (cmb_amonestaciones_amonestacion.SelectedIndex == 2)
+                    {
+                        objAmonestacionBE.Tipo = 1;
+                    }
 
-                lista_amonestaciones.Add(objAmonestacionBE);
+                    //Se debe escoger tarjeta amarilla o roja
+                    if (objAmonestacionBE.Tipo != -1)
+                    {
+                        //-- Se debe escoger el minuto de juego donde se produjo la acción
+                        if (cmb_amonestaciones_minuto.SelectedIndex > 0)
+                        {
+                            foreach (AmonestacionBE cDto in lista_amonestaciones)
+                            {
+                                if (cDto.Codigo_jugador == objAmonestacionBE.Codigo_jugador && cDto.Tipo == objAmonestacionBE.Tipo && cDto.Minuto == objAmonestacionBE.Minuto)
+                                {
+                                    existe = true;
+                                    break;
+                                }
+                            }
+
+                            if (!existe)
+                            {
+                                dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem,
+                                                           cmb_amonestaciones_amonestacion.SelectedItem, cmb_amonestaciones_minuto.SelectedItem);
+
+                                lista_amonestaciones.Add(objAmonestacionBE);
+                            }
+                            else
+                                MessageBox.Show("La amonestación ya figura en la lista de amonestaciones.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                            MessageBox.Show("Debe escoger el minuto en el que se produjo la amonestación.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe escoger una amonestacion válida.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+                else
+                    MessageBox.Show("Debe escoger un jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
-            {
-                MessageBox.Show("Escoger una amonestacion valida.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
+                MessageBox.Show("Debe escoger un equipo.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btn_goles_agregar_Click(object sender, EventArgs e)
         {
             int equipo = cmb_goles_equipos.SelectedIndex;
+            bool existe = false;
 
             GolBE objGolBE = new GolBE();
 
-            objGolBE.Codigo_partido = Codigo_partido;
-            objGolBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_goles_jugadores);
-            objGolBE.Minuto_gol = Convert.ToInt32(cmb_goles_minuto.SelectedIndex - 1);
+            if (cmb_goles_equipos.SelectedIndex > 0)
+            {
+                if (cmb_goles_jugadores.SelectedIndex > 0)
+                {
+                    if (cmb_goles_minuto.SelectedIndex > 0)
+                    {
+                        objGolBE.Codigo_partido = Codigo_partido;
+                        objGolBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_goles_jugadores);
+                        objGolBE.Minuto_gol = Convert.ToInt32(cmb_goles_minuto.SelectedIndex - 1);
 
-            lista_goles.Add(objGolBE);
+                        foreach (GolBE cDto in lista_goles)
+                        {
+                            if (cDto.Codigo_jugador == objGolBE.Codigo_jugador && cDto.Minuto_gol == objGolBE.Minuto_gol)
+                            {
+                                existe = true;
+                                break;
+                            }
+                        }
 
-            dgv_goles.Rows.Add(dame_nombre_jugador(cmb_goles_equipos.SelectedIndex, cmb_goles_jugadores), cmb_goles_equipos.SelectedItem,
-                               cmb_goles_minuto.SelectedItem);
+                        if (!existe)
+                        {
+                            dgv_goles.Rows.Add(dame_nombre_jugador(cmb_goles_equipos.SelectedIndex, cmb_goles_jugadores), cmb_goles_equipos.SelectedItem,
+                                              cmb_goles_minuto.SelectedItem);
+                            lista_goles.Add(objGolBE);
+                        }
+                        else
+                            MessageBox.Show("El gol ya se encuentra en la lista de goles.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Debe escoger el minuto en el que se produjo el gol.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("Debe escoger un jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Debe escoger un equipo.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         private void btn_lesiones_agregar_Click(object sender, EventArgs e)
         {
             int equipo = cmb_lesiones_equipos.SelectedIndex;
+            bool existe = false;
 
             LesionPartidoBE objLesionPartidoBE = new LesionPartidoBE();
 
-            objLesionPartidoBE.Codigo_partido = Codigo_partido;
-            objLesionPartidoBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_lesiones_jugadores);
-            objLesionPartidoBE.Tipo_lesion = "";
-            objLesionPartidoBE.Dias_descanso = 0;
+            if (cmb_lesiones_equipos.SelectedIndex > 0)
+            {
+                if (cmb_lesiones_jugadores.SelectedIndex > 0)
+                {
+                    if (cmb_lesiones_minuto.SelectedIndex > 0)
+                    {
+                        objLesionPartidoBE.Codigo_partido = Codigo_partido;
+                        objLesionPartidoBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_lesiones_jugadores);
+                        objLesionPartidoBE.Tipo_lesion = "";
+                        objLesionPartidoBE.Dias_descanso = 0;
 
-            lista_lesiones.Add(objLesionPartidoBE);
+                        foreach (LesionPartidoBE cDto in lista_lesiones)
+                        {
+                            if (cDto.Codigo_jugador == objLesionPartidoBE.Codigo_jugador) //-- falta acomodar las variables respecto a la base de datos
+                            {
+                                existe = true;
+                                break;
+                            }
+                        }
 
-            dgv_lesiones.Rows.Add(dame_nombre_jugador(cmb_lesiones_equipos.SelectedIndex, cmb_lesiones_jugadores), cmb_lesiones_equipos.SelectedItem,
-                                cmb_lesiones_minuto.SelectedItem);
+                        if (!existe)
+                        {
+                            dgv_lesiones.Rows.Add(dame_nombre_jugador(cmb_lesiones_equipos.SelectedIndex, cmb_lesiones_jugadores), cmb_lesiones_equipos.SelectedItem,
+                                               cmb_lesiones_minuto.SelectedItem);
+                            lista_lesiones.Add(objLesionPartidoBE);
+                        }
+                        else
+                            MessageBox.Show("La lesión ya se encuentra en la lista de lesiones.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Debe escoger el minuto de juego en la que se produjo la lesión.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("Debe escoger un jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Debe escoger un equipo.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btn_guardar_datos_Click(object sender, EventArgs e)
@@ -324,7 +415,6 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
-
         }
 
         private void btn_terminar_Click(object sender, EventArgs e)
@@ -363,13 +453,13 @@ namespace UPC.Proyecto.SISPPAFUT
                     if (check_titular.Value != null)
                     {
                         if((bool)check_titular.Value.Equals(true))
-                            objJugadorPartidoBE.Estado = 1;
+                            objJugadorPartidoBE.Estado = 1; //-- 1: titular
                     }
 
                     if (check_suplente.Value != null)
                     {
                         if ((bool)check_suplente.Value.Equals(true))
-                            objJugadorPartidoBE.Estado = 0;
+                            objJugadorPartidoBE.Estado = 0; //-- 0: suplente
                     }
 
                     lista_jugadores_partido.Add(objJugadorPartidoBE);
@@ -392,19 +482,21 @@ namespace UPC.Proyecto.SISPPAFUT
                     if (check_titular.Value != null)
                     {
                         if ((bool)check_titular.Value.Equals(true))
-                            objJugadorPartidoBE.Estado = 1;
+                            objJugadorPartidoBE.Estado = 1; //-- 1: titular
                     }
 
                     if (check_suplente.Value != null)
                     {
                         if ((bool)check_suplente.Value.Equals(true))
-                            objJugadorPartidoBE.Estado = 0;
+                            objJugadorPartidoBE.Estado = 0; //-- 0: suplente
                     }
 
                     lista_jugadores_partido.Add(objJugadorPartidoBE);
                     lista_jugaron_visita.Add(lista_equipo_visita[i]);
                 }
             }
+
+            setearCombos();
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -413,6 +505,16 @@ namespace UPC.Proyecto.SISPPAFUT
             dgv_equipo_visitante.Enabled = true;
             btn_terminar.Enabled = true;
             btn_editar.Enabled = false;
+
+            gb_amonestaciones.Enabled = false;
+            gb_goles.Enabled = false;
+            gb_lesiones.Enabled = false;
+
+            setearCombos();
+
+            lista_amonestaciones = new List<AmonestacionBE>();
+            lista_goles = new List<GolBE>();
+            lista_lesiones = new List<LesionPartidoBE>();
         }
 
         private void dgv_equipo_local_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -493,7 +595,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
 
             dgv_equipo_local.DataSource = lista_equipo_local;
-            dgv_equipo_visitante.DataSource = lista_equipo_visita;
+            dgv_equipo_visitante.DataSource = lista_equipo_visita;            
         }
 
         private void setearCombos()
@@ -502,14 +604,17 @@ namespace UPC.Proyecto.SISPPAFUT
             cmb_amonestaciones_jugador.SelectedIndex = 0;
             cmb_amonestaciones_minuto.SelectedIndex = 0;
             cmb_amonestaciones_amonestacion.SelectedIndex = 0;
+            dgv_amonestaciones.Rows.Clear();
 
             cmb_goles_equipos.SelectedIndex = 0;
             cmb_goles_jugadores.SelectedIndex = 0;
             cmb_goles_minuto.SelectedIndex = 0;
+            dgv_goles.Rows.Clear();
 
             cmb_lesiones_equipos.SelectedIndex = 0;
             cmb_lesiones_jugadores.SelectedIndex = 0;
             cmb_lesiones_minuto.SelectedIndex = 0;
+            dgv_lesiones.Rows.Clear();
         }
 
         private void llenarCombos()
@@ -586,7 +691,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void inSalir(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
         }
 
         private void btn_amonestaciones_actualizar_Click(object sender, EventArgs e)
