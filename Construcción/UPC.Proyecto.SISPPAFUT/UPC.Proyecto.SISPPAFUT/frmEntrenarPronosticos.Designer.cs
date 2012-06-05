@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.dg_Pronosticos = new System.Windows.Forms.DataGridView();
+            this.btnEntrenar = new System.Windows.Forms.Button();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codPronostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pocentajeLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.porcentajeLocal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.porcentajeEmpate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.porcentajeVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pronostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnEntrenar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_Pronosticos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,9 +46,10 @@
             this.dg_Pronosticos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dg_Pronosticos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
+            this.codPronostico,
             this.Local,
             this.Visitante,
-            this.pocentajeLocal,
+            this.porcentajeLocal,
             this.porcentajeEmpate,
             this.porcentajeVisita,
             this.Pronostico});
@@ -57,11 +59,27 @@
             this.dg_Pronosticos.Size = new System.Drawing.Size(650, 353);
             this.dg_Pronosticos.TabIndex = 0;
             // 
+            // btnEntrenar
+            // 
+            this.btnEntrenar.Location = new System.Drawing.Point(532, 377);
+            this.btnEntrenar.Name = "btnEntrenar";
+            this.btnEntrenar.Size = new System.Drawing.Size(130, 23);
+            this.btnEntrenar.TabIndex = 1;
+            this.btnEntrenar.Text = "Entrenar";
+            this.btnEntrenar.UseVisualStyleBackColor = true;
+            this.btnEntrenar.Click += new System.EventHandler(this.btnEntrenar_Click);
+            // 
             // Codigo
             // 
-            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.HeaderText = "Codigo Equipo";
             this.Codigo.Name = "Codigo";
             this.Codigo.Visible = false;
+            // 
+            // codPronostico
+            // 
+            this.codPronostico.HeaderText = "Codigo Pronostico";
+            this.codPronostico.Name = "codPronostico";
+            this.codPronostico.Visible = false;
             // 
             // Local
             // 
@@ -73,10 +91,10 @@
             this.Visitante.HeaderText = "Equipo Visitante";
             this.Visitante.Name = "Visitante";
             // 
-            // pocentajeLocal
+            // porcentajeLocal
             // 
-            this.pocentajeLocal.HeaderText = "L(%)";
-            this.pocentajeLocal.Name = "pocentajeLocal";
+            this.porcentajeLocal.HeaderText = "L(%)";
+            this.porcentajeLocal.Name = "porcentajeLocal";
             // 
             // porcentajeEmpate
             // 
@@ -92,15 +110,6 @@
             // 
             this.Pronostico.HeaderText = "Pronostico";
             this.Pronostico.Name = "Pronostico";
-            // 
-            // btnEntrenar
-            // 
-            this.btnEntrenar.Location = new System.Drawing.Point(532, 377);
-            this.btnEntrenar.Name = "btnEntrenar";
-            this.btnEntrenar.Size = new System.Drawing.Size(130, 23);
-            this.btnEntrenar.TabIndex = 1;
-            this.btnEntrenar.Text = "Entrenar";
-            this.btnEntrenar.UseVisualStyleBackColor = true;
             // 
             // frmEntrenarPronosticos
             // 
@@ -120,13 +129,14 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dg_Pronosticos;
+        private System.Windows.Forms.Button btnEntrenar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codPronostico;
         private System.Windows.Forms.DataGridViewTextBoxColumn Local;
         private System.Windows.Forms.DataGridViewTextBoxColumn Visitante;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pocentajeLocal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn porcentajeLocal;
         private System.Windows.Forms.DataGridViewTextBoxColumn porcentajeEmpate;
         private System.Windows.Forms.DataGridViewTextBoxColumn porcentajeVisita;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pronostico;
-        private System.Windows.Forms.Button btnEntrenar;
     }
 }

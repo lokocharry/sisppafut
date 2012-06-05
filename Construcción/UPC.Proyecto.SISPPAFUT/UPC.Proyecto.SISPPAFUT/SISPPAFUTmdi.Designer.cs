@@ -47,6 +47,7 @@
             this.editarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.asignarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rankingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verRankingMundialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.jugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,8 @@
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verRankingMundialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pronosticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.entrenarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,6 +82,7 @@
             this.equiposToolStripMenuItem,
             this.jugadorToolStripMenuItem,
             this.partidoToolStripMenuItem1,
+            this.pronosticoToolStripMenuItem,
             this.toolStripSeparator1,
             this.salirToolStripMenuItem});
             this.menúToolStripMenuItem.Name = "menúToolStripMenuItem";
@@ -186,6 +189,13 @@
             this.rankingToolStripMenuItem.Text = "Actualizar Ranking";
             this.rankingToolStripMenuItem.Click += new System.EventHandler(this.rankingToolStripMenuItem_Click);
             // 
+            // verRankingMundialToolStripMenuItem
+            // 
+            this.verRankingMundialToolStripMenuItem.Name = "verRankingMundialToolStripMenuItem";
+            this.verRankingMundialToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.verRankingMundialToolStripMenuItem.Text = "Ver Ranking Mundial";
+            this.verRankingMundialToolStripMenuItem.Click += new System.EventHandler(this.verRankingMundialToolStripMenuItem_Click);
+            // 
             // jugadorToolStripMenuItem
             // 
             this.jugadorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -252,12 +262,20 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
-            // verRankingMundialToolStripMenuItem
+            // pronosticoToolStripMenuItem
             // 
-            this.verRankingMundialToolStripMenuItem.Name = "verRankingMundialToolStripMenuItem";
-            this.verRankingMundialToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
-            this.verRankingMundialToolStripMenuItem.Text = "Ver Ranking Mundial";
-            this.verRankingMundialToolStripMenuItem.Click += new System.EventHandler(this.verRankingMundialToolStripMenuItem_Click);
+            this.pronosticoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.entrenarSistemaToolStripMenuItem});
+            this.pronosticoToolStripMenuItem.Name = "pronosticoToolStripMenuItem";
+            this.pronosticoToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.pronosticoToolStripMenuItem.Text = "Pronostico";
+            // 
+            // entrenarSistemaToolStripMenuItem
+            // 
+            this.entrenarSistemaToolStripMenuItem.Name = "entrenarSistemaToolStripMenuItem";
+            this.entrenarSistemaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.entrenarSistemaToolStripMenuItem.Text = "Entrenar Sistema";
+            this.entrenarSistemaToolStripMenuItem.Click += new System.EventHandler(this.entrenarSistemaToolStripMenuItem_Click);
             // 
             // SISPPAFUTmdi
             // 
@@ -307,6 +325,8 @@
         private System.Windows.Forms.ToolStripMenuItem consultarSuspensionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rankingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verRankingMundialToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pronosticoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entrenarSistemaToolStripMenuItem;
     }
 }
 

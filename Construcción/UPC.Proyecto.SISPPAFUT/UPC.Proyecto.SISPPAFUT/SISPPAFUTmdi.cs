@@ -246,5 +246,20 @@ namespace UPC.Proyecto.SISPPAFUT
                 //Funciones.RegistrarExcepcion(ex);
             }
         }
+
+        private void entrenarSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmEntrenarPronosticos frm = new frmEntrenarPronosticos();
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                //Funciones.RegistrarExcepcion(ex);
+            }
+        }
     }
 }
