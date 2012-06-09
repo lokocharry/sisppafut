@@ -350,6 +350,128 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd_JugadorEditar.Connection.Close();
                 conexion.Dispose();
             }
-        }       
+        }
+
+        public int cantidadGolesxJugador(int jugador, int liga)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_jugadores;
+            SqlCommand cmd_jugadores = null;
+            String sqlListarJugadores;
+            SqlParameter prm_codigo_jugador;
+            SqlParameter prm_codigo_liga;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlListarJugadores = "spCantidadGolesJugador";
+                cmd_jugadores = conexion.CreateCommand();
+                cmd_jugadores.CommandText = sqlListarJugadores;
+                cmd_jugadores.CommandType = CommandType.StoredProcedure;
+
+                prm_codigo_jugador = new SqlParameter();
+                prm_codigo_jugador.ParameterName = "@CodJugador";
+                prm_codigo_jugador.SqlDbType = SqlDbType.Int;
+                prm_codigo_jugador.Value = jugador;
+
+                prm_codigo_liga = new SqlParameter();
+                prm_codigo_liga.ParameterName = "@CodLiga";
+                prm_codigo_liga.SqlDbType = SqlDbType.Int;
+                prm_codigo_liga.Value = liga;
+
+                cmd_jugadores.Parameters.Add(prm_codigo_jugador);
+                cmd_jugadores.Parameters.Add(prm_codigo_liga);
+
+                cmd_jugadores.Connection.Open();
+                dr_jugadores = cmd_jugadores.ExecuteReader();
+
+                int cantidad_partidos = 0;
+
+                while (dr_jugadores.Read())
+                {
+                    cantidad_partidos = dr_jugadores.GetInt32(dr_jugadores.GetOrdinal("Cantidad"));
+                }
+
+                return cantidad_partidos;
+            }
+
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    cmd_jugadores.Connection.Close();
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_jugadores.Connection.Close();
+                conexion.Dispose();
+            }
+        }
+
+        public int cantidadPartidosxJugador(int jugador, int liga)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_jugadores;
+            SqlCommand cmd_jugadores = null;
+            String sqlListarJugadores;
+            SqlParameter prm_codigo_jugador;
+            SqlParameter prm_codigo_liga;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlListarJugadores = "spCantidadPartidosJugados";
+                cmd_jugadores = conexion.CreateCommand();
+                cmd_jugadores.CommandText = sqlListarJugadores;
+                cmd_jugadores.CommandType = CommandType.StoredProcedure;
+
+                prm_codigo_jugador = new SqlParameter();
+                prm_codigo_jugador.ParameterName = "@CodJugador";
+                prm_codigo_jugador.SqlDbType = SqlDbType.Int;
+                prm_codigo_jugador.Value = jugador;
+
+                prm_codigo_liga = new SqlParameter();
+                prm_codigo_liga.ParameterName = "@CodLiga";
+                prm_codigo_liga.SqlDbType = SqlDbType.Int;
+                prm_codigo_liga.Value = liga;
+
+                cmd_jugadores.Parameters.Add(prm_codigo_jugador);
+                cmd_jugadores.Parameters.Add(prm_codigo_liga);
+
+                cmd_jugadores.Connection.Open();
+                dr_jugadores = cmd_jugadores.ExecuteReader();
+
+                int cantidad_partidos = 0;
+
+                while (dr_jugadores.Read())
+                {
+                    cantidad_partidos = dr_jugadores.GetInt32(dr_jugadores.GetOrdinal("Cantidad"));
+                }
+
+                return cantidad_partidos;
+            }
+
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    cmd_jugadores.Connection.Close();
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_jugadores.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }

@@ -97,5 +97,37 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public int cantidadGolesxJugador(int jugador, int liga)
+        {
+            JugadorDALC objJugadorDALC;
+
+            try
+            {
+                objJugadorDALC = new JugadorDALC();
+                return objJugadorDALC.cantidadGolesxJugador(jugador, liga);
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int cantidadPartidosxJugador(int jugador, int liga)
+        {
+            JugadorDALC objJugadorDALC;
+
+            try
+            {
+                objJugadorDALC = new JugadorDALC();
+                return objJugadorDALC.cantidadPartidosxJugador(jugador, liga);
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

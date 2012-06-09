@@ -261,5 +261,20 @@ namespace UPC.Proyecto.SISPPAFUT
                 //Funciones.RegistrarExcepcion(ex);
             }
         }
+
+        private void estadísticasDeEquipoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmEstadisticasEquipo frm = new frmEstadisticasEquipo();
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                //Funciones.RegistrarExcepcion(ex);
+            }
+        }
     }
 }
