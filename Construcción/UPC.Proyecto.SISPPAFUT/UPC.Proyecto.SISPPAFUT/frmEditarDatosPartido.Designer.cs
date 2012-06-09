@@ -89,17 +89,19 @@
             this.cmb_goles_minuto = new System.Windows.Forms.ComboBox();
             this.gb_lesiones = new System.Windows.Forms.GroupBox();
             this.cmb_lesiones_jugadores = new System.Windows.Forms.ComboBox();
-            this.cmb_lesiones_minuto = new System.Windows.Forms.ComboBox();
+            this.cmb_lesiones_tipo = new System.Windows.Forms.ComboBox();
             this.cmb_lesiones_equipos = new System.Windows.Forms.ComboBox();
             this.btn_lesiones_actualizar = new System.Windows.Forms.Button();
             this.dgv_lesiones = new System.Windows.Forms.DataGridView();
-            this.col_jugador_lesiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_equipo_lesiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_minuto_lesiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.col_eliminar_lesiones = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btn_lesiones_agregar = new System.Windows.Forms.Button();
             this.btn_cancelar_datos = new System.Windows.Forms.Button();
             this.btn_guardar_datos = new System.Windows.Forms.Button();
+            this.cmb_lesiones_descanzo = new System.Windows.Forms.ComboBox();
+            this.col_jugador_lesiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_equipo_lesiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_minuto_lesiones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_eliminar_lesiones = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.gb_equipos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_equipo_visitante)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_equipo_local)).BeginInit();
@@ -574,8 +576,7 @@
             this.cmb_amonestaciones_amonestacion.Items.AddRange(new object[] {
             "(Seleccione amonestación)",
             "Tarjeta Amarilla",
-            "Tarjeta Roja",
-            "Tarjeta Amarilla/Roja"});
+            "Tarjeta Roja"});
             this.cmb_amonestaciones_amonestacion.Location = new System.Drawing.Point(7, 47);
             this.cmb_amonestaciones_amonestacion.Name = "cmb_amonestaciones_amonestacion";
             this.cmb_amonestaciones_amonestacion.Size = new System.Drawing.Size(166, 21);
@@ -807,8 +808,9 @@
             // 
             // gb_lesiones
             // 
+            this.gb_lesiones.Controls.Add(this.cmb_lesiones_descanzo);
             this.gb_lesiones.Controls.Add(this.cmb_lesiones_jugadores);
-            this.gb_lesiones.Controls.Add(this.cmb_lesiones_minuto);
+            this.gb_lesiones.Controls.Add(this.cmb_lesiones_tipo);
             this.gb_lesiones.Controls.Add(this.cmb_lesiones_equipos);
             this.gb_lesiones.Controls.Add(this.btn_lesiones_actualizar);
             this.gb_lesiones.Controls.Add(this.dgv_lesiones);
@@ -827,112 +829,30 @@
             this.cmb_lesiones_jugadores.FormattingEnabled = true;
             this.cmb_lesiones_jugadores.Items.AddRange(new object[] {
             "(Seleccione jugador)"});
-            this.cmb_lesiones_jugadores.Location = new System.Drawing.Point(189, 20);
+            this.cmb_lesiones_jugadores.Location = new System.Drawing.Point(144, 20);
             this.cmb_lesiones_jugadores.Name = "cmb_lesiones_jugadores";
-            this.cmb_lesiones_jugadores.Size = new System.Drawing.Size(166, 21);
+            this.cmb_lesiones_jugadores.Size = new System.Drawing.Size(226, 21);
             this.cmb_lesiones_jugadores.TabIndex = 15;
             // 
-            // cmb_lesiones_minuto
+            // cmb_lesiones_tipo
             // 
-            this.cmb_lesiones_minuto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_lesiones_minuto.FormattingEnabled = true;
-            this.cmb_lesiones_minuto.Items.AddRange(new object[] {
-            "(Seleccione el minuto)",
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59",
-            "60",
-            "61",
-            "62",
-            "63",
-            "64",
-            "65",
-            "66",
-            "67",
-            "68",
-            "69",
-            "70",
-            "71",
-            "72",
-            "73",
-            "74",
-            "75",
-            "76",
-            "77",
-            "78",
-            "79",
-            "80",
-            "81",
-            "82",
-            "83",
-            "84",
-            "85",
-            "86",
-            "87",
-            "88",
-            "89",
-            "90"});
-            this.cmb_lesiones_minuto.Location = new System.Drawing.Point(15, 48);
-            this.cmb_lesiones_minuto.Name = "cmb_lesiones_minuto";
-            this.cmb_lesiones_minuto.Size = new System.Drawing.Size(166, 21);
-            this.cmb_lesiones_minuto.TabIndex = 14;
+            this.cmb_lesiones_tipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_lesiones_tipo.FormattingEnabled = true;
+            this.cmb_lesiones_tipo.Items.AddRange(new object[] {
+            "(Seleccione el tipo)",
+            "Fractura",
+            "Esguince",
+            "Traumatismo craneal",
+            "Luxación",
+            "Distensión muscular",
+            "Contractura muscular",
+            "Tirón muscular",
+            "Calambre",
+            "Desgarro"});
+            this.cmb_lesiones_tipo.Location = new System.Drawing.Point(15, 48);
+            this.cmb_lesiones_tipo.Name = "cmb_lesiones_tipo";
+            this.cmb_lesiones_tipo.Size = new System.Drawing.Size(123, 21);
+            this.cmb_lesiones_tipo.TabIndex = 14;
             // 
             // cmb_lesiones_equipos
             // 
@@ -942,7 +862,7 @@
             "(Seleccione equipo)"});
             this.cmb_lesiones_equipos.Location = new System.Drawing.Point(15, 20);
             this.cmb_lesiones_equipos.Name = "cmb_lesiones_equipos";
-            this.cmb_lesiones_equipos.Size = new System.Drawing.Size(166, 21);
+            this.cmb_lesiones_equipos.Size = new System.Drawing.Size(123, 21);
             this.cmb_lesiones_equipos.TabIndex = 13;
             this.cmb_lesiones_equipos.SelectedIndexChanged += new System.EventHandler(this.cmb_lesiones_equipos_SelectedIndexChanged);
             // 
@@ -964,6 +884,7 @@
             this.col_jugador_lesiones,
             this.col_equipo_lesiones,
             this.col_minuto_lesiones,
+            this.Tiempo,
             this.col_eliminar_lesiones});
             this.dgv_lesiones.Location = new System.Drawing.Point(15, 75);
             this.dgv_lesiones.Name = "dgv_lesiones";
@@ -971,31 +892,6 @@
             this.dgv_lesiones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgv_lesiones.Size = new System.Drawing.Size(354, 138);
             this.dgv_lesiones.TabIndex = 8;
-            // 
-            // col_jugador_lesiones
-            // 
-            this.col_jugador_lesiones.HeaderText = "Jugador";
-            this.col_jugador_lesiones.Name = "col_jugador_lesiones";
-            this.col_jugador_lesiones.ReadOnly = true;
-            // 
-            // col_equipo_lesiones
-            // 
-            this.col_equipo_lesiones.HeaderText = "Equipo";
-            this.col_equipo_lesiones.Name = "col_equipo_lesiones";
-            this.col_equipo_lesiones.ReadOnly = true;
-            // 
-            // col_minuto_lesiones
-            // 
-            this.col_minuto_lesiones.HeaderText = "Minuto";
-            this.col_minuto_lesiones.Name = "col_minuto_lesiones";
-            this.col_minuto_lesiones.ReadOnly = true;
-            // 
-            // col_eliminar_lesiones
-            // 
-            this.col_eliminar_lesiones.HeaderText = "Eliminar";
-            this.col_eliminar_lesiones.Name = "col_eliminar_lesiones";
-            this.col_eliminar_lesiones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.col_eliminar_lesiones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // btn_lesiones_agregar
             // 
@@ -1026,6 +922,107 @@
             this.btn_guardar_datos.Text = "Guardar";
             this.btn_guardar_datos.UseVisualStyleBackColor = true;
             this.btn_guardar_datos.Click += new System.EventHandler(this.btn_guardar_datos_Click);
+            // 
+            // cmb_lesiones_descanzo
+            // 
+            this.cmb_lesiones_descanzo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_lesiones_descanzo.FormattingEnabled = true;
+            this.cmb_lesiones_descanzo.Items.AddRange(new object[] {
+            "(Seleccione el tiempo de descanzo)",
+            "1 día",
+            "2 días",
+            "3 días",
+            "4 días",
+            "5 días",
+            "6 días",
+            "7 días",
+            "8 días",
+            "9 días",
+            "10 días",
+            "11 días",
+            "12 días",
+            "13 días",
+            "14 días",
+            "15 días",
+            "16 días",
+            "17 días",
+            "18 días",
+            "19 días",
+            "20 días",
+            "21 días",
+            "22 días",
+            "23 días",
+            "24 días",
+            "25 días",
+            "26 días",
+            "27 días",
+            "28 días",
+            "29 días",
+            "30 días",
+            "31 días",
+            "32 días",
+            "33 días",
+            "34 días",
+            "35 días",
+            "36 días",
+            "37 días",
+            "38 días",
+            "39 días",
+            "40 días",
+            "41 días",
+            "42 días",
+            "43 días",
+            "44 días",
+            "45 días",
+            "46 días",
+            "47 días",
+            "48 días",
+            "49 días",
+            "50 días",
+            "51 días",
+            "52 días",
+            "53 días",
+            "54 días",
+            "55 días",
+            "56 días",
+            "57 días",
+            "58 días",
+            "59 días",
+            "60 días"});
+            this.cmb_lesiones_descanzo.Location = new System.Drawing.Point(144, 47);
+            this.cmb_lesiones_descanzo.Name = "cmb_lesiones_descanzo";
+            this.cmb_lesiones_descanzo.Size = new System.Drawing.Size(144, 21);
+            this.cmb_lesiones_descanzo.TabIndex = 16;
+            // 
+            // col_jugador_lesiones
+            // 
+            this.col_jugador_lesiones.HeaderText = "Jugador";
+            this.col_jugador_lesiones.Name = "col_jugador_lesiones";
+            this.col_jugador_lesiones.ReadOnly = true;
+            // 
+            // col_equipo_lesiones
+            // 
+            this.col_equipo_lesiones.HeaderText = "Equipo";
+            this.col_equipo_lesiones.Name = "col_equipo_lesiones";
+            this.col_equipo_lesiones.ReadOnly = true;
+            // 
+            // col_minuto_lesiones
+            // 
+            this.col_minuto_lesiones.HeaderText = "Tipo";
+            this.col_minuto_lesiones.Name = "col_minuto_lesiones";
+            this.col_minuto_lesiones.ReadOnly = true;
+            // 
+            // Tiempo
+            // 
+            this.Tiempo.HeaderText = "Tiempo";
+            this.Tiempo.Name = "Tiempo";
+            // 
+            // col_eliminar_lesiones
+            // 
+            this.col_eliminar_lesiones.HeaderText = "Eliminar";
+            this.col_eliminar_lesiones.Name = "col_eliminar_lesiones";
+            this.col_eliminar_lesiones.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.col_eliminar_lesiones.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // frmEditarDatosPartido
             // 
@@ -1093,7 +1090,7 @@
         private System.Windows.Forms.ComboBox cmb_goles_minuto;
         private System.Windows.Forms.GroupBox gb_lesiones;
         private System.Windows.Forms.ComboBox cmb_lesiones_jugadores;
-        private System.Windows.Forms.ComboBox cmb_lesiones_minuto;
+        private System.Windows.Forms.ComboBox cmb_lesiones_tipo;
         private System.Windows.Forms.ComboBox cmb_lesiones_equipos;
         private System.Windows.Forms.Button btn_lesiones_actualizar;
         private System.Windows.Forms.DataGridView dgv_lesiones;
@@ -1129,9 +1126,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn col_equipo_goles;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_minuto_goles;
         private System.Windows.Forms.DataGridViewCheckBoxColumn col_eliminar_goles;
+        private System.Windows.Forms.ComboBox cmb_lesiones_descanzo;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_jugador_lesiones;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_equipo_lesiones;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_minuto_lesiones;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tiempo;
         private System.Windows.Forms.DataGridViewCheckBoxColumn col_eliminar_lesiones;
     }
 }

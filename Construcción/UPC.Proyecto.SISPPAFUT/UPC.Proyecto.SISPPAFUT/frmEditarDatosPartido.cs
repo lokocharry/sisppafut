@@ -55,6 +55,8 @@ namespace UPC.Proyecto.SISPPAFUT
         private List<JugadorBE> lista_jugadores_suspendidos;
 
         private static frmEditarDatosPartido frmEditarDPartido = null;
+
+        Boolean listo_guardar_datos = false;
         
         public static frmEditarDatosPartido Instance()
         {
@@ -215,12 +217,14 @@ namespace UPC.Proyecto.SISPPAFUT
         private void cmb_lesiones_equipos_SelectedIndexChanged(object sender, EventArgs e)
         {
             llenar_comboJugadores(cmb_lesiones_equipos, cmb_lesiones_jugadores);
-        }
+        }    
 
         private void btn_amonestaciones_agregar_Click(object sender, EventArgs e)
         {
             int equipo = cmb_amonestaciones_equipo.SelectedIndex;
             bool existe = false;
+            bool roja = false;
+            int q_amonestacion;
 
             AmonestacionBE objAmonestacionBE = new AmonestacionBE();
 
@@ -248,6 +252,7 @@ namespace UPC.Proyecto.SISPPAFUT
                         //-- Se debe escoger el minuto de juego donde se produjo la acción
                         if (cmb_amonestaciones_minuto.SelectedIndex > 0)
                         {
+                            q_amonestacion = 0;
                             foreach (AmonestacionBE cDto in lista_amonestaciones)
                             {
                                 if (cDto.Codigo_jugador == objAmonestacionBE.Codigo_jugador && cDto.Tipo == objAmonestacionBE.Tipo && cDto.Minuto == objAmonestacionBE.Minuto)
@@ -255,14 +260,49 @@ namespace UPC.Proyecto.SISPPAFUT
                                     existe = true;
                                     break;
                                 }
+                                else
+                                    if (cDto.Codigo_jugador == objAmonestacionBE.Codigo_jugador)
+                                    {
+                                        q_amonestacion++;
+                                        if (cDto.Tipo == 1)
+                                        {
+                                            roja = true;
+                                            break;
+                                        }
+                                    }
                             }
 
                             if (!existe)
                             {
-                                dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem,
+                                if (q_amonestacion == 0)
+                                {
+                                    dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem,
                                                            cmb_amonestaciones_amonestacion.SelectedItem, cmb_amonestaciones_minuto.SelectedItem);
 
-                                lista_amonestaciones.Add(objAmonestacionBE);
+                                    lista_amonestaciones.Add(objAmonestacionBE);                                    
+                                }
+                                else
+                                    if (q_amonestacion == 1 && !roja)
+                                    {
+                                        if (objAmonestacionBE.Tipo == 0) //- Segunda amarilla
+                                        {
+                                            dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem,
+                                                           cmb_amonestaciones_amonestacion.SelectedItem, cmb_amonestaciones_minuto.SelectedItem);
+                                            lista_amonestaciones.Add(objAmonestacionBE);
+                                            objAmonestacionBE.Tipo = 1;
+                                            dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem,
+                                                           "Tarjeta Roja", cmb_amonestaciones_minuto.SelectedItem);
+                                            lista_amonestaciones.Add(objAmonestacionBE);
+                                        }
+                                        else //-- Tarjeta roja directa
+                                        {
+                                            dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem,
+                                                           cmb_amonestaciones_amonestacion.SelectedItem, cmb_amonestaciones_minuto.SelectedItem);
+                                            lista_amonestaciones.Add(objAmonestacionBE);
+                                        }
+                                    }
+                                    else
+                                        MessageBox.Show("El jugador ya recibió la máxima cantidad de amonestaciones por partido.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                                 MessageBox.Show("La amonestación ya figura en la lista de amonestaciones.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -339,30 +379,35 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 if (cmb_lesiones_jugadores.SelectedIndex > 0)
                 {
-                    if (cmb_lesiones_minuto.SelectedIndex > 0)
+                    if (cmb_lesiones_tipo.SelectedIndex > 0)
                     {
-                        objLesionPartidoBE.Codigo_partido = Codigo_partido;
-                        objLesionPartidoBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_lesiones_jugadores);
-                        objLesionPartidoBE.Tipo_lesion = "";
-                        objLesionPartidoBE.Dias_descanso = 0;
-
-                        foreach (LesionPartidoBE cDto in lista_lesiones)
+                        if (cmb_lesiones_descanzo.SelectedIndex > 0)
                         {
-                            if (cDto.Codigo_jugador == objLesionPartidoBE.Codigo_jugador) //-- falta acomodar las variables respecto a la base de datos
+                            objLesionPartidoBE.Codigo_partido = Codigo_partido;
+                            objLesionPartidoBE.Codigo_jugador = dame_codigo_jugador(equipo, cmb_lesiones_jugadores);
+                            objLesionPartidoBE.Tipo_lesion = cmb_lesiones_tipo.Text;
+                            objLesionPartidoBE.Dias_descanso = cmb_lesiones_descanzo.SelectedIndex;
+
+                            foreach (LesionPartidoBE cDto in lista_lesiones)
                             {
-                                existe = true;
-                                break;
+                                if (cDto.Codigo_jugador == objLesionPartidoBE.Codigo_jugador) //-- falta acomodar las variables respecto a la base de datos
+                                {
+                                    existe = true;
+                                    break;
+                                }
                             }
-                        }
 
-                        if (!existe)
-                        {
-                            dgv_lesiones.Rows.Add(dame_nombre_jugador(cmb_lesiones_equipos.SelectedIndex, cmb_lesiones_jugadores), cmb_lesiones_equipos.SelectedItem,
-                                               cmb_lesiones_minuto.SelectedItem);
-                            lista_lesiones.Add(objLesionPartidoBE);
+                            if (!existe)
+                            {
+                                dgv_lesiones.Rows.Add(dame_nombre_jugador(cmb_lesiones_equipos.SelectedIndex, cmb_lesiones_jugadores), cmb_lesiones_equipos.SelectedItem,
+                                                   cmb_lesiones_tipo.SelectedItem, cmb_lesiones_descanzo.SelectedIndex);
+                                lista_lesiones.Add(objLesionPartidoBE);
+                            }
+                            else
+                                MessageBox.Show("La lesión ya se encuentra en la lista de lesiones.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         }
                         else
-                            MessageBox.Show("La lesión ya se encuentra en la lista de lesiones.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            MessageBox.Show("Debe escoger el tiempo de descanzo aproximado.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                         MessageBox.Show("Debe escoger el minuto de juego en la que se produjo la lesión.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -378,59 +423,64 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                //Registro de amonestaciones
-                AmonestacionBC objAmonestaionesBC = new AmonestacionBC();
-                objAmonestaionesBC.insertar_Amonestacion(lista_amonestaciones);
-
-                //Registro de goles
-                GolBC objGolBC = new GolBC();
-                objGolBC.insertar_Goles(lista_goles);
-
-                //Actualizacion de goles en el partido
-                PartidoBC objPartidoBC = new PartidoBC();
-                int cont_goles_local = 0;
-                int cont_goles_visita = 0;
-
-                for (int i = 0; i < lista_goles.Count; i++)
+                if (listo_guardar_datos)
                 {
-                    if (esJugadorLocal(lista_goles[i].Codigo_jugador))
-                        cont_goles_local++;
+                    //Registro de jugadores que actuaron como titular o suplente en el partido
+                    JugadorPartidoBC objJugadorPartio = new JugadorPartidoBC();
+                    objJugadorPartio.insertar_jugadores(lista_jugadores_partido);
 
-                    else
-                        cont_goles_visita++;
-                }
+                    //Registro de amonestaciones
+                    AmonestacionBC objAmonestaionesBC = new AmonestacionBC();
+                    objAmonestaionesBC.insertar_Amonestacion(lista_amonestaciones);
 
-                objPartidoBC.actualizar_Resultado(Codigo_partido, cont_goles_local, cont_goles_visita);
+                    //Registro de goles
+                    GolBC objGolBC = new GolBC();
+                    objGolBC.insertar_Goles(lista_goles);
 
-                //Registro de lesiones
-                LesionPartidoBC objLesionesBC = new LesionPartidoBC();
-                objLesionesBC.insertar_Lesiones(lista_lesiones);
+                    //Actualizacion de goles en el partido
+                    PartidoBC objPartidoBC = new PartidoBC();
+                    int cont_goles_local = 0;
+                    int cont_goles_visita = 0;
 
-                //Registro de jugadores en el partido
-                JugadorPartidoBC objJugadorPartio = new JugadorPartidoBC();
-                objJugadorPartio.insertar_jugadores(lista_jugadores_partido);
-
-                //Actualizacion de suspensiones
-                SuspensionBC objSuspensionBC = new SuspensionBC();
-                for (int i = 0; i < lista_amonestaciones.Count; i++)
-                {
-                    if (lista_amonestaciones[i].Tipo == 0)
+                    for (int i = 0; i < lista_goles.Count; i++)
                     {
-                        objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 1);
+                        if (esJugadorLocal(lista_goles[i].Codigo_jugador))
+                            cont_goles_local++;
+
+                        else
+                            cont_goles_visita++;
                     }
-                    if (lista_amonestaciones[i].Tipo == 1)
+
+                    objPartidoBC.actualizar_Resultado(Codigo_partido, cont_goles_local, cont_goles_visita);
+
+                    //Registro de lesiones
+                    LesionPartidoBC objLesionesBC = new LesionPartidoBC();
+                    objLesionesBC.insertar_Lesiones(lista_lesiones);
+
+                    //Actualizacion de suspensiones
+                    SuspensionBC objSuspensionBC = new SuspensionBC();
+                    for (int i = 0; i < lista_amonestaciones.Count; i++)
                     {
-                        objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 2);
+                        if (lista_amonestaciones[i].Tipo == 0)
+                        {
+                            objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 1);
+                        }
+                        if (lista_amonestaciones[i].Tipo == 1)
+                        {
+                            objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 2);
+                        }
                     }
-                }
 
-                for (int i = 0; i < lista_jugadores_suspendidos.Count; i++)
-                {
-                    objSuspensionBC.actualizar_Suspension(lista_jugadores_suspendidos[i].CodigoJugador, 3);
-                }
+                    for (int i = 0; i < lista_jugadores_suspendidos.Count; i++)
+                    {
+                        objSuspensionBC.actualizar_Suspension(lista_jugadores_suspendidos[i].CodigoJugador, 3);
+                    }
 
-                MessageBox.Show("Los datos del partido han sido registrados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                    MessageBox.Show("Los datos del partido han sido registrados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
+                else
+                    MessageBox.Show("Los datos no están preparados para ser registrados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -440,15 +490,6 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btn_terminar_Click(object sender, EventArgs e)
         {
-            dgv_equipo_local.Enabled = false;
-            dgv_equipo_visitante.Enabled = false;
-            btn_terminar.Enabled = false;
-            btn_editar.Enabled = true;
-
-            gb_amonestaciones.Enabled = true;
-            gb_goles.Enabled = true;
-            gb_lesiones.Enabled = true;
-
             lista_jugadores_partido = new List<JugadorPartidoBE>();
 
             lista_jugaron_local = new List<JugadorBE>();
@@ -458,6 +499,13 @@ namespace UPC.Proyecto.SISPPAFUT
             DataGridViewCheckBoxCell check_suplente = new DataGridViewCheckBoxCell();
 
             JugadorPartidoBE objJugadorPartidoBE;
+
+            int cantidad_jugadores_local_titulares = 0;
+            int cantidad_jugadores_local_suplentes = 0;
+            int cantidad_jugadores_visita_titulares = 0;
+            int cantidad_jugadores_visita_suplentes = 0;
+
+            listo_guardar_datos = false;
 
             for (int i = 0; i < lista_equipo_local.Count; i++)
             {
@@ -473,14 +521,20 @@ namespace UPC.Proyecto.SISPPAFUT
 
                     if (check_titular.Value != null)
                     {
-                        if((bool)check_titular.Value.Equals(true))
+                        if ((bool)check_titular.Value.Equals(true))
+                        {
                             objJugadorPartidoBE.Estado = 1; //-- 1: titular
+                            cantidad_jugadores_local_titulares++;
+                        }
                     }
 
                     if (check_suplente.Value != null)
                     {
                         if ((bool)check_suplente.Value.Equals(true))
+                        {
                             objJugadorPartidoBE.Estado = 0; //-- 0: suplente
+                            cantidad_jugadores_local_suplentes++;
+                        }
                     }
 
                     lista_jugadores_partido.Add(objJugadorPartidoBE);
@@ -503,13 +557,19 @@ namespace UPC.Proyecto.SISPPAFUT
                     if (check_titular.Value != null)
                     {
                         if ((bool)check_titular.Value.Equals(true))
+                        {
                             objJugadorPartidoBE.Estado = 1; //-- 1: titular
+                            cantidad_jugadores_visita_titulares++;
+                        }
                     }
 
                     if (check_suplente.Value != null)
                     {
                         if ((bool)check_suplente.Value.Equals(true))
+                        {
                             objJugadorPartidoBE.Estado = 0; //-- 0: suplente
+                            cantidad_jugadores_visita_suplentes++;
+                        }
                     }
 
                     lista_jugadores_partido.Add(objJugadorPartidoBE);
@@ -517,7 +577,24 @@ namespace UPC.Proyecto.SISPPAFUT
                 }
             }
 
-            setearCombos();
+            //-- Se valida que hayan 11 jugadores titulares por equipo y máximo 7 jugadores suplentes por equipo
+            if (true)//cantidad_jugadores_local_titulares == 11 && cantidad_jugadores_local_suplentes <= 7 && cantidad_jugadores_visita_titulares == 11 && cantidad_jugadores_visita_suplentes <= 7)
+            {
+                dgv_equipo_local.Enabled = false;
+                dgv_equipo_visitante.Enabled = false;
+                btn_terminar.Enabled = false;
+                btn_editar.Enabled = true;
+
+                gb_amonestaciones.Enabled = true;
+                gb_goles.Enabled = true;
+                gb_lesiones.Enabled = true;
+
+                setearCombos();
+
+                listo_guardar_datos = true;
+            }
+            else
+                MessageBox.Show("Debe seleccionar 11 jugadores titulares por equipo y máximo 7 jugadores suplentes por equipo.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -634,7 +711,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
             cmb_lesiones_equipos.SelectedIndex = 0;
             cmb_lesiones_jugadores.SelectedIndex = 0;
-            cmb_lesiones_minuto.SelectedIndex = 0;
+            cmb_lesiones_tipo.SelectedIndex = 0;
+            cmb_lesiones_descanzo.SelectedIndex = 0;
             dgv_lesiones.Rows.Clear();
         }
 
