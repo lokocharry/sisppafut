@@ -48,7 +48,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btn_cancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
         }
 
         private void btn_consultar_Click(object sender, EventArgs e)

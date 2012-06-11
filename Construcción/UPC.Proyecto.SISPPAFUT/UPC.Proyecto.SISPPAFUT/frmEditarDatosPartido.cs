@@ -289,10 +289,15 @@ namespace UPC.Proyecto.SISPPAFUT
                                             dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem,
                                                            cmb_amonestaciones_amonestacion.SelectedItem, cmb_amonestaciones_minuto.SelectedItem);
                                             lista_amonestaciones.Add(objAmonestacionBE);
-                                            objAmonestacionBE.Tipo = 1;
+                                            //-- Roja por segunda amarilla en el partido
+                                            AmonestacionBE objNuevaAmonestacion = new AmonestacionBE();
+                                            objNuevaAmonestacion.Codigo_jugador = objAmonestacionBE.Codigo_jugador;
+                                            objNuevaAmonestacion.Codigo_partido = objAmonestacionBE.Codigo_partido;
+                                            objNuevaAmonestacion.Minuto = objAmonestacionBE.Minuto;
+                                            objNuevaAmonestacion.Tipo = 1;
                                             dgv_amonestaciones.Rows.Add(dame_nombre_jugador(cmb_amonestaciones_equipo.SelectedIndex, cmb_amonestaciones_jugador), cmb_amonestaciones_equipo.SelectedItem,
                                                            "Tarjeta Roja", cmb_amonestaciones_minuto.SelectedItem);
-                                            lista_amonestaciones.Add(objAmonestacionBE);
+                                            lista_amonestaciones.Add(objNuevaAmonestacion);
                                         }
                                         else //-- Tarjeta roja directa
                                         {
@@ -311,9 +316,7 @@ namespace UPC.Proyecto.SISPPAFUT
                             MessageBox.Show("Debe escoger el minuto en el que se produjo la amonestación.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
-                    {
                         MessageBox.Show("Debe escoger una amonestacion válida.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }
                 }
                 else
                     MessageBox.Show("Debe escoger un jugador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -425,59 +428,64 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 if (listo_guardar_datos)
                 {
-                    //Registro de jugadores que actuaron como titular o suplente en el partido
-                    JugadorPartidoBC objJugadorPartio = new JugadorPartidoBC();
-                    objJugadorPartio.insertar_jugadores(lista_jugadores_partido);
-
-                    //Registro de amonestaciones
-                    AmonestacionBC objAmonestaionesBC = new AmonestacionBC();
-                    objAmonestaionesBC.insertar_Amonestacion(lista_amonestaciones);
-
-                    //Registro de goles
-                    GolBC objGolBC = new GolBC();
-                    objGolBC.insertar_Goles(lista_goles);
-
-                    //Actualizacion de goles en el partido
-                    PartidoBC objPartidoBC = new PartidoBC();
-                    int cont_goles_local = 0;
-                    int cont_goles_visita = 0;
-
-                    for (int i = 0; i < lista_goles.Count; i++)
+                    if (VerificarGoles_Amonestaciones())
                     {
-                        if (esJugadorLocal(lista_goles[i].Codigo_jugador))
-                            cont_goles_local++;
+                        //Registro de jugadores que actuaron como titular o suplente en el partido
+                        JugadorPartidoBC objJugadorPartio = new JugadorPartidoBC();
+                        objJugadorPartio.insertar_jugadores(lista_jugadores_partido);
 
-                        else
-                            cont_goles_visita++;
-                    }
+                        //Registro de amonestaciones
+                        AmonestacionBC objAmonestaionesBC = new AmonestacionBC();
+                        objAmonestaionesBC.insertar_Amonestacion(lista_amonestaciones);
 
-                    objPartidoBC.actualizar_Resultado(Codigo_partido, cont_goles_local, cont_goles_visita);
+                        //Registro de goles
+                        GolBC objGolBC = new GolBC();
+                        objGolBC.insertar_Goles(lista_goles);
 
-                    //Registro de lesiones
-                    LesionPartidoBC objLesionesBC = new LesionPartidoBC();
-                    objLesionesBC.insertar_Lesiones(lista_lesiones);
+                        //Actualizacion de goles en el partido
+                        PartidoBC objPartidoBC = new PartidoBC();
+                        int cont_goles_local = 0;
+                        int cont_goles_visita = 0;
 
-                    //Actualizacion de suspensiones
-                    SuspensionBC objSuspensionBC = new SuspensionBC();
-                    for (int i = 0; i < lista_amonestaciones.Count; i++)
-                    {
-                        if (lista_amonestaciones[i].Tipo == 0)
+                        for (int i = 0; i < lista_goles.Count; i++)
                         {
-                            objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 1);
+                            if (esJugadorLocal(lista_goles[i].Codigo_jugador))
+                                cont_goles_local++;
+
+                            else
+                                cont_goles_visita++;
                         }
-                        if (lista_amonestaciones[i].Tipo == 1)
+
+                        objPartidoBC.actualizar_Resultado(Codigo_partido, cont_goles_local, cont_goles_visita);
+
+                        //Registro de lesiones
+                        LesionPartidoBC objLesionesBC = new LesionPartidoBC();
+                        objLesionesBC.insertar_Lesiones(lista_lesiones);
+
+                        //Actualizacion de suspensiones
+                        SuspensionBC objSuspensionBC = new SuspensionBC();
+                        for (int i = 0; i < lista_amonestaciones.Count; i++)
                         {
-                            objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 2);
+                            if (lista_amonestaciones[i].Tipo == 0)
+                            {
+                                objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 1);
+                            }
+                            if (lista_amonestaciones[i].Tipo == 1)
+                            {
+                                objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 2);
+                            }
                         }
-                    }
 
-                    for (int i = 0; i < lista_jugadores_suspendidos.Count; i++)
-                    {
-                        objSuspensionBC.actualizar_Suspension(lista_jugadores_suspendidos[i].CodigoJugador, 3);
-                    }
+                        for (int i = 0; i < lista_jugadores_suspendidos.Count; i++)
+                        {
+                            objSuspensionBC.actualizar_Suspension(lista_jugadores_suspendidos[i].CodigoJugador, 3);
+                        }
 
-                    MessageBox.Show("Los datos del partido han sido registrados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
+                        MessageBox.Show("Los datos del partido han sido registrados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    else
+                        MessageBox.Show("Existe datos inválidos en los goles marcados y amonestaciones. Verifique los datos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("Los datos no están preparados para ser registrados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -486,6 +494,21 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }                
+
+        private Boolean VerificarGoles_Amonestaciones()
+        {
+            foreach (AmonestacionBE cDtoA in lista_amonestaciones)
+            {
+                foreach (GolBE cDtoG in lista_goles)
+                {
+                    //-- Si un jugador fue amonestado con Tarjeta roja antes de meter un gol
+                    if (cDtoA.Tipo == 1 && cDtoA.Codigo_jugador == cDtoG.Codigo_jugador && cDtoG.Minuto_gol > cDtoA.Minuto)
+                        return false;
+                }
+            }
+
+            return true;
         }
 
         private void btn_terminar_Click(object sender, EventArgs e)
@@ -578,7 +601,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
 
             //-- Se valida que hayan 11 jugadores titulares por equipo y máximo 7 jugadores suplentes por equipo
-            if (true)//cantidad_jugadores_local_titulares == 11 && cantidad_jugadores_local_suplentes <= 7 && cantidad_jugadores_visita_titulares == 11 && cantidad_jugadores_visita_suplentes <= 7)
+            if (cantidad_jugadores_local_titulares == 11 && cantidad_jugadores_local_suplentes <= 7 && cantidad_jugadores_visita_titulares == 11 && cantidad_jugadores_visita_suplentes <= 7)
             {
                 dgv_equipo_local.Enabled = false;
                 dgv_equipo_visitante.Enabled = false;
@@ -809,19 +832,48 @@ namespace UPC.Proyecto.SISPPAFUT
         private void btn_amonestaciones_actualizar_Click(object sender, EventArgs e)
         {
             DataGridViewCheckBoxCell check_delete = new DataGridViewCheckBoxCell();
-
+            bool doble_amonestacion;
             for (int i = 0; i < lista_amonestaciones.Count; i++)
             {
+                doble_amonestacion = false;
                 check_delete = (DataGridViewCheckBoxCell)dgv_amonestaciones.Rows[i].Cells["col_eliminar_amonestacion"];
 
                 if (check_delete.Value != null)
+                {
+                    if (i > 0)
+                    {
+                        String nJugador1 = dgv_amonestaciones.Rows[i].Cells["col_jugador_amonestacion"].Value.ToString();
+                        String nJugador2 = dgv_amonestaciones.Rows[i - 1].Cells["col_jugador_amonestacion"].Value.ToString();
+                        String eJugador1 = dgv_amonestaciones.Rows[i].Cells["col_equipo_amonestacion"].Value.ToString();
+                        String eJugador2 = dgv_amonestaciones.Rows[i - 1].Cells["col_equipo_amonestacion"].Value.ToString();
+                        String tJugador1 = dgv_amonestaciones.Rows[i].Cells["col_tipo_amonestacion"].Value.ToString();
+                        String tJugador2 = dgv_amonestaciones.Rows[i - 1].Cells["col_tipo_amonestacion"].Value.ToString();
+                        String mJugador1 = dgv_amonestaciones.Rows[i].Cells["col_minuto_amonestacion"].Value.ToString();
+                        String mJugador2 = dgv_amonestaciones.Rows[i - 1].Cells["col_minuto_amonestacion"].Value.ToString();
+
+                        if (nJugador1 == nJugador2 && eJugador1 == eJugador2 && tJugador1 == "Tarjeta Roja" && tJugador2 == "Tarjeta Amarilla" && mJugador1 == mJugador2)
+                            doble_amonestacion = true;
+                    }
+
                     if ((bool)check_delete.Value.Equals(true))
                     {
-                        lista_amonestaciones.RemoveAt(i);
-                        dgv_amonestaciones.Rows.RemoveAt(i);
-                        i--;
+                        if(doble_amonestacion)
+                        {
+                            lista_amonestaciones.RemoveAt(i);
+                            lista_amonestaciones.RemoveAt(i-1);
+                            dgv_amonestaciones.Rows.RemoveAt(i);
+                            dgv_amonestaciones.Rows.RemoveAt(i-1);
+                            i=i-2;
+                        }
+                        else
+                        {
+                            lista_amonestaciones.RemoveAt(i);
+                            dgv_amonestaciones.Rows.RemoveAt(i);
+                            i--;
+                        }
                     }
-            }            
+                }
+            }
         }
 
         private void cmb_goles_actualizar_Click(object sender, EventArgs e)

@@ -145,30 +145,122 @@ namespace UPC.Proyecto.SISPPAFUT
                 RankingEquipoBC objEquipoBC;
                 RankingEquipoBE objEquipoBE;
 
-                objEquipoBE = new RankingEquipoBE();
-                objEquipoBC = new RankingEquipoBC();
-
-                objEquipoBE.CodigoEquipo = lista_equipos[cmbEquipo.SelectedIndex - 1].CodigoEquipo;
-                objEquipoBE.PosicionRanking = Convert.ToInt32(txtPosicion.Text);
-                objEquipoBE.AnioRanking = Convert.ToInt32(cmbAnio.Text);
-                objEquipoBE.MesRanking = cmbMes.SelectedIndex;
-                objEquipoBE.PuntosRanking = Convert.ToInt32(txtPuntos.Text);
-
-                iCodigo = objEquipoBC.insertar_ranking(objEquipoBE);
-                if (iCodigo == 0)
+                if (VerificarDatos())
                 {
-                    MessageBox.Show("El equipo no ha sido registrada debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (VerificarSeleccion())
+                    {
+                        objEquipoBE = new RankingEquipoBE();
+                        objEquipoBC = new RankingEquipoBC();
+
+                        objEquipoBE.CodigoEquipo = lista_equipos[cmbEquipo.SelectedIndex - 1].CodigoEquipo;
+                        objEquipoBE.PosicionRanking = Convert.ToInt32(txtPosicion.Text);
+                        objEquipoBE.AnioRanking = Convert.ToInt32(cmbAnio.Text);
+                        objEquipoBE.MesRanking = cmbMes.SelectedIndex;
+                        objEquipoBE.PuntosRanking = Convert.ToInt32(txtPuntos.Text);
+
+                        iCodigo = objEquipoBC.insertar_ranking(objEquipoBE);
+                        if (iCodigo == 0)
+                        {
+                            MessageBox.Show("Los datos no han sido registrados debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        else
+                            MessageBox.Show("Los datos han sido registrados satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                        MessageBox.Show("Debe elegir una fecha válida para registrar los datos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                {
-                    MessageBox.Show("El equipo ha sido registrado satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                this.Close();
+                    MessageBox.Show("Debe llenar todos los campos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private void inSalir(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
+        }
+
+        private Boolean VerificarDatos()
+        {
+            return (cmbPais.SelectedIndex > 0 && cmbEquipo.SelectedIndex > 0 &&
+                    cmbAnio.SelectedIndex > 0 && cmbMes.SelectedIndex > 0 &&
+                    txtPosicion.Text != "" && txtPuntos.Text != "");
+        }
+
+        private Boolean VerificarSeleccion()
+        {
+            if(Convert.ToInt32(cmbAnio.SelectedItem) < DateTime.Today.Year)
+                return true;
+            else
+                if (Convert.ToInt32(cmbAnio.SelectedItem) == DateTime.Today.Year)
+                {
+                    String mes = cmbMes.SelectedItem.ToString();
+                    switch (mes)
+                    {
+                        case "Enero": return DateTime.Today.Month > 1;
+                        case "Febrero": return DateTime.Today.Month > 2;
+                        case "Marzo": return DateTime.Today.Month > 3;
+                        case "Abril": return DateTime.Today.Month > 4;
+                        case "Mayo": return DateTime.Today.Month > 5;
+                        case "Junio": return DateTime.Today.Month > 6;
+                        case "Julio": return DateTime.Today.Month > 7;
+                        case "Agosto": return DateTime.Today.Month > 8;
+                        case "Setiembre": return DateTime.Today.Month > 9;
+                        case "Octubre": return DateTime.Today.Month > 10;
+                        case "Noviembre": return DateTime.Today.Month > 11;
+                        case "Diciembre": return DateTime.Today.Month > 12;
+                    }
+                }
+            return false;
+                
+        }
+
+        private void ValidarEntrada(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else
+                e.Handled = true;
+        }
+
+        private void ValidarPuntos(object sender, KeyPressEventArgs e)
+        {
+            //-- fuente: http://social.msdn.microsoft.com/Forums/es/vcses/thread/0bfbee6c-219e-4895-a458-ae3d59c81079 --
+            if (e.KeyChar == 8)
+            {
+                e.Handled = false;
+                return;
+            }
+            bool IsDec = false;
+            int nroDec = 0;
+
+            for (int i = 0; i < txtPuntos.Text.Length; i++)
+            {
+                if (txtPuntos.Text[i] == '.')
+                    IsDec = true;
+
+                if (IsDec && nroDec++ >= 2)
+                {
+                    e.Handled = true;
+                    return;
+                }
+            }
+
+            if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else if (e.KeyChar == 46)
+                e.Handled = (IsDec) ? true : false;
+            else
+                e.Handled = true;
         }
     }
 }

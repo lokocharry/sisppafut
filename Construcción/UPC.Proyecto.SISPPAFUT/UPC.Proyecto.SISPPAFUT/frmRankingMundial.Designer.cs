@@ -13,11 +13,15 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing)
             {
-                components.Dispose();
+                if (components != null)
+                {
+                    components.Dispose();
+                }
             }
             base.Dispose(disposing);
+            frmRankingM = null;
         }
 
         #region Windows Form Designer generated code
@@ -36,6 +40,7 @@
             this.Posicion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pais = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSalir = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRanking)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,16 +110,29 @@
             this.pais.Name = "pais";
             this.pais.Width = 200;
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(450, 373);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 5;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.inSalir);
+            // 
             // frmRankingMundial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 385);
+            this.ClientSize = new System.Drawing.Size(556, 408);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.dgvRanking);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.cmbPais);
             this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.cmbAnio);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmRankingMundial";
             this.Text = "Visualizar Ranking Mundial de Clubes";
             this.Load += new System.EventHandler(this.frmRankingMundial_Load);
@@ -133,5 +151,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Posicion;
         private System.Windows.Forms.DataGridViewTextBoxColumn equipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn pais;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

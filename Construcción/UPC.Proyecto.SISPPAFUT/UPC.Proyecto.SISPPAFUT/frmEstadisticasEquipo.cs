@@ -21,14 +21,14 @@ namespace UPC.Proyecto.SISPPAFUT
             InitializeComponent();
         }
 
-        private static frmEstadisticasEquipo frm;
+        private static frmEstadisticasEquipo frmEstadisticaEquipo;
         public static frmEstadisticasEquipo Instance()
         {
-            if (frm == null)
+            if (frmEstadisticaEquipo == null)
             {
-                frm = new frmEstadisticasEquipo();
+                frmEstadisticaEquipo = new frmEstadisticasEquipo();
             }
-            return frm;
+            return frmEstadisticaEquipo;
         }
 
         private void frmEstadisticasEquipo_Load(object sender, EventArgs e)

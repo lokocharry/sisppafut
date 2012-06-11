@@ -135,16 +135,26 @@ namespace UPC.Proyecto.SISPPAFUT
                 RankingEquipoBC objRankingBC;
                 objRankingBC = new RankingEquipoBC();
 
-                int anio = Convert.ToInt32(cmbAnio.Items[cmbAnio.SelectedIndex]);
-                int mes = cmbMes.SelectedIndex;
-                int pais = lista_paises[cmbPais.SelectedIndex - 1].CodigoPais;
-
-                lista_ranking = objRankingBC.obtener_ranking(anio, mes, pais);
-
-                for (int i = 0; i < lista_ranking.Count; i++)
+                if (ValidarDatos())
                 {
-                    dgvRanking.Rows.Add(lista_ranking[i].Posicion, lista_ranking[i].NombreEquipo, lista_ranking[i].Pais);
+                    int anio = Convert.ToInt32(cmbAnio.Items[cmbAnio.SelectedIndex]);
+                    int mes = cmbMes.SelectedIndex;
+                    int pais = lista_paises[cmbPais.SelectedIndex - 1].CodigoPais;
+
+                    lista_ranking = objRankingBC.obtener_ranking(anio, mes, pais);
+
+                    if (lista_ranking.Count > 0)
+                    {
+                        for (int i = 0; i < lista_ranking.Count; i++)
+                        {
+                            dgvRanking.Rows.Add(lista_ranking[i].Posicion, lista_ranking[i].NombreEquipo, lista_ranking[i].Pais);
+                        }
+                    }
+                    else
+                        MessageBox.Show("No hay datos para mostrar. Seleccione otros datos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+                else
+                    MessageBox.Show("Debe seleccionar todos los datos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
              }
             catch (Exception ex)
             {
@@ -152,5 +162,15 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
+        private Boolean ValidarDatos()
+        {
+            return (cmbAnio.SelectedIndex > 0 && cmbMes.SelectedIndex > 0 && cmbPais.SelectedIndex > 0);
+        }
+
+        private void inSalir(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
+                this.Close();
+        }
     }
 }

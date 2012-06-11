@@ -142,16 +142,20 @@
             // txtPosicion
             // 
             this.txtPosicion.Location = new System.Drawing.Point(307, 79);
+            this.txtPosicion.MaxLength = 4;
             this.txtPosicion.Name = "txtPosicion";
             this.txtPosicion.Size = new System.Drawing.Size(95, 20);
             this.txtPosicion.TabIndex = 10;
+            this.txtPosicion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntrada);
             // 
             // txtPuntos
             // 
             this.txtPuntos.Location = new System.Drawing.Point(307, 121);
+            this.txtPuntos.MaxLength = 5;
             this.txtPuntos.Name = "txtPuntos";
             this.txtPuntos.Size = new System.Drawing.Size(95, 20);
             this.txtPuntos.TabIndex = 11;
+            this.txtPuntos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarPuntos);
             // 
             // btnGuardar
             // 
@@ -171,12 +175,14 @@
             this.btnCancelar.TabIndex = 13;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.inSalir);
             // 
             // frmActualizarRanking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(508, 210);
+            this.ControlBox = false;
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtPuntos);
@@ -191,6 +197,7 @@
             this.Controls.Add(this.lbl_mes);
             this.Controls.Add(this.lbl_anio);
             this.Controls.Add(this.lbl_pais);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "frmActualizarRanking";
             this.Text = "Actualizar Ranking Mundial de Clubes";
             this.Load += new System.EventHandler(this.frmActualizarRanking_Load);

@@ -37,7 +37,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -52,7 +52,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -67,7 +67,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -82,7 +82,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -99,7 +99,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -116,7 +116,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -133,7 +133,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -153,7 +153,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -168,7 +168,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -183,7 +183,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -198,7 +198,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -213,7 +213,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -228,7 +228,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -243,7 +243,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -258,7 +258,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -273,7 +273,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                //Funciones.RegistrarExcepcion(ex);
+                Funciones.RegistrarExcepcion(ex);
             }
         }
     }

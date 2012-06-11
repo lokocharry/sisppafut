@@ -48,6 +48,8 @@
             this.asignarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rankingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verRankingMundialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.estadísticasDeEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.jugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,8 +61,6 @@
             this.entrenarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.estadísticasDeEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -200,6 +200,18 @@
             this.verRankingMundialToolStripMenuItem.Text = "Ver Ranking Mundial";
             this.verRankingMundialToolStripMenuItem.Click += new System.EventHandler(this.verRankingMundialToolStripMenuItem_Click);
             // 
+            // estadísticasDeEquipoToolStripMenuItem
+            // 
+            this.estadísticasDeEquipoToolStripMenuItem.Name = "estadísticasDeEquipoToolStripMenuItem";
+            this.estadísticasDeEquipoToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
+            this.estadísticasDeEquipoToolStripMenuItem.Text = "Estadísticas de Equipo";
+            this.estadísticasDeEquipoToolStripMenuItem.Click += new System.EventHandler(this.estadísticasDeEquipoToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(187, 6);
+            // 
             // jugadorToolStripMenuItem
             // 
             this.jugadorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -280,18 +292,6 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(187, 6);
-            // 
-            // estadísticasDeEquipoToolStripMenuItem
-            // 
-            this.estadísticasDeEquipoToolStripMenuItem.Name = "estadísticasDeEquipoToolStripMenuItem";
-            this.estadísticasDeEquipoToolStripMenuItem.Size = new System.Drawing.Size(190, 22);
-            this.estadísticasDeEquipoToolStripMenuItem.Text = "Estadísticas de Equipo";
-            this.estadísticasDeEquipoToolStripMenuItem.Click += new System.EventHandler(this.estadísticasDeEquipoToolStripMenuItem_Click);
             // 
             // SISPPAFUTmdi
             // 
