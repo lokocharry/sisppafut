@@ -235,6 +235,11 @@
       <Name>UPC.Proyecto.SISPPAFUT.BL.BE</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="imagenes\correcto.png" />
+    <Content Include="imagenes\eliminar.png" />
+    <Content Include="imagenes\incorrecto.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

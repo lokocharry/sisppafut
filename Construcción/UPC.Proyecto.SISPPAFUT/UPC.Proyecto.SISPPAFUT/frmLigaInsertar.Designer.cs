@@ -32,6 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLigaInsertar));
             this.lbl_titulo = new System.Windows.Forms.Label();
             this.lbl_pais = new System.Windows.Forms.Label();
             this.lbl_competicion = new System.Windows.Forms.Label();
@@ -48,11 +49,12 @@
             this.cmb_equipo = new System.Windows.Forms.ComboBox();
             this.btn_agregarEquipo = new System.Windows.Forms.Button();
             this.dg_equipos = new System.Windows.Forms.DataGridView();
+            this.bnt_guardar = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.bnt_guardar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dg_equipos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,6 +148,7 @@
             this.txt_cantidad.Name = "txt_cantidad";
             this.txt_cantidad.Size = new System.Drawing.Size(54, 20);
             this.txt_cantidad.TabIndex = 9;
+            this.txt_cantidad.TextChanged += new System.EventHandler(this.txt_cantidad_TextChanged);
             this.txt_cantidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntradaNumerica);
             // 
             // chb_editar
@@ -205,27 +208,13 @@
             this.dg_equipos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Codigo,
             this.Equipo,
-            this.Ciudad});
+            this.Ciudad,
+            this.Eliminar});
             this.dg_equipos.Location = new System.Drawing.Point(26, 226);
             this.dg_equipos.Name = "dg_equipos";
             this.dg_equipos.Size = new System.Drawing.Size(532, 150);
             this.dg_equipos.TabIndex = 15;
-            // 
-            // Codigo
-            // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            this.Codigo.Visible = false;
-            // 
-            // Equipo
-            // 
-            this.Equipo.HeaderText = "Equipo";
-            this.Equipo.Name = "Equipo";
-            // 
-            // Ciudad
-            // 
-            this.Ciudad.HeaderText = "Ciudad";
-            this.Ciudad.Name = "Ciudad";
+            this.dg_equipos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_equipos_CellContentClick);
             // 
             // bnt_guardar
             // 
@@ -246,6 +235,29 @@
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btnCancelar);
+            // 
+            // Codigo
+            // 
+            this.Codigo.HeaderText = "Codigo";
+            this.Codigo.Name = "Codigo";
+            this.Codigo.Visible = false;
+            // 
+            // Equipo
+            // 
+            this.Equipo.HeaderText = "Equipo";
+            this.Equipo.Name = "Equipo";
+            // 
+            // Ciudad
+            // 
+            this.Ciudad.HeaderText = "Ciudad";
+            this.Ciudad.Name = "Ciudad";
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // frmLigaInsertar
             // 
@@ -305,5 +317,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Equipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ciudad;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }

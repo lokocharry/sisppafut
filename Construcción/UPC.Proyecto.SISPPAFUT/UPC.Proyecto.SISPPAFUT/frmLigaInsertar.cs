@@ -28,6 +28,7 @@ namespace UPC.Proyecto.SISPPAFUT
             InitializeComponent();
             iniciarPais();
             iniciarGrilla();
+            iniciarControles();
         }
 
         private void iniciarPais()
@@ -101,6 +102,18 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
+        private void iniciarControles()
+        {
+            cmb_competicion.Enabled = false;
+            txt_temporada.Enabled = false;
+            txt_cantidad.Enabled = false;
+            txt_cantidad.Enabled = false;
+            cmb_equipo.Enabled = false;
+            btn_agregarEquipo.Enabled = false;
+            chb_editar.Enabled = false;
+            btn_agregarEquipo.Enabled = false;
+        }
+
         private void inPaisSeleccionado(object sender, EventArgs e)
         {
             try
@@ -108,7 +121,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 //-- Se lista las competiciones del país seleccionado
                 CompeticionBC objCompeticionBC = new CompeticionBC();
                 if (cmb_pais.SelectedIndex > 0)
-                {
+                {                    
                     List<CompeticionBE> lstCompeticion = objCompeticionBC.ListarCompeticion(cmb_pais.Text);
 
                     if (lstCompeticion.Count != 0)
@@ -130,6 +143,9 @@ namespace UPC.Proyecto.SISPPAFUT
                         {
                             cmb_equipo.Items.Add(lstEquipo[i].NombreEquipo);
                         }
+
+                        //Se habilita el siguiente comboBox
+                        cmb_competicion.Enabled = true;
                     }
                     else
                     {
@@ -147,6 +163,9 @@ namespace UPC.Proyecto.SISPPAFUT
         private void inTemporada(object sender, EventArgs e)
         {
             txt_nombre.Text = String.Format("{0} {1}", cmb_competicion.Text, txt_temporada.Text);
+
+            //Se habilita el checkbox de edicion del Nombre
+            chb_editar.Enabled = true;
         }
 
         private void inEditarNombreLiga(object sender, EventArgs e)
@@ -360,6 +379,37 @@ namespace UPC.Proyecto.SISPPAFUT
             LimpiarCampos();
             cmb_pais.SelectedIndex = pais_select;
             cmb_competicion.SelectedIndex = competicion_select;
+
+            //Se habilita la edicion del nombre de la temporada y la cantidad de equipos
+            txt_temporada.Enabled = true;
+            txt_cantidad.Enabled = true;
+        }
+
+        private void txt_cantidad_TextChanged(object sender, EventArgs e)
+        {
+            if (txt_cantidad.Text == "")
+            {
+                btn_agregarEquipo.Enabled = false;
+                cmb_equipo.Enabled = false;
+            }
+            else
+            {
+                //Se habilita el poder agregar equipos
+                btn_agregarEquipo.Enabled = true;
+                cmb_equipo.Enabled = true;
+            }
+        }
+
+        private void dg_equipos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                dg_equipos.Rows.RemoveAt(dg_equipos.SelectedRows[0].Index);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
     }
 }
