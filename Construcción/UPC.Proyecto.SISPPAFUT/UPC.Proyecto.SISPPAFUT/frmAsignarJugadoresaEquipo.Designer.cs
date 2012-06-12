@@ -32,6 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAsignarJugadoresaEquipo));
             this.lbl_pais = new System.Windows.Forms.Label();
             this.lbl_equipo = new System.Windows.Forms.Label();
             this.lbl_jugador = new System.Windows.Forms.Label();
@@ -40,6 +41,8 @@
             this.cmb_jugadores = new System.Windows.Forms.ComboBox();
             this.btn_agregar_jugadores = new System.Windows.Forms.Button();
             this.dgv_jugadores = new System.Windows.Forms.DataGridView();
+            this.btn_guardar = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
             this.h_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.h_apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.h_nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,8 +51,7 @@
             this.h_codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.h_peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.h_altura = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btn_guardar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jugadores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -130,11 +132,33 @@
             this.h_fecha,
             this.h_codigo,
             this.h_peso,
-            this.h_altura});
+            this.h_altura,
+            this.Eliminar});
             this.dgv_jugadores.Location = new System.Drawing.Point(40, 112);
             this.dgv_jugadores.Name = "dgv_jugadores";
             this.dgv_jugadores.Size = new System.Drawing.Size(497, 150);
             this.dgv_jugadores.TabIndex = 7;
+            this.dgv_jugadores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jugadores_CellContentClick);
+            // 
+            // btn_guardar
+            // 
+            this.btn_guardar.Location = new System.Drawing.Point(462, 280);
+            this.btn_guardar.Name = "btn_guardar";
+            this.btn_guardar.Size = new System.Drawing.Size(75, 23);
+            this.btn_guardar.TabIndex = 8;
+            this.btn_guardar.Text = "Guardar";
+            this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.Location = new System.Drawing.Point(381, 280);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancelar.TabIndex = 9;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // h_nombre
             // 
@@ -188,31 +212,19 @@
             this.h_altura.Name = "h_altura";
             this.h_altura.Visible = false;
             // 
-            // btn_guardar
+            // Eliminar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(462, 280);
-            this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(75, 23);
-            this.btn_guardar.TabIndex = 8;
-            this.btn_guardar.Text = "Guardar";
-            this.btn_guardar.UseVisualStyleBackColor = true;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Location = new System.Drawing.Point(381, 280);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancelar.TabIndex = 9;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = ((System.Drawing.Image)(resources.GetObject("Eliminar.Image")));
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Width = 49;
             // 
             // frmAsignarJugadoresaEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 326);
+            this.ClientSize = new System.Drawing.Size(560, 326);
             this.ControlBox = false;
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_guardar);
@@ -256,5 +268,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn h_codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn h_peso;
         private System.Windows.Forms.DataGridViewTextBoxColumn h_altura;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }

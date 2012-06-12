@@ -207,5 +207,20 @@ namespace UPC.Proyecto.SISPPAFUT
 
             dgv_jugadores.Rows.Clear();
         }
+
+        private void dgv_jugadores_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.ColumnIndex == 8)
+                {
+                    dgv_jugadores.Rows.RemoveAt(dgv_jugadores.SelectedRows[0].Index);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

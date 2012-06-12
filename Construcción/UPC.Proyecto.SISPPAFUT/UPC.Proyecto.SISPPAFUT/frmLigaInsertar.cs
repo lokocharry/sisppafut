@@ -404,7 +404,10 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                dg_equipos.Rows.RemoveAt(dg_equipos.SelectedRows[0].Index);
+                if (e.ColumnIndex == 3)
+                {
+                    dg_equipos.Rows.RemoveAt(dg_equipos.SelectedRows[0].Index);
+                }
             }
             catch (Exception ex)
             {

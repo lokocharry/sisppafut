@@ -141,28 +141,28 @@
   <metadata name="h_altura.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="h_nombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="Eliminar.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="h_apellido.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="h_nacionalidad.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="h_posicion.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="h_fecha.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="h_codigo.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="h_peso.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="h_altura.UserAddedColumn" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="Eliminar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29m
+        dHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAMkSURBVDhPfVJdSJNhFH6v6sJheef8pXJeaFARBGIQ
+        FN0GEZYVBBJiQdRdDiulH6ikm+6UrpJgpqjopEwx9m1rujk/zLmfbAvb5rbcdG379uk33Z7O+0lgN73w
+        cM57zsvznnOewzo6OubMZnOBkBcEIW8ymVT7Fzy+F1arNe9wOArd3d3Z4uLiVjYxMbGF/5x8Po98oaC+
+        4L6Sy6m+a3ER1dXVZvbh40dZTRKkeBwxhx2yLGMzpyCdSkHa3ESK8H1uDpFIBElJwtbWFhYWFlBVVWVm
+        40ajSpCJRhDougPPpQa4X79CRslBoZ9T9KPY0wNnczNmnj3DysoKtik+Pz+PyspKgRmNYyqB/+EtJJ+3
+        AD/98N+8AuejB4glk7B3deFbaysQCCDy4gUmOzsh7exgXhRRUVEhsLHRUZUg8smIldbzyBneALZZBK5f
+        wafjx+C/cYPuNigGAxxtbZgZG4NMBHa7HeXl5QIbGRlRCfgkg8JneJrOQH6qR6HvHbLteuBtHzJPHsN8
+        +TLsU1OI03yy2SxmZ2d3CYaHh2VQT1ImA4VIPMZxiPVaSFcvIne/HTL1bq6rg4l+TlM+urqKTDpNRdl2
+        CYaGhuQCJ6Bk2OPD0vVzCOgYlg8yuBhZjQb+Q4dgbWnB4teviJEyaSL4YrWirKxMYIODgzJXOTxjhb/p
+        OBKnGNbqGcSD+zF++AjEAwcQ1+kQP3kS9mvXIFosSJOsFrIqwcDAe3mbCHwP7iJ1mkE+y+DWMpju3YU3
+        GIK1vR2LWi2UhgbEGxvxgVRI0Bw4gVarFVh/f7/Ml2h1eRnfb1+A9+g+2B7eR+h3BknagRCVbHv5Egsn
+        TsBEKohOJ37TvGjldwkMBoO8TQ8TGQnhH0F4JqcQ/rWGtfV1hEMhRGMxBAkOUsDlciEUjSJBGzs9PY3S
+        0lLewsAml5GrkFUUZGkgaSmL5MYGNgiJRALr3Cfp4mQjpAKXkatAFViYXq/fCAaDtGgBLFMbHD6fT4XX
+        61XhdrtVLC0tqVXwde7t7YVGo5lmRUVFLTqdbobgrKmpcewFxf658xyP1dbWiiUlJRbGWNMfq6IBFIZR
+        ilUAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>
