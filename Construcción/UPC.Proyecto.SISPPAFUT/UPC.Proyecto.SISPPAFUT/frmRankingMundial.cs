@@ -135,6 +135,8 @@ namespace UPC.Proyecto.SISPPAFUT
                 RankingEquipoBC objRankingBC;
                 objRankingBC = new RankingEquipoBC();
 
+                dgvRanking.Rows.Clear();
+
                 if (ValidarDatos())
                 {
                     int anio = Convert.ToInt32(cmbAnio.Items[cmbAnio.SelectedIndex]);
