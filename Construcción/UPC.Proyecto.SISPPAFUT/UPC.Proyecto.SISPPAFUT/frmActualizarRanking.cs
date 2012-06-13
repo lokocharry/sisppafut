@@ -164,7 +164,13 @@ namespace UPC.Proyecto.SISPPAFUT
                             MessageBox.Show("Los datos no han sido registrados debido a un error.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         else
-                            MessageBox.Show("Los datos han sido registrados satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        {
+                            if (iCodigo == -2)
+                                MessageBox.Show("Los datos han sido actualizados satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            else
+                                MessageBox.Show("Los datos han sido registrados satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LimpiarCampos();
+                        }
                     }
                     else
                         MessageBox.Show("Debe elegir una fecha válida para registrar los datos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -176,6 +182,16 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private void LimpiarCampos()
+        {
+            cmbPais.SelectedIndex = 0;
+            cmbEquipo.Items.Clear();
+            cmbAnio.SelectedIndex = 0;
+            cmbMes.SelectedIndex = 0;
+            txtPosicion.Clear();
+            txtPuntos.Clear();
         }
 
         private void inSalir(object sender, EventArgs e)
