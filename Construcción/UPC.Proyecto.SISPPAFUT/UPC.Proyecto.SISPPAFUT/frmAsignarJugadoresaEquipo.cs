@@ -79,6 +79,8 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmb_jugadores.SelectedIndex = 0;
 
             dgv_jugadores.Rows.Clear();
+            if (lista_jugadores_seleccionados != null)
+                lista_jugadores_seleccionados.Clear();
         }
 
         private void llenar_combr_paises()
@@ -206,6 +208,9 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmb_jugadores.SelectedIndex = 0;
 
             dgv_jugadores.Rows.Clear();
+
+            if (lista_jugadores_seleccionados != null)
+                lista_jugadores_seleccionados.Clear();
         }
 
         private void dgv_jugadores_CellContentClick(object sender, DataGridViewCellEventArgs e)

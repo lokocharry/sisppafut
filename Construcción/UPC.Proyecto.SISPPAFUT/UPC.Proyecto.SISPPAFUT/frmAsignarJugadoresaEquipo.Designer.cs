@@ -41,8 +41,6 @@
             this.cmb_jugadores = new System.Windows.Forms.ComboBox();
             this.btn_agregar_jugadores = new System.Windows.Forms.Button();
             this.dgv_jugadores = new System.Windows.Forms.DataGridView();
-            this.btn_guardar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.h_nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.h_apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.h_nacionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,6 +50,8 @@
             this.h_peso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.h_altura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btn_guardar = new System.Windows.Forms.Button();
+            this.btn_cancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jugadores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -113,9 +113,9 @@
             // 
             // btn_agregar_jugadores
             // 
-            this.btn_agregar_jugadores.Location = new System.Drawing.Point(301, 64);
+            this.btn_agregar_jugadores.Location = new System.Drawing.Point(301, 66);
             this.btn_agregar_jugadores.Name = "btn_agregar_jugadores";
-            this.btn_agregar_jugadores.Size = new System.Drawing.Size(105, 23);
+            this.btn_agregar_jugadores.Size = new System.Drawing.Size(105, 21);
             this.btn_agregar_jugadores.TabIndex = 6;
             this.btn_agregar_jugadores.Text = "Agregar a equipo";
             this.btn_agregar_jugadores.UseVisualStyleBackColor = true;
@@ -139,26 +139,6 @@
             this.dgv_jugadores.Size = new System.Drawing.Size(497, 150);
             this.dgv_jugadores.TabIndex = 7;
             this.dgv_jugadores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_jugadores_CellContentClick);
-            // 
-            // btn_guardar
-            // 
-            this.btn_guardar.Location = new System.Drawing.Point(462, 280);
-            this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(75, 23);
-            this.btn_guardar.TabIndex = 8;
-            this.btn_guardar.Text = "Guardar";
-            this.btn_guardar.UseVisualStyleBackColor = true;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Location = new System.Drawing.Point(381, 280);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancelar.TabIndex = 9;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
             // h_nombre
             // 
@@ -220,11 +200,31 @@
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.Width = 49;
             // 
+            // btn_guardar
+            // 
+            this.btn_guardar.Location = new System.Drawing.Point(462, 280);
+            this.btn_guardar.Name = "btn_guardar";
+            this.btn_guardar.Size = new System.Drawing.Size(75, 23);
+            this.btn_guardar.TabIndex = 8;
+            this.btn_guardar.Text = "Guardar";
+            this.btn_guardar.UseVisualStyleBackColor = true;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            // 
+            // btn_cancelar
+            // 
+            this.btn_cancelar.Location = new System.Drawing.Point(381, 280);
+            this.btn_cancelar.Name = "btn_cancelar";
+            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
+            this.btn_cancelar.TabIndex = 9;
+            this.btn_cancelar.Text = "Cancelar";
+            this.btn_cancelar.UseVisualStyleBackColor = true;
+            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
+            // 
             // frmAsignarJugadoresaEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 326);
+            this.ClientSize = new System.Drawing.Size(578, 326);
             this.ControlBox = false;
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_guardar);
