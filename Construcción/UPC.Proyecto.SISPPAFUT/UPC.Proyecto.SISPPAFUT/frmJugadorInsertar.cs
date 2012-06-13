@@ -224,7 +224,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             return (!(txt_nombre.Text == "") && !(txt_apellido.Text == "")
                     && !(txt_nacionalidad.Text == "") && !(txt_altura.Text == "") 
-                    && !(txt_peso.Text == "") && (cmb_posicion.SelectedIndex >= 0));
+                    && !(txt_peso.Text == "") && (cmb_posicion.SelectedIndex > 0));
         }
 
         private void ValidarEntradaNumerico(object sender, KeyPressEventArgs e)
