@@ -74,6 +74,66 @@ namespace UPC.Proyecto.SISPPAFUT
             iniciarGrillaEquipoVisitante();
             btn_editar.Enabled = false;
         }
+
+        private static int ComparaGol(GolBE x, GolBE y)
+        {
+            return x.Minuto_gol.CompareTo(y.Minuto_gol);
+        }
+
+        public List<GolBE> SortGol(List<GolBE> lst)
+        {
+            lst.Sort(ComparaGol);
+            return lst;
+        }
+
+        private static int ComparaAmonestacion(AmonestacionBE x, AmonestacionBE y)
+        {
+            return x.Minuto.CompareTo(y.Minuto);
+        }
+
+        public List<AmonestacionBE> SortAmonestacion(List<AmonestacionBE> lst)
+        {
+            lst.Sort(ComparaAmonestacion);
+            return lst;
+        }
+
+        private class GrillaGolComparer : System.Collections.IComparer
+        {
+            private static int sortOrderModifier = 1;
+
+            public GrillaGolComparer(SortOrder sortOrder)
+            {
+                sortOrderModifier = 1;
+            }
+
+            public int Compare(object x, object y)
+            {
+                DataGridViewRow DataGridViewRow1 = (DataGridViewRow)x;
+                DataGridViewRow DataGridViewRow2 = (DataGridViewRow)y;
+
+                //-- El ordenamiento es en base al minuto del gol                
+                return Convert.ToInt32(DataGridViewRow1.Cells["col_minuto_goles"].Value.ToString()).CompareTo(Convert.ToInt32(DataGridViewRow2.Cells["col_minuto_goles"].Value.ToString()));
+            }
+        }
+
+        private class GrillaAmonestacionComparer : System.Collections.IComparer
+        {
+            private static int sortOrderModifier = 1;
+
+            public GrillaAmonestacionComparer(SortOrder sortOrder)
+            {
+                sortOrderModifier = 1;
+            }
+
+            public int Compare(object x, object y)
+            {
+                DataGridViewRow DataGridViewRow1 = (DataGridViewRow)x;
+                DataGridViewRow DataGridViewRow2 = (DataGridViewRow)y;
+
+                //-- El ordenamiento es en base al minuto del gol                
+                return Convert.ToInt32(DataGridViewRow1.Cells["col_minuto_amonestacion"].Value.ToString()).CompareTo(Convert.ToInt32(DataGridViewRow2.Cells["col_minuto_amonestacion"].Value.ToString()));
+            }
+        }
                 
         public void iniciarGrillaEquipoLocal()
         {
@@ -308,6 +368,10 @@ namespace UPC.Proyecto.SISPPAFUT
                                     }
                                     else
                                         MessageBox.Show("El jugador ya recibió la máxima cantidad de amonestaciones por partido.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                dgv_amonestaciones.Sort(new GrillaAmonestacionComparer(SortOrder.Ascending));
+                                List<AmonestacionBE> lst = new List<AmonestacionBE>();
+                                lst = lista_amonestaciones;
+                                lista_amonestaciones = SortAmonestacion(lst);
                             }
                             else
                                 MessageBox.Show("La amonestación ya figura en la lista de amonestaciones.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -323,7 +387,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             else
                 MessageBox.Show("Debe escoger un equipo.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
+        }       
 
         private void btn_goles_agregar_Click(object sender, EventArgs e)
         {
@@ -356,6 +420,11 @@ namespace UPC.Proyecto.SISPPAFUT
                             dgv_goles.Rows.Add(dame_nombre_jugador(cmb_goles_equipos.SelectedIndex, cmb_goles_jugadores), cmb_goles_equipos.SelectedItem,
                                               cmb_goles_minuto.SelectedItem);
                             lista_goles.Add(objGolBE);
+
+                            dgv_goles.Sort(new GrillaGolComparer(SortOrder.Ascending));
+                            List<GolBE> lst = new List<GolBE>();
+                            lst = lista_goles;
+                            lista_goles = SortGol(lst);
                         }
                         else
                             MessageBox.Show("El gol ya se encuentra en la lista de goles.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -369,7 +438,7 @@ namespace UPC.Proyecto.SISPPAFUT
             else
                 MessageBox.Show("Debe escoger un equipo.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-        }
+        }        
 
         private void btn_lesiones_agregar_Click(object sender, EventArgs e)
         {
