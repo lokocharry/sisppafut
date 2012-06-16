@@ -189,11 +189,26 @@ namespace UPC.Proyecto.SISPPAFUT
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             JugadorBC objJugadorBC;
+            JugadorEquipoBC objJugadorEquipoBC;
 
             try
-            {
-                objJugadorBC = new JugadorBC();
-                objJugadorBC.asignar_JugadoraEquipo(lista_jugadores_seleccionados);
+            {                
+                if (dgv_jugadores.Rows.Count > 0)
+                {
+                    objJugadorBC = new JugadorBC();
+                    objJugadorBC.asignar_JugadoraEquipo(lista_jugadores_seleccionados);
+                    //-- Se agregan los jugadores que ya tienen equipo a la lista, incluyendo a los nuevos jugadores registrados
+                    objJugadorEquipoBC = new JugadorEquipoBC();
+                    lista_jugadores_equipo = objJugadorEquipoBC.listaJugadorEquipo();
+                    //-- Se reinicia los datos
+                    dgv_jugadores.Rows.Clear();
+                    cmb_equipos.Items.Clear();
+                    cmb_paises.SelectedIndex = 0;
+                    cmb_jugadores.SelectedIndex = 0;
+                    MessageBox.Show("Los datos han sido guardados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                    MessageBox.Show("No hay datos para guardar.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
             catch(Exception)
@@ -219,7 +234,8 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 if (e.ColumnIndex == 8)
                 {
-                    dgv_jugadores.Rows.RemoveAt(dgv_jugadores.SelectedRows[0].Index);
+                    lista_jugadores_seleccionados.RemoveAt(dgv_jugadores.SelectedRows[0].Index);
+                    dgv_jugadores.Rows.RemoveAt(dgv_jugadores.SelectedRows[0].Index);                    
                 }
             }
             catch (Exception ex)
