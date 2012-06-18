@@ -450,7 +450,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
                 while (dr_jugadores.Read())
                 {
-                    cantidad_partidos = dr_jugadores.GetInt32(dr_jugadores.GetOrdinal("Cantidad"));
+                    cantidad_partidos = dr_jugadores.GetInt32(dr_jugadores.GetOrdinal("NUMERO"));
                 }
 
                 return cantidad_partidos;
@@ -471,6 +471,61 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             {
                 cmd_jugadores.Connection.Close();
                 conexion.Dispose();
+            }
+        }
+
+        public String estado_LesionJugador(int codigo_jugador, DateTime fecha)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_LeerEstadoLesion = null;
+            SqlParameter prm_Codigo;
+            SqlParameter prm_Fecha;
+            String sqlReadLesion;
+            String sEstado = null;
+            SqlDataReader dr_lesion;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlReadLesion = "spReadEstadoLesion";
+
+                cmd_LeerEstadoLesion = new SqlCommand(sqlReadLesion, conexion);
+                cmd_LeerEstadoLesion.CommandType = CommandType.StoredProcedure;
+
+                prm_Codigo = new SqlParameter();
+                prm_Codigo.ParameterName = "@CodJugador";
+                prm_Codigo.SqlDbType = SqlDbType.Int;
+                prm_Codigo.Value = codigo_jugador;
+
+                prm_Fecha = new SqlParameter();
+                prm_Fecha.ParameterName = "@Fecha";
+                prm_Fecha.SqlDbType = SqlDbType.Date;
+                prm_Fecha.Value = fecha;
+
+                cmd_LeerEstadoLesion.Parameters.Add(prm_Codigo);
+                cmd_LeerEstadoLesion.Parameters.Add(prm_Fecha);
+
+                cmd_LeerEstadoLesion.Connection.Open();
+                dr_lesion = cmd_LeerEstadoLesion.ExecuteReader();
+
+                if (dr_lesion.Read())
+                {
+                    sEstado = dr_lesion.GetString(dr_lesion.GetOrdinal("Estado"));
+                }
+                return sEstado;
+            }
+            catch (Exception)
+            {
+                conexion.Dispose();
+                throw;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                    conexion = null;
+                }
             }
         }
     }

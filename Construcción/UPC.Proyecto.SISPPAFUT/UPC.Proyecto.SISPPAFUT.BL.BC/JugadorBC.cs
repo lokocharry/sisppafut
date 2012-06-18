@@ -129,5 +129,21 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public String estado_LesionJugador(int codigo_jugador, DateTime fecha)
+        {
+            JugadorDALC objJugadorDALC;
+
+            try
+            {
+                objJugadorDALC = new JugadorDALC();
+                return objJugadorDALC.estado_LesionJugador(codigo_jugador, fecha);
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

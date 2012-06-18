@@ -531,12 +531,12 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd_partidos.CommandType = CommandType.StoredProcedure;
 
                 prm_equipo = new SqlParameter();
-                prm_equipo.ParameterName = "@CodPartido";
+                prm_equipo.ParameterName = "@CodEquipo";
                 prm_equipo.SqlDbType = SqlDbType.Int;
                 prm_equipo.Value = codigo_equipo;
 
                 prm_liga = new SqlParameter();
-                prm_liga.ParameterName = "@CodPartido";
+                prm_liga.ParameterName = "@CodLiga";
                 prm_liga.SqlDbType = SqlDbType.Int;
                 prm_liga.Value = codigo_liga;
 

@@ -146,5 +146,54 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
+        //Esta funcion no dice si el Jugador ha sido suspendido alguna vez...
+        public int jugadorHaSidoSuspendido(int codJugador)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_ExisteSuspension = null;
+            SqlParameter prm_Codigo;
+            String sqlExisteSuspension;
+            SqlDataReader dr_suspension;
+
+            int suspendido = 0;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlExisteSuspension = "spVerificarExisteSuspension";
+
+                cmd_ExisteSuspension = new SqlCommand(sqlExisteSuspension, conexion);
+                cmd_ExisteSuspension.CommandType = CommandType.StoredProcedure;
+
+                prm_Codigo = new SqlParameter();
+                prm_Codigo.ParameterName = "@CodJugador";
+                prm_Codigo.SqlDbType = SqlDbType.Int;
+                prm_Codigo.Value = codJugador;
+
+                cmd_ExisteSuspension.Parameters.Add(prm_Codigo);
+                cmd_ExisteSuspension.Connection.Open();
+                dr_suspension = cmd_ExisteSuspension.ExecuteReader();
+
+                if (dr_suspension.Read())
+                {
+                    suspendido = dr_suspension.GetInt32(dr_suspension.GetOrdinal("Resultado"));
+                }
+
+                return suspendido;
+            }
+            catch (Exception)
+            {
+                conexion.Dispose();
+                throw;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                    conexion = null;
+                }
+            }
+        }
     }
 }

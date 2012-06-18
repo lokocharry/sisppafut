@@ -24,9 +24,15 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 
         public void actualizar_Suspension(int codJugador, int tipo)
         {
+            SuspensionDALC objSuspensionDALC;
+
             try
             {
-                SuspensionDALC objSuspensionDALC = new SuspensionDALC();
+                objSuspensionDALC = new SuspensionDALC();
+
+                if (objSuspensionDALC.jugadorHaSidoSuspendido(codJugador) == 0)
+                    objSuspensionDALC.crear_Suspension(codJugador);
+
                 objSuspensionDALC.actualizar_Suspension(codJugador, tipo);
             }
             catch (Exception)

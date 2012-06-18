@@ -37,13 +37,16 @@
             this.lbl_liga = new System.Windows.Forms.Label();
             this.lbl_equipo = new System.Windows.Forms.Label();
             this.gp_ultimos_partidos = new System.Windows.Forms.GroupBox();
-            this.gb_jugadores = new System.Windows.Forms.GroupBox();
             this.dgv_ultimos_partidos = new System.Windows.Forms.DataGridView();
+            this.gb_jugadores = new System.Windows.Forms.GroupBox();
             this.dgv_jugadores = new System.Windows.Forms.DataGridView();
             this.btn_refrescar = new System.Windows.Forms.Button();
+            this.col_jugador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_goles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col_partidos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gp_ultimos_partidos.SuspendLayout();
-            this.gb_jugadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ultimos_partidos)).BeginInit();
+            this.gb_jugadores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jugadores)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,6 +58,7 @@
             this.cmb_liga.Name = "cmb_liga";
             this.cmb_liga.Size = new System.Drawing.Size(344, 21);
             this.cmb_liga.TabIndex = 0;
+            this.cmb_liga.SelectedIndexChanged += new System.EventHandler(this.inLigaSeleccionada);
             // 
             // cmb_equipo
             // 
@@ -93,16 +97,6 @@
             this.gp_ultimos_partidos.TabStop = false;
             this.gp_ultimos_partidos.Text = "5 Últimos Partidos";
             // 
-            // gb_jugadores
-            // 
-            this.gb_jugadores.Controls.Add(this.dgv_jugadores);
-            this.gb_jugadores.Location = new System.Drawing.Point(491, 27);
-            this.gb_jugadores.Name = "gb_jugadores";
-            this.gb_jugadores.Size = new System.Drawing.Size(464, 435);
-            this.gb_jugadores.TabIndex = 5;
-            this.gb_jugadores.TabStop = false;
-            this.gb_jugadores.Text = "Lista de Jugadores";
-            // 
             // dgv_ultimos_partidos
             // 
             this.dgv_ultimos_partidos.AllowUserToAddRows = false;
@@ -114,11 +108,25 @@
             this.dgv_ultimos_partidos.Size = new System.Drawing.Size(411, 275);
             this.dgv_ultimos_partidos.TabIndex = 0;
             // 
+            // gb_jugadores
+            // 
+            this.gb_jugadores.Controls.Add(this.dgv_jugadores);
+            this.gb_jugadores.Location = new System.Drawing.Point(491, 27);
+            this.gb_jugadores.Name = "gb_jugadores";
+            this.gb_jugadores.Size = new System.Drawing.Size(464, 435);
+            this.gb_jugadores.TabIndex = 5;
+            this.gb_jugadores.TabStop = false;
+            this.gb_jugadores.Text = "Lista de Jugadores";
+            // 
             // dgv_jugadores
             // 
             this.dgv_jugadores.AllowUserToAddRows = false;
             this.dgv_jugadores.AllowUserToDeleteRows = false;
             this.dgv_jugadores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_jugadores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.col_jugador,
+            this.col_goles,
+            this.col_partidos});
             this.dgv_jugadores.Location = new System.Drawing.Point(18, 27);
             this.dgv_jugadores.Name = "dgv_jugadores";
             this.dgv_jugadores.ReadOnly = true;
@@ -133,6 +141,25 @@
             this.btn_refrescar.TabIndex = 6;
             this.btn_refrescar.Text = "Refrescar";
             this.btn_refrescar.UseVisualStyleBackColor = true;
+            this.btn_refrescar.Click += new System.EventHandler(this.btn_refrescar_Click);
+            // 
+            // col_jugador
+            // 
+            this.col_jugador.HeaderText = "Jugador";
+            this.col_jugador.Name = "col_jugador";
+            this.col_jugador.ReadOnly = true;
+            // 
+            // col_goles
+            // 
+            this.col_goles.HeaderText = "Cantidad Goles";
+            this.col_goles.Name = "col_goles";
+            this.col_goles.ReadOnly = true;
+            // 
+            // col_partidos
+            // 
+            this.col_partidos.HeaderText = "Cantidad Partidos";
+            this.col_partidos.Name = "col_partidos";
+            this.col_partidos.ReadOnly = true;
             // 
             // frmEstadisticasEquipo
             // 
@@ -150,8 +177,8 @@
             this.Text = "Estadisticas del Equipo";
             this.Load += new System.EventHandler(this.frmEstadisticasEquipo_Load);
             this.gp_ultimos_partidos.ResumeLayout(false);
-            this.gb_jugadores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_ultimos_partidos)).EndInit();
+            this.gb_jugadores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jugadores)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -169,5 +196,8 @@
         private System.Windows.Forms.GroupBox gb_jugadores;
         private System.Windows.Forms.DataGridView dgv_jugadores;
         private System.Windows.Forms.Button btn_refrescar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_jugador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_goles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col_partidos;
     }
 }

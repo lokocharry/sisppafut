@@ -511,7 +511,7 @@ namespace UPC.Proyecto.SISPPAFUT
                         GolBC objGolBC = new GolBC();
                         objGolBC.insertar_Goles(lista_goles);
 
-                        //Actualizacion de goles en el partido
+                        //Actualizacion de resultado en el partido
                         PartidoBC objPartidoBC = new PartidoBC();
                         int cont_goles_local = 0;
                         int cont_goles_visita = 0;
@@ -545,6 +545,7 @@ namespace UPC.Proyecto.SISPPAFUT
                             }
                         }
 
+                        //Actualizamos las suspensiones de los jugadores suspendidos para este partido
                         for (int i = 0; i < lista_jugadores_suspendidos.Count; i++)
                         {
                             objSuspensionBC.actualizar_Suspension(lista_jugadores_suspendidos[i].CodigoJugador, 3);
@@ -759,31 +760,51 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             JugadorBC objJugadorBC = new JugadorBC();
             SuspensionBC objSuspensionBC = new SuspensionBC();
+
             lista_jugadores_suspendidos = new List<JugadorBE>();
 
+            //INICIALIZAMOS LAS LISTAS CON LOS EQUIPOS (LOCAL Y VISITA) COMPLETOS
             lista_equipo_local = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_local);
             lista_equipo_visita = objJugadorBC.listar_Jugadores_xEquipo(objPartidoBE.Codigo_equipo_visitante);
 
             for (int i = 0; i < lista_equipo_local.Count; i++)
             {
+                //FILTRAMOS LOS JUGADORES SUSPENDIDOS DEL EQUIPO LOCAL
                 if (objSuspensionBC.leer_EstadoSuspension(lista_equipo_local[i].CodigoJugador).Equals("SUSPENDIDO"))
                 {
                     lista_jugadores_suspendidos.Add(lista_equipo_local[i]);
                     lista_equipo_local.RemoveAt(i);
                     i--;
                 }
+
+                //FILTRAMOS LOS JUGADORES LESIONADOS DEL EQUIPO LOCAL
+                if (objJugadorBC.estado_LesionJugador(lista_equipo_local[i].CodigoJugador, objPartidoBE.Fecha_partido).Equals("LESIONADO"))
+                {
+                    lista_equipo_local.RemoveAt(i);
+                    i--;
+                }
+
             }
 
             for (int i = 0; i < lista_equipo_visita.Count; i++)
             {
+                //FILTRAMOS LOS JUGADORES SUSPENDIDOS DEL EQUIPO VISITANTE
                 if (objSuspensionBC.leer_EstadoSuspension(lista_equipo_visita[i].CodigoJugador).Equals("SUSPENDIDO"))
                 {
                     lista_jugadores_suspendidos.Add(lista_equipo_visita[i]);
                     lista_equipo_visita.RemoveAt(i);
                     i--;
                 }
+
+                //FILTRAMOS LOS JUGADORES LESIONADOS DEL EQUIPO VISITANTE
+                if (objJugadorBC.estado_LesionJugador(lista_equipo_visita[i].CodigoJugador, objPartidoBE.Fecha_partido).Equals("LESIONADO"))
+                {
+                    lista_equipo_visita.RemoveAt(i);
+                    i--;
+                }
             }
 
+            //LLENAMOS LOS GRILLA CON LAS LISTA FILTRADA DE CADA EQUIPO
             dgv_equipo_local.DataSource = lista_equipo_local;
             dgv_equipo_visitante.DataSource = lista_equipo_visita;            
         }
