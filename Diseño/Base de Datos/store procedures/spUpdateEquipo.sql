@@ -1,7 +1,7 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spUpdateEquipo]    Script Date: 04/22/2012 21:11:18 ******/
+/****** Object:  StoredProcedure [dbo].[spUpdateEquipo]    Script Date: 07/16/2012 17:07:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -17,16 +17,30 @@ CREATE PROCEDURE [dbo].[spUpdateEquipo]
 )
 AS
 BEGIN
-	BEGIN
+	if (@CodEstadioPrincipal = null)
+	begin
+		UPDATE [SISPPAFUT].[dbo].[Equipo]
+		SET [CodEstadioPrincipal] = CodEstadioPrincipal
+		WHERE CodEquipo = @CodEquipo
+	end
+	IF (@codEstadioPrincipal is not null)
+	begin
 		UPDATE [SISPPAFUT].[dbo].[Equipo]
 		SET [CodEstadioPrincipal] = @CodEstadioPrincipal
 		WHERE CodEquipo = @CodEquipo
-	END
-	BEGIN
+	end
+	if(@CodEstadioAlterno = null)
+	begin
+		UPDATE [SISPPAFUT].[dbo].[Equipo]
+		SET [CodEstadioAlterno] = null
+		WHERE CodEquipo = @CodEquipo
+	end
+	if (@CodEstadioAlterno is not NULL)
+	begin
 		UPDATE [SISPPAFUT].[dbo].[Equipo]
 		SET [CodEstadioAlterno] = @CodEstadioAlterno
 		WHERE CodEquipo = @CodEquipo
-	END
+	end
 END
 
 GO
