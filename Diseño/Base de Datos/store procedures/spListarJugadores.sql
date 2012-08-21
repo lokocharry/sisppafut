@@ -1,10 +1,13 @@
 USE [SISPPAFUT]
 GO
-/****** Object:  StoredProcedure [dbo].[spListarPaises]    Script Date: 05/14/2012 18:04:04 ******/
+
+/****** Object:  StoredProcedure [dbo].[spListarJugadores]    Script Date: 08/17/2012 16:28:07 ******/
 SET ANSI_NULLS ON
 GO
+
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 
 -- =============================================
@@ -29,6 +32,11 @@ BEGIN
 		j.Peso
 		
 	FROM 
-		Jugador j			
+		Jugador j
+	
+	ORDER BY j.Apellidos, j.Nombres
 	
 END
+GO
+
+
