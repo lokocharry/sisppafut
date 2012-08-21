@@ -26,6 +26,6 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             {
                 throw;
             }
-        }
+        }        
     }
 }

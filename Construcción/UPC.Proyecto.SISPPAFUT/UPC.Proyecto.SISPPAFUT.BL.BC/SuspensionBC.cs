@@ -53,5 +53,31 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public Boolean consultar_ArqueroSuspendido(int codEquipo, int codLiga)
+        {
+            try
+            {
+                SuspensionDALC objDALC = new SuspensionDALC();
+                return objDALC.consultar_ArqueroSuspendido(codEquipo, codLiga);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public Boolean consultar_GoleadorSuspendido(int codEquipo, int codLiga)
+        {
+            try
+            {
+                SuspensionDALC objDALC = new SuspensionDALC();
+                return objDALC.consultar_GoleadorSuspendido(codEquipo, codLiga);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

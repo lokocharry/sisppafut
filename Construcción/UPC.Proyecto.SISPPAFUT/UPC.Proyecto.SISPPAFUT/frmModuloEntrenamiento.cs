@@ -16,11 +16,14 @@ namespace UPC.Proyecto.SISPPAFUT
     {
         //--Variables globales
         List<PartidoBE> listaPartidos;
+        List<LigaBE> lstLigas;
         List<PronosticoBE> lstPronosticos;
         List<EquipoBE> listaEquipos;
         List<PartidoSinJugarBE> lstPartidosPronosticados;
         List<PartidoSinJugarBE> lstPartidosSinJugar;
         List<PartidoPronosticadoBE> listaPartidosPronosticados;
+        SuspensionBC objSuspensionBC;
+        LigaBC objLigaBC;
 
         private static frmModuloEntrenamiento frmEntrenamiento = null;
         public static frmModuloEntrenamiento Instance()
@@ -43,6 +46,8 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 dg_PronosticosConfigurar();
                 dg_PronosticosDataBind();
+                objLigaBC = new LigaBC();
+                lstLigas = objLigaBC.listarLigas();
             }
             catch (Exception ex)
             {
@@ -150,23 +155,42 @@ namespace UPC.Proyecto.SISPPAFUT
                 Random objRandom;
                 String sPronostico;
 
+                objSuspensionBC = new SuspensionBC();
+                EquipoBC objEquipoBC = new EquipoBC();
+                LigaBC objLigaBC = new LigaBC();
+
                 //-- Paso 1: Se recolecta los partidos que ya tienen datos resumidos de partidos cuyo resultado se conoce
                 listaPartidosPronosticados = new List<PartidoPronosticadoBE>();
                 objPartidoPronosticadoBC = new PartidoPronosticadoBC();
                 listaPartidosPronosticados = objPartidoPronosticadoBC.listar_PartidosPronosticos();
-                /*
+                
                 //-- Paso 2: Se recolecta los partidos cuyo resultado se desconoce
                 foreach (PartidoSinJugarBE cDto in lstPartidosSinJugar)
                 {
+                    int codEquipoL = objEquipoBC.obtenerEquipo(cDto.Equipo_local).CodigoEquipo;
+                    int codEquipoV = objEquipoBC.obtenerEquipo(cDto.Equipo_visitante).CodigoEquipo;
+                    int codLiga = 0;
+                    foreach (LigaBE _cDto in lstLigas)
+                        if (_cDto.NombreLiga == cDto.Liga)
+                            codLiga = _cDto.CodigoLiga;
+
                     objPartidoPronosticadoBE = new PartidoPronosticadoBE();
                     /* Aquí se debe averiguar por cada característica de la red neuronal, el valor correspondiente 
                      * Por ejemplo: objPartidoPronosticadoBE.C_LocalPts = objPartidoBC.lista_ultimosPartidos(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga);
                      *              objPartidoPronosticadoBE.C_PromEdad = PromEdadEq(objJugadorBC.listar_Jugadores_xEquipo(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo));
                      *              ...
-                     *
+                     */
+                    objPartidoPronosticadoBE.C_Local = true;
+                    objPartidoPronosticadoBE.C_Local_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoL, codLiga);
+                    objPartidoPronosticadoBE.C_Local_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoL, codLiga);
+
+                    objPartidoPronosticadoBE.C_Visita = false;
+                    objPartidoPronosticadoBE.C_Visita_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoV, codLiga);
+                    objPartidoPronosticadoBE.C_Visita_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoV, codLiga);
+
                     listaPartidosPronosticados.Add(objPartidoPronosticadoBE);
                 }
-                */
+                
                 //-- Paso 3: Se crea el fichero que contendrá toda la información para entrenar el sistema
                 CrearFicheroARFF(listaPartidosPronosticados);
                 /*

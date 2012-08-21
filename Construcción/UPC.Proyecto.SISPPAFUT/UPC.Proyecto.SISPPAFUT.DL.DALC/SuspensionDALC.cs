@@ -195,5 +195,123 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 }
             }
         }
+
+        public Boolean consultar_ArqueroSuspendido(int codEquipo, int codLiga)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            SqlParameter prm_CodEquipo;
+            SqlParameter prm_CodLiga;
+            String sqlReadArqueroSuspension;
+            String sEstado = null;
+            SqlDataReader dr;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlReadArqueroSuspension = "spArqueroSuspendido";
+
+                cmd = new SqlCommand(sqlReadArqueroSuspension, conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                prm_CodEquipo = new SqlParameter();
+                prm_CodEquipo.ParameterName = "@CodEquipo";
+                prm_CodEquipo.SqlDbType = SqlDbType.Int;
+                prm_CodEquipo.Value = codEquipo;
+
+                prm_CodLiga = new SqlParameter();
+                prm_CodLiga.ParameterName = "@CodLiga";
+                prm_CodLiga.SqlDbType = SqlDbType.Int;
+                prm_CodLiga.Value = codLiga;
+
+                cmd.Parameters.Add(prm_CodEquipo);
+                cmd.Parameters.Add(prm_CodLiga);
+
+                cmd.Connection.Open();
+                dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    sEstado = dr.GetString(dr.GetOrdinal("Estado de suspensión"));
+                }
+
+                if (sEstado == "NO SUSPENDIDO")
+                    return false;
+                else
+                    return true;
+            }
+            catch (Exception)
+            {
+                conexion.Dispose();
+                throw;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                    conexion = null;
+                }
+            }
+        }
+
+        public Boolean consultar_GoleadorSuspendido(int codEquipo, int codLiga)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            SqlParameter prm_CodEquipo;
+            SqlParameter prm_CodLiga;
+            String sqlReadGoleadorSuspension;
+            String sEstado = null;
+            SqlDataReader dr;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlReadGoleadorSuspension = "spGoleadorSuspendido";
+
+                cmd = new SqlCommand(sqlReadGoleadorSuspension, conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                prm_CodEquipo = new SqlParameter();
+                prm_CodEquipo.ParameterName = "@CodEquipo";
+                prm_CodEquipo.SqlDbType = SqlDbType.Int;
+                prm_CodEquipo.Value = codEquipo;
+
+                prm_CodLiga = new SqlParameter();
+                prm_CodLiga.ParameterName = "@CodLiga";
+                prm_CodLiga.SqlDbType = SqlDbType.Int;
+                prm_CodLiga.Value = codLiga;
+
+                cmd.Parameters.Add(prm_CodEquipo);
+                cmd.Parameters.Add(prm_CodLiga);
+
+                cmd.Connection.Open();
+                dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    sEstado = dr.GetString(dr.GetOrdinal("Estado de suspensión"));
+                }
+
+                if (sEstado == "NO SUSPENDIDO")
+                    return false;
+                else
+                    return true;
+            }
+            catch (Exception)
+            {
+                conexion.Dispose();
+                throw;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                    conexion = null;
+                }
+            }
+        }
     }
 }
