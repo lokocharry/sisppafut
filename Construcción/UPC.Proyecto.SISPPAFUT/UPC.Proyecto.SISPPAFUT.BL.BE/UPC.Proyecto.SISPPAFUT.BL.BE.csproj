@@ -38,6 +38,7 @@
   <ItemGroup>
     <Compile Include="AmonestacionBE.cs" />
     <Compile Include="CompeticionBE.cs" />
+    <Compile Include="DatosPartidoConsolidado.cs" />
     <Compile Include="EquipoBE.cs" />
     <Compile Include="EstadioBE.cs" />
     <Compile Include="ExcepcionBE.cs" />
@@ -52,6 +53,7 @@
     <Compile Include="PaisBE.cs" />
     <Compile Include="PartidoBE.cs" />
     <Compile Include="PartidoJugadoBE.cs" />
+    <Compile Include="PartidoPronosticadoBE.cs" />
     <Compile Include="PartidoSinJugarBE.cs" />
     <Compile Include="PronosticoBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -92,7 +92,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
         public void actualizar_Pronostico(int codPronostico, String pronostico, Decimal porcentajeLocal, Decimal porcentajeEmpate, Decimal porcentajeVisita)
         {
             SqlConnection conexion = null;
-            SqlCommand cmd_actualizarPronostico;
+            SqlCommand cmd_actualizarPronostico = null;
             String sqlUpdatePronostico;
 
             SqlParameter prm_codigoPronostico;
@@ -105,6 +105,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
                 sqlUpdatePronostico = "spUpdatePronostico";
+
                 cmd_actualizarPronostico = new SqlCommand(sqlUpdatePronostico, conexion);
                 cmd_actualizarPronostico.CommandType = CommandType.StoredProcedure;
 
@@ -125,14 +126,14 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_porcentajeLocal.Value = porcentajeLocal;
 
                 prm_porcentajeEmpate = new SqlParameter();
-                prm_porcentajeLocal.ParameterName = "@porcentajeEmpate";
-                prm_porcentajeLocal.SqlDbType = SqlDbType.Decimal;
-                prm_porcentajeLocal.Value = porcentajeEmpate;
+                prm_porcentajeEmpate.ParameterName = "@porcentajeEmpate";
+                prm_porcentajeEmpate.SqlDbType = SqlDbType.Decimal;
+                prm_porcentajeEmpate.Value = porcentajeEmpate;
 
                 prm_porcentajeVisita = new SqlParameter();
-                prm_porcentajeLocal.ParameterName = "@porcentajeVisita";
-                prm_porcentajeLocal.SqlDbType = SqlDbType.Decimal;
-                prm_porcentajeLocal.Value = porcentajeVisita;
+                prm_porcentajeVisita.ParameterName = "@porcentajeVisita";
+                prm_porcentajeVisita.SqlDbType = SqlDbType.Decimal;
+                prm_porcentajeVisita.Value = porcentajeVisita;
 
                 cmd_actualizarPronostico.Parameters.Add(prm_codigoPronostico);
                 cmd_actualizarPronostico.Parameters.Add(prm_pronostico);

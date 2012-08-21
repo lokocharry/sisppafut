@@ -1,0 +1,30 @@
+@relation SISPPAFUT
+@attribute qEquiposLiga numeric
+@attribute qEquiposMundial numeric
+@attribute qAsistencia numeric
+@attribute Local_PosLiga numeric
+@attribute Local_Pts numeric
+@attribute Local {TRUE, FALSE}
+@attribute Local_PosRankMund numeric
+@attribute Local_GoleadorSuspendido {TRUE, FALSE}
+@attribute Local_ArqueroSuspendido {TRUE, FALSE}
+@attribute Local_qExpulsados numeric
+@attribute Local_qSuspendidos numeric
+@attribute Local_GolesAnotados numeric
+@attribute Local_GolesEncajados numeric
+@attribute Local_PromEdad real
+@attribute Local_qPartidosMes numeric
+@attribute Visita_PosLiga numeric
+@attribute Visita_Pts numeric
+@attribute Visita {TRUE, FALSE}
+@attribute Visita_PosRankMund numeric
+@attribute Visita_GoleadorSuspendido {TRUE, FALSE}
+@attribute Visita_ArqueroSuspendido {TRUE, FALSE}
+@attribute Visita_qExpulsados numeric
+@attribute Visita_qSuspendidos numeric
+@attribute Visita_GolesAnotados numeric
+@attribute Visita_GolesEncajados numeric
+@attribute Visita_PromEdad real
+@attribute Visita_qPartidosMes numeric
+@attribute resultado {L, E, V}
+@data

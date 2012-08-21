@@ -8,6 +8,13 @@ using System.Windows.Forms;
 
 namespace UPC.Proyecto.SISPPAFUT
 {
+    public struct frmTransferir
+    {
+        static frmTransferir()
+        {
+            
+        }
+    }
     public partial class SISPPAFUTmdi : Form
     {
         private static SISPPAFUTmdi MDI = null;
@@ -30,7 +37,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmPaisInsertar frmPais = frmPaisInsertar.Instance();
+                frmInsertarPais frmPais = frmInsertarPais.Instance();
                 frmPais.MdiParent = this;
                 frmPais.Show();
                 frmPais.BringToFront();
@@ -45,7 +52,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmCompeticionInsertar frmCompeticion = frmCompeticionInsertar.Instance();
+                frmInsertarCompeticion frmCompeticion = frmInsertarCompeticion.Instance();
                 frmCompeticion.MdiParent = this;
                 frmCompeticion.Show();
                 frmCompeticion.BringToFront();
@@ -60,7 +67,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmLigaInsertar frmLiga = frmLigaInsertar.Instance();
+                frmInsertarLiga frmLiga = frmInsertarLiga.Instance();
                 frmLiga.MdiParent = this;
                 frmLiga.Show();
                 frmLiga.BringToFront();
@@ -75,7 +82,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmEstadioInsertar frmEstadio = frmEstadioInsertar.Instance();
+                frmInsertarEstadio frmEstadio = frmInsertarEstadio.Instance();
                 frmEstadio.MdiParent = this;
                 frmEstadio.Show();
                 frmEstadio.BringToFront();
@@ -90,7 +97,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmEquipoInsertar frmEquipo = frmEquipoInsertar.Instance();
+                frmInsertarEquipo frmEquipo = frmInsertarEquipo.Instance();
                 frmEquipo.NombreEquipo = null;
                 frmEquipo.Modo = 1;
                 frmEquipo.MdiParent = this;
@@ -107,7 +114,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmJugadorInsertar frmJugador = frmJugadorInsertar.Instance();
+                frmInsertarJugador frmJugador = frmInsertarJugador.Instance();
                 frmJugador.Jugador = null;
                 frmJugador.Modo = 1;
                 frmJugador.MdiParent = this;
@@ -124,7 +131,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmPartidoInsertar frmPartido = frmPartidoInsertar.Instance();
+                frmInsertarPartido frmPartido = frmInsertarPartido.Instance();
                 frmPartido.Partido = null;
                 frmPartido.Modo = 1;
                 frmPartido.MdiParent = this;
@@ -161,7 +168,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmListaPartidosSinJugar frm = frmListaPartidosSinJugar.Instance();
+                frmConsultaPartidosSinJugar frm = frmConsultaPartidosSinJugar.Instance();
                 frm.MdiParent = this;
                 frm.Show();
                 frm.BringToFront();
@@ -191,7 +198,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmEditarEquipos frm = frmEditarEquipos.Instance();
+                frmEditarEquipo frm = frmEditarEquipo.Instance();
                 frm.MdiParent = this;
                 frm.Show();
                 frm.BringToFront();
@@ -206,7 +213,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmEditarJugadores frm = frmEditarJugadores.Instance();
+                frmEditarJugador frm = frmEditarJugador.Instance();
                 frm.MdiParent = this;
                 frm.Show();
                 frm.BringToFront();
@@ -236,7 +243,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmRankingMundial frm = new frmRankingMundial();
+                frmConsultarRankingMundial frm = frmConsultarRankingMundial.Instance();
                 frm.MdiParent = this;
                 frm.Show();
                 frm.BringToFront();
@@ -251,7 +258,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmEntrenarPronosticos frm = new frmEntrenarPronosticos();
+                frmModuloEntrenamiento frm = frmModuloEntrenamiento.Instance();
                 frm.MdiParent = this;
                 frm.Show();
                 frm.BringToFront();
@@ -266,7 +273,22 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmEstadisticasEquipo frm = new frmEstadisticasEquipo();
+                frmConsultarEstadisticasEquipo frm = frmConsultarEstadisticasEquipo.Instance();
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void inTranferirJugador(object sender, EventArgs e)
+        {
+            try
+            {
+                frmInsertarTransferenciaJugador frm = frmInsertarTransferenciaJugador.Instance();
                 frm.MdiParent = this;
                 frm.Show();
                 frm.BringToFront();

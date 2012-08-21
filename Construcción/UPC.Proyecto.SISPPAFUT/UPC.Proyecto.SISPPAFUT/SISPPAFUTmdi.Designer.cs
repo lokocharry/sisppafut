@@ -61,6 +61,7 @@
             this.entrenarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferirJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -217,7 +218,8 @@
             this.jugadorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoJugadorToolStripMenuItem,
             this.editarJugadoresToolStripMenuItem,
-            this.consultarSuspensionesToolStripMenuItem});
+            this.consultarSuspensionesToolStripMenuItem,
+            this.transferirJugadorToolStripMenuItem});
             this.jugadorToolStripMenuItem.Name = "jugadorToolStripMenuItem";
             this.jugadorToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.jugadorToolStripMenuItem.Text = "Jugadores";
@@ -293,6 +295,13 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
+            // transferirJugadorToolStripMenuItem
+            // 
+            this.transferirJugadorToolStripMenuItem.Name = "transferirJugadorToolStripMenuItem";
+            this.transferirJugadorToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.transferirJugadorToolStripMenuItem.Text = "Transferir Jugador";
+            this.transferirJugadorToolStripMenuItem.Click += new System.EventHandler(this.inTranferirJugador);
+            // 
             // SISPPAFUTmdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -345,6 +354,7 @@
         private System.Windows.Forms.ToolStripMenuItem entrenarSistemaToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem estadísticasDeEquipoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transferirJugadorToolStripMenuItem;
     }
 }
 

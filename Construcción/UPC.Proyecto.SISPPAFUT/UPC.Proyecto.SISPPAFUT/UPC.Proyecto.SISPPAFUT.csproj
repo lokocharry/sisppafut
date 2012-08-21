@@ -39,6 +39,10 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="weka, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\weka.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="frmActualizarRanking.cs">
@@ -46,6 +50,12 @@
     </Compile>
     <Compile Include="frmActualizarRanking.Designer.cs">
       <DependentUpon>frmActualizarRanking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarHistorialJugador.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarHistorialJugador.Designer.cs">
+      <DependentUpon>frmConsultarHistorialJugador.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultaSuspensiones.cs">
       <SubType>Form</SubType>
@@ -65,95 +75,111 @@
     <Compile Include="frmAsignarJugadoresaEquipo.Designer.cs">
       <DependentUpon>frmAsignarJugadoresaEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarEquipos.cs">
+    <Compile Include="frmEditarEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditarEquipos.Designer.cs">
-      <DependentUpon>frmEditarEquipos.cs</DependentUpon>
+    <Compile Include="frmEditarEquipo.Designer.cs">
+      <DependentUpon>frmEditarEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEditarJugadores.cs">
+    <Compile Include="frmEditarJugador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEditarJugadores.Designer.cs">
-      <DependentUpon>frmEditarJugadores.cs</DependentUpon>
+    <Compile Include="frmEditarJugador.Designer.cs">
+      <DependentUpon>frmEditarJugador.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEntrenarPronosticos.cs">
+    <Compile Include="frmInsertarTransferenciaJugador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEntrenarPronosticos.Designer.cs">
-      <DependentUpon>frmEntrenarPronosticos.cs</DependentUpon>
+    <Compile Include="frmInsertarTransferenciaJugador.Designer.cs">
+      <DependentUpon>frmInsertarTransferenciaJugador.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEstadisticasEquipo.cs">
+    <Compile Include="frmModuloEntrenamiento.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEstadisticasEquipo.Designer.cs">
-      <DependentUpon>frmEstadisticasEquipo.cs</DependentUpon>
+    <Compile Include="frmModuloEntrenamiento.Designer.cs">
+      <DependentUpon>frmModuloEntrenamiento.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmJugadorInsertar.cs">
+    <Compile Include="frmConsultarEstadisticasEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmJugadorInsertar.Designer.cs">
-      <DependentUpon>frmJugadorInsertar.cs</DependentUpon>
+    <Compile Include="frmConsultarEstadisticasEquipo.Designer.cs">
+      <DependentUpon>frmConsultarEstadisticasEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmListaPartidosSinJugar.cs">
+    <Compile Include="frmInsertarJugador.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListaPartidosSinJugar.Designer.cs">
-      <DependentUpon>frmListaPartidosSinJugar.cs</DependentUpon>
+    <Compile Include="frmInsertarJugador.Designer.cs">
+      <DependentUpon>frmInsertarJugador.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPartidoInsertar.cs">
+    <Compile Include="frmConsultaPartidosSinJugar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPartidoInsertar.Designer.cs">
-      <DependentUpon>frmPartidoInsertar.cs</DependentUpon>
+    <Compile Include="frmConsultaPartidosSinJugar.Designer.cs">
+      <DependentUpon>frmConsultaPartidosSinJugar.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmRankingMundial.cs">
+    <Compile Include="frmInsertarPartido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmRankingMundial.Designer.cs">
-      <DependentUpon>frmRankingMundial.cs</DependentUpon>
+    <Compile Include="frmInsertarPartido.Designer.cs">
+      <DependentUpon>frmInsertarPartido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultarRankingMundial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarRankingMundial.Designer.cs">
+      <DependentUpon>frmConsultarRankingMundial.cs</DependentUpon>
     </Compile>
     <Compile Include="Funciones.cs" />
+    <Compile Include="RedNeuronal.cs" />
+    <Compile Include="SISPPAFUTlogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SISPPAFUTlogin.Designer.cs">
+      <DependentUpon>SISPPAFUTlogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="SISPPAFUTmdi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="SISPPAFUTmdi.Designer.cs">
       <DependentUpon>SISPPAFUTmdi.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmCompeticionInsertar.cs">
+    <Compile Include="frmInsertarCompeticion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmCompeticionInsertar.Designer.cs">
-      <DependentUpon>frmCompeticionInsertar.cs</DependentUpon>
+    <Compile Include="frmInsertarCompeticion.Designer.cs">
+      <DependentUpon>frmInsertarCompeticion.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEquipoInsertar.cs">
+    <Compile Include="frmInsertarEquipo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEquipoInsertar.Designer.cs">
-      <DependentUpon>frmEquipoInsertar.cs</DependentUpon>
+    <Compile Include="frmInsertarEquipo.Designer.cs">
+      <DependentUpon>frmInsertarEquipo.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmEstadioInsertar.cs">
+    <Compile Include="frmInsertarEstadio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmEstadioInsertar.Designer.cs">
-      <DependentUpon>frmEstadioInsertar.cs</DependentUpon>
+    <Compile Include="frmInsertarEstadio.Designer.cs">
+      <DependentUpon>frmInsertarEstadio.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmLigaInsertar.cs">
+    <Compile Include="frmInsertarLiga.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmLigaInsertar.Designer.cs">
-      <DependentUpon>frmLigaInsertar.cs</DependentUpon>
+    <Compile Include="frmInsertarLiga.Designer.cs">
+      <DependentUpon>frmInsertarLiga.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPaisInsertar.cs">
+    <Compile Include="frmInsertarPais.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPaisInsertar.designer.cs">
-      <DependentUpon>frmPaisInsertar.cs</DependentUpon>
+    <Compile Include="frmInsertarPais.designer.cs">
+      <DependentUpon>frmInsertarPais.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmActualizarRanking.resx">
       <DependentUpon>frmActualizarRanking.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarHistorialJugador.resx">
+      <DependentUpon>frmConsultarHistorialJugador.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaSuspensiones.resx">
       <DependentUpon>frmConsultaSuspensiones.cs</DependentUpon>
@@ -164,47 +190,53 @@
     <EmbeddedResource Include="frmAsignarJugadoresaEquipo.resx">
       <DependentUpon>frmAsignarJugadoresaEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmCompeticionInsertar.resx">
-      <DependentUpon>frmCompeticionInsertar.cs</DependentUpon>
+    <EmbeddedResource Include="frmInsertarCompeticion.resx">
+      <DependentUpon>frmInsertarCompeticion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditarEquipos.resx">
-      <DependentUpon>frmEditarEquipos.cs</DependentUpon>
+    <EmbeddedResource Include="frmEditarEquipo.resx">
+      <DependentUpon>frmEditarEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEditarJugadores.resx">
-      <DependentUpon>frmEditarJugadores.cs</DependentUpon>
+    <EmbeddedResource Include="frmEditarJugador.resx">
+      <DependentUpon>frmEditarJugador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEntrenarPronosticos.resx">
-      <DependentUpon>frmEntrenarPronosticos.cs</DependentUpon>
+    <EmbeddedResource Include="frmInsertarTransferenciaJugador.resx">
+      <DependentUpon>frmInsertarTransferenciaJugador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEquipoInsertar.resx">
-      <DependentUpon>frmEquipoInsertar.cs</DependentUpon>
+    <EmbeddedResource Include="frmModuloEntrenamiento.resx">
+      <DependentUpon>frmModuloEntrenamiento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEstadioInsertar.resx">
-      <DependentUpon>frmEstadioInsertar.cs</DependentUpon>
+    <EmbeddedResource Include="frmInsertarEquipo.resx">
+      <DependentUpon>frmInsertarEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmEstadisticasEquipo.resx">
-      <DependentUpon>frmEstadisticasEquipo.cs</DependentUpon>
+    <EmbeddedResource Include="frmInsertarEstadio.resx">
+      <DependentUpon>frmInsertarEstadio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmJugadorInsertar.resx">
-      <DependentUpon>frmJugadorInsertar.cs</DependentUpon>
+    <EmbeddedResource Include="frmConsultarEstadisticasEquipo.resx">
+      <DependentUpon>frmConsultarEstadisticasEquipo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmLigaInsertar.resx">
-      <DependentUpon>frmLigaInsertar.cs</DependentUpon>
+    <EmbeddedResource Include="frmInsertarJugador.resx">
+      <DependentUpon>frmInsertarJugador.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmListaPartidosSinJugar.resx">
-      <DependentUpon>frmListaPartidosSinJugar.cs</DependentUpon>
+    <EmbeddedResource Include="frmInsertarLiga.resx">
+      <DependentUpon>frmInsertarLiga.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPartidoInsertar.resx">
-      <DependentUpon>frmPartidoInsertar.cs</DependentUpon>
+    <EmbeddedResource Include="frmConsultaPartidosSinJugar.resx">
+      <DependentUpon>frmConsultaPartidosSinJugar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmRankingMundial.resx">
-      <DependentUpon>frmRankingMundial.cs</DependentUpon>
+    <EmbeddedResource Include="frmInsertarPartido.resx">
+      <DependentUpon>frmInsertarPartido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarRankingMundial.resx">
+      <DependentUpon>frmConsultarRankingMundial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SISPPAFUTlogin.resx">
+      <DependentUpon>SISPPAFUTlogin.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SISPPAFUTmdi.resx">
       <DependentUpon>SISPPAFUTmdi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPaisInsertar.resx">
-      <DependentUpon>frmPaisInsertar.cs</DependentUpon>
+    <EmbeddedResource Include="frmInsertarPais.resx">
+      <DependentUpon>frmInsertarPais.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

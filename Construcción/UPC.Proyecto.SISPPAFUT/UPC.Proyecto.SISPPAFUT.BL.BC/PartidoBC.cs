@@ -54,6 +54,22 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
+        public List<PartidoSinJugarBE> lista_partidos_pronosticados()
+        {
+            PartidoDALC objPartidoDALC;
+
+            try
+            {
+                objPartidoDALC = new PartidoDALC();
+                return objPartidoDALC.listar_partidos_pronosticados();
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
         public List<PartidoSinJugarBE> lista_partidos_sinjugar()
         {
             PartidoDALC objPartidoDALC;
