@@ -16,6 +16,7 @@ namespace UPC.Proyecto.SISPPAFUT
     {
         //--Variables globales
         List<PartidoBE> listaPartidos;
+        List<PartidoJugadoBE> listaPartidoJugado;
         List<LigaBE> lstLigas;
         List<PronosticoBE> lstPronosticos;
         List<EquipoBE> listaEquipos;
@@ -148,6 +149,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 
                 PartidoPronosticadoBC objPartidoPronosticadoBC;
                 PartidoPronosticadoBE objPartidoPronosticadoBE;
+                PartidoBC objPartidoBC;
                 
                 Decimal dLocal;
                 Decimal dEmpate;
@@ -158,6 +160,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 objSuspensionBC = new SuspensionBC();
                 EquipoBC objEquipoBC = new EquipoBC();
                 LigaBC objLigaBC = new LigaBC();
+                objPartidoBC = new PartidoBC();
 
                 //-- Paso 1: Se recolecta los partidos que ya tienen datos resumidos de partidos cuyo resultado se conoce
                 listaPartidosPronosticados = new List<PartidoPronosticadoBE>();
@@ -183,10 +186,21 @@ namespace UPC.Proyecto.SISPPAFUT
                     objPartidoPronosticadoBE.C_Local = true;
                     objPartidoPronosticadoBE.C_Local_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoL, codLiga);
                     objPartidoPronosticadoBE.C_Local_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoL, codLiga);
-
+                    
+                    
                     objPartidoPronosticadoBE.C_Visita = false;
                     objPartidoPronosticadoBE.C_Visita_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoV, codLiga);
                     objPartidoPronosticadoBE.C_Visita_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoV, codLiga);
+
+                    listaPartidoJugado = new List<PartidoJugadoBE>();
+                    listaPartidoJugado = objPartidoBC.lista_ultimosPartidos(codEquipoL, codLiga);
+                    objPartidoPronosticadoBE.C_Local_GolesAnotados = 0;
+                    objPartidoPronosticadoBE.C_Visita_GolesAnotados = 0;
+                    foreach (PartidoJugadoBE p in listaPartidoJugado)
+                    {
+                        objPartidoPronosticadoBE.C_Local_GolesAnotados = objPartidoPronosticadoBE.C_Local_GolesAnotados + p.Goles_local;
+                        objPartidoPronosticadoBE.C_Visita_GolesAnotados = objPartidoPronosticadoBE.C_Visita_GolesAnotados + p.Goles_visita;
+                    }
 
                     listaPartidosPronosticados.Add(objPartidoPronosticadoBE);
                 }
