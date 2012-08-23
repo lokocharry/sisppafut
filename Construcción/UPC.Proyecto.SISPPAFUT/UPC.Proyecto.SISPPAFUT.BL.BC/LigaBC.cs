@@ -45,6 +45,9 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 
                                 objLigaEquipoBC.insertarEquipoEnLiga(objLigaEquipoBE);
                             }
+                            //-- Agrego datos para la tabla de la liga
+                            TablaPosicionesBC objTablaBC = new TablaPosicionesBC();
+                            objTablaBC.InsertarEquiposTablaPosiciones(codLiga, lstEquipos);
                         }
                     }
                 }

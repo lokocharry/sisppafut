@@ -16,7 +16,8 @@ namespace UPC.Proyecto.SISPPAFUT
     {
         //--Variables globales
         List<PartidoBE> listaPartidos;
-        List<PartidoJugadoBE> listaPartidoJugado;
+        List<PartidoJugadoBE> listaPartidoJugadoLocal;
+        List<PartidoJugadoBE> listaPartidoJugadoVisita;
         List<LigaBE> lstLigas;
         List<PronosticoBE> lstPronosticos;
         List<EquipoBE> listaEquipos;
@@ -146,11 +147,11 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 PronosticoBC objPronosticoBC;
                 PronosticoBE objPronosticoBE;
-                
+
                 PartidoPronosticadoBC objPartidoPronosticadoBC;
                 PartidoPronosticadoBE objPartidoPronosticadoBE;
                 PartidoBC objPartidoBC;
-                
+
                 Decimal dLocal;
                 Decimal dEmpate;
                 Decimal dVisita;
@@ -166,7 +167,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 listaPartidosPronosticados = new List<PartidoPronosticadoBE>();
                 objPartidoPronosticadoBC = new PartidoPronosticadoBC();
                 listaPartidosPronosticados = objPartidoPronosticadoBC.listar_PartidosPronosticos();
-                
+
                 //-- Paso 2: Se recolecta los partidos cuyo resultado se desconoce
                 foreach (PartidoSinJugarBE cDto in lstPartidosSinJugar)
                 {
@@ -178,6 +179,14 @@ namespace UPC.Proyecto.SISPPAFUT
                             codLiga = _cDto.CodigoLiga;
 
                     objPartidoPronosticadoBE = new PartidoPronosticadoBE();
+                    listaPartidoJugadoLocal = new List<PartidoJugadoBE>();
+                    listaPartidoJugadoLocal = objPartidoBC.lista_ultimosPartidos(codEquipoL, codLiga);
+                    objPartidoPronosticadoBE.C_Local_GolesAnotados = 0;
+                    objPartidoPronosticadoBE.C_Local_GolesEncajados = 0;
+                    listaPartidoJugadoVisita = new List<PartidoJugadoBE>();
+                    listaPartidoJugadoVisita = objPartidoBC.lista_ultimosPartidos(codEquipoV, codLiga);
+                    objPartidoPronosticadoBE.C_Visita_GolesAnotados = 0;
+                    objPartidoPronosticadoBE.C_Visita_GolesEncajados = 0;
                     /* Aquí se debe averiguar por cada característica de la red neuronal, el valor correspondiente 
                      * Por ejemplo: objPartidoPronosticadoBE.C_LocalPts = objPartidoBC.lista_ultimosPartidos(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga);
                      *              objPartidoPronosticadoBE.C_PromEdad = PromEdadEq(objJugadorBC.listar_Jugadores_xEquipo(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo));
@@ -186,21 +195,24 @@ namespace UPC.Proyecto.SISPPAFUT
                     objPartidoPronosticadoBE.C_Local = true;
                     objPartidoPronosticadoBE.C_Local_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoL, codLiga);
                     objPartidoPronosticadoBE.C_Local_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoL, codLiga);
-                    
-                    
+                    foreach (PartidoJugadoBE pL in listaPartidoJugadoLocal)
+                    {
+                        objPartidoPronosticadoBE.C_Local_GolesAnotados = objPartidoPronosticadoBE.C_Local_GolesAnotados + pL.Goles_local;
+                        objPartidoPronosticadoBE.C_Local_GolesEncajados = objPartidoPronosticadoBE.C_Local_GolesEncajados + pL.Goles_visita;
+                    }
+                    //objPartidoPronosticadoBE.C_Local_PosLiga
+
                     objPartidoPronosticadoBE.C_Visita = false;
                     objPartidoPronosticadoBE.C_Visita_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoV, codLiga);
                     objPartidoPronosticadoBE.C_Visita_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoV, codLiga);
-
-                    listaPartidoJugado = new List<PartidoJugadoBE>();
-                    listaPartidoJugado = objPartidoBC.lista_ultimosPartidos(codEquipoL, codLiga);
-                    objPartidoPronosticadoBE.C_Local_GolesAnotados = 0;
-                    objPartidoPronosticadoBE.C_Visita_GolesAnotados = 0;
-                    foreach (PartidoJugadoBE p in listaPartidoJugado)
+                    foreach (PartidoJugadoBE pV in listaPartidoJugadoVisita)
                     {
-                        objPartidoPronosticadoBE.C_Local_GolesAnotados = objPartidoPronosticadoBE.C_Local_GolesAnotados + p.Goles_local;
-                        objPartidoPronosticadoBE.C_Visita_GolesAnotados = objPartidoPronosticadoBE.C_Visita_GolesAnotados + p.Goles_visita;
+                        objPartidoPronosticadoBE.C_Local_GolesAnotados = objPartidoPronosticadoBE.C_Local_GolesAnotados + pV.Goles_local;
+                        objPartidoPronosticadoBE.C_Local_GolesEncajados = objPartidoPronosticadoBE.C_Local_GolesEncajados + pV.Goles_visita;
                     }
+
+
+
 
                     listaPartidosPronosticados.Add(objPartidoPronosticadoBE);
                 }
