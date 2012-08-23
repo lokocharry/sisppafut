@@ -145,5 +145,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public List<HistorialJugadorBE> listar_HistorialDeJugador(int codigo_jugador)
+        {
+            HistorialJugadorDALC objHistorialJugadorDALC;
+
+            try
+            {
+                objHistorialJugadorDALC = new HistorialJugadorDALC();
+                return objHistorialJugadorDALC.listar_historialdejugador(codigo_jugador);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
