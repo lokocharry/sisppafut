@@ -222,6 +222,25 @@ namespace UPC.Proyecto.SISPPAFUT
                 modoTransf = ModoTransf;
         }
 
+        private void btnTransferir_Click(object sender, EventArgs e)
+        {
+            JugadorBC objJugadorBC = new JugadorBC();
+
+            try
+            {
+                objJugadorBC.transferirJugadorNuevoEquipo(lista_jugadores[cmbJugador.SelectedIndex - 1].CodigoJugador, lista_equipos[cmbEquipoTransf.SelectedIndex - 1].CodigoEquipo);
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void frmInsertarTransferenciaJugador_Load(object sender, EventArgs e)
+        {
+
+        }
+
         //-- falta implementar el centro de esta funcionalidad
     }
 }

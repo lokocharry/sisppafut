@@ -160,5 +160,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public void transferirJugadorNuevoEquipo(int codigo_jugador, int codigo_nuevoequipo)
+        {
+            JugadorDALC objJugadorDALC;
+
+            try
+            {
+                objJugadorDALC = new JugadorDALC();
+                objJugadorDALC.TransferirJugadorAEquipo(codigo_jugador, codigo_nuevoequipo);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

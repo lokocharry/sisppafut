@@ -45,3 +45,11 @@ C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UPC.
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll
 C:\Users\Renzo\UPC\2012-01\SISPPAFUT_2\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll.config
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb

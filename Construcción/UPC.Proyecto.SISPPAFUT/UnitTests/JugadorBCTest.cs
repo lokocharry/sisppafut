@@ -158,5 +158,29 @@ namespace UnitTests
             Assert.AreEqual(nAltura, actual[0].Altura);
             Assert.AreEqual(nPeso, actual[0].Peso);
         }
+
+        /// <summary>
+        ///Una prueba de transferirJugadorNuevoEquipo
+        ///</summary>
+        [TestMethod()]
+        public void transferirJugadorNuevoEquipoTest()
+        {
+            JugadorBC target = new JugadorBC(); // TODO: Inicializar en un valor adecuado
+            int codigo_jugador = 1; // TODO: Inicializar en un valor adecuado
+            int codigo_nuevoequipo = 3; // TODO: Inicializar en un valor adecuado
+            bool Esperado = true;
+            bool Real = false;
+            target.transferirJugadorNuevoEquipo(codigo_jugador, codigo_nuevoequipo);
+            
+            List<JugadorBE> actual = target.listar_Jugadores_xEquipo(codigo_nuevoequipo);
+
+            for (int i = 0; i < actual.Count; i++)
+            {
+                if (actual[i].CodigoJugador.Equals(codigo_jugador))
+                    Real = true;
+            }
+
+            Assert.AreEqual(Esperado, Real);
+        }
     }
 }

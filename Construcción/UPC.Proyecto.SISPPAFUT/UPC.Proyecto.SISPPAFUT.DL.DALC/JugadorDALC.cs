@@ -528,5 +528,54 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 }
             }
         }
+
+        public void TransferirJugadorAEquipo(int codigo_jugador, int codigo_nuevoequipo)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_transferirjugador = null;
+
+            SqlParameter prm_CodigoJugador;
+            SqlParameter prm_CodigoNuevoEquipo;
+
+            String sqlTransferirJugador;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlTransferirJugador = "spCreateTransferenciaJugadorNuevoEquipo";
+
+                cmd_transferirjugador = new SqlCommand(sqlTransferirJugador, conexion);
+                cmd_transferirjugador.CommandType = CommandType.StoredProcedure;
+
+                prm_CodigoJugador = new SqlParameter();
+                prm_CodigoJugador.ParameterName = "@CodJugador";
+                prm_CodigoJugador.SqlDbType = SqlDbType.Int;
+                prm_CodigoJugador.Value = codigo_jugador;
+
+                prm_CodigoNuevoEquipo = new SqlParameter();
+                prm_CodigoNuevoEquipo.ParameterName = "@CodEquipoNuevo";
+                prm_CodigoNuevoEquipo.SqlDbType = SqlDbType.Int;
+                prm_CodigoNuevoEquipo.Value = codigo_nuevoequipo;
+
+                cmd_transferirjugador.Parameters.Add(prm_CodigoJugador);
+                cmd_transferirjugador.Parameters.Add(prm_CodigoNuevoEquipo);
+
+                cmd_transferirjugador.Connection.Open();
+                cmd_transferirjugador.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+                throw;
+            }
+            finally
+            {
+                cmd_transferirjugador.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }

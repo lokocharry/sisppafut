@@ -54,6 +54,7 @@
             this.btnTransferir.TabIndex = 0;
             this.btnTransferir.Text = "Realizar Transferencia";
             this.btnTransferir.UseVisualStyleBackColor = true;
+            this.btnTransferir.Click += new System.EventHandler(this.btnTransferir_Click);
             // 
             // cmbPais
             // 
@@ -177,6 +178,7 @@
             this.MinimizeBox = false;
             this.Name = "frmInsertarTransferenciaJugador";
             this.Text = "Transferencia de Jugadores";
+            this.Load += new System.EventHandler(this.frmInsertarTransferenciaJugador_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
