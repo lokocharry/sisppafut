@@ -9,14 +9,6 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class TablaPosicionesBC
     {
-        List<TablaPosicionesBE> lstTabla;
-
-        public List<TablaPosicionesBE> tablaPosicion
-        {
-            get { return lstTabla; }
-            set { lstTabla = value; }
-        }
-
         public void InsertarEquiposTablaPosiciones(int codLiga, List<LigaEquipoBE> lstLigaEquipos)
         {
             TablaPosicionesDALC objDALC = new TablaPosicionesDALC();
@@ -46,12 +38,15 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
-        public void ObtenerTablaPosicionLiga(int codLiga)
+        public List<TablaPosicionesBE> ObtenerTablaPosicionLiga(int codLiga)
         {
+            List<TablaPosicionesBE> lstTabla;
+
             try
             {
                 TablaPosicionesDALC objDALC = new TablaPosicionesDALC();
                 lstTabla = objDALC.ObtenerTablaLiga(codLiga);
+                return lstTabla;
             }
             catch (Exception ex)
             {
@@ -59,16 +54,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
-        public int ConsultarPosicionEquipoTabla(int codEquipo)
+        public int ConsultarPosicionEquipoTabla(int codLiga, int codEquipo)
         {
             int pos = 0;
+
+            List<TablaPosicionesBE> lstTabla;
 
             try
             {
 
-                if (tablaPosicion.Count > 0)
+                lstTabla = ObtenerTablaPosicionLiga(codLiga);
+
+                if (lstTabla.Count > 0)
                 {
-                    foreach (TablaPosicionesBE cDto in tablaPosicion)
+                    foreach (TablaPosicionesBE cDto in lstTabla)
                     {
                         if (codEquipo == cDto.codEquipo)
                         {

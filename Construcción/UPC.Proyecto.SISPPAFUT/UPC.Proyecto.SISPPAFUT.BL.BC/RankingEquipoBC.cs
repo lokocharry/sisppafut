@@ -37,5 +37,48 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
+
+        public int obtener_PosRanking(int anio, int mes, int codPais, String eq)
+        {
+            try
+            {
+                RankingEquipoDALC objRankingEquipoDALC = new RankingEquipoDALC();
+
+                List<RankingBE> rank = new List<RankingBE>();
+
+                int _anio;
+                int _mes;
+
+                if(mes == 1)
+                {   
+                    _mes = 12;
+                    _anio = anio - 1;
+                }
+                else
+                {
+                    _mes = mes;
+                    _anio = anio;
+                }
+
+                rank = obtener_ranking(_anio, _mes, codPais);
+
+                if (rank.Count > 0)
+                {
+                    foreach (RankingBE cDto in rank)
+                    {
+                        if (cDto.NombreEquipo == eq)
+                            return cDto.Posicion;
+                    }
+                    return 0;
+                }
+                else
+                    return 0;
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

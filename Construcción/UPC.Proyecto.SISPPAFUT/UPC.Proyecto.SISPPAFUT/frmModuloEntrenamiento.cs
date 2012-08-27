@@ -140,7 +140,6 @@ namespace UPC.Proyecto.SISPPAFUT
                 
         private void btnEntrenar_Click(object sender, EventArgs e)
         {
-            //Este metodo es temporal, solo ingresa data aleatoria a la tabla de pronosticos. Después se unirá a la red neuronal.
             //Si no existe pronostico de un partido, entonces crea uno nuevo.
             //Si existe un pronostico anterior, lo actualiza (sobreescribe) mediante el entrenamiento.
             try
@@ -149,20 +148,20 @@ namespace UPC.Proyecto.SISPPAFUT
                 PronosticoBE objPronosticoBE;
 
                 PartidoPronosticadoBC objPartidoPronosticadoBC;
-                PartidoPronosticadoBE objPartidoPronosticadoBE;
                 PartidoBC objPartidoBC;
-
+                TablaPosicionesBC objTablaBC;
+                RankingEquipoBC objRankingBC;
+                PartidoPronosticadoBE objPartidoPronosticadoBE;
+                List<TablaPosicionesBE> lstTablaLiga;
+                
                 Decimal dLocal;
                 Decimal dEmpate;
                 Decimal dVisita;
                 Random objRandom;
                 String sPronostico;
 
-                objSuspensionBC = new SuspensionBC();
-                EquipoBC objEquipoBC = new EquipoBC();
-                LigaBC objLigaBC = new LigaBC();
-                objPartidoBC = new PartidoBC();
-
+                
+                
                 //-- Paso 1: Se recolecta los partidos que ya tienen datos resumidos de partidos cuyo resultado se conoce
                 listaPartidosPronosticados = new List<PartidoPronosticadoBE>();
                 objPartidoPronosticadoBC = new PartidoPronosticadoBC();
@@ -171,13 +170,22 @@ namespace UPC.Proyecto.SISPPAFUT
                 //-- Paso 2: Se recolecta los partidos cuyo resultado se desconoce
                 foreach (PartidoSinJugarBE cDto in lstPartidosSinJugar)
                 {
+                    objSuspensionBC = new SuspensionBC();
+                    EquipoBC objEquipoBC = new EquipoBC();
+                    LigaBC objLigaBC = new LigaBC();
+                    objPartidoBC = new PartidoBC();
+                    objTablaBC = new TablaPosicionesBC();
+                    objRankingBC = new RankingEquipoBC();
+                    
                     int codEquipoL = objEquipoBC.obtenerEquipo(cDto.Equipo_local).CodigoEquipo;
                     int codEquipoV = objEquipoBC.obtenerEquipo(cDto.Equipo_visitante).CodigoEquipo;
                     int codLiga = 0;
                     foreach (LigaBE _cDto in lstLigas)
                         if (_cDto.NombreLiga == cDto.Liga)
                             codLiga = _cDto.CodigoLiga;
-
+                    int paisL = objEquipoBC.obtenerEquipo(cDto.Equipo_local).CodigoPais;
+                    int paisV = objEquipoBC.obtenerEquipo(cDto.Equipo_visitante).CodigoPais;
+                    
                     objPartidoPronosticadoBE = new PartidoPronosticadoBE();
                     listaPartidoJugadoLocal = new List<PartidoJugadoBE>();
                     listaPartidoJugadoLocal = objPartidoBC.lista_ultimosPartidos(codEquipoL, codLiga);
@@ -192,6 +200,7 @@ namespace UPC.Proyecto.SISPPAFUT
                      *              objPartidoPronosticadoBE.C_PromEdad = PromEdadEq(objJugadorBC.listar_Jugadores_xEquipo(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo));
                      *              ...
                      */
+                    //-- DATOS DEL EQUIPO LOCAL
                     objPartidoPronosticadoBE.C_Local = true;
                     objPartidoPronosticadoBE.C_Local_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoL, codLiga);
                     objPartidoPronosticadoBE.C_Local_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoL, codLiga);
@@ -200,8 +209,11 @@ namespace UPC.Proyecto.SISPPAFUT
                         objPartidoPronosticadoBE.C_Local_GolesAnotados = objPartidoPronosticadoBE.C_Local_GolesAnotados + pL.Goles_local;
                         objPartidoPronosticadoBE.C_Local_GolesEncajados = objPartidoPronosticadoBE.C_Local_GolesEncajados + pL.Goles_visita;
                     }
-                    //objPartidoPronosticadoBE.C_Local_PosLiga
+                    objPartidoPronosticadoBE.C_Local_PosLiga = objTablaBC.ConsultarPosicionEquipoTabla(codLiga, codEquipoL);
+                    objPartidoPronosticadoBE.C_Local_PosRankMund = objRankingBC.obtener_PosRanking(cDto.Fecha.Year, cDto.Fecha.Month, paisL, cDto.Equipo_local);
+                    //objPartidoPronosticadoBE.C_Local_PromEdad = 
 
+                    //-- DATOS DEL EQUIPO VISITA
                     objPartidoPronosticadoBE.C_Visita = false;
                     objPartidoPronosticadoBE.C_Visita_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoV, codLiga);
                     objPartidoPronosticadoBE.C_Visita_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoV, codLiga);
@@ -210,8 +222,8 @@ namespace UPC.Proyecto.SISPPAFUT
                         objPartidoPronosticadoBE.C_Local_GolesAnotados = objPartidoPronosticadoBE.C_Local_GolesAnotados + pV.Goles_local;
                         objPartidoPronosticadoBE.C_Local_GolesEncajados = objPartidoPronosticadoBE.C_Local_GolesEncajados + pV.Goles_visita;
                     }
-
-
+                    objPartidoPronosticadoBE.C_Visita_PosLiga = objTablaBC.ConsultarPosicionEquipoTabla(codLiga, codEquipoV);
+                    objPartidoPronosticadoBE.C_Visita_PosRankMund = objRankingBC.obtener_PosRanking(cDto.Fecha.Year, cDto.Fecha.Month, paisV, cDto.Equipo_visitante);
 
 
                     listaPartidosPronosticados.Add(objPartidoPronosticadoBE);
