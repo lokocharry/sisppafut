@@ -21,7 +21,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             try
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
-                sqlHistorialListar = "spListaHistorialJugador";
+                sqlHistorialListar = "spLeerHistorialJugador";
                 cmd_historial = conexion.CreateCommand();
                 cmd_historial.CommandText = sqlHistorialListar;
                 cmd_historial.CommandType = CommandType.StoredProcedure;
@@ -46,7 +46,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                     objHistorialJugadorBE = new HistorialJugadorBE();
 
                     objHistorialJugadorBE.Equipo = dr_historial.GetString(dr_historial.GetOrdinal("Nombre"));
-                    objHistorialJugadorBE.Liga = dr_historial.GetString(dr_historial.GetOrdinal("Nombre"));
                     objHistorialJugadorBE.Temporada = dr_historial.GetString(dr_historial.GetOrdinal("Temporada"));
                     lista_historial.Add(objHistorialJugadorBE);
                 }

@@ -71,6 +71,7 @@
     <Compile Include="CompeticionBCTest.cs" />
     <Compile Include="EquipoBCTest.cs" />
     <Compile Include="EstadioBCTest.cs" />
+    <Compile Include="ExcepcionBCTest.cs" />
     <Compile Include="GolBCTest.cs" />
     <Compile Include="JugadorBCTest.cs" />
     <Compile Include="JugadorEquipoBCTest.cs" />

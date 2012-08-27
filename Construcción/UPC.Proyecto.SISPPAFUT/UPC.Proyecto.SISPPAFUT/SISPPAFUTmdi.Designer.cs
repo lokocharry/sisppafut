@@ -54,6 +54,8 @@
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarSuspensionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transferirJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultarHistorialDeJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPartidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -61,7 +63,7 @@
             this.entrenarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transferirJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDePartidosSinJugarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -219,7 +221,8 @@
             this.nuevoJugadorToolStripMenuItem,
             this.editarJugadoresToolStripMenuItem,
             this.consultarSuspensionesToolStripMenuItem,
-            this.transferirJugadorToolStripMenuItem});
+            this.transferirJugadorToolStripMenuItem,
+            this.consultarHistorialDeJugadorToolStripMenuItem});
             this.jugadorToolStripMenuItem.Name = "jugadorToolStripMenuItem";
             this.jugadorToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.jugadorToolStripMenuItem.Text = "Jugadores";
@@ -227,29 +230,44 @@
             // nuevoJugadorToolStripMenuItem
             // 
             this.nuevoJugadorToolStripMenuItem.Name = "nuevoJugadorToolStripMenuItem";
-            this.nuevoJugadorToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.nuevoJugadorToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.nuevoJugadorToolStripMenuItem.Text = "Nuevo Jugador";
             this.nuevoJugadorToolStripMenuItem.Click += new System.EventHandler(this.InNuevoJugador);
             // 
             // editarJugadoresToolStripMenuItem
             // 
             this.editarJugadoresToolStripMenuItem.Name = "editarJugadoresToolStripMenuItem";
-            this.editarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.editarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.editarJugadoresToolStripMenuItem.Text = "Editar Jugador";
             this.editarJugadoresToolStripMenuItem.Click += new System.EventHandler(this.editarJugadoresToolStripMenuItem_Click);
             // 
             // consultarSuspensionesToolStripMenuItem
             // 
             this.consultarSuspensionesToolStripMenuItem.Name = "consultarSuspensionesToolStripMenuItem";
-            this.consultarSuspensionesToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
+            this.consultarSuspensionesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.consultarSuspensionesToolStripMenuItem.Text = "Consultar Suspensiones";
             this.consultarSuspensionesToolStripMenuItem.Click += new System.EventHandler(this.inConsultaDeSuspensiones);
+            // 
+            // transferirJugadorToolStripMenuItem
+            // 
+            this.transferirJugadorToolStripMenuItem.Name = "transferirJugadorToolStripMenuItem";
+            this.transferirJugadorToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.transferirJugadorToolStripMenuItem.Text = "Transferir Jugador";
+            this.transferirJugadorToolStripMenuItem.Click += new System.EventHandler(this.inTranferirJugador);
+            // 
+            // consultarHistorialDeJugadorToolStripMenuItem
+            // 
+            this.consultarHistorialDeJugadorToolStripMenuItem.Name = "consultarHistorialDeJugadorToolStripMenuItem";
+            this.consultarHistorialDeJugadorToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
+            this.consultarHistorialDeJugadorToolStripMenuItem.Text = "Consultar Historial de Jugador";
+            this.consultarHistorialDeJugadorToolStripMenuItem.Click += new System.EventHandler(this.inConsultarHistorialJugador);
             // 
             // partidoToolStripMenuItem1
             // 
             this.partidoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoPartidoToolStripMenuItem1,
-            this.listaDePartidosToolStripMenuItem});
+            this.listaDePartidosToolStripMenuItem,
+            this.listaDePartidosSinJugarToolStripMenuItem});
             this.partidoToolStripMenuItem1.Name = "partidoToolStripMenuItem1";
             this.partidoToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.partidoToolStripMenuItem1.Text = "Partidos";
@@ -257,14 +275,14 @@
             // nuevoPartidoToolStripMenuItem1
             // 
             this.nuevoPartidoToolStripMenuItem1.Name = "nuevoPartidoToolStripMenuItem1";
-            this.nuevoPartidoToolStripMenuItem1.Size = new System.Drawing.Size(160, 22);
+            this.nuevoPartidoToolStripMenuItem1.Size = new System.Drawing.Size(209, 22);
             this.nuevoPartidoToolStripMenuItem1.Text = "Nuevo Partido";
             this.nuevoPartidoToolStripMenuItem1.Click += new System.EventHandler(this.InNuevoPartido);
             // 
             // listaDePartidosToolStripMenuItem
             // 
             this.listaDePartidosToolStripMenuItem.Name = "listaDePartidosToolStripMenuItem";
-            this.listaDePartidosToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.listaDePartidosToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
             this.listaDePartidosToolStripMenuItem.Text = "Lista de Partidos";
             this.listaDePartidosToolStripMenuItem.Click += new System.EventHandler(this.inListarPartidosSinJugar);
             // 
@@ -295,12 +313,12 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
-            // transferirJugadorToolStripMenuItem
+            // listaDePartidosSinJugarToolStripMenuItem
             // 
-            this.transferirJugadorToolStripMenuItem.Name = "transferirJugadorToolStripMenuItem";
-            this.transferirJugadorToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
-            this.transferirJugadorToolStripMenuItem.Text = "Transferir Jugador";
-            this.transferirJugadorToolStripMenuItem.Click += new System.EventHandler(this.inTranferirJugador);
+            this.listaDePartidosSinJugarToolStripMenuItem.Name = "listaDePartidosSinJugarToolStripMenuItem";
+            this.listaDePartidosSinJugarToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.listaDePartidosSinJugarToolStripMenuItem.Text = "Lista de Partidos sin Jugar";
+            this.listaDePartidosSinJugarToolStripMenuItem.Click += new System.EventHandler(this.inPartidosSinJugar);
             // 
             // SISPPAFUTmdi
             // 
@@ -355,6 +373,8 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
         private System.Windows.Forms.ToolStripMenuItem estadísticasDeEquipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transferirJugadorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultarHistorialDeJugadorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDePartidosSinJugarToolStripMenuItem;
     }
 }
 

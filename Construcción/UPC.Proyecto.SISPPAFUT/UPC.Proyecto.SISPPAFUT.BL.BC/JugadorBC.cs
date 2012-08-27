@@ -170,7 +170,37 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objJugadorDALC = new JugadorDALC();
                 objJugadorDALC.TransferirJugadorAEquipo(codigo_jugador, codigo_nuevoequipo);
             }
-            catch (Exception ex)
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<String> listar_Nacionalidades()
+        {
+            JugadorDALC objJugadorDALC;
+
+            try
+            {
+                objJugadorDALC = new JugadorDALC();
+                return objJugadorDALC.ListarNacionalidades();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<JugadorBE> listar_JugadoresXNacionalidad(String Nacionalidad)
+        {
+            JugadorDALC objJugadorDALC;
+
+            try
+            {
+                objJugadorDALC = new JugadorDALC();
+                return objJugadorDALC.listar_Jugadores_xNacionalidad(Nacionalidad);
+            }
+            catch (Exception)
             {
                 throw;
             }

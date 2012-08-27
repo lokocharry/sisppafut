@@ -331,6 +331,10 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                     objPartidoBE.Codigo_equipo_local = dr_partido.GetInt32(dr_partido.GetOrdinal("CodEquipoL"));
                     objPartidoBE.Codigo_equipo_visitante = dr_partido.GetInt32(dr_partido.GetOrdinal("CodEquipoV"));
                     objPartidoBE.Codigo_estadio = dr_partido.GetInt32(dr_partido.GetOrdinal("CodEstadio"));
+                    if(dr_partido.IsDBNull(dr_partido.GetInt32(dr_partido.GetOrdinal("GolesLocal"))) == false)
+                    objPartidoBE.Goles_local = dr_partido.GetInt32(dr_partido.GetOrdinal("GolesLocal"));
+                    if (dr_partido.IsDBNull(dr_partido.GetInt32(dr_partido.GetOrdinal("GolesVisita"))) == false)
+                    objPartidoBE.Goles_visita = dr_partido.GetInt32(dr_partido.GetOrdinal("GolesVisita"));
                     objPartidoBE.Fecha_partido = dr_partido.GetDateTime(dr_partido.GetOrdinal("Fecha"));
                 }
 

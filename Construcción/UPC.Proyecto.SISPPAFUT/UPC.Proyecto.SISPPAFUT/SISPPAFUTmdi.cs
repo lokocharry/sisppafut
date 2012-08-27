@@ -298,5 +298,39 @@ namespace UPC.Proyecto.SISPPAFUT
                 Funciones.RegistrarExcepcion(ex);
             }
         }
+
+        private void inConsultarHistorialJugador(object sender, EventArgs e)
+        {
+            try
+            {
+                frmConsultarHistorialJugador frm = frmConsultarHistorialJugador.Instance();
+
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void inPartidosSinJugar(object sender, EventArgs e)
+        {
+            try
+            {
+                frmConsultaPartidosSinJugar frm = frmConsultaPartidosSinJugar.Instance();
+
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        
     }
 }

@@ -174,6 +174,75 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
+        public List<JugadorBE> listar_Jugadores_xNacionalidad(String Nacionalidad)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_jugadores;
+            SqlCommand cmd_jugadores = null;
+            String sqlListarJugadores;
+            SqlParameter prm_nacionalidad;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlListarJugadores = "spListaJugadoresPorNacionalidad";
+                cmd_jugadores = conexion.CreateCommand();
+                cmd_jugadores.CommandText = sqlListarJugadores;
+                cmd_jugadores.CommandType = CommandType.StoredProcedure;
+
+                prm_nacionalidad = new SqlParameter();
+                prm_nacionalidad.ParameterName = "@Nacionalidad";
+                prm_nacionalidad.SqlDbType = SqlDbType.VarChar;
+                prm_nacionalidad.Size = 20;
+                prm_nacionalidad.Value = Nacionalidad;
+
+                cmd_jugadores.Parameters.Add(prm_nacionalidad);
+
+                cmd_jugadores.Connection.Open();
+                dr_jugadores = cmd_jugadores.ExecuteReader();
+
+                List<JugadorBE> lista_jugadores;
+                JugadorBE objJugadorBE;
+
+                lista_jugadores = new List<JugadorBE>();
+
+                while (dr_jugadores.Read())
+                {
+                    objJugadorBE = new JugadorBE();
+
+                    objJugadorBE.CodigoJugador = dr_jugadores.GetInt32(dr_jugadores.GetOrdinal("CodJugador"));
+                    objJugadorBE.Nombres = dr_jugadores.GetString(dr_jugadores.GetOrdinal("Nombres"));
+                    objJugadorBE.Apellidos = dr_jugadores.GetString(dr_jugadores.GetOrdinal("Apellidos"));
+                    objJugadorBE.Posicion = dr_jugadores.GetString(dr_jugadores.GetOrdinal("Posicion"));
+                    objJugadorBE.Nacionalidad = dr_jugadores.GetString(dr_jugadores.GetOrdinal("Nacionalidad"));
+                    objJugadorBE.FechaNacimiento = dr_jugadores.GetDateTime(dr_jugadores.GetOrdinal("FechaNacimiento"));
+                    objJugadorBE.Peso = dr_jugadores.GetDecimal(dr_jugadores.GetOrdinal("Peso"));
+                    objJugadorBE.Altura = dr_jugadores.GetDecimal(dr_jugadores.GetOrdinal("Altura"));
+
+                    lista_jugadores.Add(objJugadorBE);
+                }
+
+                return lista_jugadores;
+            }
+
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    cmd_jugadores.Connection.Close();
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_jugadores.Connection.Close();
+                conexion.Dispose();
+            }
+        }
+
         public List<JugadorBE> listar_Jugadores_xEquipo(int codigo_equipo)
         {
             SqlConnection conexion = null;
@@ -574,6 +643,51 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             finally
             {
                 cmd_transferirjugador.Connection.Close();
+                conexion.Dispose();
+            }
+        }
+
+        public List<String> ListarNacionalidades()
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_listaNacionalidades = null;
+            SqlDataReader dr_nacionalidades;
+            String sqlListaNacionalidades;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlListaNacionalidades = "spListaNacionalidades";
+
+                cmd_listaNacionalidades = new SqlCommand(sqlListaNacionalidades, conexion);
+                cmd_listaNacionalidades.CommandType = CommandType.StoredProcedure;
+
+                cmd_listaNacionalidades.Connection.Open();
+                dr_nacionalidades = cmd_listaNacionalidades.ExecuteReader();
+
+                List<String> lista_nacionalidades;
+
+                lista_nacionalidades = new List<String>();
+
+                while (dr_nacionalidades.Read())
+                {
+                    String nacionalidad = dr_nacionalidades.GetString(dr_nacionalidades.GetOrdinal("Nacionalidad"));
+                    lista_nacionalidades.Add(nacionalidad);
+                }
+
+                return lista_nacionalidades;
+            }
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+                throw;
+            }
+            finally
+            {
+                cmd_listaNacionalidades.Connection.Close();
                 conexion.Dispose();
             }
         }

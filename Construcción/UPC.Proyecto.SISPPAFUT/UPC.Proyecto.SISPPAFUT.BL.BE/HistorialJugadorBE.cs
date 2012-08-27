@@ -14,14 +14,6 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
             set { _Equipo = value;}
         }
 
-        private String _Liga;
-
-        public String Liga
-        {
-            get { return _Liga; }
-            set { _Liga = value; }
-        }
-
         private String _Temporada;
 
         public String Temporada

@@ -108,10 +108,10 @@ namespace UnitTests
             PartidoBE expected = new PartidoBE();
             expected.Codigo_partido = 2;
             expected.Codigo_liga = 3;
-            expected.Codigo_equipo_local = 1;
+            expected.Codigo_equipo_local = 14;
             expected.Codigo_equipo_visitante = 12;
-            expected.Codigo_estadio = 2;
-            expected.Fecha_partido = Convert.ToDateTime("2012-04-28");
+            expected.Codigo_estadio = 13;
+            expected.Fecha_partido = Convert.ToDateTime("2011-08-19");
 
             PartidoBC target = new PartidoBC(); 
             int codigo_partido = 2;
@@ -136,13 +136,40 @@ namespace UnitTests
             List<PartidoSinJugarBE> expected = new List<PartidoSinJugarBE>();
 
             PartidoSinJugarBE obj = new PartidoSinJugarBE();
-            obj.Codigo_partido = 6;
-            obj.Equipo_local = "Real Madrid";
+            obj.Codigo_partido = 1;
+            obj.Equipo_local = "Málaga";
             obj.Equipo_visitante = "FC Barcelona";
             obj.Liga = "La Liga BBVA 2011/2012";
             obj.Pais = "España";
-            obj.Fecha = Convert.ToDateTime("2012-06-02");
+            obj.Fecha = Convert.ToDateTime("2011-08-18");
             expected.Add(obj);
+
+            PartidoSinJugarBE obj2 = new PartidoSinJugarBE();
+            obj2.Codigo_partido = 2;
+            obj2.Equipo_local = "Real Betis";
+            obj2.Equipo_visitante = "Athletic Bilbao";
+            obj2.Liga = "La Liga BBVA 2011/2012";
+            obj2.Pais = "España";
+            obj2.Fecha = Convert.ToDateTime("2011-08-19");
+            expected.Add(obj2);
+
+            PartidoSinJugarBE obj3 = new PartidoSinJugarBE();
+            obj3.Codigo_partido = 3;
+            obj3.Equipo_local = "Villarreal";
+            obj3.Equipo_visitante = "Espanyol";
+            obj3.Liga = "La Liga BBVA 2011/2012";
+            obj3.Pais = "España";
+            obj3.Fecha = Convert.ToDateTime("2011-08-20");
+            expected.Add(obj3);
+
+            PartidoSinJugarBE obj4 = new PartidoSinJugarBE();
+            obj4.Codigo_partido = 4;
+            obj4.Equipo_local = "Real Madrid";
+            obj4.Equipo_visitante = "FC Barcelona";
+            obj4.Liga = "La Liga BBVA 2011/2012";
+            obj4.Pais = "España";
+            obj4.Fecha = Convert.ToDateTime("2011-12-10");
+            expected.Add(obj4);
 
             PartidoBC target = new PartidoBC();
             List<PartidoSinJugarBE> actual = new List<PartidoSinJugarBE>();
@@ -174,6 +201,26 @@ namespace UnitTests
 
             Assert.AreEqual(codigoPartido, actual.Codigo_partido);
             Assert.AreEqual(nuevaFecha, actual.Fecha_partido);
+        }
+
+
+        /// <summary>
+        ///A test for actualizar_Resultado
+        ///</summary>
+        [TestMethod()]
+        public void actualizar_ResultadoTest()
+        {
+            PartidoBC target = new PartidoBC(); // TODO: Initialize to an appropriate value
+            int codigo_partido = 5; // TODO: Initialize to an appropriate value
+            int goles_local = 3; // TODO: Initialize to an appropriate value
+            int goles_visita = 1; // TODO: Initialize to an appropriate value
+
+            target.actualizar_Resultado(codigo_partido, goles_local, goles_visita);
+
+            PartidoBE actual = new PartidoBE();
+            actual = target.obtener_Partido(codigo_partido);
+
+            Assert.AreEqual(goles_visita, actual.Goles_visita);
         }
     }
 }

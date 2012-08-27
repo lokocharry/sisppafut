@@ -53,3 +53,11 @@ C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SIS
 C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll
 C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
+C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll
+C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll.config
+C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll
+C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
+C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll
+C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb
+C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\obj\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.pdb
