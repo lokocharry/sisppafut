@@ -153,15 +153,13 @@ namespace UPC.Proyecto.SISPPAFUT
                 RankingEquipoBC objRankingBC;
                 PartidoPronosticadoBE objPartidoPronosticadoBE;
                 List<TablaPosicionesBE> lstTablaLiga;
-                
+                /*
                 Decimal dLocal;
                 Decimal dEmpate;
                 Decimal dVisita;
                 Random objRandom;
                 String sPronostico;
-
-                
-                
+                  */              
                 //-- Paso 1: Se recolecta los partidos que ya tienen datos resumidos de partidos cuyo resultado se conoce
                 listaPartidosPronosticados = new List<PartidoPronosticadoBE>();
                 objPartidoPronosticadoBC = new PartidoPronosticadoBC();
@@ -185,6 +183,8 @@ namespace UPC.Proyecto.SISPPAFUT
                             codLiga = _cDto.CodigoLiga;
                     int paisL = objEquipoBC.obtenerEquipo(cDto.Equipo_local).CodigoPais;
                     int paisV = objEquipoBC.obtenerEquipo(cDto.Equipo_visitante).CodigoPais;
+                    int codUltimoPartidoLocal = 0;
+                    int codUltimoPartidoVisita = 0;
                     
                     objPartidoPronosticadoBE = new PartidoPronosticadoBE();
                     listaPartidoJugadoLocal = new List<PartidoJugadoBE>();
@@ -195,6 +195,8 @@ namespace UPC.Proyecto.SISPPAFUT
                     listaPartidoJugadoVisita = objPartidoBC.lista_ultimosPartidos(codEquipoV, codLiga);
                     objPartidoPronosticadoBE.C_Visita_GolesAnotados = 0;
                     objPartidoPronosticadoBE.C_Visita_GolesEncajados = 0;
+                    objPartidoPronosticadoBE.C_Local_Pts = 0;
+                    objPartidoPronosticadoBE.C_Visita_Pts = 0;
                     /* Aquí se debe averiguar por cada característica de la red neuronal, el valor correspondiente 
                      * Por ejemplo: objPartidoPronosticadoBE.C_LocalPts = objPartidoBC.lista_ultimosPartidos(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga);
                      *              objPartidoPronosticadoBE.C_PromEdad = PromEdadEq(objJugadorBC.listar_Jugadores_xEquipo(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo));
@@ -204,27 +206,58 @@ namespace UPC.Proyecto.SISPPAFUT
                     objPartidoPronosticadoBE.C_Local = true;
                     objPartidoPronosticadoBE.C_Local_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoL, codLiga);
                     objPartidoPronosticadoBE.C_Local_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoL, codLiga);
-                    foreach (PartidoJugadoBE pL in listaPartidoJugadoLocal)
+                    if (listaPartidoJugadoLocal.Count > 0)
                     {
-                        objPartidoPronosticadoBE.C_Local_GolesAnotados = objPartidoPronosticadoBE.C_Local_GolesAnotados + pL.Goles_local;
-                        objPartidoPronosticadoBE.C_Local_GolesEncajados = objPartidoPronosticadoBE.C_Local_GolesEncajados + pL.Goles_visita;
+                        codUltimoPartidoLocal = listaPartidoJugadoLocal[0].CodPartido;
+                        foreach (PartidoJugadoBE pL in listaPartidoJugadoLocal)
+                        {
+                            objPartidoPronosticadoBE.C_Local_GolesAnotados = objPartidoPronosticadoBE.C_Local_GolesAnotados + pL.Goles_local;
+                            objPartidoPronosticadoBE.C_Local_GolesEncajados = objPartidoPronosticadoBE.C_Local_GolesEncajados + pL.Goles_visita;
+                            if (pL.Goles_local > pL.Goles_visita)
+                                objPartidoPronosticadoBE.C_Local_Pts = objPartidoPronosticadoBE.C_Local_Pts + 3;
+                            else
+                                if (pL.Goles_local == pL.Goles_visita)
+                                    objPartidoPronosticadoBE.C_Local_Pts = objPartidoPronosticadoBE.C_Local_Pts + 1;
+                        }
                     }
                     objPartidoPronosticadoBE.C_Local_PosLiga = objTablaBC.ConsultarPosicionEquipoTabla(codLiga, codEquipoL);
                     objPartidoPronosticadoBE.C_Local_PosRankMund = objRankingBC.obtener_PosRanking(cDto.Fecha.Year, cDto.Fecha.Month, paisL, cDto.Equipo_local);
                     //objPartidoPronosticadoBE.C_Local_PromEdad = 
+                    //objPartidoPronosticadoBE.C_Local_QExpulsados = 
+                    //objPartidoPronosticadoBE.C_Local_QPartidosMes = 
+                    //objPartidoPronosticadoBE.C_Local_QSuspendidos = 
+                    
 
                     //-- DATOS DEL EQUIPO VISITA
                     objPartidoPronosticadoBE.C_Visita = false;
                     objPartidoPronosticadoBE.C_Visita_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoV, codLiga);
                     objPartidoPronosticadoBE.C_Visita_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoV, codLiga);
-                    foreach (PartidoJugadoBE pV in listaPartidoJugadoVisita)
+                    if (listaPartidoJugadoVisita.Count > 0)
                     {
-                        objPartidoPronosticadoBE.C_Local_GolesAnotados = objPartidoPronosticadoBE.C_Local_GolesAnotados + pV.Goles_local;
-                        objPartidoPronosticadoBE.C_Local_GolesEncajados = objPartidoPronosticadoBE.C_Local_GolesEncajados + pV.Goles_visita;
+                        codUltimoPartidoVisita = listaPartidoJugadoVisita[0].CodPartido;
+                        foreach (PartidoJugadoBE pV in listaPartidoJugadoVisita)
+                        {
+                            objPartidoPronosticadoBE.C_Local_GolesAnotados = objPartidoPronosticadoBE.C_Local_GolesAnotados + pV.Goles_local;
+                            objPartidoPronosticadoBE.C_Local_GolesEncajados = objPartidoPronosticadoBE.C_Local_GolesEncajados + pV.Goles_visita;
+                            if (pV.Goles_local > pV.Goles_visita)
+                                objPartidoPronosticadoBE.C_Visita_Pts = objPartidoPronosticadoBE.C_Visita_Pts + 3;
+                            else
+                                if (pV.Goles_local == pV.Goles_visita)
+                                    objPartidoPronosticadoBE.C_Visita_Pts = objPartidoPronosticadoBE.C_Visita_Pts + 1;
+                        }
                     }
                     objPartidoPronosticadoBE.C_Visita_PosLiga = objTablaBC.ConsultarPosicionEquipoTabla(codLiga, codEquipoV);
                     objPartidoPronosticadoBE.C_Visita_PosRankMund = objRankingBC.obtener_PosRanking(cDto.Fecha.Year, cDto.Fecha.Month, paisV, cDto.Equipo_visitante);
+                    //objPartidoPronosticadoBE.C_Visita_PromEdad = 
+                    //objPartidoPronosticadoBE.C_Visita_QExpulsados = 
+                    //objPartidoPronosticadoBE.C_Visita_QPartidosMes = 
+                    //objPartidoPronosticadoBE.C_Visita_QSuspendidos = 
 
+                    // OTRAS VARIABLES
+                    //objPartidoPronosticadoBE.C_QAsistencia = 
+                    //objPartidoPronosticadoBE.C_QEquiposLiga = 
+                    //objPartidoPronosticadoBE.C_QEquiposMundial = 
+                    //objPartidoPronosticadoBE.C_Resultado = 
 
                     listaPartidosPronosticados.Add(objPartidoPronosticadoBE);
                 }

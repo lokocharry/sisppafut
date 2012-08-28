@@ -6,6 +6,14 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
 {
     public class PartidoJugadoBE
     {
+        private int _codPartido;
+
+        public int CodPartido
+        {
+            get { return _codPartido; }
+            set { _codPartido = value; }
+        }
+
         private String _equipo_local;
 
         public String Equipo_local

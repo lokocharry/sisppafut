@@ -622,6 +622,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                     objPartidoBE.Goles_visita = dr_partidos.GetInt32(3);
                     objPartidoBE.Fecha = dr_partidos.GetDateTime(4);
                     objPartidoBE.Liga = dr_partidos.GetString(5);
+                    objPartidoBE.CodPartido = dr_partidos.GetInt32(6);
 
                     lista_partidos.Add(objPartidoBE);
                 }
