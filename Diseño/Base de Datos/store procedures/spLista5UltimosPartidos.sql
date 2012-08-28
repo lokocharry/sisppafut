@@ -1,17 +1,18 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spLista5UltimosPartidos]    Script Date: 06/04/2012 16:16:54 ******/
+/****** Object:  StoredProcedure [dbo].[spLista5UltimosPartidos]    Script Date: 08/28/2012 08:51:32 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
+
 /*
 Se lista aquellos partidos que ya debiero haberse jugado, 
 pero que no se han guardado datos en la tabla de 'JugadorPartido', 
-dato mÃ­nimo para verificar que un partido se ha efectuado
+dato mínimo para verificar que un partido se ha efectuado
 */
 CREATE PROCEDURE [dbo].[spLista5UltimosPartidos]
 (
@@ -26,7 +27,8 @@ BEGIN
 			partido.GolesLocal, 
 			partido.GolesVisita, 
 			partido.Fecha,
-			liga.Nombre
+			liga.Nombre,
+			partido.CodPartido
 			
 	FROM	Partido as partido
 			JOIN Liga as liga ON partido.CodLiga = liga.CodLiga
@@ -42,5 +44,7 @@ BEGIN
 END
 
 
+
 GO
+
 
