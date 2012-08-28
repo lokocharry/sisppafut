@@ -1,4 +1,4 @@
-ALTER PROCEDURE spListarPartidosPorJugar
+CREATE PROCEDURE spListarPartidosPorJugar
 	
 AS
 BEGIN
