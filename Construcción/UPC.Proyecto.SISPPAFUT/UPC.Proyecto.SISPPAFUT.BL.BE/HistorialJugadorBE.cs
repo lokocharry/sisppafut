@@ -6,20 +6,33 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
 {
     public class HistorialJugadorBE
     {
-        private String _Equipo;
+        private int codJugador;
 
-        public String Equipo
+        public int CodJugador
         {
-            get { return _Equipo; }
-            set { _Equipo = value;}
+            get { return codJugador; }
+            set { codJugador = value; }
         }
+        private String nombresJugador;
 
-        private String _Temporada;
-
-        public String Temporada
+        public String NombresJugador
         {
-            get { return _Temporada; }
-            set { _Temporada = value; }
+            get { return nombresJugador; }
+            set { nombresJugador = value; }
+        }
+        private String apellidosJugador;
+
+        public String ApellidosJugador
+        {
+            get { return apellidosJugador; }
+            set { apellidosJugador = value; }
+        }
+        private String nombreEquipo;
+
+        public String NombreEquipo
+        {
+            get { return nombreEquipo; }
+            set { nombreEquipo = value; }
         }
     }
 }

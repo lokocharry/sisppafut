@@ -45,8 +45,10 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 {
                     objHistorialJugadorBE = new HistorialJugadorBE();
 
-                    objHistorialJugadorBE.Equipo = dr_historial.GetString(dr_historial.GetOrdinal("Nombre"));
-                    objHistorialJugadorBE.Temporada = dr_historial.GetString(dr_historial.GetOrdinal("Temporada"));
+                    objHistorialJugadorBE.CodJugador = dr_historial.GetInt32(dr_historial.GetOrdinal("CodJugador"));
+                    objHistorialJugadorBE.NombresJugador = dr_historial.GetString(dr_historial.GetOrdinal("Nombres"));
+                    objHistorialJugadorBE.ApellidosJugador = dr_historial.GetString(dr_historial.GetOrdinal("Apellidos"));
+                    objHistorialJugadorBE.NombreEquipo = dr_historial.GetString(dr_historial.GetOrdinal("Nombre"));
                     lista_historial.Add(objHistorialJugadorBE);
                 }
 

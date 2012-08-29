@@ -97,7 +97,15 @@ namespace UPC.Proyecto.SISPPAFUT
                 lista_historial = new List<HistorialJugadorBE>();
                 lista_historial = objJugadorBC.listar_HistorialDeJugador(lista_jugadores[cmbJugador.SelectedIndex - 1].CodigoJugador);
 
-                dgvHistorial.DataSource = lista_historial;            
+                dgvHistorial.Rows.Clear();
+
+                if(lista_historial.Count > 0)
+                {
+                    foreach (HistorialJugadorBE cDto in lista_historial)
+                    {
+                        dgvHistorial.Rows.Add(cDto.CodJugador, cDto.NombresJugador, cDto.ApellidosJugador, cDto.NombreEquipo);
+                    }
+                }
             }
             catch (Exception ex)
             {

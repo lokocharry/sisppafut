@@ -31,6 +31,10 @@
             this.btnConsultarHistorial = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dgvHistorial = new System.Windows.Forms.DataGridView();
+            this.CodJugador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombresJugador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ApellidosJugador = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NombreEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbJugador = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmbNacionalidad = new System.Windows.Forms.ComboBox();
@@ -61,11 +65,41 @@
             this.dgvHistorial.AllowUserToAddRows = false;
             this.dgvHistorial.AllowUserToDeleteRows = false;
             this.dgvHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvHistorial.Location = new System.Drawing.Point(352, 35);
+            this.dgvHistorial.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CodJugador,
+            this.NombresJugador,
+            this.ApellidosJugador,
+            this.NombreEquipo});
+            this.dgvHistorial.Location = new System.Drawing.Point(306, 35);
             this.dgvHistorial.Name = "dgvHistorial";
             this.dgvHistorial.ReadOnly = true;
-            this.dgvHistorial.Size = new System.Drawing.Size(245, 235);
+            this.dgvHistorial.Size = new System.Drawing.Size(345, 235);
             this.dgvHistorial.TabIndex = 2;
+            // 
+            // CodJugador
+            // 
+            this.CodJugador.HeaderText = "CodJugador";
+            this.CodJugador.Name = "CodJugador";
+            this.CodJugador.ReadOnly = true;
+            this.CodJugador.Visible = false;
+            // 
+            // NombresJugador
+            // 
+            this.NombresJugador.HeaderText = "Nombres Jugador";
+            this.NombresJugador.Name = "NombresJugador";
+            this.NombresJugador.ReadOnly = true;
+            // 
+            // ApellidosJugador
+            // 
+            this.ApellidosJugador.HeaderText = "Apellidos Jugador";
+            this.ApellidosJugador.Name = "ApellidosJugador";
+            this.ApellidosJugador.ReadOnly = true;
+            // 
+            // NombreEquipo
+            // 
+            this.NombreEquipo.HeaderText = "Equipo";
+            this.NombreEquipo.Name = "NombreEquipo";
+            this.NombreEquipo.ReadOnly = true;
             // 
             // cmbJugador
             // 
@@ -97,7 +131,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 295);
+            this.ClientSize = new System.Drawing.Size(685, 295);
             this.Controls.Add(this.cmbNacionalidad);
             this.Controls.Add(this.cmbJugador);
             this.Controls.Add(this.dgvHistorial);
@@ -124,5 +158,9 @@
         private System.Windows.Forms.ComboBox cmbJugador;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox cmbNacionalidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CodJugador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombresJugador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ApellidosJugador;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NombreEquipo;
     }
 }

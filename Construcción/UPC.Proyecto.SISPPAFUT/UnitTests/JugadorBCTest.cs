@@ -193,14 +193,18 @@ namespace UnitTests
             int codigo_jugador = 1; // TODO: Initialize to an appropriate value
             List<HistorialJugadorBE> expected = new List<HistorialJugadorBE>(); 
             HistorialJugadorBE objHistorialBE = new HistorialJugadorBE();
-            objHistorialBE.Equipo = "FC Barcelona";
-            objHistorialBE.Temporada = "2011/2012";
+            objHistorialBE.CodJugador = 1;
+            objHistorialBE.NombresJugador = "Lionel Andrés";
+            objHistorialBE.ApellidosJugador = "Messi Cuccittini";
+            objHistorialBE.NombreEquipo = "FC Barcelona";            
             expected.Add(objHistorialBE);
 
             List<HistorialJugadorBE> actual;
             actual = target.listar_HistorialDeJugador(codigo_jugador);
-            Assert.AreEqual(expected[0].Equipo, actual[0].Equipo);
-            Assert.AreEqual(expected[0].Temporada, actual[0].Temporada);
+            Assert.AreEqual(expected[0].ApellidosJugador, actual[0].ApellidosJugador);
+            Assert.AreEqual(expected[0].CodJugador, actual[0].CodJugador);
+            Assert.AreEqual(expected[0].NombreEquipo, actual[0].NombreEquipo);
+            Assert.AreEqual(expected[0].NombresJugador, actual[0].NombresJugador);
         }
     }
 }
