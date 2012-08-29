@@ -11,5 +11,12 @@ INSERT INTO [SISPPAFUT].[dbo].[JugadorEquipo]
      VALUES
            (@CodEquipo
            ,@CodJugador)
+           
+INSERT INTO [SISPPAFUT].[dbo].[HistorialJugadorEquipo]
+           ([CodEquipo]
+           ,[CodJugador])
+           VALUES
+           (@CodEquipo,
+           @CodJugador)
 END
 GO
