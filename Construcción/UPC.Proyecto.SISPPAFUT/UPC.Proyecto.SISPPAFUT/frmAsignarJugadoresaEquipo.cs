@@ -243,5 +243,15 @@ namespace UPC.Proyecto.SISPPAFUT
                 throw;
             }
         }
+
+        private void lbl_equipo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_pais_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

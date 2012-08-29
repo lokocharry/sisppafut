@@ -52,41 +52,47 @@
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.btn_cancelar = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jugadores)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbl_pais
             // 
             this.lbl_pais.AutoSize = true;
-            this.lbl_pais.Location = new System.Drawing.Point(37, 31);
+            this.lbl_pais.Location = new System.Drawing.Point(7, 19);
             this.lbl_pais.Name = "lbl_pais";
             this.lbl_pais.Size = new System.Drawing.Size(35, 13);
             this.lbl_pais.TabIndex = 0;
             this.lbl_pais.Text = "País :";
+            this.lbl_pais.Click += new System.EventHandler(this.lbl_pais_Click);
             // 
             // lbl_equipo
             // 
             this.lbl_equipo.AutoSize = true;
-            this.lbl_equipo.Location = new System.Drawing.Point(298, 31);
+            this.lbl_equipo.Location = new System.Drawing.Point(250, 19);
             this.lbl_equipo.Name = "lbl_equipo";
             this.lbl_equipo.Size = new System.Drawing.Size(46, 13);
             this.lbl_equipo.TabIndex = 1;
             this.lbl_equipo.Text = "Equipo :";
+            this.lbl_equipo.Click += new System.EventHandler(this.lbl_equipo_Click);
             // 
             // lbl_jugador
             // 
             this.lbl_jugador.AutoSize = true;
-            this.lbl_jugador.Location = new System.Drawing.Point(37, 69);
+            this.lbl_jugador.Location = new System.Drawing.Point(7, 22);
             this.lbl_jugador.Name = "lbl_jugador";
-            this.lbl_jugador.Size = new System.Drawing.Size(51, 13);
+            this.lbl_jugador.Size = new System.Drawing.Size(47, 13);
             this.lbl_jugador.TabIndex = 2;
-            this.lbl_jugador.Text = "Jugador :";
+            this.lbl_jugador.Text = "Nombre:";
             // 
             // cmb_paises
             // 
             this.cmb_paises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_paises.FormattingEnabled = true;
-            this.cmb_paises.Location = new System.Drawing.Point(102, 28);
+            this.cmb_paises.Location = new System.Drawing.Point(54, 16);
             this.cmb_paises.Name = "cmb_paises";
             this.cmb_paises.Size = new System.Drawing.Size(178, 21);
             this.cmb_paises.TabIndex = 3;
@@ -96,7 +102,7 @@
             // 
             this.cmb_equipos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_equipos.FormattingEnabled = true;
-            this.cmb_equipos.Location = new System.Drawing.Point(359, 28);
+            this.cmb_equipos.Location = new System.Drawing.Point(311, 16);
             this.cmb_equipos.Name = "cmb_equipos";
             this.cmb_equipos.Size = new System.Drawing.Size(178, 21);
             this.cmb_equipos.TabIndex = 4;
@@ -106,14 +112,14 @@
             // 
             this.cmb_jugadores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmb_jugadores.FormattingEnabled = true;
-            this.cmb_jugadores.Location = new System.Drawing.Point(102, 66);
+            this.cmb_jugadores.Location = new System.Drawing.Point(72, 19);
             this.cmb_jugadores.Name = "cmb_jugadores";
             this.cmb_jugadores.Size = new System.Drawing.Size(178, 21);
             this.cmb_jugadores.TabIndex = 5;
             // 
             // btn_agregar_jugadores
             // 
-            this.btn_agregar_jugadores.Location = new System.Drawing.Point(301, 66);
+            this.btn_agregar_jugadores.Location = new System.Drawing.Point(311, 19);
             this.btn_agregar_jugadores.Name = "btn_agregar_jugadores";
             this.btn_agregar_jugadores.Size = new System.Drawing.Size(105, 21);
             this.btn_agregar_jugadores.TabIndex = 6;
@@ -134,7 +140,7 @@
             this.h_peso,
             this.h_altura,
             this.Eliminar});
-            this.dgv_jugadores.Location = new System.Drawing.Point(40, 112);
+            this.dgv_jugadores.Location = new System.Drawing.Point(40, 125);
             this.dgv_jugadores.Name = "dgv_jugadores";
             this.dgv_jugadores.Size = new System.Drawing.Size(497, 150);
             this.dgv_jugadores.TabIndex = 7;
@@ -202,7 +208,7 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(462, 280);
+            this.btn_guardar.Location = new System.Drawing.Point(462, 293);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.Size = new System.Drawing.Size(75, 23);
             this.btn_guardar.TabIndex = 8;
@@ -212,7 +218,7 @@
             // 
             // btn_cancelar
             // 
-            this.btn_cancelar.Location = new System.Drawing.Point(381, 280);
+            this.btn_cancelar.Location = new System.Drawing.Point(381, 293);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
             this.btn_cancelar.TabIndex = 9;
@@ -220,22 +226,41 @@
             this.btn_cancelar.UseVisualStyleBackColor = true;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cmb_paises);
+            this.groupBox1.Controls.Add(this.lbl_pais);
+            this.groupBox1.Controls.Add(this.lbl_equipo);
+            this.groupBox1.Controls.Add(this.cmb_equipos);
+            this.groupBox1.Location = new System.Drawing.Point(40, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(497, 45);
+            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cmb_jugadores);
+            this.groupBox2.Controls.Add(this.lbl_jugador);
+            this.groupBox2.Controls.Add(this.btn_agregar_jugadores);
+            this.groupBox2.Location = new System.Drawing.Point(40, 67);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(497, 52);
+            this.groupBox2.TabIndex = 11;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Jugadores";
+            // 
             // frmAsignarJugadoresaEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 326);
             this.ControlBox = false;
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.dgv_jugadores);
-            this.Controls.Add(this.btn_agregar_jugadores);
-            this.Controls.Add(this.cmb_jugadores);
-            this.Controls.Add(this.cmb_equipos);
-            this.Controls.Add(this.cmb_paises);
-            this.Controls.Add(this.lbl_jugador);
-            this.Controls.Add(this.lbl_equipo);
-            this.Controls.Add(this.lbl_pais);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -243,8 +268,11 @@
             this.Text = "Asignar Jugadores a un Equipo";
             this.Load += new System.EventHandler(this.frmAsignarJugadoresaEquipo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jugadores)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -269,5 +297,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn h_peso;
         private System.Windows.Forms.DataGridViewTextBoxColumn h_altura;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }
