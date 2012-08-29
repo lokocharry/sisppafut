@@ -206,5 +206,35 @@ namespace UnitTests
             Assert.AreEqual(expected[0].NombreEquipo, actual[0].NombreEquipo);
             Assert.AreEqual(expected[0].NombresJugador, actual[0].NombresJugador);
         }
+
+        /// <summary>
+        ///Una prueba de cantidadGolesxJugador
+        ///</summary>
+        [TestMethod()]
+        public void cantidadGolesxJugadorTest()
+        {
+            JugadorBC target = new JugadorBC(); // TODO: Inicializar en un valor adecuado
+            int jugador = 10; // TODO: Inicializar en un valor adecuado
+            int liga = 3; // TODO: Inicializar en un valor adecuado
+            int expected = 2; // TODO: Inicializar en un valor adecuado
+            int actual;
+            actual = target.cantidadGolesxJugador(jugador, liga);
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        ///Una prueba de cantidadPartidosxJugador
+        ///</summary>
+        [TestMethod()]
+        public void cantidadPartidosxJugadorTest()
+        {
+            JugadorBC target = new JugadorBC(); // TODO: Inicializar en un valor adecuado
+            int jugador = 10; // TODO: Inicializar en un valor adecuado
+            int liga = 3; // TODO: Inicializar en un valor adecuado
+            int expected = 1; // TODO: Inicializar en un valor adecuado
+            int actual;
+            actual = target.cantidadPartidosxJugador(jugador, liga);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }
