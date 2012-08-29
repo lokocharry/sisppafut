@@ -222,5 +222,38 @@ namespace UnitTests
 
             Assert.AreEqual(goles_visita, actual.Goles_visita);
         }
+
+        /// <summary>
+        ///A test for lista_ultimosPartidos
+        ///</summary>
+        [TestMethod()]
+        public void lista_ultimosPartidosTest()
+        {
+            PartidoBC target = new PartidoBC(); 
+            int codigo_equipo = 1;
+            int codigo_liga = 3;
+            List<PartidoJugadoBE> expected = new List<PartidoJugadoBE>();
+
+            PartidoJugadoBE oPartido = new PartidoJugadoBE();
+            oPartido.CodPartido = 5;
+            oPartido.Equipo_visita = "Real Madrid";
+            oPartido.Equipo_local = "FC Barcelona";
+            oPartido.Fecha = Convert.ToDateTime("2012-04-21");
+            oPartido.Goles_local = 3;
+            oPartido.Goles_visita = 1;
+            oPartido.Liga = "La Liga BBVA 2011/2012";
+
+            expected.Add(oPartido);
+
+            List<PartidoJugadoBE> actual;
+            actual = target.lista_ultimosPartidos(codigo_equipo, codigo_liga);
+            Assert.AreEqual(expected[0].Equipo_local, actual[0].Equipo_local);
+            Assert.AreEqual(expected[0].Equipo_visita, actual[0].Equipo_visita);
+            Assert.AreEqual(expected[0].Goles_local, actual[0].Goles_local);
+            Assert.AreEqual(expected[0].Goles_visita, actual[0].Goles_visita);
+            Assert.AreEqual(expected[0].Liga, actual[0].Liga);
+            Assert.AreEqual(expected[0].Fecha, actual[0].Fecha);
+            Assert.AreEqual(expected[0].CodPartido, actual[0].CodPartido);
+        }
     }
 }
