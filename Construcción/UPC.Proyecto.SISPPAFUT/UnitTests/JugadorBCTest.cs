@@ -166,8 +166,8 @@ namespace UnitTests
         public void transferirJugadorNuevoEquipoTest()
         {
             JugadorBC target = new JugadorBC(); // TODO: Inicializar en un valor adecuado
-            int codigo_jugador = 1; // TODO: Inicializar en un valor adecuado
-            int codigo_nuevoequipo = 3; // TODO: Inicializar en un valor adecuado
+            int codigo_jugador = 47; // TODO: Inicializar en un valor adecuado
+            int codigo_nuevoequipo = 27; // TODO: Inicializar en un valor adecuado
             bool Esperado = true;
             bool Real = false;
             target.transferirJugadorNuevoEquipo(codigo_jugador, codigo_nuevoequipo);
