@@ -399,5 +399,118 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 throw;
             }
         }
+
+        public Decimal obtener_PromedioEquipoTitular(int codEquipo, int codLiga)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_equipo;
+            SqlCommand cmd;
+            String sqlObtenerPromEdad;
+            SqlParameter _codEquipo;
+            SqlParameter _codLiga;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlObtenerPromEdad = "spObtenerPromedioEdadEquipoTitular";
+                cmd = conexion.CreateCommand();
+                cmd.CommandText = sqlObtenerPromEdad;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                _codEquipo = cmd.CreateParameter();
+                _codEquipo.ParameterName = "@codEquipo";
+                _codEquipo.SqlDbType = SqlDbType.Int;
+                _codEquipo.SqlValue = codEquipo;
+
+                _codLiga = cmd.CreateParameter();
+                _codLiga.ParameterName = "@codLiga";
+                _codLiga.SqlDbType = SqlDbType.Int;
+                _codLiga.SqlValue = codLiga;
+
+                cmd.Parameters.Add(_codEquipo);
+                cmd.Parameters.Add(_codLiga);
+
+                cmd.Connection.Open();
+                dr_equipo = cmd.ExecuteReader();
+
+                Decimal promedioEdad = 0;
+
+                if (dr_equipo.Read())
+                {
+                    promedioEdad = dr_equipo.GetDecimal(dr_equipo.GetOrdinal("PROMEDIO"));
+                }
+
+                cmd.Connection.Close();
+                conexion.Dispose();
+
+                return promedioEdad;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+
+        }
+
+        public int obtener_CantidadExpulsadosUltimoPartido(int codPartido, int codEquipo, int codLiga)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_equipo;
+            SqlCommand cmd;
+            String sqlObtenerPromEdad;
+            SqlParameter _codPartido;
+            SqlParameter _codEquipo;
+            SqlParameter _codLiga;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlObtenerPromEdad = "spCantidadRojasUltimoPartido";
+                cmd = conexion.CreateCommand();
+                cmd.CommandText = sqlObtenerPromEdad;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                _codPartido = cmd.CreateParameter();
+                _codPartido.ParameterName = "@codPartido";
+                _codPartido.SqlDbType = SqlDbType.Int;
+                _codPartido.SqlValue = codPartido;
+
+                _codEquipo = cmd.CreateParameter();
+                _codEquipo.ParameterName = "@codEquipo";
+                _codEquipo.SqlDbType = SqlDbType.Int;
+                _codEquipo.SqlValue = codEquipo;
+
+                _codLiga = cmd.CreateParameter();
+                _codLiga.ParameterName = "@codLiga";
+                _codLiga.SqlDbType = SqlDbType.Int;
+                _codLiga.SqlValue = codLiga;
+
+                cmd.Parameters.Add(_codPartido);
+                cmd.Parameters.Add(_codEquipo);
+                cmd.Parameters.Add(_codLiga);
+
+                cmd.Connection.Open();
+                dr_equipo = cmd.ExecuteReader();
+
+                int qExpulsados = 0;
+
+                if (dr_equipo.Read())
+                {
+                    qExpulsados = dr_equipo.GetInt32(dr_equipo.GetOrdinal("ROJAS"));
+                }
+
+                cmd.Connection.Close();
+                conexion.Dispose();
+
+                return qExpulsados;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+
+        }
     }
 }

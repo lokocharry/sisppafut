@@ -222,8 +222,8 @@ namespace UPC.Proyecto.SISPPAFUT
                     }
                     objPartidoPronosticadoBE.C_Local_PosLiga = objTablaBC.ConsultarPosicionEquipoTabla(codLiga, codEquipoL);
                     objPartidoPronosticadoBE.C_Local_PosRankMund = objRankingBC.obtener_PosRanking(cDto.Fecha.Year, cDto.Fecha.Month, paisL, cDto.Equipo_local);
-                    //objPartidoPronosticadoBE.C_Local_PromEdad = 
-                    //objPartidoPronosticadoBE.C_Local_QExpulsados = 
+                    objPartidoPronosticadoBE.C_Local_PromEdad = objEquipoBC.obtener_PromedioEquipoTitular(codEquipoL, codLiga);
+                    objPartidoPronosticadoBE.C_Local_QExpulsados = objEquipoBC.obtener_CantidadExpulsadosUltimoPartido(codUltimoPartidoLocal, codEquipoL, codLiga);
                     //objPartidoPronosticadoBE.C_Local_QPartidosMes = 
                     //objPartidoPronosticadoBE.C_Local_QSuspendidos = 
                     
@@ -248,8 +248,8 @@ namespace UPC.Proyecto.SISPPAFUT
                     }
                     objPartidoPronosticadoBE.C_Visita_PosLiga = objTablaBC.ConsultarPosicionEquipoTabla(codLiga, codEquipoV);
                     objPartidoPronosticadoBE.C_Visita_PosRankMund = objRankingBC.obtener_PosRanking(cDto.Fecha.Year, cDto.Fecha.Month, paisV, cDto.Equipo_visitante);
-                    //objPartidoPronosticadoBE.C_Visita_PromEdad = 
-                    //objPartidoPronosticadoBE.C_Visita_QExpulsados = 
+                    objPartidoPronosticadoBE.C_Visita_PromEdad = objEquipoBC.obtener_PromedioEquipoTitular(codEquipoV, codLiga);
+                    objPartidoPronosticadoBE.C_Visita_QExpulsados = objEquipoBC.obtener_CantidadExpulsadosUltimoPartido(codUltimoPartidoVisita, codEquipoV, codLiga);
                     //objPartidoPronosticadoBE.C_Visita_QPartidosMes = 
                     //objPartidoPronosticadoBE.C_Visita_QSuspendidos = 
 

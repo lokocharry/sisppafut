@@ -84,6 +84,34 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
+        public Decimal obtener_PromedioEquipoTitular(int codEquipo, int codLiga)
+        {
+            try
+            {
+                Decimal promEdad;
+                EquipoDALC objEquipoDALC = new EquipoDALC();
+                promEdad = objEquipoDALC.obtener_PromedioEquipoTitular(codEquipo, codLiga);
+                return promEdad;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
+        public int obtener_CantidadExpulsadosUltimoPartido(int codPartido, int codEquipo, int codLiga)
+        {
+            try
+            {
+                int qExpulsados;
+                EquipoDALC objEquipoDALC = new EquipoDALC();
+                qExpulsados = objEquipoDALC.obtener_CantidadExpulsadosUltimoPartido(codPartido, codEquipo, codLiga);
+                return qExpulsados;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
