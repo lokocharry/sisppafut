@@ -224,10 +224,9 @@ namespace UPC.Proyecto.SISPPAFUT
                     objPartidoPronosticadoBE.C_Local_PosRankMund = objRankingBC.obtener_PosRanking(cDto.Fecha.Year, cDto.Fecha.Month, paisL, cDto.Equipo_local);
                     objPartidoPronosticadoBE.C_Local_PromEdad = objEquipoBC.obtener_PromedioEquipoTitular(codEquipoL, codLiga);
                     objPartidoPronosticadoBE.C_Local_QExpulsados = objEquipoBC.obtener_CantidadExpulsadosUltimoPartido(codUltimoPartidoLocal, codEquipoL, codLiga);
-                    //objPartidoPronosticadoBE.C_Local_QPartidosMes = 
-                    //objPartidoPronosticadoBE.C_Local_QSuspendidos = 
+                    objPartidoPronosticadoBE.C_Local_QPartidosMes = objEquipoBC.obtener_CantidadPartidosUltimoMes(codEquipoL, cDto.Fecha);
+                    objPartidoPronosticadoBE.C_Local_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoL, codLiga);
                     
-
                     //-- DATOS DEL EQUIPO VISITA
                     objPartidoPronosticadoBE.C_Visita = false;
                     objPartidoPronosticadoBE.C_Visita_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoV, codLiga);
@@ -250,12 +249,12 @@ namespace UPC.Proyecto.SISPPAFUT
                     objPartidoPronosticadoBE.C_Visita_PosRankMund = objRankingBC.obtener_PosRanking(cDto.Fecha.Year, cDto.Fecha.Month, paisV, cDto.Equipo_visitante);
                     objPartidoPronosticadoBE.C_Visita_PromEdad = objEquipoBC.obtener_PromedioEquipoTitular(codEquipoV, codLiga);
                     objPartidoPronosticadoBE.C_Visita_QExpulsados = objEquipoBC.obtener_CantidadExpulsadosUltimoPartido(codUltimoPartidoVisita, codEquipoV, codLiga);
-                    //objPartidoPronosticadoBE.C_Visita_QPartidosMes = 
-                    //objPartidoPronosticadoBE.C_Visita_QSuspendidos = 
+                    objPartidoPronosticadoBE.C_Visita_QPartidosMes = objEquipoBC.obtener_CantidadPartidosUltimoMes(codEquipoV, cDto.Fecha);
+                    objPartidoPronosticadoBE.C_Visita_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoV, codLiga);
 
                     // OTRAS VARIABLES
                     //objPartidoPronosticadoBE.C_QAsistencia = 
-                    //objPartidoPronosticadoBE.C_QEquiposLiga = 
+                    //objPartidoPronosticadoBE.C_QEquiposLiga = objLigaBC.
                     //objPartidoPronosticadoBE.C_QEquiposMundial = 
                     //objPartidoPronosticadoBE.C_Resultado = 
 

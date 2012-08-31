@@ -313,5 +313,59 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 }
             }
         }
+
+        public List<SuspensionBE> CantidadJugadoresSuspendidos(int codEquipo, int codLiga)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr;
+            SqlCommand cmd = null;
+            String sql;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sql = "spAcumulacionAmonestacionesJugador";
+                cmd = conexion.CreateCommand();
+                cmd.CommandText = sql;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cmd.Connection.Open();
+                dr = cmd.ExecuteReader();
+
+                List<SuspensionBE> lst;
+                SuspensionBE objBE;
+
+                lst = new List<SuspensionBE>();
+
+                while (dr.Read())
+                {
+                    objBE = new SuspensionBE();
+
+                    objBE.CodigoJugador = dr.GetInt32(dr.GetOrdinal("CodJugador"));
+                    objBE.QAmarillas = dr.GetInt32(dr.GetOrdinal("qAmonestaciones"));
+                    
+                    lst.Add(objBE);
+                }
+
+                return lst;
+            }
+
+            catch (Exception)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    cmd.Connection.Close();
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }

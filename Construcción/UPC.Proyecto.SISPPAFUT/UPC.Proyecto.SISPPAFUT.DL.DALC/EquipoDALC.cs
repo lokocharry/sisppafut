@@ -458,7 +458,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             SqlConnection conexion = null;
             SqlDataReader dr_equipo;
             SqlCommand cmd;
-            String sqlObtenerPromEdad;
+            String sql;
             SqlParameter _codPartido;
             SqlParameter _codEquipo;
             SqlParameter _codLiga;
@@ -466,9 +466,9 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             try
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
-                sqlObtenerPromEdad = "spCantidadRojasUltimoPartido";
+                sql = "spCantidadRojasUltimoPartido";
                 cmd = conexion.CreateCommand();
-                cmd.CommandText = sqlObtenerPromEdad;
+                cmd.CommandText = sql;
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 _codPartido = cmd.CreateParameter();
@@ -504,6 +504,60 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 conexion.Dispose();
 
                 return qExpulsados;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+
+        }
+
+        public int obtener_CantidadPartidosUltimoMes(int codEquipo, DateTime fecha)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_equipo;
+            SqlCommand cmd;
+            String sql;
+            
+            SqlParameter _codEquipo;
+            SqlParameter _fecha;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sql = "spCantidadPartidoUltimoMes";
+                cmd = conexion.CreateCommand();
+                cmd.CommandText = sql;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                _codEquipo = cmd.CreateParameter();
+                _codEquipo.ParameterName = "@codEquipo";
+                _codEquipo.SqlDbType = SqlDbType.Int;
+                _codEquipo.SqlValue = codEquipo;
+
+                _fecha = cmd.CreateParameter();
+                _fecha.ParameterName = "@Fecha";
+                _fecha.SqlDbType = SqlDbType.Date;
+                _fecha.SqlValue = fecha;
+
+                cmd.Parameters.Add(_codEquipo);
+                cmd.Parameters.Add(_fecha);
+
+                cmd.Connection.Open();
+                dr_equipo = cmd.ExecuteReader();
+
+                int qPartidos = 0;
+
+                if (dr_equipo.Read())
+                {
+                    qPartidos = dr_equipo.GetInt32(dr_equipo.GetOrdinal("NUMERO PARTIDOS"));
+                }
+
+                cmd.Connection.Close();
+                conexion.Dispose();
+
+                return qPartidos;
             }
             catch (Exception ex)
             {

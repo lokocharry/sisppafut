@@ -79,5 +79,34 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public int CantidadJugadoresSuspendidos(int codEquipo, int codLiga)
+        {
+            SuspensionDALC objSuspensionDALC;
+            List<SuspensionBE> lstSuspensiones;
+
+            try
+            {
+                objSuspensionDALC = new SuspensionDALC();
+                lstSuspensiones = new List<SuspensionBE>();
+                int qSuspendidos = 0;
+                lstSuspensiones = objSuspensionDALC.CantidadJugadoresSuspendidos(codEquipo, codLiga);
+
+                if (lstSuspensiones.Count > 0)
+                {
+                    foreach (SuspensionBE cDto in lstSuspensiones)
+                    {
+                        if (cDto.QAmarillas % 5 == 0)
+                            qSuspendidos = qSuspendidos + 1;
+                    }
+                }
+
+                return qSuspendidos;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

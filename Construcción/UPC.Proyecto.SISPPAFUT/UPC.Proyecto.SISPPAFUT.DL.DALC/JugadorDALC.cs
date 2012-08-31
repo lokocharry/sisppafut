@@ -690,6 +690,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd_listaNacionalidades.Connection.Close();
                 conexion.Dispose();
             }
-        }
+        }        
     }
 }

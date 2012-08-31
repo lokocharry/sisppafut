@@ -113,5 +113,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public int obtener_CantidadPartidosUltimoMes(int codEquipo, DateTime fecha)
+        {
+            try
+            {
+                int qPartidosMes;
+                EquipoDALC objEquipoDALC = new EquipoDALC();
+                qPartidosMes = objEquipoDALC.obtener_CantidadPartidosUltimoMes(codEquipo, fecha);
+                return qPartidosMes;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }
