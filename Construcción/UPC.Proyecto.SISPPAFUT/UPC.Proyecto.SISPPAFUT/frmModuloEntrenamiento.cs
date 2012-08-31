@@ -144,15 +144,16 @@ namespace UPC.Proyecto.SISPPAFUT
             //Si existe un pronostico anterior, lo actualiza (sobreescribe) mediante el entrenamiento.
             try
             {
-                PronosticoBC objPronosticoBC;
-                PronosticoBE objPronosticoBE;
+                RedNeuronal.Entrenamiento();
+                //PronosticoBC objPronosticoBC;
+                //PronosticoBE objPronosticoBE;
 
                 PartidoPronosticadoBC objPartidoPronosticadoBC;
                 PartidoBC objPartidoBC;
                 TablaPosicionesBC objTablaBC;
                 RankingEquipoBC objRankingBC;
                 PartidoPronosticadoBE objPartidoPronosticadoBE;
-                List<TablaPosicionesBE> lstTablaLiga;
+                //List<TablaPosicionesBE> lstTablaLiga;
                 /*
                 Decimal dLocal;
                 Decimal dEmpate;
@@ -197,11 +198,7 @@ namespace UPC.Proyecto.SISPPAFUT
                     objPartidoPronosticadoBE.C_Visita_GolesEncajados = 0;
                     objPartidoPronosticadoBE.C_Local_Pts = 0;
                     objPartidoPronosticadoBE.C_Visita_Pts = 0;
-                    /* Aquí se debe averiguar por cada característica de la red neuronal, el valor correspondiente 
-                     * Por ejemplo: objPartidoPronosticadoBE.C_LocalPts = objPartidoBC.lista_ultimosPartidos(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga);
-                     *              objPartidoPronosticadoBE.C_PromEdad = PromEdadEq(objJugadorBC.listar_Jugadores_xEquipo(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo));
-                     *              ...
-                     */
+                    
                     //-- DATOS DEL EQUIPO LOCAL
                     objPartidoPronosticadoBE.C_Local = true;
                     objPartidoPronosticadoBE.C_Local_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoL, codLiga);
@@ -253,16 +250,19 @@ namespace UPC.Proyecto.SISPPAFUT
                     objPartidoPronosticadoBE.C_Visita_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoV, codLiga);
 
                     // OTRAS VARIABLES
-                    //objPartidoPronosticadoBE.C_QAsistencia = 
-                    //objPartidoPronosticadoBE.C_QEquiposLiga = objLigaBC.
+                    //objPartidoPronosticadoBE.C_QAsistencia = <esto es lo que no decido si va o no va en la red neuronal>
+                    objPartidoPronosticadoBE.C_QEquiposLiga = objLigaBC.CantidadEquiposLiga(codLiga);
                     //objPartidoPronosticadoBE.C_QEquiposMundial = 
-                    //objPartidoPronosticadoBE.C_Resultado = 
+                    //objPartidoPronosticadoBE.C_Resultado = <esto es lo que va a pronosticar>
 
                     listaPartidosPronosticados.Add(objPartidoPronosticadoBE);
                 }
                 
                 //-- Paso 3: Se crea el fichero que contendrá toda la información para entrenar el sistema
                 CrearFicheroARFF(listaPartidosPronosticados);
+                
+                //-- Paso 4: Se lleva a entrenamiento los datos
+
                 /*
                 for (int i = 0; i < dg_Pronosticos.Rows.Count; i++)
                 {
@@ -321,8 +321,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
             archivo.WriteLine("@relation SISPPAFUT");
             archivo.WriteLine("@attribute qEquiposLiga numeric");
-            archivo.WriteLine("@attribute qEquiposMundial numeric");
-            archivo.WriteLine("@attribute qAsistencia numeric");
+            //archivo.WriteLine("@attribute qEquiposMundial numeric");
+            //archivo.WriteLine("@attribute qAsistencia numeric");
             archivo.WriteLine("@attribute Local_PosLiga numeric");
             archivo.WriteLine("@attribute Local_Pts numeric");
             archivo.WriteLine("@attribute Local {TRUE, FALSE}");
@@ -353,7 +353,9 @@ namespace UPC.Proyecto.SISPPAFUT
             foreach (PartidoPronosticadoBE cDto in Data)
             {
                 string _data = String.Empty;
-                _data = cDto.C_QEquiposLiga + "," + cDto.C_QEquiposMundial  + "," + cDto.C_Local_PosLiga        + "," + 
+                _data = cDto.C_QEquiposLiga + "," + 
+                        //cDto.C_QEquiposMundial  + "," + 
+                        cDto.C_Local_PosLiga        + "," + 
                         cDto.C_Local_Pts + "," + cDto.C_Local + "," + cDto.C_Local_PosRankMund + "," + 
                         cDto.C_Local_GoleadorSuspendido + "," + cDto.C_Local_ArqueroSuspendido + "," + 
                         cDto.C_Local_QExpulsados + "," + cDto.C_Local_QSuspendidos + "," + cDto.C_Local_GolesAnotados + "," + 

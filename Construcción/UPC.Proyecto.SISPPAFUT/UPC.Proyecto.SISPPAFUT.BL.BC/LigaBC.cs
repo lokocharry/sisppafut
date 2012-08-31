@@ -84,6 +84,28 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public int CantidadEquiposLiga(int codLiga)
+        {
+            try
+            {
+                LigaDALC objLigaDALC = new LigaDALC();
+                LigaBE objLigaBE = new LigaBE();
+                objLigaBE = objLigaDALC.ObtenerLiga(codLiga);
+
+                int qEquipos = 0;
                 
+                if(objLigaBE!=null)
+                {
+                   qEquipos = objLigaBE.CantidadEquipos;
+                }
+                return qEquipos;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+   
     }
 }

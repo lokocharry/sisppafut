@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Net;
 
+using weka;
+
 using UPC.Proyecto.SISPPAFUT.BL.BE;
 
 namespace UPC.Proyecto.SISPPAFUT
@@ -825,42 +827,60 @@ namespace UPC.Proyecto.SISPPAFUT
                     matrizResultado[0, i] += matrizResultado[e, i];
                 }
         }
-        /*
-        void Imprimir(String _local, String _visita, Double pLocal, Double pVisita, Double pEmpate)
+        
+        public static void Entrenamiento()//String fichero)
         {
-            if ((pLocal + pEmpate) > (pEmpate + pVisita) && (pLocal + pEmpate) > (pLocal + pVisita))
+            const int percentSplit = 66;
+
+            try
             {
-                if (pLocal - pEmpate >= 15)
-                    txtResult.Text = String.Format("{0} vs {1} L", _local, _visita);
-                else
-                    if (pEmpate - pLocal >= 15)
-                        txtResult.Text = String.Format("{0} vs {1} E", _local, _visita);
-                    else
-                        txtResult.Text = String.Format("{0} vs {1} LE", _local, _visita);
-            }
-            else
-                if ((pEmpate + pVisita) > (pLocal + pEmpate) && (pEmpate + pVisita) > (pLocal + pVisita))
+                //MultilayerPerceptron red_Perceptron = new MultilayerPerceptron();
+
+                //weka.core.FastVector obj = new weka.core.FastVector(0);
+                //string f = "C:\\Users\\Michael\\Documents\\UPC\\2012\\TP1\\SISPPAFUT\\trunk\\Construcción\\UPC.Proyecto.SISPPAFUT\\UPC.Proyecto.SISPPAFUT\\bin\\Debug\\SISPPAFUT.arff";
+                weka.core.Instances data = new weka.core.Instances(new java.io.FileReader("C:\\Users\\Michael\\Documents\\UPC\\2012\\TP1\\SISPPAFUT\\trunk\\Construcción\\UPC.Proyecto.SISPPAFUT\\UPC.Proyecto.SISPPAFUT\\bin\\Debug\\SISPPAFUT.arff"));
+                data.setClassIndex(data.numAttributes() - 1);
+                var red_Perceptron = new weka.classifiers.functions.MultilayerPerceptron();
+
+                //-- Configuración de la Red Neuronal               
+                red_Perceptron.setGUI(false);
+                red_Perceptron.setDebug(false);
+                red_Perceptron.setAutoBuild(true);
+                red_Perceptron.setDecay(false);
+                red_Perceptron.setHiddenLayers("9,9");
+                red_Perceptron.setLearningRate(0.38);
+                red_Perceptron.setMomentum(0.2);
+                red_Perceptron.setNominalToBinaryFilter(true);
+                red_Perceptron.setNormalizeAttributes(true);
+                red_Perceptron.setNormalizeNumericClass(true);
+                red_Perceptron.setReset(true);
+                red_Perceptron.setSeed(2);
+                red_Perceptron.setTrainingTime(1500);
+                red_Perceptron.setValidationSetSize(0);
+                red_Perceptron.setValidationThreshold(20);
+
+                //-- 
+                //red_Perceptron.buildClassifier(data);
+                
+                int trainSize = data.numInstances() * percentSplit / 100;
+                int testSize = data.numInstances() - trainSize;
+                weka.core.Instances train = new weka.core.Instances(data, 0, trainSize);
+ 
+                red_Perceptron.buildClassifier(train);
+                int numCorrect = 0;
+                for (int i = trainSize; i < data.numInstances(); i++)
                 {
-                    if (pEmpate - pVisita >= 15)
-                        txtResult.Text = String.Format("{0} vs {1} E", _local, _visita);
-                    else
-                        if (pVisita - pEmpate >= 15)
-                            txtResult.Text = String.Format("{0} vs {1} V", _local, _visita);
-                        else
-                            txtResult.Text = String.Format("{0} vs {1} EV", _local, _visita);
+                    weka.core.Instance currentInst = data.instance(i);
+                    double predictedClass = red_Perceptron.classifyInstance(currentInst);
+                    if (data.instance(i).classValue().Equals(predictedClass))
+                        numCorrect++;
                 }
-                else
-                    if ((pLocal + pVisita) > (pLocal + pEmpate) && (pLocal + pVisita) > (pEmpate + pVisita))
-                    {
-                        if (pLocal - pVisita >= 15)
-                            txtResult.Text = String.Format("{0} vs {1} L", _local, _visita);
-                        else
-                            if (pVisita - pLocal >= 15)
-                                txtResult.Text = String.Format("{0} vs {1} V", _local, _visita);
-                            else
-                                txtResult.Text = String.Format("{0} vs {1} LV", _local, _visita);
-                    }
+
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
-         * */
     }
 }

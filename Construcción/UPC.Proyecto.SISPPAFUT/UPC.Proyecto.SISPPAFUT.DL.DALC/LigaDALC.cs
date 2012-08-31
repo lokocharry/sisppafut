@@ -238,5 +238,55 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 throw;
             }
         }
+
+        public LigaBE ObtenerLiga(int codLiga)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_liga;
+            SqlCommand cmd;
+            String sql;
+            SqlParameter prm_Codigo;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sql = "spLeerLiga";
+
+                cmd = new SqlCommand(sql, conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                prm_Codigo = new SqlParameter();
+                prm_Codigo.ParameterName = "@codLiga";
+                prm_Codigo.SqlDbType = SqlDbType.Int;
+                prm_Codigo.Value = codLiga;
+
+                cmd.Parameters.Add(prm_Codigo);
+
+                cmd.Connection.Open();
+
+                dr_liga = cmd.ExecuteReader();
+
+                LigaBE objLigaBE = new LigaBE();
+
+                if (dr_liga.Read())
+                {
+                    objLigaBE.CodigoLiga = dr_liga.GetInt32(dr_liga.GetOrdinal("CodLiga"));
+                    objLigaBE.CodigoCompeticion = dr_liga.GetInt32(dr_liga.GetOrdinal("CodCompeticion"));
+                    objLigaBE.NombreLiga = dr_liga.GetString(dr_liga.GetOrdinal("Nombre"));
+                    objLigaBE.TemporadaLiga = dr_liga.GetString(dr_liga.GetOrdinal("Temporada"));
+                    objLigaBE.CantidadEquipos = dr_liga.GetInt32(dr_liga.GetOrdinal("QEquipos"));
+                }
+
+                cmd.Connection.Close();
+                conexion.Dispose();
+
+                return objLigaBE;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+        }
     }
 }
