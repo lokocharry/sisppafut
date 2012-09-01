@@ -6,6 +6,7 @@ using System.Net;
 using weka;
 
 using UPC.Proyecto.SISPPAFUT.BL.BE;
+using System.Xml;
 
 namespace UPC.Proyecto.SISPPAFUT
 {
@@ -828,16 +829,12 @@ namespace UPC.Proyecto.SISPPAFUT
                 }
         }
         
-        public static void Entrenamiento()//String fichero)
+        public static String Entrenamiento()//String fichero)
         {
-            const int percentSplit = 66;
+            const int percentSplit = 90;
 
             try
             {
-                //MultilayerPerceptron red_Perceptron = new MultilayerPerceptron();
-
-                //weka.core.FastVector obj = new weka.core.FastVector(0);
-                //string f = "C:\\Users\\Michael\\Documents\\UPC\\2012\\TP1\\SISPPAFUT\\trunk\\Construcción\\UPC.Proyecto.SISPPAFUT\\UPC.Proyecto.SISPPAFUT\\bin\\Debug\\SISPPAFUT.arff";
                 weka.core.Instances data = new weka.core.Instances(new java.io.FileReader("C:\\Users\\Michael\\Documents\\UPC\\2012\\TP1\\SISPPAFUT\\trunk\\Construcción\\UPC.Proyecto.SISPPAFUT\\UPC.Proyecto.SISPPAFUT\\bin\\Debug\\SISPPAFUT.arff"));
                 data.setClassIndex(data.numAttributes() - 1);
                 var red_Perceptron = new weka.classifiers.functions.MultilayerPerceptron();
@@ -860,21 +857,50 @@ namespace UPC.Proyecto.SISPPAFUT
                 red_Perceptron.setValidationThreshold(20);
 
                 //-- 
-                //red_Perceptron.buildClassifier(data);
-                
-                int trainSize = data.numInstances() * percentSplit / 100;
+
+                int trainSize = data.numInstances() *percentSplit / 100;
                 int testSize = data.numInstances() - trainSize;
                 weka.core.Instances train = new weka.core.Instances(data, 0, trainSize);
  
                 red_Perceptron.buildClassifier(train);
                 int numCorrect = 0;
+                String txt = "";// red_Perceptron.toString();
+
+                for (int i = 0; i < trainSize; i++)
+                {
+
+                }
                 for (int i = trainSize; i < data.numInstances(); i++)
                 {
                     weka.core.Instance currentInst = data.instance(i);
                     double predictedClass = red_Perceptron.classifyInstance(currentInst);
                     if (data.instance(i).classValue().Equals(predictedClass))
+                    {
                         numCorrect++;
+                        if(data.instance(i).classValue().Equals(0))
+                            txt = txt + i + "   " + "L" + "    " + train.classAttribute().value((int)predictedClass) + "   Correct" + "\r\n";
+                        else
+                        if(data.instance(i).classValue().Equals(1))
+                            txt = txt + i + "   " + "E" + "    " + train.classAttribute().value((int)predictedClass) + "   Correct" + "\r\n";
+                        else
+                        if(data.instance(i).classValue().Equals(2))
+                            txt = txt + i + "   " + "V" + "    " + train.classAttribute().value((int)predictedClass) + "   Correct" + "\r\n";
+                    }
+                    else
+                    {
+                        if(data.instance(i).classValue().Equals(0))
+                            txt = txt + i + "   " + "L" + "    " + train.classAttribute().value((int)predictedClass) + "   Incorrect" + "\r\n";
+                        else
+                        if(data.instance(i).classValue().Equals(1))
+                            txt = txt + i + "   " + "E" + "    " + train.classAttribute().value((int)predictedClass) + "   Incorrect" + "\r\n";
+                        else
+                        if(data.instance(i).classValue().Equals(2))
+                            txt = txt + i + "   " + "V" + "    " + train.classAttribute().value((int)predictedClass) + "   Incorrect" + "\r\n";
+                    }                    
                 }
+
+                
+                return txt;
 
             }
             catch (Exception ex)

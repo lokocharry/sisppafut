@@ -144,7 +144,7 @@ namespace UPC.Proyecto.SISPPAFUT
             //Si existe un pronostico anterior, lo actualiza (sobreescribe) mediante el entrenamiento.
             try
             {
-                RedNeuronal.Entrenamiento();
+                textBox1.Text = RedNeuronal.Entrenamiento();
                 //PronosticoBC objPronosticoBC;
                 //PronosticoBE objPronosticoBE;
 

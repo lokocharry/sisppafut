@@ -32,9 +32,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dg_Pronosticos = new System.Windows.Forms.DataGridView();
-            this.btnEntrenar = new System.Windows.Forms.Button();
             this.codPartido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codPronostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -43,6 +42,8 @@
             this.porcentajeEmpate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.porcentajeVisita = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pronostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEntrenar = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dg_Pronosticos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,20 +66,10 @@
             this.dg_Pronosticos.Name = "dg_Pronosticos";
             this.dg_Pronosticos.ReadOnly = true;
             this.dg_Pronosticos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dg_Pronosticos.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dg_Pronosticos.Size = new System.Drawing.Size(648, 353);
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dg_Pronosticos.RowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dg_Pronosticos.Size = new System.Drawing.Size(648, 224);
             this.dg_Pronosticos.TabIndex = 0;
-            // 
-            // btnEntrenar
-            // 
-            this.btnEntrenar.Location = new System.Drawing.Point(545, 371);
-            this.btnEntrenar.Name = "btnEntrenar";
-            this.btnEntrenar.Size = new System.Drawing.Size(115, 31);
-            this.btnEntrenar.TabIndex = 1;
-            this.btnEntrenar.Text = "Entrenar";
-            this.btnEntrenar.UseVisualStyleBackColor = true;
-            this.btnEntrenar.Click += new System.EventHandler(this.btnEntrenar_Click);
             // 
             // codPartido
             // 
@@ -135,11 +126,30 @@
             this.Pronostico.Name = "Pronostico";
             this.Pronostico.ReadOnly = true;
             // 
+            // btnEntrenar
+            // 
+            this.btnEntrenar.Location = new System.Drawing.Point(545, 371);
+            this.btnEntrenar.Name = "btnEntrenar";
+            this.btnEntrenar.Size = new System.Drawing.Size(115, 31);
+            this.btnEntrenar.TabIndex = 1;
+            this.btnEntrenar.Text = "Entrenar";
+            this.btnEntrenar.UseVisualStyleBackColor = true;
+            this.btnEntrenar.Click += new System.EventHandler(this.btnEntrenar_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(12, 242);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(648, 123);
+            this.textBox1.TabIndex = 2;
+            // 
             // frmModuloEntrenamiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(672, 411);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnEntrenar);
             this.Controls.Add(this.dg_Pronosticos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -151,6 +161,7 @@
             this.Load += new System.EventHandler(this.frmEntrenarPronosticos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_Pronosticos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -166,5 +177,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn porcentajeEmpate;
         private System.Windows.Forms.DataGridViewTextBoxColumn porcentajeVisita;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pronostico;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
