@@ -1,16 +1,17 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spUpdatePronostico]    Script Date: 05/29/2012 ******/
+/****** Object:  StoredProcedure [dbo].[spUpdatePronostico]    Script Date: 09/04/2012 23:26:46 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
+
 CREATE PROCEDURE [dbo].[spUpdatePronostico]
 (
-	@codPronostico int,
+	@codPartido int,
 	@pronostico varchar(5),
 	@porcentajeLocal decimal(5,2),
 	@porcentajeEmpate decimal(5,2),
@@ -23,8 +24,9 @@ BEGIN
 		[PorcentajeLocal] = @porcentajeLocal,
 		[PorcentajeEmpate] = @porcentajeEmpate,
 		[PorcentajeVisita] = @porcentajeVisita
-	WHERE CodPronostico = @codPronostico
+	WHERE CodPartido = @codPartido
 END
+
 
 GO
 
