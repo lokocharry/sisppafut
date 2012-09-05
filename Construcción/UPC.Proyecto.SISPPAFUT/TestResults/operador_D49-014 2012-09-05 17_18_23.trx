@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="41e657fb-978c-4e65-8486-4680b276d657" name="operador@D49-014 2012-09-05 17:18:23" runUser="D49-014\operador" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="d7146e08-8266-4b9b-aa43-bf7a65afa95e">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="operador_D49-014 2012-09-05 17_18_23">
+      <DeploymentItem filename="C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.dll" />
+      <DeploymentItem filename="C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll" />
+      <DeploymentItem filename="C:\Users\operador\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-09-05T17:18:23.6378468-05:00" queuing="2012-09-05T17:18:23.6648468-05:00" start="2012-09-05T17:18:23.6718468-05:00" finish="2012-09-05T17:18:23.9158468-05:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="actualizar_PronosticoTest" storage="c:\users\operador\desktop\tdp1\construcción\upc.proyecto.sisppafut\unittests\bin\debug\unittests.dll" id="53b59f42-0d7f-9b71-9119-7a4f752267df">
+      <Execution id="4bcb3238-b723-422f-980b-2b63f15be6cb" />
+      <TestMethod codeBase="C:/Users/operador/Desktop/TDP1/Construcción/UPC.Proyecto.SISPPAFUT/UnitTests/bin/Debug/UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTests.PronosticoBCTest, UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="actualizar_PronosticoTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="53b59f42-0d7f-9b71-9119-7a4f752267df" executionId="4bcb3238-b723-422f-980b-2b63f15be6cb" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="4bcb3238-b723-422f-980b-2b63f15be6cb" testId="53b59f42-0d7f-9b71-9119-7a4f752267df" testName="actualizar_PronosticoTest" computerName="D49-014" duration="00:00:00.0476745" startTime="2012-09-05T17:18:23.6728468-05:00" endTime="2012-09-05T17:18:23.9048468-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4bcb3238-b723-422f-980b-2b63f15be6cb">
+    </UnitTestResult>
+  </Results>
+</TestRun>

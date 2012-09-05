@@ -184,6 +184,7 @@ namespace UnitTests
                 Assert.AreEqual(expected[i].Pais, actual[i].Pais);
                 Assert.AreEqual(expected[i].Fecha, actual[i].Fecha);
             }
+            Assert.AreEqual(expected.Count, actual.Count);
         }
 
         /// <summary>
@@ -221,6 +222,7 @@ namespace UnitTests
             actual = target.obtener_Partido(codigo_partido);
 
             Assert.AreEqual(goles_visita, actual.Goles_visita);
+            Assert.AreEqual(goles_local, actual.Goles_local);
         }
 
         /// <summary>
@@ -254,6 +256,8 @@ namespace UnitTests
             Assert.AreEqual(expected[0].Liga, actual[0].Liga);
             Assert.AreEqual(expected[0].Fecha, actual[0].Fecha);
             Assert.AreEqual(expected[0].CodPartido, actual[0].CodPartido);
+
+            Assert.AreEqual(expected.Count, actual.Count);
         }
     }
 }

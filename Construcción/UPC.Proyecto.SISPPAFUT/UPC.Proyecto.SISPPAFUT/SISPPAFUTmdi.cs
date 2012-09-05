@@ -347,6 +347,22 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
+        private void listaDePartidosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmConsultaPartidosJugados frm = frmConsultaPartidosJugados.Instance();
+
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
         
     }
 }

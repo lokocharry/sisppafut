@@ -80,6 +80,7 @@
     <Compile Include="LigaBCTest.cs" />
     <Compile Include="PaisBCTest.cs" />
     <Compile Include="PartidoBCTest.cs" />
+    <Compile Include="PronosticoBCTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RankingEquipoBCTest.cs" />
     <Compile Include="SuspensionBCTest.cs" />

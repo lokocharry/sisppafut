@@ -59,13 +59,13 @@
             this.partidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPartidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDePartidosSinJugarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pronosticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entrenarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apostanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verPronósticosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDePartidosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -270,7 +270,7 @@
             this.partidoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoPartidoToolStripMenuItem1,
             this.listaDePartidosToolStripMenuItem,
-            this.listaDePartidosSinJugarToolStripMenuItem});
+            this.listaDePartidosToolStripMenuItem1});
             this.partidoToolStripMenuItem1.Name = "partidoToolStripMenuItem1";
             this.partidoToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.partidoToolStripMenuItem1.Text = "Partidos";
@@ -286,15 +286,8 @@
             // 
             this.listaDePartidosToolStripMenuItem.Name = "listaDePartidosToolStripMenuItem";
             this.listaDePartidosToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.listaDePartidosToolStripMenuItem.Text = "Lista de Partidos";
+            this.listaDePartidosToolStripMenuItem.Text = "Lista de Partidos sin Jugar";
             this.listaDePartidosToolStripMenuItem.Click += new System.EventHandler(this.inListarPartidosSinJugar);
-            // 
-            // listaDePartidosSinJugarToolStripMenuItem
-            // 
-            this.listaDePartidosSinJugarToolStripMenuItem.Name = "listaDePartidosSinJugarToolStripMenuItem";
-            this.listaDePartidosSinJugarToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.listaDePartidosSinJugarToolStripMenuItem.Text = "Lista de Partidos sin Jugar";
-            this.listaDePartidosSinJugarToolStripMenuItem.Click += new System.EventHandler(this.inPartidosSinJugar);
             // 
             // pronosticoToolStripMenuItem
             // 
@@ -311,18 +304,6 @@
             this.entrenarSistemaToolStripMenuItem.Text = "Entrenar Sistema";
             this.entrenarSistemaToolStripMenuItem.Click += new System.EventHandler(this.entrenarSistemaToolStripMenuItem_Click);
             // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
-            // 
             // apostanteToolStripMenuItem
             // 
             this.apostanteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -337,6 +318,25 @@
             this.verPronósticosToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.verPronósticosToolStripMenuItem.Text = "Ver Pronósticos";
             this.verPronósticosToolStripMenuItem.Click += new System.EventHandler(this.inVerPronosticosParaApostante);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
+            // 
+            // listaDePartidosToolStripMenuItem1
+            // 
+            this.listaDePartidosToolStripMenuItem1.Name = "listaDePartidosToolStripMenuItem1";
+            this.listaDePartidosToolStripMenuItem1.Size = new System.Drawing.Size(209, 22);
+            this.listaDePartidosToolStripMenuItem1.Text = "Lista de Partidos";
+            this.listaDePartidosToolStripMenuItem1.Click += new System.EventHandler(this.listaDePartidosToolStripMenuItem1_Click);
             // 
             // SISPPAFUTmdi
             // 
@@ -392,9 +392,9 @@
         private System.Windows.Forms.ToolStripMenuItem estadísticasDeEquipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem transferirJugadorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarHistorialDeJugadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listaDePartidosSinJugarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem apostanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verPronósticosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listaDePartidosToolStripMenuItem1;
     }
 }
 

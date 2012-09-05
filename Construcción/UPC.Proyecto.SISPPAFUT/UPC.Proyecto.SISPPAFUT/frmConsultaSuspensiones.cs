@@ -54,11 +54,11 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btn_consultar_Click(object sender, EventArgs e)
         {
-            /*
-            JugadorBC objJugadorBC = new JugadorBC();
-            MessageBox.Show("Jugador: " + objJugadorBC.verificar_EstadoSuspension(lista_jugadores[cmb_jugadores.SelectedIndex-1].CodigoJugador), 
-                        "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-             */
+            
+            //JugadorBC objJugadorBC = new JugadorBC();
+            //MessageBox.Show("Jugador: " + objJugadorBC.ver(lista_jugadores[cmb_jugadores.SelectedIndex-1].CodigoJugador), 
+            //            "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+             
         }
     }
 }

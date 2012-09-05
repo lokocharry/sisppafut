@@ -222,13 +222,38 @@ namespace UPC.Proyecto.SISPPAFUT
                 modoTransf = ModoTransf;
         }
 
+        private bool ValidarFormulario()
+        {
+            if (cmbEquipo.SelectedIndex <= 0 || cmbEquipoTransf.SelectedIndex <= 0 || cmbJugador.SelectedIndex <= 0 || cmbPais.SelectedIndex <= 0 || cmbPaisTransf.SelectedIndex <= 0)
+                return false;
+            return true;
+        }
+
         private void btnTransferir_Click(object sender, EventArgs e)
         {
             JugadorBC objJugadorBC = new JugadorBC();
 
             try
             {
+                if (ValidarFormulario() == false)
+                {
+                    MessageBox.Show("Complete los datos solicitados");
+                    return;
+                }
+
                 objJugadorBC.transferirJugadorNuevoEquipo(lista_jugadores[cmbJugador.SelectedIndex - 1].CodigoJugador, lista_equipos[cmbEquipoTransf.SelectedIndex - 1].CodigoEquipo);
+
+                cmbPais.SelectedIndex = 0;
+                cmbEquipo.Items.Clear();
+                cmbEquipo.Text = "Seleccione un equipo...";
+                cmbJugador.Items.Clear();
+                cmbJugador.Text = "Seleccione un jugador...";
+                cmbPaisTransf.SelectedIndex = 0;
+                cmbEquipoTransf.Items.Clear();
+                cmbEquipoTransf.Text = "Seleccione un equipo...";
+
+                MessageBox.Show("La transferencia se realizó con éxito");
+
             }
             catch (Exception ex)
             {

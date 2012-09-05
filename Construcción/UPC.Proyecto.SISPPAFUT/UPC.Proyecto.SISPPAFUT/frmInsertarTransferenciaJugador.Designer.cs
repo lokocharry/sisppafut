@@ -150,11 +150,10 @@
             this.cbLiberar.AutoSize = true;
             this.cbLiberar.Location = new System.Drawing.Point(372, 102);
             this.cbLiberar.Name = "cbLiberar";
-            this.cbLiberar.Size = new System.Drawing.Size(129, 17);
-            this.cbLiberar.TabIndex = 13;
-            this.cbLiberar.Text = "No especificar equipo";
+            this.cbLiberar.Size = new System.Drawing.Size(109, 17);
+            this.cbLiberar.TabIndex = 11;
+            this.cbLiberar.Text = "No indicar equipo";
             this.cbLiberar.UseVisualStyleBackColor = true;
-            this.cbLiberar.CheckedChanged += new System.EventHandler(this.inSeleccionSinEquipo);
             // 
             // frmInsertarTransferenciaJugador
             // 
