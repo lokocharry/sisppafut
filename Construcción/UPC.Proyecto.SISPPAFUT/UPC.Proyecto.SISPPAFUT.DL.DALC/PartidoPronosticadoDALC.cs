@@ -10,7 +10,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 {
     public class PartidoPronosticadoDALC
     {
-        public int insertar_PartidoPronosticado(PartidoPronosticadoBE objBE)
+        public void insertar_PartidoPronosticado(PartidoPronosticadoBE objBE)
         {
             SqlConnection conexion = null;
             SqlCommand cmd_PartidoPronosticadoInsertar;
@@ -59,8 +59,9 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd_PartidoPronosticadoInsertar.CommandType = CommandType.StoredProcedure;
 
                 idPartido = new SqlParameter();
-                idPartido.Direction = ParameterDirection.ReturnValue;
+                idPartido.ParameterName = "@codPartido";
                 idPartido.SqlDbType = SqlDbType.Int;
+                idPartido.Value = objBE.IdPartido;
 
                 c_QEquiposLiga = new SqlParameter();
                 c_QEquiposLiga.ParameterName = "@c_QEquiposLiga";
@@ -235,10 +236,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
                 cmd_PartidoPronosticadoInsertar.Connection.Open();
                 cmd_PartidoPronosticadoInsertar.ExecuteNonQuery();
-
-                iCodigoPartidoPronosticado = Convert.ToInt32(idPartido.Value);
-
-                return iCodigoPartidoPronosticado;
             }
             catch (Exception)
             {

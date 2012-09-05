@@ -9,6 +9,19 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class PartidoPronosticadoBC
     {
+        public void insertar_PartidoPronosticado(PartidoPronosticadoBE objPartidoPronosticado)
+        {
+            try
+            {
+                PartidoPronosticadoDALC objPartidoDALC = new PartidoPronosticadoDALC();
+                objPartidoDALC.insertar_PartidoPronosticado(objPartidoPronosticado);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
         public List<PartidoPronosticadoBE> listar_PartidosPronosticos()
         {
             try

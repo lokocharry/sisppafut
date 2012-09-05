@@ -24,14 +24,14 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
-        public void actualizar_Pronostico(int codPronostico, String pronostico, Decimal porcentLocal, Decimal porcentEmpate, Decimal porcentVisita)
+        public void actualizar_Pronostico(PronosticoBE objPronosticoBE)
         {
             try
             {
                 PronosticoDALC objPronosticoDALC;
                 objPronosticoDALC = new PronosticoDALC();
 
-                objPronosticoDALC.actualizar_Pronostico(codPronostico, pronostico, porcentLocal, porcentEmpate, porcentVisita);
+                objPronosticoDALC.actualizar_Pronostico(objPronosticoBE);
             }
             catch (Exception ex)
             {

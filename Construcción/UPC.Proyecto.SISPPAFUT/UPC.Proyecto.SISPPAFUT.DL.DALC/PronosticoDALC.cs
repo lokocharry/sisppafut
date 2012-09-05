@@ -89,13 +89,13 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
         }
 
-        public void actualizar_Pronostico(int codPronostico, String pronostico, Decimal porcentajeLocal, Decimal porcentajeEmpate, Decimal porcentajeVisita)
+        public void actualizar_Pronostico(PronosticoBE objPronosticoBE)
         {
             SqlConnection conexion = null;
             SqlCommand cmd_actualizarPronostico = null;
             String sqlUpdatePronostico;
 
-            SqlParameter prm_codigoPronostico;
+            SqlParameter prm_codigoPartido;
             SqlParameter prm_pronostico;
             SqlParameter prm_porcentajeLocal;
             SqlParameter prm_porcentajeEmpate;
@@ -109,33 +109,33 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd_actualizarPronostico = new SqlCommand(sqlUpdatePronostico, conexion);
                 cmd_actualizarPronostico.CommandType = CommandType.StoredProcedure;
 
-                prm_codigoPronostico = new SqlParameter();
-                prm_codigoPronostico.ParameterName = "@codPronostico";
-                prm_codigoPronostico.SqlDbType = SqlDbType.Int;
-                prm_codigoPronostico.Value = codPronostico;
+                prm_codigoPartido = new SqlParameter();
+                prm_codigoPartido.ParameterName = "@codPartido";
+                prm_codigoPartido.SqlDbType = SqlDbType.Int;
+                prm_codigoPartido.Value = objPronosticoBE.CodigoPartido;
 
                 prm_pronostico = new SqlParameter();
                 prm_pronostico.ParameterName = "@pronostico";
                 prm_pronostico.SqlDbType = SqlDbType.VarChar;
                 prm_pronostico.Size = 5;
-                prm_pronostico.Value = pronostico.ToCharArray();
+                prm_pronostico.Value = objPronosticoBE.Pronostico;
 
                 prm_porcentajeLocal = new SqlParameter();
                 prm_porcentajeLocal.ParameterName = "@porcentajeLocal";
                 prm_porcentajeLocal.SqlDbType = SqlDbType.Decimal;
-                prm_porcentajeLocal.Value = porcentajeLocal;
+                prm_porcentajeLocal.Value = objPronosticoBE.PorcentajeLocal;
 
                 prm_porcentajeEmpate = new SqlParameter();
                 prm_porcentajeEmpate.ParameterName = "@porcentajeEmpate";
                 prm_porcentajeEmpate.SqlDbType = SqlDbType.Decimal;
-                prm_porcentajeEmpate.Value = porcentajeEmpate;
+                prm_porcentajeEmpate.Value = objPronosticoBE.PorcentajeEmpate;
 
                 prm_porcentajeVisita = new SqlParameter();
                 prm_porcentajeVisita.ParameterName = "@porcentajeVisita";
                 prm_porcentajeVisita.SqlDbType = SqlDbType.Decimal;
-                prm_porcentajeVisita.Value = porcentajeVisita;
+                prm_porcentajeVisita.Value = objPronosticoBE.PorcentajeVisita;
 
-                cmd_actualizarPronostico.Parameters.Add(prm_codigoPronostico);
+                cmd_actualizarPronostico.Parameters.Add(prm_codigoPartido);
                 cmd_actualizarPronostico.Parameters.Add(prm_pronostico);
                 cmd_actualizarPronostico.Parameters.Add(prm_porcentajeLocal);
                 cmd_actualizarPronostico.Parameters.Add(prm_porcentajeEmpate);

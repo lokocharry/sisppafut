@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Net;
-
-using weka;
-
+using System.Windows.Forms;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
-using System.Xml;
 
 namespace UPC.Proyecto.SISPPAFUT
 {
@@ -829,17 +826,22 @@ namespace UPC.Proyecto.SISPPAFUT
                 }
         }
         
-        public static String Entrenamiento()//String fichero)
+        public static List<PronosticoBE> Entrenamiento()
         {
-            const int percentSplit = 90;
+            //-- Variable para almacenar los pronósticos
+            List<PronosticoBE> lstPronosticos = new List<PronosticoBE>();
+            PronosticoBE objPronosticoBE;
 
             try
             {
-                weka.core.Instances data = new weka.core.Instances(new java.io.FileReader("C:\\Users\\Michael\\Documents\\UPC\\2012\\TP1\\SISPPAFUT\\trunk\\Construcción\\UPC.Proyecto.SISPPAFUT\\UPC.Proyecto.SISPPAFUT\\bin\\Debug\\SISPPAFUT.arff"));
+                //-- Se abre el fichero que contiene la capa de entrada y saldia y los datos de prueba
+                String fic = Application.StartupPath + "\\SISPPAFUT.arff";
+                weka.core.Instances data = new weka.core.Instances(new java.io.FileReader(fic));
+                //-- Se selecciona las características de la capa de entrada
                 data.setClassIndex(data.numAttributes() - 1);
+                //-- Se instancia una red neuronal perceptrón multilayer (MLP)
                 var red_Perceptron = new weka.classifiers.functions.MultilayerPerceptron();
-
-                //-- Configuración de la Red Neuronal               
+                //-- Se configura la red neuronal con la configuración deseada
                 red_Perceptron.setGUI(false);
                 red_Perceptron.setDebug(false);
                 red_Perceptron.setAutoBuild(true);
@@ -855,53 +857,28 @@ namespace UPC.Proyecto.SISPPAFUT
                 red_Perceptron.setTrainingTime(1500);
                 red_Perceptron.setValidationSetSize(0);
                 red_Perceptron.setValidationThreshold(20);
-
-                //-- 
-
-                int trainSize = data.numInstances() *percentSplit / 100;
-                int testSize = data.numInstances() - trainSize;
+                //-- Se inicia el proceso de entrenamiento
+                int trainSize = data.numInstances();
                 weka.core.Instances train = new weka.core.Instances(data, 0, trainSize);
- 
                 red_Perceptron.buildClassifier(train);
-                int numCorrect = 0;
-                String txt = "";// red_Perceptron.toString();
-
+                //-- Se leen los resultados del entrenamiento y se almacenan en la lista de pronósticos
                 for (int i = 0; i < trainSize; i++)
                 {
-
-                }
-                for (int i = trainSize; i < data.numInstances(); i++)
-                {
+                    //-- Se instancia un pronóstico
+                    objPronosticoBE = new PronosticoBE();
                     weka.core.Instance currentInst = data.instance(i);
                     double predictedClass = red_Perceptron.classifyInstance(currentInst);
-                    if (data.instance(i).classValue().Equals(predictedClass))
-                    {
-                        numCorrect++;
-                        if(data.instance(i).classValue().Equals(0))
-                            txt = txt + i + "   " + "L" + "    " + train.classAttribute().value((int)predictedClass) + "   Correct" + "\r\n";
-                        else
-                        if(data.instance(i).classValue().Equals(1))
-                            txt = txt + i + "   " + "E" + "    " + train.classAttribute().value((int)predictedClass) + "   Correct" + "\r\n";
-                        else
-                        if(data.instance(i).classValue().Equals(2))
-                            txt = txt + i + "   " + "V" + "    " + train.classAttribute().value((int)predictedClass) + "   Correct" + "\r\n";
-                    }
-                    else
-                    {
-                        if(data.instance(i).classValue().Equals(0))
-                            txt = txt + i + "   " + "L" + "    " + train.classAttribute().value((int)predictedClass) + "   Incorrect" + "\r\n";
-                        else
-                        if(data.instance(i).classValue().Equals(1))
-                            txt = txt + i + "   " + "E" + "    " + train.classAttribute().value((int)predictedClass) + "   Incorrect" + "\r\n";
-                        else
-                        if(data.instance(i).classValue().Equals(2))
-                            txt = txt + i + "   " + "V" + "    " + train.classAttribute().value((int)predictedClass) + "   Incorrect" + "\r\n";
-                    }                    
+                    double[] resultPredict = red_Perceptron.distributionForInstance(train.instance(i));
+
+                    objPronosticoBE.Pronostico = train.classAttribute().value((int)predictedClass);
+                    objPronosticoBE.PorcentajeLocal = Convert.ToDecimal(resultPredict[0]);
+                    objPronosticoBE.PorcentajeEmpate = Convert.ToDecimal(resultPredict[1]);
+                    objPronosticoBE.PorcentajeVisita = Convert.ToDecimal(resultPredict[2]);
+                    //-- Se agrega objeto a la lista
+                    lstPronosticos.Add(objPronosticoBE);
                 }
-
                 
-                return txt;
-
+                return lstPronosticos;
             }
             catch (Exception ex)
             {
