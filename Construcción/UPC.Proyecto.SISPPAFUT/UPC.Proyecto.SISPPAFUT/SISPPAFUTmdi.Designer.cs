@@ -59,11 +59,13 @@
             this.partidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoPartidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaDePartidosSinJugarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pronosticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entrenarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDePartidosSinJugarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.apostanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verPronósticosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +90,7 @@
             this.jugadorToolStripMenuItem,
             this.partidoToolStripMenuItem1,
             this.pronosticoToolStripMenuItem,
+            this.apostanteToolStripMenuItem,
             this.toolStripSeparator1,
             this.salirToolStripMenuItem});
             this.menúToolStripMenuItem.Name = "menúToolStripMenuItem";
@@ -286,6 +289,13 @@
             this.listaDePartidosToolStripMenuItem.Text = "Lista de Partidos";
             this.listaDePartidosToolStripMenuItem.Click += new System.EventHandler(this.inListarPartidosSinJugar);
             // 
+            // listaDePartidosSinJugarToolStripMenuItem
+            // 
+            this.listaDePartidosSinJugarToolStripMenuItem.Name = "listaDePartidosSinJugarToolStripMenuItem";
+            this.listaDePartidosSinJugarToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.listaDePartidosSinJugarToolStripMenuItem.Text = "Lista de Partidos sin Jugar";
+            this.listaDePartidosSinJugarToolStripMenuItem.Click += new System.EventHandler(this.inPartidosSinJugar);
+            // 
             // pronosticoToolStripMenuItem
             // 
             this.pronosticoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -313,12 +323,20 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
-            // listaDePartidosSinJugarToolStripMenuItem
+            // apostanteToolStripMenuItem
             // 
-            this.listaDePartidosSinJugarToolStripMenuItem.Name = "listaDePartidosSinJugarToolStripMenuItem";
-            this.listaDePartidosSinJugarToolStripMenuItem.Size = new System.Drawing.Size(209, 22);
-            this.listaDePartidosSinJugarToolStripMenuItem.Text = "Lista de Partidos sin Jugar";
-            this.listaDePartidosSinJugarToolStripMenuItem.Click += new System.EventHandler(this.inPartidosSinJugar);
+            this.apostanteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.verPronósticosToolStripMenuItem});
+            this.apostanteToolStripMenuItem.Name = "apostanteToolStripMenuItem";
+            this.apostanteToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.apostanteToolStripMenuItem.Text = "Apostante";
+            // 
+            // verPronósticosToolStripMenuItem
+            // 
+            this.verPronósticosToolStripMenuItem.Name = "verPronósticosToolStripMenuItem";
+            this.verPronósticosToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.verPronósticosToolStripMenuItem.Text = "Ver Pronósticos";
+            this.verPronósticosToolStripMenuItem.Click += new System.EventHandler(this.inVerPronosticosParaApostante);
             // 
             // SISPPAFUTmdi
             // 
@@ -375,6 +393,8 @@
         private System.Windows.Forms.ToolStripMenuItem transferirJugadorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultarHistorialDeJugadorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDePartidosSinJugarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem apostanteToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem verPronósticosToolStripMenuItem;
     }
 }
 

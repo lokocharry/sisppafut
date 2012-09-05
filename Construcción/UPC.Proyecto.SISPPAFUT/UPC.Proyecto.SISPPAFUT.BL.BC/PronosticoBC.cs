@@ -53,5 +53,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public List<PronosticoBE> listar_PronosticosParaApostador()
+        {
+            try
+            {
+                PronosticoDALC objPronosticoDALC;
+                objPronosticoDALC = new PronosticoDALC();
+
+                return objPronosticoDALC.listar_PronosticosParaApostador();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

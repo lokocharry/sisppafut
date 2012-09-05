@@ -17,8 +17,8 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             SqlParameter idPartido;
             SqlParameter c_QEquiposLiga;
-            SqlParameter c_QEquiposMundial;
-            SqlParameter c_QAsistencia;
+            //SqlParameter c_QEquiposMundial;
+            //SqlParameter c_QAsistencia;
             SqlParameter c_Local_PosLiga;
             SqlParameter c_Local_Pts;
             SqlParameter c_Local;
@@ -67,7 +67,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 c_QEquiposLiga.ParameterName = "@c_QEquiposLiga";
                 c_QEquiposLiga.SqlDbType = SqlDbType.Int;
                 c_QEquiposLiga.Value = objBE.C_QEquiposLiga;
-
+                /*
                 c_QEquiposMundial = new SqlParameter();
                 c_QEquiposMundial.ParameterName = "@c_QEquiposMundial";
                 c_QEquiposMundial.SqlDbType = SqlDbType.Int;
@@ -77,7 +77,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 c_QAsistencia.ParameterName = "@c_QAsistencia";
                 c_QAsistencia.SqlDbType = SqlDbType.Int;
                 c_QAsistencia.Value = objBE.C_QAsistencia;
-
+                */
                 c_Local_PosLiga = new SqlParameter();
                 c_Local_PosLiga.ParameterName = "@c_Local_PosLiga";
                 c_Local_PosLiga.SqlDbType = SqlDbType.Int;
@@ -206,8 +206,8 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(idPartido);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_QEquiposLiga);
-                cmd_PartidoPronosticadoInsertar.Parameters.Add(c_QEquiposMundial);
-                cmd_PartidoPronosticadoInsertar.Parameters.Add(c_QAsistencia);
+                //cmd_PartidoPronosticadoInsertar.Parameters.Add(c_QEquiposMundial);
+                //cmd_PartidoPronosticadoInsertar.Parameters.Add(c_QAsistencia);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_PosLiga);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_Pts);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local);
@@ -278,8 +278,8 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
                     objBE.IdPartido = dr.GetInt32(dr.GetOrdinal("idPartido"));
                     objBE.C_QEquiposLiga = dr.GetInt32(dr.GetOrdinal("c_QEquiposLiga"));
-                    objBE.C_QEquiposMundial = dr.GetInt32(dr.GetOrdinal("c_QEquiposMundial"));
-                    objBE.C_QAsistencia = dr.GetInt32(dr.GetOrdinal("c_QAsistencia"));
+                    //objBE.C_QEquiposMundial = dr.GetInt32(dr.GetOrdinal("c_QEquiposMundial"));
+                    //objBE.C_QAsistencia = dr.GetInt32(dr.GetOrdinal("c_QAsistencia"));
                     objBE.C_Local_PosLiga = dr.GetInt32(dr.GetOrdinal("c_Local_PosLiga"));
                     objBE.C_Local_Pts = dr.GetInt32(dr.GetOrdinal("c_Local_Pts"));
                     objBE.C_Local = dr.GetBoolean(dr.GetOrdinal("c_Local"));

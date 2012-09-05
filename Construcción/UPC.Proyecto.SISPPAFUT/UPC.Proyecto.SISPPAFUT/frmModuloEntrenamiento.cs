@@ -21,7 +21,7 @@ namespace UPC.Proyecto.SISPPAFUT
         List<LigaBE> lstLigas;
         List<PronosticoBE> lstPronosticos;
         List<EquipoBE> listaEquipos;
-        List<PartidoSinJugarBE> lstPartidosPronosticados;
+        List<PartidoSinJugarBE> lstPartidosPronosticados;        
         List<PartidoSinJugarBE> lstPartidosSinJugar;
         List<PartidoPronosticadoBE> listaPartidosPronosticados;
         SuspensionBC objSuspensionBC;
@@ -50,6 +50,8 @@ namespace UPC.Proyecto.SISPPAFUT
                 dg_PronosticosDataBind();
                 objLigaBC = new LigaBC();
                 lstLigas = objLigaBC.listarLigas();
+                lstPartidosPronosticados = new List<PartidoSinJugarBE>();
+                lstPartidosSinJugar = new List<PartidoSinJugarBE>();
             }
             catch (Exception ex)
             {
@@ -79,25 +81,19 @@ namespace UPC.Proyecto.SISPPAFUT
             
             try
             {
-                /* Este método va a mostrar todos los partidos que van a entrar para pronosticar 
-                 * o para actualizar los pronósticos ya existentes con los nuevos pesos de las variables*/
-
                 //-- 1°: Se muestran los partidos que ya cuentan con un pronóstico
                 //-- 2°: Se muestran los partidos que no cuentan con un pronóstico
 
-                /* Para mostrar los partidos que ya cuentan con un pronóstico 
+                /* Para mostrar los partidos que ya cuentan con un pronóstico
                  * se empleará el SP: 'spListarPartidosPronosticados', el cual recoge todos los datos necesarios de
-                 * los partidos que están en la tabla 'ResumenPartidoPronosticado'.
+                 * los partidos que están en la tabla 'PartidoPronosticado'.
                  * Para mostrar los partidos que no cuentan con un pronóstico
                  * se empleará el SP: 'spListaPartidosSinJugar' el cual recoge todos los partidos que aún no tienen datos
                  * de como se desarrolló el encuentro.
                  */
                 objPartidoBC = new PartidoBC();
-
-                lstPartidosPronosticados = new List<PartidoSinJugarBE>();
-                lstPartidosPronosticados = objPartidoBC.lista_partidos_pronosticados();
-
-                lstPartidosSinJugar = new List<PartidoSinJugarBE>();
+                                
+                lstPartidosPronosticados = objPartidoBC.lista_partidos_pronosticados();                
                 lstPartidosSinJugar = objPartidoBC.lista_partidos_sinjugar();
 
                 objPronosticoBC = new PronosticoBC();
@@ -105,7 +101,6 @@ namespace UPC.Proyecto.SISPPAFUT
                 lstPronosticos = objPronosticoBC.listar_Pronosticos();
 
                 dg_Pronosticos.Rows.Clear();
-
                 if (lstPartidosPronosticados.Count > 0)
                 {
                     foreach(PartidoSinJugarBE cDto in lstPartidosPronosticados)
@@ -366,6 +361,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 string _data = String.Empty;
                 _data = cDto.C_QEquiposLiga + "," + 
                         //cDto.C_QEquiposMundial  + "," + 
+                        //cDto.C_QAsistencia + "," +
                         cDto.C_Local_PosLiga        + "," + 
                         cDto.C_Local_Pts + "," + cDto.C_Local + "," + cDto.C_Local_PosRankMund + "," + 
                         cDto.C_Local_GoleadorSuspendido + "," + cDto.C_Local_ArqueroSuspendido + "," + 

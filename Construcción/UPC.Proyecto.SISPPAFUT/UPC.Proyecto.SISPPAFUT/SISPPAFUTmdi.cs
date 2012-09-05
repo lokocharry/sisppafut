@@ -331,6 +331,22 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
+        private void inVerPronosticosParaApostante(object sender, EventArgs e)
+        {
+            try
+            {
+                frmApostadorVerPronosticos frm = frmApostadorVerPronosticos.Instance();
+
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
         
     }
 }

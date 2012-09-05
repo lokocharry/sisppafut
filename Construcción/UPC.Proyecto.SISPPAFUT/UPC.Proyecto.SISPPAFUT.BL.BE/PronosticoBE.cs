@@ -48,5 +48,35 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
             get { return _porcentajeVisita; }
             set { _porcentajeVisita = value; }
         }
+
+        private String equipoLocal;
+
+        public String EquipoLocal
+        {
+            get { return equipoLocal; }
+            set { equipoLocal = value; }
+        }
+        private String equipoVisita;
+
+        public String EquipoVisita
+        {
+            get { return equipoVisita; }
+            set { equipoVisita = value; }
+        }
+        private DateTime fecha;
+
+        public DateTime Fecha
+        {
+            get { return fecha; }
+            set { fecha = value; }
+        }
+
+        private int codLiga;
+
+        public int CodLiga
+        {
+            get { return codLiga; }
+            set { codLiga = value; }
+        }
     }
 }

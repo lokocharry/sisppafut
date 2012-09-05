@@ -198,5 +198,52 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
 
         }
+
+        public List<PronosticoBE> listar_PronosticosParaApostador()
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_pronosticos;
+            SqlCommand cmd_pronosticos;
+            String sqlPronosticosListar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlPronosticosListar = "spListarPronosticosParaApostar";
+                cmd_pronosticos = new SqlCommand(sqlPronosticosListar, conexion);
+                cmd_pronosticos.Connection.Open();
+                dr_pronosticos = cmd_pronosticos.ExecuteReader();
+
+                List<PronosticoBE> lista_pronosticos;
+                PronosticoBE objPronosticoBE;
+                lista_pronosticos = new List<PronosticoBE>();
+
+                while (dr_pronosticos.Read())
+                {
+                    objPronosticoBE = new PronosticoBE();
+
+                    objPronosticoBE.CodigoPronostico = dr_pronosticos.GetInt32(dr_pronosticos.GetOrdinal("CodPronostico"));
+                    objPronosticoBE.CodigoPartido = dr_pronosticos.GetInt32(dr_pronosticos.GetOrdinal("CodPartido"));
+                    objPronosticoBE.CodLiga = dr_pronosticos.GetInt32(dr_pronosticos.GetOrdinal("CodLiga"));
+                    objPronosticoBE.EquipoLocal = dr_pronosticos.GetString(dr_pronosticos.GetOrdinal("Equipo Local"));
+                    objPronosticoBE.EquipoVisita = dr_pronosticos.GetString(dr_pronosticos.GetOrdinal("Equipo Visita"));
+                    objPronosticoBE.Pronostico = dr_pronosticos.GetString(dr_pronosticos.GetOrdinal("Pronostico"));
+                    objPronosticoBE.Fecha = dr_pronosticos.GetDateTime(dr_pronosticos.GetOrdinal("Fecha"));
+
+                    lista_pronosticos.Add(objPronosticoBE);
+                }
+
+                cmd_pronosticos.Connection.Close();
+                conexion.Dispose();
+
+                return lista_pronosticos;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+
+        }
     }
 }
