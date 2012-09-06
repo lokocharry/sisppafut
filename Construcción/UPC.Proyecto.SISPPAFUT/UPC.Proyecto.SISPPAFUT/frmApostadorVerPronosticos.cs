@@ -208,12 +208,10 @@ namespace UPC.Proyecto.SISPPAFUT
                                     }
                                 }
                             }
-                            else
-                                MessageBox.Show("No hay nuevos pronósticos para mostrar.", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                            if (dg_Pronosticos.Rows.Count == 0)
+                            
+                            if (dg_Pronosticos.Rows.Count == 0 || lstPronosticos.Count == 0)
                             {
-                                MessageBox.Show("No hay nuevos pronósticos para la competición seleccionada.", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("No hay nuevos pronósticos para mostrar.", "Sistema Inteligente para Pronósticos de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                         }
                         else
@@ -229,6 +227,12 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private void inCerrar(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

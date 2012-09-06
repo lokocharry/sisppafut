@@ -58,6 +58,7 @@
             // 
             // cmbPais
             // 
+            this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPais.FormattingEnabled = true;
             this.cmbPais.Location = new System.Drawing.Point(100, 24);
             this.cmbPais.Name = "cmbPais";
@@ -85,6 +86,7 @@
             // 
             // cmbEquipo
             // 
+            this.cmbEquipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEquipo.FormattingEnabled = true;
             this.cmbEquipo.Location = new System.Drawing.Point(100, 60);
             this.cmbEquipo.Name = "cmbEquipo";
@@ -94,6 +96,7 @@
             // 
             // cmbJugador
             // 
+            this.cmbJugador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbJugador.FormattingEnabled = true;
             this.cmbJugador.Location = new System.Drawing.Point(100, 98);
             this.cmbJugador.Name = "cmbJugador";
@@ -111,6 +114,7 @@
             // 
             // cmbEquipoTransf
             // 
+            this.cmbEquipoTransf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEquipoTransf.FormattingEnabled = true;
             this.cmbEquipoTransf.Location = new System.Drawing.Point(440, 60);
             this.cmbEquipoTransf.Name = "cmbEquipoTransf";
@@ -138,6 +142,7 @@
             // 
             // cmbPaisTransf
             // 
+            this.cmbPaisTransf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPaisTransf.FormattingEnabled = true;
             this.cmbPaisTransf.Location = new System.Drawing.Point(440, 24);
             this.cmbPaisTransf.Name = "cmbPaisTransf";
@@ -177,7 +182,7 @@
             this.MinimizeBox = false;
             this.Name = "frmInsertarTransferenciaJugador";
             this.Text = "Transferencia de Jugadores";
-            this.Load += new System.EventHandler(this.frmInsertarTransferenciaJugador_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.ResumeLayout(false);
             this.PerformLayout();
 

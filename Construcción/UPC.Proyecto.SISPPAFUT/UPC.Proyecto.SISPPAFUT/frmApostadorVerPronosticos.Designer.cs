@@ -212,6 +212,7 @@
             this.MinimizeBox = false;
             this.Name = "frmApostadorVerPronosticos";
             this.Text = "Pronosticos de la semana";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             ((System.ComponentModel.ISupportInitialize)(this.dg_Pronosticos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

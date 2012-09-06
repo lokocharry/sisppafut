@@ -65,7 +65,6 @@
             this.verPronósticosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDePartidosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -269,8 +268,7 @@
             // 
             this.partidoToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoPartidoToolStripMenuItem1,
-            this.listaDePartidosToolStripMenuItem,
-            this.listaDePartidosToolStripMenuItem1});
+            this.listaDePartidosToolStripMenuItem});
             this.partidoToolStripMenuItem1.Name = "partidoToolStripMenuItem1";
             this.partidoToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.partidoToolStripMenuItem1.Text = "Partidos";
@@ -331,13 +329,6 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
-            // listaDePartidosToolStripMenuItem1
-            // 
-            this.listaDePartidosToolStripMenuItem1.Name = "listaDePartidosToolStripMenuItem1";
-            this.listaDePartidosToolStripMenuItem1.Size = new System.Drawing.Size(209, 22);
-            this.listaDePartidosToolStripMenuItem1.Text = "Lista de Partidos";
-            this.listaDePartidosToolStripMenuItem1.Click += new System.EventHandler(this.listaDePartidosToolStripMenuItem1_Click);
-            // 
             // SISPPAFUTmdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,7 +385,6 @@
         private System.Windows.Forms.ToolStripMenuItem consultarHistorialDeJugadorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem apostanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verPronósticosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listaDePartidosToolStripMenuItem1;
     }
 }
 

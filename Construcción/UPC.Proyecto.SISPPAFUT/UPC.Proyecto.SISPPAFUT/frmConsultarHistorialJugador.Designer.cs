@@ -43,9 +43,9 @@
             // 
             // btnConsultarHistorial
             // 
-            this.btnConsultarHistorial.Location = new System.Drawing.Point(179, 132);
+            this.btnConsultarHistorial.Location = new System.Drawing.Point(164, 133);
             this.btnConsultarHistorial.Name = "btnConsultarHistorial";
-            this.btnConsultarHistorial.Size = new System.Drawing.Size(121, 27);
+            this.btnConsultarHistorial.Size = new System.Drawing.Size(121, 33);
             this.btnConsultarHistorial.TabIndex = 0;
             this.btnConsultarHistorial.Text = "Consultar Historial";
             this.btnConsultarHistorial.UseVisualStyleBackColor = true;
@@ -103,10 +103,11 @@
             // 
             // cmbJugador
             // 
+            this.cmbJugador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbJugador.FormattingEnabled = true;
             this.cmbJugador.Location = new System.Drawing.Point(112, 79);
             this.cmbJugador.Name = "cmbJugador";
-            this.cmbJugador.Size = new System.Drawing.Size(188, 21);
+            this.cmbJugador.Size = new System.Drawing.Size(173, 21);
             this.cmbJugador.TabIndex = 3;
             // 
             // label2
@@ -120,10 +121,11 @@
             // 
             // cmbNacionalidad
             // 
+            this.cmbNacionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNacionalidad.FormattingEnabled = true;
             this.cmbNacionalidad.Location = new System.Drawing.Point(112, 35);
             this.cmbNacionalidad.Name = "cmbNacionalidad";
-            this.cmbNacionalidad.Size = new System.Drawing.Size(188, 21);
+            this.cmbNacionalidad.Size = new System.Drawing.Size(173, 21);
             this.cmbNacionalidad.TabIndex = 4;
             this.cmbNacionalidad.SelectedIndexChanged += new System.EventHandler(this.selectedNacionalidad);
             // 
@@ -143,6 +145,7 @@
             this.MinimizeBox = false;
             this.Name = "frmConsultarHistorialJugador";
             this.Text = "Historial de Jugador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmConsultarHistorialJugador_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistorial)).EndInit();
             this.ResumeLayout(false);

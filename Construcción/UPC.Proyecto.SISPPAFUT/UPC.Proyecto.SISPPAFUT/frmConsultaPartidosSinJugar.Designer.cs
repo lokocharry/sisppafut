@@ -100,7 +100,7 @@
             // 
             this.btn_editar_partido.Location = new System.Drawing.Point(281, 397);
             this.btn_editar_partido.Name = "btn_editar_partido";
-            this.btn_editar_partido.Size = new System.Drawing.Size(113, 23);
+            this.btn_editar_partido.Size = new System.Drawing.Size(113, 32);
             this.btn_editar_partido.TabIndex = 1;
             this.btn_editar_partido.Text = "Editar Partido";
             this.btn_editar_partido.UseVisualStyleBackColor = true;
@@ -110,13 +110,13 @@
             // 
             this.btn_editar_datos_partido.Location = new System.Drawing.Point(400, 397);
             this.btn_editar_datos_partido.Name = "btn_editar_datos_partido";
-            this.btn_editar_datos_partido.Size = new System.Drawing.Size(168, 23);
+            this.btn_editar_datos_partido.Size = new System.Drawing.Size(168, 32);
             this.btn_editar_datos_partido.TabIndex = 2;
             this.btn_editar_datos_partido.Text = "Editar Datos del Partido";
             this.btn_editar_datos_partido.UseVisualStyleBackColor = true;
             this.btn_editar_datos_partido.Click += new System.EventHandler(this.btn_editar_datos_partido_Click);
             // 
-            // frmListaPartidosSinJugar
+            // frmConsultaPartidosSinJugar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,8 +127,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmListaPartidosSinJugar";
+            this.Name = "frmConsultaPartidosSinJugar";
             this.Text = "Lista de Partidos sin Jugar";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmListaPartidosSinJugar_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_lista_partidos)).EndInit();
             this.ResumeLayout(false);
