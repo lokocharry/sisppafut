@@ -156,6 +156,12 @@
     <Compile Include="frmConsultarRankingMundial.Designer.cs">
       <DependentUpon>frmConsultarRankingMundial.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTablaPosiciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTablaPosiciones.Designer.cs">
+      <DependentUpon>frmTablaPosiciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Funciones.cs" />
     <Compile Include="RedNeuronal.cs" />
     <Compile Include="SISPPAFUTlogin.cs">
@@ -258,6 +264,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarRankingMundial.resx">
       <DependentUpon>frmConsultarRankingMundial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTablaPosiciones.resx">
+      <DependentUpon>frmTablaPosiciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SISPPAFUTlogin.resx">
       <DependentUpon>SISPPAFUTlogin.cs</DependentUpon>

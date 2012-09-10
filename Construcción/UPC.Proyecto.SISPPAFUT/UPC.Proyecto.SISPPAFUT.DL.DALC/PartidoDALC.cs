@@ -249,7 +249,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             try
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
-                sqlPartidosListar = "spListaPartidosSinJugar";
+                sqlPartidosListar = "spListarPartidosPorJugar";
                 cmd_partidos = conexion.CreateCommand();
                 cmd_partidos.CommandText = sqlPartidosListar;
                 cmd_partidos.CommandType = CommandType.StoredProcedure;

@@ -17,7 +17,7 @@ namespace UPC.Proyecto.SISPPAFUT
         List<JugadorBE> lista_jugadores;
 
         List<PaisBE> lst_paises;
-        List<EquipoBE> lst_equipos;
+        List<EquipoBE> lst_equiposTransf;
 
         int modoTransf = 0;
 
@@ -180,14 +180,14 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmbEquipoTransf.Items.Clear();
 
                 EquipoBC objEquipoBC = new EquipoBC();
-                lst_equipos = new List<EquipoBE>();
+                lst_equiposTransf = new List<EquipoBE>();
 
                 cmbEquipoTransf.Items.Add("Seleccione un país...");
 
-                lst_equipos = objEquipoBC.listarEquipos(lst_paises[cmbPaisTransf.SelectedIndex - 1].NombrePais);
-                for (int i = 0; i < lst_equipos.Count; i++)
+                lst_equiposTransf = objEquipoBC.listarEquipos(lst_paises[cmbPaisTransf.SelectedIndex - 1].NombrePais);
+                for (int i = 0; i < lst_equiposTransf.Count; i++)
                 {
-                    cmbEquipoTransf.Items.Add(lst_equipos[i].NombreEquipo);
+                    cmbEquipoTransf.Items.Add(lst_equiposTransf[i].NombreEquipo);
                 }
 
                 cmbEquipoTransf.SelectedIndex = 0;
@@ -241,7 +241,7 @@ namespace UPC.Proyecto.SISPPAFUT
                     return;
                 }
 
-                objJugadorBC.transferirJugadorNuevoEquipo(lista_jugadores[cmbJugador.SelectedIndex - 1].CodigoJugador, lista_equipos[cmbEquipoTransf.SelectedIndex - 1].CodigoEquipo);
+                objJugadorBC.transferirJugadorNuevoEquipo(lista_jugadores[cmbJugador.SelectedIndex - 1].CodigoJugador, lst_equiposTransf[cmbEquipoTransf.SelectedIndex - 1].CodigoEquipo);
 
                 cmbPais.SelectedIndex = 0;
                 cmbEquipo.Items.Clear();
