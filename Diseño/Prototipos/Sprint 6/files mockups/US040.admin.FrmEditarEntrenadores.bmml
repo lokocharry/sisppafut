@@ -2,7 +2,7 @@
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="100" y="80" w="563" h="244" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Entrenador</text>
+        <text>Editar%20Entrenador</text>
       </controlProperties>
     </control>
     <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="141" y="133" w="-1" h="-1" measuredW="59" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
@@ -17,11 +17,13 @@
     </control>
     <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="224" y="130" w="397" h="-1" measuredW="79" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
+        <state>disabled</state>
         <text/>
       </controlProperties>
     </control>
     <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="224" y="161" w="397" h="-1" measuredW="79" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
+        <state>disabled</state>
         <text/>
       </controlProperties>
     </control>
@@ -32,6 +34,7 @@
     </control>
     <control controlID="6" controlTypeID="com.balsamiq.mockups::TextInput" x="224" y="197" w="164" h="-1" measuredW="79" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
+        <state>disabled</state>
         <text/>
       </controlProperties>
     </control>

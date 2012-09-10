@@ -6,9 +6,9 @@
         <text>M%F3dulo%20de%20Entrenamiento</text>
       </controlProperties>
     </control>
-    <control controlID="4" controlTypeID="com.balsamiq.mockups::DataGrid" x="61" y="53" w="646" h="284" measuredW="409" measuredH="145" zOrder="1" locked="false" isInGroup="-1">
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::DataGrid" x="61" y="53" w="646" h="284" measuredW="421" measuredH="205" zOrder="1" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Equipo%20Loca%2C%20Equipo%20Visitante%2C%20L%28%25%29%2CE%28%25%29%2CV%28%25%29%2CPron%F3stico%0AM%E1laga%2CBarcelona%0AReal%20Betis%2C%20Athlelic%20Bilbao%0AVillareal%2C%20Espanyol%0AReal%20Madrid%2C%20Barcelona%0A%7B20C%2C20C%2C15C%2C15C%2C15C%2C15C%7D</text>
+        <text>Equipo%20Loca%2C%20Equipo%20Visitante%2C%20L%28%25%29%2CE%28%25%29%2CV%28%25%29%2CPron%F3stico%0AOsasuna%2C%20Mallorca%2C%200.987%2C%200.012%2C%200.001%2C%20L%0AAlmer%EDa%2C%20Real%20Sociedad%2C%200.456%2C%200.123%2C%200.421%2C%20LV%0AM%E1laga%2CBarcelona%0AReal%20Betis%2C%20Athlelic%20Bilbao%0AVillareal%2C%20Espanyol%0AReal%20Madrid%2C%20Barcelona%0A%7B20C%2C20C%2C15C%2C15C%2C15C%2C15C%7D</text>
       </controlProperties>
     </control>
     <control controlID="5" controlTypeID="com.balsamiq.mockups::Button" x="633" y="352" w="-1" h="-1" measuredW="74" measuredH="27" zOrder="2" locked="false" isInGroup="-1">

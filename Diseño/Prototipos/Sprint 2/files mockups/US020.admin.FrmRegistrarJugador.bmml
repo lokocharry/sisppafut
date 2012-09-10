@@ -2,7 +2,7 @@
   <controls>
     <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="98" y="39" w="592" h="324" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
       <controlProperties>
-        <text>Editar%20Jugador</text>
+        <text>Jugador</text>
       </controlProperties>
     </control>
     <control controlID="1" controlTypeID="com.balsamiq.mockups::Label" x="143" y="106" w="-1" h="-1" measuredW="59" measuredH="21" zOrder="1" locked="false" isInGroup="-1">
@@ -17,13 +17,11 @@
     </control>
     <control controlID="3" controlTypeID="com.balsamiq.mockups::TextInput" x="234" y="103" w="404" h="-1" measuredW="79" measuredH="27" zOrder="3" locked="false" isInGroup="-1">
       <controlProperties>
-        <state>disabled</state>
         <text/>
       </controlProperties>
     </control>
     <control controlID="4" controlTypeID="com.balsamiq.mockups::TextInput" x="234" y="134" w="404" h="-1" measuredW="79" measuredH="27" zOrder="4" locked="false" isInGroup="-1">
       <controlProperties>
-        <state>disabled</state>
         <text/>
       </controlProperties>
     </control>
@@ -34,7 +32,6 @@
     </control>
     <control controlID="6" controlTypeID="com.balsamiq.mockups::TextInput" x="234" y="170" w="171" h="-1" measuredW="79" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
       <controlProperties>
-        <state>disabled</state>
         <text/>
       </controlProperties>
     </control>
@@ -45,7 +42,6 @@
     </control>
     <control controlID="8" controlTypeID="com.balsamiq.mockups::DateChooser" x="505" y="171" w="133" h="-1" measuredW="90" measuredH="25" zOrder="8" locked="false" isInGroup="-1">
       <controlProperties>
-        <state>disabled</state>
         <text>%20%20/%20%20/%20%20%20%20</text>
       </controlProperties>
     </control>
@@ -56,7 +52,6 @@
     </control>
     <control controlID="10" controlTypeID="com.balsamiq.mockups::ComboBox" x="234" y="244" w="171" h="-1" measuredW="177" measuredH="23" zOrder="10" locked="false" isInGroup="-1">
       <controlProperties>
-        <state>disabled</state>
         <text>%28Seleccione%20una%20posici%F3n%29</text>
       </controlProperties>
     </control>
