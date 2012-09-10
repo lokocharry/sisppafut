@@ -1,0 +1,15 @@
+<mockup version="1.0" skin="sketch" measuredW="808" measuredH="418" mockupW="768" mockupH="400">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="40" y="18" w="768" h="400" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <close>true</close>
+        <text>Maestro/Supervisor</text>
+      </controlProperties>
+    </control>
+    <control controlID="1" controlTypeID="com.balsamiq.mockups::Menu" x="42" y="41" w="196" h="-1" measuredW="150" measuredH="52" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>M%F3dulo%20de%20Entrenamiento%20%3E%0ASalir</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>

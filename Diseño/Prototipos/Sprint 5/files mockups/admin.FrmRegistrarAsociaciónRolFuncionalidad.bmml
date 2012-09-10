@@ -1,0 +1,56 @@
+<mockup version="1.0" skin="sketch" measuredW="586" measuredH="413" mockupW="546" mockupH="395">
+  <controls>
+    <control controlID="0" controlTypeID="com.balsamiq.mockups::TitleWindow" x="40" y="18" w="546" h="395" measuredW="450" measuredH="400" zOrder="0" locked="false" isInGroup="-1">
+      <controlProperties>
+        <close>true</close>
+        <text>Asociaci%F3n%20de%20Rol%20-%20Funcionalidad</text>
+      </controlProperties>
+    </control>
+    <control controlID="2" controlTypeID="com.balsamiq.mockups::Button" x="455" y="103" w="-1" h="-1" measuredW="107" measuredH="27" zOrder="1" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Agregar%20a%20lista</text>
+      </controlProperties>
+    </control>
+    <control controlID="3" controlTypeID="com.balsamiq.mockups::Label" x="75" y="70" w="-1" h="-1" measuredW="24" measuredH="21" zOrder="2" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Rol</text>
+      </controlProperties>
+    </control>
+    <control controlID="4" controlTypeID="com.balsamiq.mockups::Label" x="75" y="106" w="-1" h="-1" measuredW="80" measuredH="21" zOrder="3" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Funcionalidad</text>
+      </controlProperties>
+    </control>
+    <control controlID="13" controlTypeID="com.balsamiq.mockups::ComboBox" x="164" y="69" w="150" h="-1" measuredW="150" measuredH="23" zOrder="4" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>--%20Seleccionar%20un%20rol%20--</text>
+      </controlProperties>
+    </control>
+    <control controlID="14" controlTypeID="com.balsamiq.mockups::ComboBox" x="164" y="105" w="275" h="-1" measuredW="213" measuredH="23" zOrder="5" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>--%20Seleccionar%20una%20funcionalidad%20--</text>
+      </controlProperties>
+    </control>
+    <control controlID="16" controlTypeID="com.balsamiq.mockups::Button" x="493" y="355" w="-1" h="-1" measuredW="69" measuredH="27" zOrder="6" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Guardar</text>
+      </controlProperties>
+    </control>
+    <control controlID="18" controlTypeID="com.balsamiq.mockups::FieldSet" x="75" y="133" w="487" h="213" measuredW="200" measuredH="170" zOrder="7" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Lista%20de%20asignaciones</text>
+      </controlProperties>
+    </control>
+    <control controlID="19" controlTypeID="com.balsamiq.mockups::DataGrid" x="93" y="168" w="454" h="129" measuredW="256" measuredH="115" zOrder="8" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Funcionalidad%2C%20Rol%2C%20Eliminar%0ARegistrar%20Equipo%2C%20triplemv11%2C%20%5Bx%5D%0ARegistrar%20Jugador%2C%20triplemv11%2C%20%5Bx%5D%0ARegistrar%20Liga%2C%20jquispe%2C%20%5Bx%5D%0A%7B20L%2C%2020L%2C%2015%7D</text>
+        <verticalScrollbar>true</verticalScrollbar>
+      </controlProperties>
+    </control>
+    <control controlID="20" controlTypeID="com.balsamiq.mockups::Button" x="469" y="304" w="-1" h="-1" measuredW="78" measuredH="27" zOrder="9" locked="false" isInGroup="-1">
+      <controlProperties>
+        <text>Actualizar</text>
+      </controlProperties>
+    </control>
+  </controls>
+</mockup>
