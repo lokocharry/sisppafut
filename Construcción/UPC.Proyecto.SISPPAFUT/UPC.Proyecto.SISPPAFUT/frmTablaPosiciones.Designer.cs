@@ -91,9 +91,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(587, 22);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
+            this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Temporada";
+            this.label3.Text = "Liga";
             // 
             // comboBox2
             // 

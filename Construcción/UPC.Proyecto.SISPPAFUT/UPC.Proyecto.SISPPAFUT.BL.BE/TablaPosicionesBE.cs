@@ -28,6 +28,9 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
             get { return CodEquipo; }
             set { CodEquipo = value; }
         }
+
+
+
         private int PuntosLocal;
 
         public int puntosLocal
