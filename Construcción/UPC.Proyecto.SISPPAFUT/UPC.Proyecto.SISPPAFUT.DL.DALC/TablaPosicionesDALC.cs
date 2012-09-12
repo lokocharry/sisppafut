@@ -181,7 +181,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             try
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
-                sqlTabla = "spPosicionEquipoTabla";
+                sqlTabla = "spListarTablaPosiciones";
                 cmd = conexion.CreateCommand();
                 cmd.CommandText = sqlTabla;
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -206,24 +206,30 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                     objTablaBE = new TablaPosicionesBE();
 
                     objTablaBE.codEquipo = dr.GetInt32(dr.GetOrdinal("CodEquipo"));
+                    objTablaBE.NombreEquipo = dr.GetString(dr.GetOrdinal("Nombre"));
                     objTablaBE.codLiga = dr.GetInt32(dr.GetOrdinal("CodLiga"));
                     objTablaBE.codTabla = dr.GetInt32(dr.GetOrdinal("CodTabla"));
-                    objTablaBE.derrotasLocal = dr.GetInt32(dr.GetOrdinal("DerrotasLocal"));
-                    objTablaBE.derrotasVisita = dr.GetInt32(dr.GetOrdinal("DerrotasVisita"));
-                    objTablaBE.empatesLocal = dr.GetInt32(dr.GetOrdinal("EmpatesLocal"));
-                    objTablaBE.empatesVisita = dr.GetInt32(dr.GetOrdinal("EmpatesVisita"));
-                    objTablaBE.golesAnotadosLocal = dr.GetInt32(dr.GetOrdinal("GolesAnotadosLocal"));
-                    objTablaBE.golesAnotadosVisita = dr.GetInt32(dr.GetOrdinal("GolesAnotadosVisita"));
-                    objTablaBE.golesEncajadosLocal = dr.GetInt32(dr.GetOrdinal("GolesEncajadosLocal"));
-                    objTablaBE.golesEncajadosVisita = dr.GetInt32(dr.GetOrdinal("GolesEncajadosVisita"));
+                    objTablaBE.posicion = dr.GetInt64(dr.GetOrdinal("Posición"));
+                    objTablaBE.PuntosGeneral = dr.GetInt32(dr.GetOrdinal("Puntos"));
+                    objTablaBE.PartidosJugadosTotal = dr.GetInt32(dr.GetOrdinal("PJ"));
+                    objTablaBE.VictoriasTotal = dr.GetInt32(dr.GetOrdinal("G"));
+                    objTablaBE.EmpatesTotal = dr.GetInt32(dr.GetOrdinal("E"));
+                    objTablaBE.DerrotasTotal = dr.GetInt32(dr.GetOrdinal("P"));
+                    objTablaBE.GolesAnotadosTotal = dr.GetInt32(dr.GetOrdinal("GA"));
+                    objTablaBE.GolesEncajadosTotal = dr.GetInt32(dr.GetOrdinal("GE"));
                     objTablaBE.partidosJugadosLocal = dr.GetInt32(dr.GetOrdinal("PartidosJugadosLocal"));
-                    objTablaBE.partidosJugadosVisita = dr.GetInt32(dr.GetOrdinal("PartidosJugadosVisita"));
-                    objTablaBE.posicion = dr.GetInt32(dr.GetOrdinal("Posicion"));
-                    objTablaBE.puntosLocal = dr.GetInt32(dr.GetOrdinal("PuntosLocal"));
-                    objTablaBE.puntosVisita = dr.GetInt32(dr.GetOrdinal("PuntosVisita"));
                     objTablaBE.victoriasLocal = dr.GetInt32(dr.GetOrdinal("VictoriasLocal"));
+                    objTablaBE.empatesLocal = dr.GetInt32(dr.GetOrdinal("EmpatesLocal"));
+                    objTablaBE.derrotasLocal = dr.GetInt32(dr.GetOrdinal("DerrotasLocal"));
+                    objTablaBE.golesAnotadosLocal = dr.GetInt32(dr.GetOrdinal("GolesAnotadosLocal"));
+                    objTablaBE.golesEncajadosLocal = dr.GetInt32(dr.GetOrdinal("GolesEncajadosLocal"));
+                    objTablaBE.partidosJugadosVisita = dr.GetInt32(dr.GetOrdinal("PartidosJugadosVisita"));
                     objTablaBE.victoriasVisita = dr.GetInt32(dr.GetOrdinal("VictoriasVisita"));
-
+                    objTablaBE.empatesVisita = dr.GetInt32(dr.GetOrdinal("EmpatesVisita"));
+                    objTablaBE.derrotasVisita = dr.GetInt32(dr.GetOrdinal("DerrotasVisita"));     
+                    objTablaBE.golesAnotadosVisita = dr.GetInt32(dr.GetOrdinal("GolesAnotadosVisita"));                    
+                    objTablaBE.golesEncajadosVisita = dr.GetInt32(dr.GetOrdinal("GolesEncajadosVisita"));    
+                    
                     lstTablaLiga.Add(objTablaBE);
                 }
 

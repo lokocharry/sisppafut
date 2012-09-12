@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cmbPais = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.cmbCompeticion = new System.Windows.Forms.ComboBox();
+            this.cmbLiga = new System.Windows.Forms.ComboBox();
+            this.dgvTablaPosiciones = new System.Windows.Forms.DataGridView();
             this.Pos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pts = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,7 +57,8 @@
             this.GAV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GEV = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnMostrar = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTablaPosiciones)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -69,13 +70,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "País";
             // 
-            // comboBox1
+            // cmbPais
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(49, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(152, 21);
-            this.comboBox1.TabIndex = 1;
+            this.cmbPais.FormattingEnabled = true;
+            this.cmbPais.Location = new System.Drawing.Point(49, 19);
+            this.cmbPais.Name = "cmbPais";
+            this.cmbPais.Size = new System.Drawing.Size(152, 21);
+            this.cmbPais.TabIndex = 1;
+            this.cmbPais.SelectedIndexChanged += new System.EventHandler(this.inSeleccionarPais);
             // 
             // label2
             // 
@@ -89,34 +91,36 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(587, 22);
+            this.label3.Location = new System.Drawing.Point(532, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Liga";
             // 
-            // comboBox2
+            // cmbCompeticion
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(287, 19);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(294, 21);
-            this.comboBox2.TabIndex = 2;
+            this.cmbCompeticion.FormattingEnabled = true;
+            this.cmbCompeticion.Location = new System.Drawing.Point(287, 19);
+            this.cmbCompeticion.Name = "cmbCompeticion";
+            this.cmbCompeticion.Size = new System.Drawing.Size(237, 21);
+            this.cmbCompeticion.TabIndex = 2;
+            this.cmbCompeticion.SelectedIndexChanged += new System.EventHandler(this.inSeleccionarCompeticion);
             // 
-            // comboBox3
+            // cmbLiga
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(658, 19);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(166, 21);
-            this.comboBox3.TabIndex = 3;
+            this.cmbLiga.FormattingEnabled = true;
+            this.cmbLiga.Location = new System.Drawing.Point(576, 19);
+            this.cmbLiga.Name = "cmbLiga";
+            this.cmbLiga.Size = new System.Drawing.Size(166, 21);
+            this.cmbLiga.TabIndex = 3;
+            this.cmbLiga.SelectedIndexChanged += new System.EventHandler(this.inSeleccionarLiga);
             // 
-            // dataGridView1
+            // dgvTablaPosiciones
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTablaPosiciones.AllowUserToAddRows = false;
+            this.dgvTablaPosiciones.AllowUserToDeleteRows = false;
+            this.dgvTablaPosiciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTablaPosiciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Pos,
             this.Equipo,
             this.Pts,
@@ -138,11 +142,11 @@
             this.PV,
             this.GAV,
             this.GEV});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 76);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(815, 352);
-            this.dataGridView1.TabIndex = 4;
+            this.dgvTablaPosiciones.Location = new System.Drawing.Point(12, 76);
+            this.dgvTablaPosiciones.Name = "dgvTablaPosiciones";
+            this.dgvTablaPosiciones.ReadOnly = true;
+            this.dgvTablaPosiciones.Size = new System.Drawing.Size(815, 352);
+            this.dgvTablaPosiciones.TabIndex = 4;
             // 
             // Pos
             // 
@@ -301,16 +305,27 @@
             this.label4.Text = "|-------------------- GENERAL -------------------|----------------------- LOCAL -" +
                 "---------------------|-------------------- VISITANTE -------------------|";
             // 
+            // btnMostrar
+            // 
+            this.btnMostrar.Location = new System.Drawing.Point(754, 17);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(75, 23);
+            this.btnMostrar.TabIndex = 6;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
             // frmTablaPosiciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(841, 447);
+            this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.dgvTablaPosiciones);
+            this.Controls.Add(this.cmbLiga);
+            this.Controls.Add(this.cmbCompeticion);
+            this.Controls.Add(this.cmbPais);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -319,7 +334,8 @@
             this.Name = "frmTablaPosiciones";
             this.ShowIcon = false;
             this.Text = "Tabla de Posiciones";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmTablaPosiciones_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTablaPosiciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -328,12 +344,12 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cmbPais;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.ComboBox cmbCompeticion;
+        private System.Windows.Forms.ComboBox cmbLiga;
+        private System.Windows.Forms.DataGridView dgvTablaPosiciones;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Equipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pts;
@@ -356,5 +372,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn GAV;
         private System.Windows.Forms.DataGridViewTextBoxColumn GEV;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnMostrar;
     }
 }

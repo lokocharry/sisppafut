@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Numeric;
+using System.Globalization;
 
 namespace UPC.Proyecto.SISPPAFUT.BL.BE
 {
@@ -29,7 +31,69 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
             set { CodEquipo = value; }
         }
 
+        private String nombreEquipo;
 
+        public String NombreEquipo
+        {
+            get { return nombreEquipo; }
+            set { nombreEquipo = value; }
+        }
+
+        private int puntosGeneral;
+
+        public int PuntosGeneral
+        {
+            get { return puntosGeneral; }
+            set { puntosGeneral = value; }
+        }
+
+        private int partidosJugadosTotal;
+
+        public int PartidosJugadosTotal
+        {
+            get { return partidosJugadosTotal; }
+            set { partidosJugadosTotal = value; }
+        }
+
+        private int victoriasTotal;
+
+        public int VictoriasTotal
+        {
+            get { return victoriasTotal; }
+            set { victoriasTotal = value; }
+        }
+
+        private int empatesTotal;
+
+        public int EmpatesTotal
+        {
+            get { return empatesTotal; }
+            set { empatesTotal = value; }
+        }
+
+        private int derrotasTotal;
+
+        public int DerrotasTotal
+        {
+            get { return derrotasTotal; }
+            set { derrotasTotal = value; }
+        }
+
+        private int golesAnotadosTotal;
+
+        public int GolesAnotadosTotal
+        {
+            get { return golesAnotadosTotal; }
+            set { golesAnotadosTotal = value; }
+        }
+
+        private int golesEncajadosTotal;
+
+        public int GolesEncajadosTotal
+        {
+            get { return golesEncajadosTotal; }
+            set { golesEncajadosTotal = value; }
+        }
 
         private int PuntosLocal;
 
@@ -130,9 +194,9 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
             set { GolesEncajadosVisita = value; }
         }
 
-        private int Posicion;
+        private Int64 Posicion;
 
-        public int posicion
+        public Int64 posicion
         {
             get { return Posicion; }
             set { Posicion = value; }

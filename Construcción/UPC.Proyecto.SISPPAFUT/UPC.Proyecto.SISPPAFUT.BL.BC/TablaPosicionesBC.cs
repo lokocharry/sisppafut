@@ -54,9 +54,9 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
-        public int ConsultarPosicionEquipoTabla(int codLiga, int codEquipo)
+        public Int64 ConsultarPosicionEquipoTabla(int codLiga, int codEquipo)
         {
-            int pos = 0;
+            Int64 pos = 0;
 
             List<TablaPosicionesBE> lstTabla;
 

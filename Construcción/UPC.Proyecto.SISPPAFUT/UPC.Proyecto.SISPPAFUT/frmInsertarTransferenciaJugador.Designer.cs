@@ -183,6 +183,7 @@
             this.Name = "frmInsertarTransferenciaJugador";
             this.Text = "Transferencia de Jugadores";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
+            this.Load += new System.EventHandler(this.frmInsertarTransferenciaJugador_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

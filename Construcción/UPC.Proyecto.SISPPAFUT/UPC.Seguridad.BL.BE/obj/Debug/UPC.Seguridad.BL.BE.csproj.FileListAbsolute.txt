@@ -3,3 +3,8 @@ C:\Users\rcordero\Desktop\Universidad\20122\taller2\sandbox\SISPPAFUT\Construcci
 C:\Users\rcordero\Desktop\Universidad\20122\taller2\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\rcordero\Desktop\Universidad\20122\taller2\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\UPC.Seguridad.BL.BE.dll
 C:\Users\rcordero\Desktop\Universidad\20122\taller2\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\UPC.Seguridad.BL.BE.pdb
+C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\bin\Debug\UPC.Seguridad.BL.BE.dll
+C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\bin\Debug\UPC.Seguridad.BL.BE.pdb
+C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\UPC.Seguridad.BL.BE.dll
+C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\UPC.Seguridad.BL.BE.pdb

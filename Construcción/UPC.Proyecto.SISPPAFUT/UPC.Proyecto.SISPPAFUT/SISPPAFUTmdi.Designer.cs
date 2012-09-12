@@ -65,6 +65,7 @@
             this.verPronósticosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tablaDePosicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -129,7 +130,8 @@
             // ligasToolStripMenuItem
             // 
             this.ligasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevaLigaToolStripMenuItem});
+            this.nuevaLigaToolStripMenuItem,
+            this.tablaDePosicionesToolStripMenuItem});
             this.ligasToolStripMenuItem.Name = "ligasToolStripMenuItem";
             this.ligasToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.ligasToolStripMenuItem.Text = "Ligas";
@@ -137,7 +139,7 @@
             // nuevaLigaToolStripMenuItem
             // 
             this.nuevaLigaToolStripMenuItem.Name = "nuevaLigaToolStripMenuItem";
-            this.nuevaLigaToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.nuevaLigaToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.nuevaLigaToolStripMenuItem.Text = "Nueva Liga";
             this.nuevaLigaToolStripMenuItem.Click += new System.EventHandler(this.inNuevaLiga);
             // 
@@ -329,6 +331,13 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
+            // tablaDePosicionesToolStripMenuItem
+            // 
+            this.tablaDePosicionesToolStripMenuItem.Name = "tablaDePosicionesToolStripMenuItem";
+            this.tablaDePosicionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.tablaDePosicionesToolStripMenuItem.Text = "Tabla de Posiciones";
+            this.tablaDePosicionesToolStripMenuItem.Click += new System.EventHandler(this.tablaDePosicionesToolStripMenuItem_Click);
+            // 
             // SISPPAFUTmdi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -385,6 +394,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultarHistorialDeJugadorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem apostanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verPronósticosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tablaDePosicionesToolStripMenuItem;
     }
 }
 

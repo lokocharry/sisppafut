@@ -345,6 +345,22 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private void tablaDePosicionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmTablaPosiciones frm = frmTablaPosiciones.Instance();
+
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }        
     }
 }
