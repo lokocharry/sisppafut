@@ -1,7 +1,7 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spCreatePartido]    Script Date: 04/21/2012 22:54:20 ******/
+/****** Object:  StoredProcedure [dbo].[spCreatePartido]    Script Date: 09/14/2012 17:35:41 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -16,7 +16,7 @@ CREATE PROCEDURE [dbo].[spCreatePartido]
            ,@CodEstadio int
            --,@GolesLocal int
            --,@GolesVisita int
-           ,@Fecha date
+           ,@Fecha datetime
 )
 AS
 BEGIN
