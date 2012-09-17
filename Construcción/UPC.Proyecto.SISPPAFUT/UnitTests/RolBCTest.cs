@@ -74,7 +74,7 @@ namespace UnitTests
             string NombreRol = "Administrador del Sistema";
             string ClaveRol = "admin";
             string DescripcionRol = "El administrador del sistema puede gestionar toda la información";
-            int expected = 1; 
+            int expected = -1; 
             int actual;
             actual = target.Insertar_Rol(NombreRol, ClaveRol, DescripcionRol);
             Assert.AreEqual(expected, actual);

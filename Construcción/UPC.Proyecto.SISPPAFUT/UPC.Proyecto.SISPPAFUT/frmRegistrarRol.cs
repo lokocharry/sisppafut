@@ -51,6 +51,11 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void frmRegistrarRol_Load(object sender, EventArgs e)
         {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
             if (ValidarCampos() == false)
             {
                 MessageBox.Show("Complete los campos correctamente");
@@ -73,11 +78,17 @@ namespace UPC.Proyecto.SISPPAFUT
                 String Clave = txtClaveRol.Text;
                 String Descripcion = txtDescripcion.Text;
 
-                objRolBC.Insertar_Rol(Nombre, Clave, Descripcion);
+                int Cantidad = objRolBC.Insertar_Rol(Nombre, Clave, Descripcion);
 
-                MessageBox.Show("Se registró el rol satisfactoriamente");
-
-                LimpiarCampos();
+                if (Cantidad > 0)
+                {
+                    MessageBox.Show("Se registró el rol satisfactoriamente");
+                    LimpiarCampos();
+                }
+                else if (Cantidad == -1)
+                {
+                    MessageBox.Show("El rol ingresado ya existe");
+                }
             }
             catch (Exception ex)
             {

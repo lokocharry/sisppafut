@@ -58,11 +58,17 @@ namespace UPC.Proyecto.SISPPAFUT
 
                 objFuncionalidadBC = new FuncionalidadBC();
 
-                objFuncionalidadBC.Insertar_Funcionalidad(Nombre, Descripcion);
+                int Cantidad = objFuncionalidadBC.Insertar_Funcionalidad(Nombre, Descripcion);
 
-                MessageBox.Show("Se registró la funcionalidad correctamente");
+                if (Cantidad > 0)
+                { 
+                    MessageBox.Show("Se registró la funcionalidad correctamente");
+                    LimpiarCampos();
+                }
+                else if(Cantidad == -1)
+                    MessageBox.Show("La funcionalidad ingresada ya existe");
 
-                LimpiarCampos();
+
             }
             catch (Exception ex)
             {

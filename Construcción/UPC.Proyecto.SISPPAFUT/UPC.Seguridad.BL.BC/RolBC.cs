@@ -17,6 +17,11 @@ namespace UPC.Seguridad.BL.BC
 
             try
             {
+                int Cantidad = Verificar_ExisteRol(NombreRol);
+
+                if (Cantidad > 0)
+                    return -1;
+
                 objRolBE = new RolBE();
                 objRolBE.NombreRol = NombreRol;
                 objRolBE.ClaveRol = ClaveRol;
@@ -24,6 +29,37 @@ namespace UPC.Seguridad.BL.BC
 
                 objRolDALC = new RolDALC();
                 return objRolDALC.insertar_rol(objRolBE);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int Verificar_ExisteRol(String NombreRol)
+        {
+            RolDALC objRol;
+
+            try
+            {
+                objRol = new RolDALC();
+
+                return objRol.verificar_existeRol(NombreRol);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public List<RolBE> Listar_roles()
+        {
+            RolDALC objRolDALC;
+
+            try
+            {
+                objRolDALC = new RolDALC();
+                return objRolDALC.listar_roles();
             }
             catch (Exception)
             {

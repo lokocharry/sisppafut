@@ -87,6 +87,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RankingEquipoBCTest.cs" />
     <Compile Include="RolBCTest.cs" />
+    <Compile Include="RolXFuncionalidadBCTest.cs" />
+    <Compile Include="RolXFuncionalidadDALCTest.cs" />
     <Compile Include="SuspensionBCTest.cs" />
     <Compile Include="TablaPosicionesBCTest.cs" />
   </ItemGroup>

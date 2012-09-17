@@ -83,9 +83,23 @@ namespace UnitTests
             FuncionalidadBC target = new FuncionalidadBC();
             string NombreFuncionalidad = "Gestión de Ligas";
             string DescripcionFuncionalidad = "Mediante esta funcionalidad se pueden administrar las ligas en el sistema";
-            int expected = 1; 
+            int expected = -1; 
             int actual;
             actual = target.Insertar_Funcionalidad(NombreFuncionalidad, DescripcionFuncionalidad);
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        ///A test for Verificar_ExisteFuncionalidad
+        ///</summary>
+        [TestMethod()]
+        public void Verificar_ExisteFuncionalidadTest()
+        {
+            FuncionalidadBC target = new FuncionalidadBC();
+            string NombreFuncionalidad = "Gestión de Ligas";
+            int expected = 1;
+            int actual;
+            actual = target.Verificar_ExisteFuncionalidad(NombreFuncionalidad);
             Assert.AreEqual(expected, actual);
         }
     }

@@ -162,6 +162,12 @@
     <Compile Include="frmConsultarRankingMundial.Designer.cs">
       <DependentUpon>frmConsultarRankingMundial.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistrarAsociacionRolFuncionalidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarAsociacionRolFuncionalidad.Designer.cs">
+      <DependentUpon>frmRegistrarAsociacionRolFuncionalidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegistrarFuncionalidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarRankingMundial.resx">
       <DependentUpon>frmConsultarRankingMundial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarAsociacionRolFuncionalidad.resx">
+      <DependentUpon>frmRegistrarAsociacionRolFuncionalidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarFuncionalidad.resx">
       <DependentUpon>frmRegistrarFuncionalidad.cs</DependentUpon>

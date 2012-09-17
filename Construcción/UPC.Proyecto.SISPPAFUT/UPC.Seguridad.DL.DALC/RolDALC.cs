@@ -85,5 +85,119 @@ namespace UPC.Seguridad.DL.DALC
             }
 
         }
+
+        public int verificar_existeRol(String nombreRol)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_rol = null;
+            SqlDataReader dr_rol = null;
+            SqlParameter prm_nombreRol;
+
+            String sqlrolverificar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+
+                sqlrolverificar = "spVerificarRolExiste";
+
+                cmd_rol = new SqlCommand(sqlrolverificar, conexion);
+                cmd_rol.CommandType = CommandType.StoredProcedure;
+
+                prm_nombreRol = new SqlParameter();
+                prm_nombreRol.ParameterName = "@nombre";
+                prm_nombreRol.SqlDbType = SqlDbType.VarChar;
+                prm_nombreRol.Size = 30;
+                prm_nombreRol.Value = nombreRol;
+
+                cmd_rol.Parameters.Add(prm_nombreRol);
+
+                cmd_rol.Connection.Open();
+                dr_rol = cmd_rol.ExecuteReader();
+
+                int Cantidad = 0;
+
+                while (dr_rol.Read())
+                {
+                    Cantidad = dr_rol.GetInt32(dr_rol.GetOrdinal("Cantidad"));
+                }
+
+                cmd_rol.Connection.Close();
+                conexion.Dispose();
+
+                return Cantidad;
+
+            }
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_rol.Connection.Close();
+                conexion.Dispose();
+            }
+        }
+
+        public List<RolBE> listar_roles()
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_rol = null;
+            SqlDataReader dr_rol = null;
+
+            String sql_listarRoles;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+
+                sql_listarRoles = "spListarRoles";
+
+                cmd_rol = new SqlCommand(sql_listarRoles, conexion);
+                cmd_rol.CommandType = CommandType.StoredProcedure;
+
+                cmd_rol.Connection.Open();
+                dr_rol = cmd_rol.ExecuteReader();
+
+                List<RolBE> lst_rol = new List<RolBE>();
+
+                while (dr_rol.Read())
+                {
+                    RolBE objRolBE = new RolBE();
+
+                    objRolBE.idRol = dr_rol.GetInt32(dr_rol.GetOrdinal("idRol"));
+                    objRolBE.NombreRol = dr_rol.GetString(dr_rol.GetOrdinal("nombreRol"));
+
+                    lst_rol.Add(objRolBE);
+                }
+
+                cmd_rol.Connection.Close();
+                conexion.Dispose();
+
+                return lst_rol;
+
+            }
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_rol.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }

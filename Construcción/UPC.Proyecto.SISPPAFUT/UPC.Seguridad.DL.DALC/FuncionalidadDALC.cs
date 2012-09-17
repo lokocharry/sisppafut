@@ -77,5 +77,119 @@ namespace UPC.Seguridad.DL.DALC
             }
 
         }
+
+        public int verificar_existeFuncionalidad(String nombreFuncionalidad)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_funcionalidad = null;
+            SqlDataReader dr_funcionalidad = null;
+            SqlParameter prm_nombreFuncionalidad;
+
+            String sqlFuncionalidadInsertar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+
+                sqlFuncionalidadInsertar = "spVerificarFuncionalidadExiste";
+
+                cmd_funcionalidad = new SqlCommand(sqlFuncionalidadInsertar, conexion);
+                cmd_funcionalidad.CommandType = CommandType.StoredProcedure;
+
+                prm_nombreFuncionalidad = new SqlParameter();
+                prm_nombreFuncionalidad.ParameterName = "@nombre";
+                prm_nombreFuncionalidad.SqlDbType = SqlDbType.VarChar;
+                prm_nombreFuncionalidad.Size = 50;
+                prm_nombreFuncionalidad.Value = nombreFuncionalidad;
+
+                cmd_funcionalidad.Parameters.Add(prm_nombreFuncionalidad);
+
+                cmd_funcionalidad.Connection.Open();
+                dr_funcionalidad = cmd_funcionalidad.ExecuteReader();
+
+                int Cantidad = 0;
+
+                while (dr_funcionalidad.Read())
+                {
+                    Cantidad = dr_funcionalidad.GetInt32(dr_funcionalidad.GetOrdinal("Cantidad"));
+                }
+
+                cmd_funcionalidad.Connection.Close();
+                conexion.Dispose();
+
+                return Cantidad;
+
+            }
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_funcionalidad.Connection.Close();
+                conexion.Dispose();
+            }
+        }
+
+        public List<FuncionalidadBE> listar_Funcionalid()
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_funcionalidad = null;
+            SqlDataReader dr_funcionalidad = null;
+
+            String sql_listarfuncionalidad;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+
+                sql_listarfuncionalidad = "spListarFuncionalidades";
+
+                cmd_funcionalidad = new SqlCommand(sql_listarfuncionalidad, conexion);
+                cmd_funcionalidad.CommandType = CommandType.StoredProcedure;
+
+                cmd_funcionalidad.Connection.Open();
+                dr_funcionalidad = cmd_funcionalidad.ExecuteReader();
+
+                List<FuncionalidadBE> lst_func = new List<FuncionalidadBE>();
+
+                while (dr_funcionalidad.Read())
+                {
+                    FuncionalidadBE objFuncionalidadBE = new FuncionalidadBE();
+
+                    objFuncionalidadBE.idFuncionalidad = dr_funcionalidad.GetInt32(dr_funcionalidad.GetOrdinal("idFuncionalidad"));
+                    objFuncionalidadBE.NombreFuncionalidad = dr_funcionalidad.GetString(dr_funcionalidad.GetOrdinal("nombreFuncionalidad"));
+
+                    lst_func.Add(objFuncionalidadBE);
+                }
+
+                cmd_funcionalidad.Connection.Close();
+                conexion.Dispose();
+
+                return lst_func;
+
+            }
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+
+                throw;
+            }
+
+            finally
+            {
+                cmd_funcionalidad.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }

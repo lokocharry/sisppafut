@@ -40,6 +40,7 @@
             this.nuevaCompeticiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ligasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaLigaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tablaDePosicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.estadiosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoEstadioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.equiposToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,8 @@
             this.verPronósticosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tablaDePosicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.funcXRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,6 +93,7 @@
             this.partidoToolStripMenuItem1,
             this.pronosticoToolStripMenuItem,
             this.apostanteToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.toolStripSeparator1,
             this.salirToolStripMenuItem});
             this.menúToolStripMenuItem.Name = "menúToolStripMenuItem";
@@ -102,7 +105,7 @@
             this.paisesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarToolStripMenuItem});
             this.paisesToolStripMenuItem.Name = "paisesToolStripMenuItem";
-            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.paisesToolStripMenuItem.Text = "Paises";
             // 
             // registrarToolStripMenuItem
@@ -117,7 +120,7 @@
             this.competicionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevaCompeticiónToolStripMenuItem});
             this.competicionesToolStripMenuItem.Name = "competicionesToolStripMenuItem";
-            this.competicionesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.competicionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.competicionesToolStripMenuItem.Text = "Competiciones";
             // 
             // nuevaCompeticiónToolStripMenuItem
@@ -133,7 +136,7 @@
             this.nuevaLigaToolStripMenuItem,
             this.tablaDePosicionesToolStripMenuItem});
             this.ligasToolStripMenuItem.Name = "ligasToolStripMenuItem";
-            this.ligasToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.ligasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.ligasToolStripMenuItem.Text = "Ligas";
             // 
             // nuevaLigaToolStripMenuItem
@@ -143,12 +146,19 @@
             this.nuevaLigaToolStripMenuItem.Text = "Nueva Liga";
             this.nuevaLigaToolStripMenuItem.Click += new System.EventHandler(this.inNuevaLiga);
             // 
+            // tablaDePosicionesToolStripMenuItem
+            // 
+            this.tablaDePosicionesToolStripMenuItem.Name = "tablaDePosicionesToolStripMenuItem";
+            this.tablaDePosicionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.tablaDePosicionesToolStripMenuItem.Text = "Tabla de Posiciones";
+            this.tablaDePosicionesToolStripMenuItem.Click += new System.EventHandler(this.tablaDePosicionesToolStripMenuItem_Click);
+            // 
             // estadiosToolStripMenuItem
             // 
             this.estadiosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoEstadioToolStripMenuItem});
             this.estadiosToolStripMenuItem.Name = "estadiosToolStripMenuItem";
-            this.estadiosToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.estadiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.estadiosToolStripMenuItem.Text = "Estadios";
             // 
             // nuevoEstadioToolStripMenuItem
@@ -169,7 +179,7 @@
             this.estadísticasDeEquipoToolStripMenuItem,
             this.toolStripSeparator2});
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
-            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.equiposToolStripMenuItem.Text = "Equipos";
             // 
             // nuevoEquipoToolStripMenuItem
@@ -228,7 +238,7 @@
             this.transferirJugadorToolStripMenuItem,
             this.consultarHistorialDeJugadorToolStripMenuItem});
             this.jugadorToolStripMenuItem.Name = "jugadorToolStripMenuItem";
-            this.jugadorToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.jugadorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.jugadorToolStripMenuItem.Text = "Jugadores";
             // 
             // nuevoJugadorToolStripMenuItem
@@ -272,7 +282,7 @@
             this.nuevoPartidoToolStripMenuItem1,
             this.listaDePartidosToolStripMenuItem});
             this.partidoToolStripMenuItem1.Name = "partidoToolStripMenuItem1";
-            this.partidoToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
+            this.partidoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.partidoToolStripMenuItem1.Text = "Partidos";
             // 
             // nuevoPartidoToolStripMenuItem1
@@ -294,7 +304,7 @@
             this.pronosticoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.entrenarSistemaToolStripMenuItem});
             this.pronosticoToolStripMenuItem.Name = "pronosticoToolStripMenuItem";
-            this.pronosticoToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.pronosticoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.pronosticoToolStripMenuItem.Text = "Pronostico";
             // 
             // entrenarSistemaToolStripMenuItem
@@ -309,7 +319,7 @@
             this.apostanteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verPronósticosToolStripMenuItem});
             this.apostanteToolStripMenuItem.Name = "apostanteToolStripMenuItem";
-            this.apostanteToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.apostanteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.apostanteToolStripMenuItem.Text = "Apostante";
             // 
             // verPronósticosToolStripMenuItem
@@ -322,21 +332,30 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
-            // tablaDePosicionesToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.tablaDePosicionesToolStripMenuItem.Name = "tablaDePosicionesToolStripMenuItem";
-            this.tablaDePosicionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.tablaDePosicionesToolStripMenuItem.Text = "Tabla de Posiciones";
-            this.tablaDePosicionesToolStripMenuItem.Click += new System.EventHandler(this.tablaDePosicionesToolStripMenuItem_Click);
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.funcXRolToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
+            this.toolStripMenuItem1.Text = "Seguridad";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
+            // funcXRolToolStripMenuItem
+            // 
+            this.funcXRolToolStripMenuItem.Name = "funcXRolToolStripMenuItem";
+            this.funcXRolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.funcXRolToolStripMenuItem.Text = "FuncXRol";
+            this.funcXRolToolStripMenuItem.Click += new System.EventHandler(this.funcXRolToolStripMenuItem_Click);
             // 
             // SISPPAFUTmdi
             // 
@@ -395,6 +414,8 @@
         private System.Windows.Forms.ToolStripMenuItem apostanteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verPronósticosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tablaDePosicionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem funcXRolToolStripMenuItem;
     }
 }
 
