@@ -28,6 +28,22 @@ namespace UPC.Seguridad.DL.DALC
 
                 cmd_RolAsignar = new SqlCommand(sqlRolAsignar, conexion);
                 cmd_RolAsignar.CommandType = CommandType.StoredProcedure;
+
+                prm_CodigoUsuario = new SqlParameter();
+                prm_CodigoUsuario.ParameterName = "@idUsuario";
+                prm_CodigoUsuario.SqlDbType = SqlDbType.Int;
+                prm_CodigoUsuario.Value = codUsuario;
+
+                prm_CodigoRol = new SqlParameter();
+                prm_CodigoRol.ParameterName = "@idRol";
+                prm_CodigoRol.SqlDbType = SqlDbType.Int;
+                prm_CodigoRol.Value = codRol;
+
+                cmd_RolAsignar.Parameters.Add(prm_CodigoRol);
+                cmd_RolAsignar.Parameters.Add(prm_CodigoUsuario);
+
+                cmd_RolAsignar.Connection.Open();
+                cmd_RolAsignar.ExecuteNonQuery();
             }
             catch (Exception ex)
             {
@@ -35,7 +51,6 @@ namespace UPC.Seguridad.DL.DALC
                 {
                     conexion.Dispose();
                 }
-
                 throw;
             }
 
