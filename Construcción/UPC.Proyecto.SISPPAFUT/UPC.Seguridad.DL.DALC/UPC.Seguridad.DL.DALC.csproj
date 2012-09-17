@@ -48,6 +48,7 @@
     </Compile>
     <Compile Include="RolDALC.cs" />
     <Compile Include="UsuarioDALC.cs" />
+    <Compile Include="UsuarioRolDALC.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UPC.Seguridad.BL.BE\UPC.Seguridad.BL.BE.csproj">

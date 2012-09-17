@@ -120,6 +120,12 @@
     <Compile Include="frmInsertarTransferenciaJugador.Designer.cs">
       <DependentUpon>frmInsertarTransferenciaJugador.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInsertarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInsertarUsuario.Designer.cs">
+      <DependentUpon>frmInsertarUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModuloEntrenamiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +256,9 @@
     <EmbeddedResource Include="frmInsertarTransferenciaJugador.resx">
       <DependentUpon>frmInsertarTransferenciaJugador.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInsertarUsuario.resx">
+      <DependentUpon>frmInsertarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmModuloEntrenamiento.resx">
       <DependentUpon>frmModuloEntrenamiento.cs</DependentUpon>
     </EmbeddedResource>
@@ -333,6 +342,10 @@
     <ProjectReference Include="..\UPC.Seguridad.BL.BC\UPC.Seguridad.BL.BC.csproj">
       <Project>{D5FF63C2-6D83-4998-8766-2AB46151DEAD}</Project>
       <Name>UPC.Seguridad.BL.BC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UPC.Seguridad.BL.BE\UPC.Seguridad.BL.BE.csproj">
+      <Project>{074D8A53-5320-4564-94A9-87CEC4454FBE}</Project>
+      <Name>UPC.Seguridad.BL.BE</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

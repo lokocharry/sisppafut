@@ -66,7 +66,7 @@ namespace UPC.Seguridad.DL.DALC
 
                 prm_FechaNac = new SqlParameter();
                 prm_FechaNac.ParameterName = "@fechaNac";
-                prm_FechaNac.SqlDbType = SqlDbType.Date;
+                prm_FechaNac.SqlDbType = SqlDbType.DateTime;
                 prm_FechaNac.Value = objUsuarioBE.FechaNacimiento;
 
                 prm_Contrasenia = new SqlParameter();
