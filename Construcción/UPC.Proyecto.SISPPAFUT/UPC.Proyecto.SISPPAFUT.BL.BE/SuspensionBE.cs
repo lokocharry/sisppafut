@@ -9,6 +9,13 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
         private int _codigoJugador;
         private int _qRojas;
         private int _qAmarillas;
+        private int _codLiga;
+
+        public int CodLiga
+        {
+            get { return _codLiga; }
+            set { _codLiga = value; }
+        }
 
         public int CodigoJugador
         {

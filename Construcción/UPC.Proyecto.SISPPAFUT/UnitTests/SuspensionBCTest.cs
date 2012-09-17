@@ -1,4 +1,5 @@
-﻿using UPC.Proyecto.SISPPAFUT.BL.BC;
+﻿using UPC.Proyecto.SISPPAFUT.BL.BE;
+using UPC.Proyecto.SISPPAFUT.BL.BC;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
@@ -81,9 +82,9 @@ namespace UnitTests
             SuspensionBC target = new SuspensionBC();
             int codJugador = 1;
             int tipo = 3;
-
-            target.actualizar_Suspension(codJugador, tipo);
-            String actual = target.leer_EstadoSuspension(codJugador);
+            int codLiga = 1;
+            target.actualizar_Suspension(codJugador, codLiga,tipo);
+            String actual = target.leer_EstadoSuspension(codJugador, codLiga);
             String expected = "NO SUSPENDIDO";
             Assert.AreEqual(expected, actual);
         }
@@ -95,10 +96,13 @@ namespace UnitTests
         public void crear_SuspensionTest()
         {
             SuspensionBC target = new SuspensionBC();
-            int codJugador = 4;
-            target.crear_Suspension(codJugador);
+            SuspensionBE objSuspensionBE = new SuspensionBE();
+            objSuspensionBE.CodigoJugador = 4;
+            objSuspensionBE.CodLiga = 1;
+            target.crear_Suspension(objSuspensionBE);
+            int codJugador = objSuspensionBE.CodigoJugador;
 
-            String actual = target.leer_EstadoSuspension(codJugador);
+            String actual = target.leer_EstadoSuspension(codJugador, objSuspensionBE.CodLiga);
             String expected = "NO SUSPENDIDO";
 
             Assert.AreEqual(expected, actual);
@@ -112,9 +116,10 @@ namespace UnitTests
         {
             SuspensionBC target = new SuspensionBC();
             int codJugador = 1;
+            int codLiga = 1;
             String expected = "NO SUSPENDIDO";
             String actual;
-            actual = target.leer_EstadoSuspension(codJugador);
+            actual = target.leer_EstadoSuspension(codJugador, codLiga);
 
             Assert.AreEqual(expected, actual);
         }

@@ -9,12 +9,12 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class SuspensionBC
     {
-        public void crear_Suspension(int codJugador)
+        public void crear_Suspension(SuspensionBE objSuspension)
         {
             try
             {
                 SuspensionDALC objSuspensionDALC = new SuspensionDALC();
-                objSuspensionDALC.crear_Suspension(codJugador);
+                objSuspensionDALC.crear_Suspension(objSuspension);
             }
             catch (Exception)
             {
@@ -22,18 +22,14 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
-        public void actualizar_Suspension(int codJugador, int tipo)
+        public void actualizar_Suspension(int codJugador, int codLiga, int tipo)
         {
             SuspensionDALC objSuspensionDALC;
 
             try
             {
                 objSuspensionDALC = new SuspensionDALC();
-
-                if (objSuspensionDALC.jugadorHaSidoSuspendido(codJugador) == 0)
-                    objSuspensionDALC.crear_Suspension(codJugador);
-
-                objSuspensionDALC.actualizar_Suspension(codJugador, tipo);
+                objSuspensionDALC.actualizar_Suspension(codJugador, codLiga, tipo);
             }
             catch (Exception)
             {
@@ -41,12 +37,12 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
-        public String leer_EstadoSuspension(int codJugador)
+        public String leer_EstadoSuspension(int codJugador, int codLiga)
         {
             try
             {
                 SuspensionDALC objSuspensionDALC = new SuspensionDALC();
-                return objSuspensionDALC.leer_EstadoSuspension(codJugador);
+                return objSuspensionDALC.leer_EstadoSuspension(codJugador, codLiga);
             }
             catch (Exception)
             {

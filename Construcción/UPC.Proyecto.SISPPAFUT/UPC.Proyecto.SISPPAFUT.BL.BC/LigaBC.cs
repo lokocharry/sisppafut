@@ -29,7 +29,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     CompeticionBE objCompeticionBE = objCompBC.obtenerCompeticion(competicion, pais);
                     
                     if (objCompeticionBE != null)
-                    {
+                    {                        
                         //-- Agrego el codigo de la competición
                         objLigaBE.CodigoCompeticion = objCompeticionBE.Codigo_competicion;
 
@@ -38,12 +38,29 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                         {
                             LigaEquipoBC objLigaEquipoBC = new LigaEquipoBC();
                             LigaEquipoBE objLigaEquipoBE = new LigaEquipoBE();
+                            SuspensionBC objSuspensionBC;
                             foreach (LigaEquipoBE cDto in lstEquipos)
                             {
                                 objLigaEquipoBE.CodigoLiga = codLiga;
                                 objLigaEquipoBE.CodigoEquipo = cDto.CodigoEquipo;
 
                                 objLigaEquipoBC.insertarEquipoEnLiga(objLigaEquipoBE);
+
+                                //--listo los jugadores del equipo e inserto un registro de suspensión
+                                JugadorBC objJugadorBC = new JugadorBC();
+                                List<JugadorBE> lstJugadoresDelEquipo = new List<JugadorBE>();
+                                lstJugadoresDelEquipo = objJugadorBC.listar_Jugadores_xEquipo(cDto.CodigoEquipo);
+                                if (lstJugadoresDelEquipo.Count > 0)
+                                {
+                                    foreach (JugadorBE _cDto in lstJugadoresDelEquipo)
+                                    {
+                                        objSuspensionBC = new SuspensionBC();
+                                        SuspensionBE objSuspensionBE = new SuspensionBE();
+                                        objSuspensionBE.CodigoJugador = _cDto.CodigoJugador;
+                                        objSuspensionBE.CodLiga = codLiga;
+                                        objSuspensionBC.crear_Suspension(objSuspensionBE);
+                                    }
+                                }
                             }
                             //-- Agrego datos para la tabla de la liga
                             TablaPosicionesBC objTablaBC = new TablaPosicionesBC();

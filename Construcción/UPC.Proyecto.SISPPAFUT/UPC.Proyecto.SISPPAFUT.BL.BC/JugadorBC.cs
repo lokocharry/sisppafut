@@ -11,16 +11,13 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
     {
         public int insertar_Jugador(JugadorBE objJugadorBE)
         {
-            JugadorDALC objJugadorDALC;
-            SuspensionBC objSuspensionBC;
+            JugadorDALC objJugadorDALC;            
             int resultado = 0;
             try
             {
-                objJugadorDALC = new JugadorDALC();
-                objSuspensionBC = new SuspensionBC();
-                                
+                objJugadorDALC = new JugadorDALC();                                
                 resultado = objJugadorDALC.insertar_Jugador(objJugadorBE);
-                objSuspensionBC.crear_Suspension(resultado);
+                
                 return resultado;
             }
 

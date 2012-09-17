@@ -530,25 +530,25 @@ namespace UPC.Proyecto.SISPPAFUT
                         //Registro de lesiones
                         LesionPartidoBC objLesionesBC = new LesionPartidoBC();
                         objLesionesBC.insertar_Lesiones(lista_lesiones);
-
+                        
                         //Actualizacion de suspensiones
                         SuspensionBC objSuspensionBC = new SuspensionBC();
                         for (int i = 0; i < lista_amonestaciones.Count; i++)
                         {
                             if (lista_amonestaciones[i].Tipo == 0)
                             {
-                                objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 1);
+                                objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, objPartidoBE.Codigo_liga, 1);
                             }
                             if (lista_amonestaciones[i].Tipo == 1)
                             {
-                                objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, 2);
+                                objSuspensionBC.actualizar_Suspension(lista_amonestaciones[i].Codigo_jugador, objPartidoBE.Codigo_liga, 2);
                             }
                         }
 
                         //Actualizamos las suspensiones de los jugadores suspendidos para este partido
                         for (int i = 0; i < lista_jugadores_suspendidos.Count; i++)
                         {
-                            objSuspensionBC.actualizar_Suspension(lista_jugadores_suspendidos[i].CodigoJugador, 3);
+                            objSuspensionBC.actualizar_Suspension(lista_jugadores_suspendidos[i].CodigoJugador, objPartidoBE.Codigo_liga, 3);
                         }
 
                         MessageBox.Show("Los datos del partido han sido registrados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -770,7 +770,7 @@ namespace UPC.Proyecto.SISPPAFUT
             for (int i = 0; i < lista_equipo_local.Count; i++)
             {
                 //FILTRAMOS LOS JUGADORES SUSPENDIDOS DEL EQUIPO LOCAL
-                if (objSuspensionBC.leer_EstadoSuspension(lista_equipo_local[i].CodigoJugador).Equals("SUSPENDIDO"))
+                if (objSuspensionBC.leer_EstadoSuspension(lista_equipo_local[i].CodigoJugador, objPartidoBE.Codigo_liga).Equals("SUSPENDIDO"))
                 {
                     lista_jugadores_suspendidos.Add(lista_equipo_local[i]);
                     lista_equipo_local.RemoveAt(i);
@@ -789,7 +789,7 @@ namespace UPC.Proyecto.SISPPAFUT
             for (int i = 0; i < lista_equipo_visita.Count; i++)
             {
                 //FILTRAMOS LOS JUGADORES SUSPENDIDOS DEL EQUIPO VISITANTE
-                if (objSuspensionBC.leer_EstadoSuspension(lista_equipo_visita[i].CodigoJugador).Equals("SUSPENDIDO"))
+                if (objSuspensionBC.leer_EstadoSuspension(lista_equipo_visita[i].CodigoJugador, objPartidoBE.Codigo_liga).Equals("SUSPENDIDO"))
                 {
                     lista_jugadores_suspendidos.Add(lista_equipo_visita[i]);
                     lista_equipo_visita.RemoveAt(i);

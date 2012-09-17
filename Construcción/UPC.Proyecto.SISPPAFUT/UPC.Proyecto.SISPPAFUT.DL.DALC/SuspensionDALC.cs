@@ -10,11 +10,12 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 {
     public class SuspensionDALC
     {
-        public void crear_Suspension(int codJugador)
+        public void crear_Suspension(SuspensionBE objSuspensionBE)
         {
             SqlConnection conexion = null;
             SqlCommand cmd_CrearSuspension;
-            SqlParameter prm_Codigo;
+            SqlParameter prm_codJugador;
+            SqlParameter prm_codLiga;
             String sqlSuspensionCrear;
 
             try
@@ -25,12 +26,18 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd_CrearSuspension = new SqlCommand(sqlSuspensionCrear, conexion);
                 cmd_CrearSuspension.CommandType = CommandType.StoredProcedure;
 
-                prm_Codigo = new SqlParameter();
-                prm_Codigo.ParameterName = "@CodJugador";
-                prm_Codigo.SqlDbType = SqlDbType.Int;
-                prm_Codigo.Value = codJugador;
+                prm_codJugador = new SqlParameter();
+                prm_codJugador.ParameterName = "@CodJugador";
+                prm_codJugador.SqlDbType = SqlDbType.Int;
+                prm_codJugador.Value = objSuspensionBE.CodigoJugador;
 
-                cmd_CrearSuspension.Parameters.Add(prm_Codigo);
+                prm_codLiga = new SqlParameter();
+                prm_codLiga.ParameterName = "@CodLiga";
+                prm_codLiga.SqlDbType = SqlDbType.Int;
+                prm_codLiga.Value = objSuspensionBE.CodLiga;
+
+                cmd_CrearSuspension.Parameters.Add(prm_codJugador);
+                cmd_CrearSuspension.Parameters.Add(prm_codLiga);
 
                 cmd_CrearSuspension.Connection.Open();
                 cmd_CrearSuspension.ExecuteNonQuery();
@@ -50,12 +57,13 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
-        public void actualizar_Suspension(int codJugador, int tipo)
+        public void actualizar_Suspension(int codJugador, int codLiga, int tipo)
         {
             SqlConnection conexion = null;
             SqlCommand cmd_ActualizarSuspension;
 
             SqlParameter prm_Codigo;
+            SqlParameter prm_Liga;
             SqlParameter prm_Tipo;
 
             String sqlSuspensionActualizar;
@@ -73,12 +81,18 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_Codigo.SqlDbType = SqlDbType.Int;
                 prm_Codigo.Value = codJugador;
 
+                prm_Liga = new SqlParameter();
+                prm_Liga.ParameterName = "@CodLiga";
+                prm_Liga.SqlDbType = SqlDbType.Int;
+                prm_Liga.Value = codLiga;
+
                 prm_Tipo = new SqlParameter();
                 prm_Tipo.ParameterName = "@Tipo";
                 prm_Tipo.SqlDbType = SqlDbType.Int;
                 prm_Tipo.Value = tipo;
 
                 cmd_ActualizarSuspension.Parameters.Add(prm_Codigo);
+                cmd_ActualizarSuspension.Parameters.Add(prm_Liga);
                 cmd_ActualizarSuspension.Parameters.Add(prm_Tipo);
 
                 cmd_ActualizarSuspension.Connection.Open();
@@ -99,11 +113,12 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
-        public String leer_EstadoSuspension(int codJugador)
+        public String leer_EstadoSuspension(int codJugador, int codLiga)
         {
             SqlConnection conexion = null;
             SqlCommand cmd_LeerEstadoSuspension = null;
             SqlParameter prm_Codigo;
+            SqlParameter prm_Liga;
             String sqlReadSuspension;
             String sEstado = null;
             SqlDataReader dr_suspension;
@@ -121,7 +136,13 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_Codigo.SqlDbType = SqlDbType.Int;
                 prm_Codigo.Value = codJugador;
 
+                prm_Liga = new SqlParameter();
+                prm_Liga.ParameterName = "@CodLiga";
+                prm_Liga.SqlDbType = SqlDbType.Int;
+                prm_Liga.Value = codJugador;
+
                 cmd_LeerEstadoSuspension.Parameters.Add(prm_Codigo);
+                cmd_LeerEstadoSuspension.Parameters.Add(prm_Liga);
                 cmd_LeerEstadoSuspension.Connection.Open();
                 dr_suspension = cmd_LeerEstadoSuspension.ExecuteReader();
 
