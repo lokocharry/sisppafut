@@ -312,3 +312,6 @@ C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto
 C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.Properties.Resources.resources
 C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\GenerateResource-ResGen.read.1.tlog
 C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\bin\Debug\UPC.Proyecto.SISPPAFUT.exe.config
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.exe
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.pdb
