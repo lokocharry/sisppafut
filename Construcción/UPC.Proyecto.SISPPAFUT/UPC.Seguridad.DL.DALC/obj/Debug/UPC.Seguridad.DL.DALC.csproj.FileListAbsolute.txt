@@ -14,3 +14,11 @@ C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Segurida
 C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\obj\Debug\UPC.Seguridad.DL.DALC.dll
 C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\obj\Debug\UPC.Seguridad.DL.DALC.pdb
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\bin\Debug\UPC.Seguridad.DL.DALC.dll.config
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\bin\Debug\UPC.Seguridad.DL.DALC.dll
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\bin\Debug\UPC.Seguridad.DL.DALC.pdb
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\bin\Debug\UPC.Seguridad.BL.BE.dll
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\bin\Debug\UPC.Seguridad.BL.BE.pdb
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\obj\Debug\UPC.Seguridad.DL.DALC.dll
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\obj\Debug\UPC.Seguridad.DL.DALC.pdb

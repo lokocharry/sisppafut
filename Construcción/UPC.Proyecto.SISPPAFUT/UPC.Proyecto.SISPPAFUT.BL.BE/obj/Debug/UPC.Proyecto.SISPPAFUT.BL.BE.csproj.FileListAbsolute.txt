@@ -58,3 +58,8 @@ C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto
 C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\obj\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll
 C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\obj\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\obj\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll
+C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\obj\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.pdb

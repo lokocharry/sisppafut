@@ -55,9 +55,11 @@
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
     <Reference Include="UIAutomationTypes" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -72,6 +74,7 @@
     <Compile Include="EquipoBCTest.cs" />
     <Compile Include="EstadioBCTest.cs" />
     <Compile Include="ExcepcionBCTest.cs" />
+    <Compile Include="FuncionalidadBCTest.cs" />
     <Compile Include="GolBCTest.cs" />
     <Compile Include="JugadorBCTest.cs" />
     <Compile Include="JugadorEquipoBCTest.cs" />
@@ -83,6 +86,7 @@
     <Compile Include="PronosticoBCTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RankingEquipoBCTest.cs" />
+    <Compile Include="RolBCTest.cs" />
     <Compile Include="SuspensionBCTest.cs" />
     <Compile Include="TablaPosicionesBCTest.cs" />
   </ItemGroup>
@@ -98,6 +102,18 @@
     <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.DL.DALC\UPC.Proyecto.SISPPAFUT.DL.DALC.csproj">
       <Project>{3E8E1A66-3993-4657-A0C0-C08F6A1A3EA3}</Project>
       <Name>UPC.Proyecto.SISPPAFUT.DL.DALC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UPC.Seguridad.BL.BC\UPC.Seguridad.BL.BC.csproj">
+      <Project>{D5FF63C2-6D83-4998-8766-2AB46151DEAD}</Project>
+      <Name>UPC.Seguridad.BL.BC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UPC.Seguridad.BL.BE\UPC.Seguridad.BL.BE.csproj">
+      <Project>{074D8A53-5320-4564-94A9-87CEC4454FBE}</Project>
+      <Name>UPC.Seguridad.BL.BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UPC.Seguridad.DL.DALC\UPC.Seguridad.DL.DALC.csproj">
+      <Project>{B08AE379-0831-4230-A512-2EDD57C08D34}</Project>
+      <Name>UPC.Seguridad.DL.DALC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

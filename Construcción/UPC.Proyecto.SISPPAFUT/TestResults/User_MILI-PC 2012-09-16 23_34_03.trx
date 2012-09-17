@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="ed7039f1-98f0-41a3-8ae0-1f462122cee8" name="User@MILI-PC 2012-09-16 23:34:03" runUser="MILI-PC\User" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="d7146e08-8266-4b9b-aa43-bf7a65afa95e">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="User_MILI-PC 2012-09-16 23_34_03">
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll" />
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll" />
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\bin\Debug\UPC.Seguridad.BL.BE.dll" />
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\bin\Debug\UPC.Seguridad.DL.DALC.dll" />
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.dll" />
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BC\bin\Debug\UPC.Seguridad.BL.BC.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-09-16T23:34:03.9637537-05:00" queuing="2012-09-16T23:34:05.9788690-05:00" start="2012-09-16T23:34:06.0238716-05:00" finish="2012-09-16T23:34:07.0829321-05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="Insertar_FuncionalidadTest" storage="c:\users\user\desktop\tdp\construcción\upc.proyecto.sisppafut\unittests\bin\debug\unittests.dll" id="1ff1e895-b395-a6e3-c6a5-4ef3e4992c6c">
+      <Execution id="aeabd37d-4000-4c81-a247-e63bc4c136fe" />
+      <TestMethod codeBase="C:/Users/User/Desktop/TDP/Construcción/UPC.Proyecto.SISPPAFUT/UnitTests/bin/Debug/UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTests.FuncionalidadBCTest, UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Insertar_FuncionalidadTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Resultados que no están en la lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="1ff1e895-b395-a6e3-c6a5-4ef3e4992c6c" executionId="aeabd37d-4000-4c81-a247-e63bc4c136fe" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="aeabd37d-4000-4c81-a247-e63bc4c136fe" testId="1ff1e895-b395-a6e3-c6a5-4ef3e4992c6c" testName="Insertar_FuncionalidadTest" computerName="MILI-PC" duration="00:00:00.2875149" startTime="2012-09-16T23:34:06.1438784-05:00" endTime="2012-09-16T23:34:06.9949271-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="aeabd37d-4000-4c81-a247-e63bc4c136fe">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba UnitTests.FuncionalidadBCTest.Insertar_FuncionalidadTest produjo la excepción: 
+System.Data.SqlClient.SqlException: Cannot open database "SEGURIDAD" requested by the login. The login failed.
+Login failed for user 'SISPPAFUTadmin'.</Message>
+          <StackTrace>    en System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   en System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   en System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   en System.Data.SqlClient.SqlInternalConnectionTds.CompleteLogin(Boolean enlistOK)
+   en System.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, Boolean ignoreSniOpenTimeout, TimeoutTimer timeout, SqlConnection owningObject)
+   en System.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, Boolean redirectedUserInstance, SqlConnection owningObject, SqlConnectionString connectionOptions, TimeoutTimer timeout)
+   en System.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(SqlConnection owningObject, TimeoutTimer timeout, SqlConnectionString connectionOptions, String newPassword, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, Object providerInfo, String newPassword, SqlConnection owningObject, Boolean redirectedUserInstance)
+   en System.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnection owningConnection, DbConnectionPool pool, DbConnectionOptions options)
+   en System.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionPool.GetConnection(DbConnection owningObject)
+   en System.Data.ProviderBase.DbConnectionFactory.GetConnection(DbConnection owningConnection)
+   en System.Data.ProviderBase.DbConnectionClosed.OpenConnection(DbConnection outerConnection, DbConnectionFactory connectionFactory)
+   en System.Data.SqlClient.SqlConnection.Open()
+   en UPC.Seguridad.DL.DALC.FuncionalidadDALC.insertar_funcionalidad(FuncionalidadBE objFuncionalidadBE) en C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\FuncionalidadDALC.cs:línea 70
+   en UPC.Seguridad.BL.BC.FuncionalidadBC.Insertar_Funcionalidad(String NombreFuncionalidad, String DescripcionFuncionalidad) en C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BC\FuncionalidadBC.cs:línea 30
+   en UnitTests.FuncionalidadBCTest.Insertar_FuncionalidadTest() en C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\FuncionalidadBCTest.cs:línea 88
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

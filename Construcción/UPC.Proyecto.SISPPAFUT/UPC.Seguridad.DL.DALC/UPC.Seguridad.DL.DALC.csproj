@@ -46,6 +46,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="RolDALC.cs" />
     <Compile Include="UsuarioDALC.cs" />
   </ItemGroup>
   <ItemGroup>

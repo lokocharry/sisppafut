@@ -156,6 +156,18 @@
     <Compile Include="frmConsultarRankingMundial.Designer.cs">
       <DependentUpon>frmConsultarRankingMundial.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistrarFuncionalidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarFuncionalidad.Designer.cs">
+      <DependentUpon>frmRegistrarFuncionalidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistrarRol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarRol.Designer.cs">
+      <DependentUpon>frmRegistrarRol.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmTablaPosiciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -265,6 +277,12 @@
     <EmbeddedResource Include="frmConsultarRankingMundial.resx">
       <DependentUpon>frmConsultarRankingMundial.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarFuncionalidad.resx">
+      <DependentUpon>frmRegistrarFuncionalidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarRol.resx">
+      <DependentUpon>frmRegistrarRol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmTablaPosiciones.resx">
       <DependentUpon>frmTablaPosiciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -311,6 +329,10 @@
     <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BL.BE\UPC.Proyecto.SISPPAFUT.BL.BE.csproj">
       <Project>{4C03FE03-0DF0-4CC7-911E-67D851251B27}</Project>
       <Name>UPC.Proyecto.SISPPAFUT.BL.BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UPC.Seguridad.BL.BC\UPC.Seguridad.BL.BC.csproj">
+      <Project>{D5FF63C2-6D83-4998-8766-2AB46151DEAD}</Project>
+      <Name>UPC.Seguridad.BL.BC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
