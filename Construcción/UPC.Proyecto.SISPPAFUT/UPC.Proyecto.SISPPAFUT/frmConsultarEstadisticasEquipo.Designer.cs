@@ -190,7 +190,7 @@
             // 
             // btn_refrescar
             // 
-            this.btn_refrescar.Location = new System.Drawing.Point(283, 40);
+            this.btn_refrescar.Location = new System.Drawing.Point(294, 45);
             this.btn_refrescar.Name = "btn_refrescar";
             this.btn_refrescar.Size = new System.Drawing.Size(101, 34);
             this.btn_refrescar.TabIndex = 6;
@@ -210,6 +210,7 @@
             this.Controls.Add(this.lbl_liga);
             this.Controls.Add(this.cmb_equipo);
             this.Controls.Add(this.cmb_liga);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmConsultarEstadisticasEquipo";
