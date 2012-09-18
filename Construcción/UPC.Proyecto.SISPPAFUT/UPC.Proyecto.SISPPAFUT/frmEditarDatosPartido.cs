@@ -73,6 +73,7 @@ namespace UPC.Proyecto.SISPPAFUT
             iniciarGrillaEquipoLocal();
             iniciarGrillaEquipoVisitante();
             btn_editar.Enabled = false;
+            GrupoIncidencias.Enabled = false;
         }
 
         private static int ComparaGol(GolBE x, GolBE y)
@@ -158,7 +159,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 dgv_equipo_local.Columns[2].Visible = true;
                 dgv_equipo_local.Columns[3].Visible = false;
                 dgv_equipo_local.Columns[4].Visible = false;
-                dgv_equipo_local.Columns[5].Visible = true;
+                dgv_equipo_local.Columns[5].Visible = false;
                 dgv_equipo_local.Columns[6].Visible = false;
                 dgv_equipo_local.Columns[7].Visible = false;
                 dgv_equipo_local.Columns[8].Visible = true;
@@ -213,7 +214,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 dgv_equipo_visitante.Columns[2].Visible = true;
                 dgv_equipo_visitante.Columns[3].Visible = false;
                 dgv_equipo_visitante.Columns[4].Visible = false;
-                dgv_equipo_visitante.Columns[5].Visible = true;
+                dgv_equipo_visitante.Columns[5].Visible = false;
                 dgv_equipo_visitante.Columns[6].Visible = false;
                 dgv_equipo_visitante.Columns[7].Visible = false;
                 dgv_equipo_visitante.Columns[8].Visible = true;
@@ -678,10 +679,10 @@ namespace UPC.Proyecto.SISPPAFUT
                 btn_terminar.Enabled = false;
                 btn_editar.Enabled = true;
 
-                gb_amonestaciones.Enabled = true;
-                gb_goles.Enabled = true;
-                gb_lesiones.Enabled = true;
-
+                //gb_amonestaciones.Enabled = true;
+                //gb_goles.Enabled = true;
+                //gb_lesiones.Enabled = true;
+                GrupoIncidencias.Enabled = true;
                 setearCombos();
 
                 listo_guardar_datos = true;
@@ -697,10 +698,10 @@ namespace UPC.Proyecto.SISPPAFUT
             btn_terminar.Enabled = true;
             btn_editar.Enabled = false;
 
-            gb_amonestaciones.Enabled = false;
-            gb_goles.Enabled = false;
-            gb_lesiones.Enabled = false;
-
+            //gb_amonestaciones.Enabled = false;
+            //gb_goles.Enabled = false;
+            //gb_lesiones.Enabled = false;
+            GrupoIncidencias.Enabled = false;
             setearCombos();
 
             lista_amonestaciones = new List<AmonestacionBE>();
