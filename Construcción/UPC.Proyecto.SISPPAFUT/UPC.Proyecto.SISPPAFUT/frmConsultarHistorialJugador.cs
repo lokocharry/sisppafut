@@ -95,17 +95,22 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 objJugadorBC = new JugadorBC();
                 lista_historial = new List<HistorialJugadorBE>();
-                lista_historial = objJugadorBC.listar_HistorialDeJugador(lista_jugadores[cmbJugador.SelectedIndex - 1].CodigoJugador);
-
-                dgvHistorial.Rows.Clear();
-
-                if(lista_historial.Count > 0)
+                if (cmbNacionalidad.SelectedIndex > 0 && cmbJugador.SelectedIndex > 0)
                 {
-                    foreach (HistorialJugadorBE cDto in lista_historial)
+                    lista_historial = objJugadorBC.listar_HistorialDeJugador(lista_jugadores[cmbJugador.SelectedIndex - 1].CodigoJugador);
+
+                    dgvHistorial.Rows.Clear();
+
+                    if (lista_historial.Count > 0)
                     {
-                        dgvHistorial.Rows.Add(cDto.CodJugador, cDto.NombresJugador, cDto.ApellidosJugador, cDto.NombreEquipo);
+                        foreach (HistorialJugadorBE cDto in lista_historial)
+                        {
+                            dgvHistorial.Rows.Add(cDto.CodJugador, cDto.NombresJugador, cDto.ApellidosJugador, cDto.NombreEquipo);
+                        }
                     }
                 }
+                else
+                    MessageBox.Show("Debe seleccionar todos los campos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

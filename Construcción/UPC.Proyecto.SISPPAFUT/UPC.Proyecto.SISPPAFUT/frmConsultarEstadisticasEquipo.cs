@@ -192,31 +192,36 @@ namespace UPC.Proyecto.SISPPAFUT
                 lista_jugadores = new List<JugadorBE>();
 
                 PartidoBC objPartidoBC = new PartidoBC();
-                lista_partidos = objPartidoBC.lista_ultimosPartidos(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga);
-                JugadorBC objJugadorBC = new JugadorBC();
-                lista_jugadores = objJugadorBC.listar_Jugadores_xEquipo(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo);
-
-                if (lista_partidos.Count > 0)
+                if (cmb_equipo.SelectedIndex > 0 && cmb_liga.SelectedIndex > 0)
                 {
-                    dgv_ultimos_partidos.Rows.Clear();
-                    for (int i = 0; i < lista_partidos.Count; i++)
-                    {
-                        dgv_ultimos_partidos.Rows.Add(lista_partidos[i].Equipo_local,
-                                                      lista_partidos[i].Equipo_visita,
-                                                      lista_partidos[i].Goles_local + " - " + lista_partidos[i].Goles_visita,
-                                                      Convert.ToDateTime(lista_partidos[i].Fecha).ToShortDateString());
-                    }
+                    lista_partidos = objPartidoBC.lista_ultimosPartidos(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga);
+                    JugadorBC objJugadorBC = new JugadorBC();
+                    lista_jugadores = objJugadorBC.listar_Jugadores_xEquipo(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo);
 
-                    dgv_jugadores.Rows.Clear();
-                    for (int i = 0; i < lista_jugadores.Count; i++)
+                    if (lista_partidos.Count > 0)
                     {
-                        dgv_jugadores.Rows.Add(lista_jugadores[i].Nombres + " " + lista_jugadores[i].Apellidos,
-                                               objJugadorBC.cantidadGolesxJugador(lista_jugadores[i].CodigoJugador, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga),
-                                               objJugadorBC.cantidadPartidosxJugador(lista_jugadores[i].CodigoJugador, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga));
+                        dgv_ultimos_partidos.Rows.Clear();
+                        for (int i = 0; i < lista_partidos.Count; i++)
+                        {
+                            dgv_ultimos_partidos.Rows.Add(lista_partidos[i].Equipo_local,
+                                                          lista_partidos[i].Equipo_visita,
+                                                          lista_partidos[i].Goles_local + " - " + lista_partidos[i].Goles_visita,
+                                                          Convert.ToDateTime(lista_partidos[i].Fecha).ToShortDateString());
+                        }
+
+                        dgv_jugadores.Rows.Clear();
+                        for (int i = 0; i < lista_jugadores.Count; i++)
+                        {
+                            dgv_jugadores.Rows.Add(lista_jugadores[i].Nombres + " " + lista_jugadores[i].Apellidos,
+                                                   objJugadorBC.cantidadGolesxJugador(lista_jugadores[i].CodigoJugador, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga),
+                                                   objJugadorBC.cantidadPartidosxJugador(lista_jugadores[i].CodigoJugador, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga));
+                        }
                     }
+                    else
+                        MessageBox.Show("No hay datos para mostrar.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
-                    MessageBox.Show("No hay datos para mostrar.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Debe seleccionar todos los campos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
