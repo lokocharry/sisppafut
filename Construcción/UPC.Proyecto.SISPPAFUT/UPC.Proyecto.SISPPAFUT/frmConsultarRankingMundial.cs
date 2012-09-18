@@ -169,10 +169,10 @@ namespace UPC.Proyecto.SISPPAFUT
             return (cmbAnio.SelectedIndex > 0 && cmbMes.SelectedIndex > 0 && cmbPais.SelectedIndex > 0);
         }
 
-        private void inSalir(object sender, EventArgs e)
+        private void inCerrar(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-                this.Close();
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

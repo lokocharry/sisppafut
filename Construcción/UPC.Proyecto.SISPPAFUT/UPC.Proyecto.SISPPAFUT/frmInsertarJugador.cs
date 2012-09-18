@@ -309,17 +309,6 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void inSalir(object sender, EventArgs e)
-        {
-            if (ValidarCampos())
-            {
-                if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-                    this.Close();
-            }
-            else
-                this.Close();
-        }
-
         private void LimpiarCampos()
         {
             txt_nombre.Clear();
@@ -342,6 +331,12 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private void inCerrar(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

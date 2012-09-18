@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
+using UPC.Seguridad.BL.BC;
+
 namespace UnitTests
 {
     
@@ -70,10 +72,10 @@ namespace UnitTests
         [TestMethod()]
         public void Insertar_RolXFuncionalidadTest()
         {
-            RolXFuncionalidadBC target = new RolXFuncionalidadBC();
+            //RolXFuncionalidadBC target = new RolXFuncionalidadBC();
             int idRol = 3;
             int idFuncionalidad = 20;
-            target.Insertar_RolXFuncionalidad(idRol, idFuncionalidad);
+            //target.Insertar_RolXFuncionalidad(idRol, idFuncionalidad);
         }
     }
 }

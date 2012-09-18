@@ -13,11 +13,15 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing)
             {
-                components.Dispose();
+                if (components != null)
+                {
+                    components.Dispose();
+                }
             }
             base.Dispose(disposing);
+            frmMostrarTablaPosiciones = null;
         }
 
         #region Windows Form Designer generated code
@@ -72,6 +76,7 @@
             // 
             // cmbPais
             // 
+            this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPais.FormattingEnabled = true;
             this.cmbPais.Location = new System.Drawing.Point(49, 19);
             this.cmbPais.Name = "cmbPais";
@@ -99,6 +104,7 @@
             // 
             // cmbCompeticion
             // 
+            this.cmbCompeticion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCompeticion.FormattingEnabled = true;
             this.cmbCompeticion.Location = new System.Drawing.Point(287, 19);
             this.cmbCompeticion.Name = "cmbCompeticion";
@@ -108,12 +114,12 @@
             // 
             // cmbLiga
             // 
+            this.cmbLiga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLiga.FormattingEnabled = true;
             this.cmbLiga.Location = new System.Drawing.Point(576, 19);
             this.cmbLiga.Name = "cmbLiga";
-            this.cmbLiga.Size = new System.Drawing.Size(166, 21);
+            this.cmbLiga.Size = new System.Drawing.Size(183, 21);
             this.cmbLiga.TabIndex = 3;
-            this.cmbLiga.SelectedIndexChanged += new System.EventHandler(this.inSeleccionarLiga);
             // 
             // dgvTablaPosiciones
             // 
@@ -145,7 +151,7 @@
             this.dgvTablaPosiciones.Location = new System.Drawing.Point(12, 76);
             this.dgvTablaPosiciones.Name = "dgvTablaPosiciones";
             this.dgvTablaPosiciones.ReadOnly = true;
-            this.dgvTablaPosiciones.Size = new System.Drawing.Size(815, 352);
+            this.dgvTablaPosiciones.Size = new System.Drawing.Size(828, 449);
             this.dgvTablaPosiciones.TabIndex = 4;
             // 
             // Pos
@@ -300,14 +306,14 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(284, 58);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(543, 13);
+            this.label4.Size = new System.Drawing.Size(558, 13);
             this.label4.TabIndex = 5;
             this.label4.Text = "|-------------------- GENERAL -------------------|----------------------- LOCAL -" +
-                "---------------------|-------------------- VISITANTE -------------------|";
+    "----------------------|-------------------- VISITANTE -----------------------|";
             // 
             // btnMostrar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(754, 17);
+            this.btnMostrar.Location = new System.Drawing.Point(765, 17);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(75, 23);
             this.btnMostrar.TabIndex = 6;
@@ -319,7 +325,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(841, 447);
+            this.ClientSize = new System.Drawing.Size(852, 537);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvTablaPosiciones);
@@ -329,12 +335,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmTablaPosiciones";
             this.ShowIcon = false;
             this.Text = "Tabla de Posiciones";
-            this.Load += new System.EventHandler(this.frmTablaPosiciones_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InCerrar);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaPosiciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

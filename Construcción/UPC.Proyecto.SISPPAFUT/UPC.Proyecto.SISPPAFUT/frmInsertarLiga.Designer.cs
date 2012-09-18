@@ -49,12 +49,11 @@
             this.cmb_equipo = new System.Windows.Forms.ComboBox();
             this.btn_agregarEquipo = new System.Windows.Forms.Button();
             this.dg_equipos = new System.Windows.Forms.DataGridView();
-            this.bnt_guardar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Equipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.bnt_guardar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dg_equipos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -216,26 +215,6 @@
             this.dg_equipos.TabIndex = 15;
             this.dg_equipos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_equipos_CellContentClick);
             // 
-            // bnt_guardar
-            // 
-            this.bnt_guardar.Location = new System.Drawing.Point(483, 392);
-            this.bnt_guardar.Name = "bnt_guardar";
-            this.bnt_guardar.Size = new System.Drawing.Size(75, 23);
-            this.bnt_guardar.TabIndex = 16;
-            this.bnt_guardar.Text = "Guardar";
-            this.bnt_guardar.UseVisualStyleBackColor = true;
-            this.bnt_guardar.Click += new System.EventHandler(this.btnGuardarLiga);
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Location = new System.Drawing.Point(402, 392);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancelar.TabIndex = 17;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.btnCancelar);
-            // 
             // Codigo
             // 
             this.Codigo.HeaderText = "Codigo";
@@ -261,13 +240,21 @@
             this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Eliminar.Width = 49;
             // 
-            // frmLigaInsertar
+            // bnt_guardar
+            // 
+            this.bnt_guardar.Location = new System.Drawing.Point(483, 392);
+            this.bnt_guardar.Name = "bnt_guardar";
+            this.bnt_guardar.Size = new System.Drawing.Size(75, 23);
+            this.bnt_guardar.TabIndex = 16;
+            this.bnt_guardar.Text = "Guardar";
+            this.bnt_guardar.UseVisualStyleBackColor = true;
+            this.bnt_guardar.Click += new System.EventHandler(this.btnGuardarLiga);
+            // 
+            // frmInsertarLiga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(583, 427);
-            this.ControlBox = false;
-            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.bnt_guardar);
             this.Controls.Add(this.dg_equipos);
             this.Controls.Add(this.btn_agregarEquipo);
@@ -288,8 +275,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmLigaInsertar";
+            this.Name = "frmInsertarLiga";
             this.Text = "Liga";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             ((System.ComponentModel.ISupportInitialize)(this.dg_equipos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -315,7 +303,6 @@
         private System.Windows.Forms.Button btn_agregarEquipo;
         private System.Windows.Forms.DataGridView dg_equipos;
         private System.Windows.Forms.Button bnt_guardar;
-        private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Equipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Ciudad;

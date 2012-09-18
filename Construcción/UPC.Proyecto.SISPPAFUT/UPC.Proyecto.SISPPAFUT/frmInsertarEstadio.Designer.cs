@@ -42,7 +42,6 @@
             this.txt_aforo = new System.Windows.Forms.TextBox();
             this.cmb_pais = new System.Windows.Forms.ComboBox();
             this.cmb_anho = new System.Windows.Forms.ComboBox();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -140,16 +139,6 @@
             this.cmb_anho.Size = new System.Drawing.Size(118, 21);
             this.cmb_anho.TabIndex = 9;
             // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Location = new System.Drawing.Point(295, 152);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancelar.TabIndex = 10;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_Cancelar);
-            // 
             // btn_guardar
             // 
             this.btn_guardar.Location = new System.Drawing.Point(376, 152);
@@ -165,9 +154,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(486, 197);
-            this.ControlBox = false;
             this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.cmb_anho);
             this.Controls.Add(this.cmb_pais);
             this.Controls.Add(this.txt_aforo);
@@ -183,6 +170,7 @@
             this.MinimizeBox = false;
             this.Name = "frmInsertarEstadio";
             this.Text = "Estadio";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,7 +188,6 @@
         private System.Windows.Forms.TextBox txt_aforo;
         private System.Windows.Forms.ComboBox cmb_pais;
         private System.Windows.Forms.ComboBox cmb_anho;
-        private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_guardar;
     }
 }

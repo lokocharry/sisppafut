@@ -36,14 +36,13 @@
             this.lbl_titulo = new System.Windows.Forms.Label();
             this.txt_pais = new System.Windows.Forms.TextBox();
             this.lbl_pais = new System.Windows.Forms.Label();
-            this.btn_salir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btn_registrar
             // 
             this.btn_registrar.Location = new System.Drawing.Point(225, 99);
             this.btn_registrar.Name = "btn_registrar";
-            this.btn_registrar.Size = new System.Drawing.Size(75, 23);
+            this.btn_registrar.Size = new System.Drawing.Size(75, 28);
             this.btn_registrar.TabIndex = 0;
             this.btn_registrar.Text = "Registrar";
             this.btn_registrar.UseVisualStyleBackColor = true;
@@ -73,27 +72,15 @@
             this.lbl_pais.AutoSize = true;
             this.lbl_pais.Location = new System.Drawing.Point(50, 63);
             this.lbl_pais.Name = "lbl_pais";
-            this.lbl_pais.Size = new System.Drawing.Size(50, 13);
+            this.lbl_pais.Size = new System.Drawing.Size(44, 13);
             this.lbl_pais.TabIndex = 3;
-            this.lbl_pais.Text = "Nombre :";
+            this.lbl_pais.Text = "Nombre";
             // 
-            // btn_salir
-            // 
-            this.btn_salir.Location = new System.Drawing.Point(144, 99);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(75, 23);
-            this.btn_salir.TabIndex = 4;
-            this.btn_salir.Text = "Cancelar";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
-            // 
-            // frmPaisInsertar
+            // frmInsertarPais
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(359, 147);
-            this.ControlBox = false;
-            this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.lbl_pais);
             this.Controls.Add(this.txt_pais);
             this.Controls.Add(this.lbl_titulo);
@@ -101,8 +88,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmPaisInsertar";
+            this.Name = "frmInsertarPais";
             this.Text = "Pais";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,6 +102,5 @@
         private System.Windows.Forms.Label lbl_titulo;
         private System.Windows.Forms.TextBox txt_pais;
         private System.Windows.Forms.Label lbl_pais;
-        private System.Windows.Forms.Button btn_salir;
     }
 }

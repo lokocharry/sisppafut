@@ -45,7 +45,6 @@
             this.cmb_temporada = new System.Windows.Forms.ComboBox();
             this.cmb_visitante = new System.Windows.Forms.ComboBox();
             this.btn_guardar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.lbl_nacimiento = new System.Windows.Forms.Label();
             this.SuspendLayout();
@@ -165,23 +164,13 @@
             // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(475, 185);
+            this.btn_guardar.Location = new System.Drawing.Point(546, 177);
             this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(75, 23);
+            this.btn_guardar.Size = new System.Drawing.Size(85, 28);
             this.btn_guardar.TabIndex = 15;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
             this.btn_guardar.Click += new System.EventHandler(this.inGuardarPartido);
-            // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Location = new System.Drawing.Point(556, 185);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancelar.TabIndex = 16;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.inCancelar);
             // 
             // dtp_fecha
             // 
@@ -200,15 +189,13 @@
             this.lbl_nacimiento.TabIndex = 17;
             this.lbl_nacimiento.Text = "Fecha";
             // 
-            // frmPartidoInsertar
+            // frmInsertarPartido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 228);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(672, 217);
             this.Controls.Add(this.dtp_fecha);
             this.Controls.Add(this.lbl_nacimiento);
-            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.cmb_visitante);
             this.Controls.Add(this.cmb_temporada);
@@ -225,8 +212,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmPartidoInsertar";
+            this.Name = "frmInsertarPartido";
             this.Text = "Partido";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmPartidoInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -248,7 +236,6 @@
         private System.Windows.Forms.ComboBox cmb_temporada;
         private System.Windows.Forms.ComboBox cmb_visitante;
         private System.Windows.Forms.Button btn_guardar;
-        private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.DateTimePicker dtp_fecha;
         private System.Windows.Forms.Label lbl_nacimiento;
     }

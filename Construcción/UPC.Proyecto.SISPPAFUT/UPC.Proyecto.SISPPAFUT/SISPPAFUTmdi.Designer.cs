@@ -54,7 +54,6 @@
             this.jugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarSuspensionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.transferirJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultarHistorialDeJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.partidoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,10 +63,10 @@
             this.entrenarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apostanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verPronósticosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.funcXRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,7 +104,7 @@
             this.paisesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.registrarToolStripMenuItem});
             this.paisesToolStripMenuItem.Name = "paisesToolStripMenuItem";
-            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.paisesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.paisesToolStripMenuItem.Text = "Paises";
             // 
             // registrarToolStripMenuItem
@@ -120,7 +119,7 @@
             this.competicionesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevaCompeticiónToolStripMenuItem});
             this.competicionesToolStripMenuItem.Name = "competicionesToolStripMenuItem";
-            this.competicionesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.competicionesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.competicionesToolStripMenuItem.Text = "Competiciones";
             // 
             // nuevaCompeticiónToolStripMenuItem
@@ -136,7 +135,7 @@
             this.nuevaLigaToolStripMenuItem,
             this.tablaDePosicionesToolStripMenuItem});
             this.ligasToolStripMenuItem.Name = "ligasToolStripMenuItem";
-            this.ligasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ligasToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.ligasToolStripMenuItem.Text = "Ligas";
             // 
             // nuevaLigaToolStripMenuItem
@@ -158,7 +157,7 @@
             this.estadiosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoEstadioToolStripMenuItem});
             this.estadiosToolStripMenuItem.Name = "estadiosToolStripMenuItem";
-            this.estadiosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.estadiosToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.estadiosToolStripMenuItem.Text = "Estadios";
             // 
             // nuevoEstadioToolStripMenuItem
@@ -179,7 +178,7 @@
             this.estadísticasDeEquipoToolStripMenuItem,
             this.toolStripSeparator2});
             this.equiposToolStripMenuItem.Name = "equiposToolStripMenuItem";
-            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.equiposToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.equiposToolStripMenuItem.Text = "Equipos";
             // 
             // nuevoEquipoToolStripMenuItem
@@ -234,11 +233,10 @@
             this.jugadorToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nuevoJugadorToolStripMenuItem,
             this.editarJugadoresToolStripMenuItem,
-            this.consultarSuspensionesToolStripMenuItem,
             this.transferirJugadorToolStripMenuItem,
             this.consultarHistorialDeJugadorToolStripMenuItem});
             this.jugadorToolStripMenuItem.Name = "jugadorToolStripMenuItem";
-            this.jugadorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.jugadorToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.jugadorToolStripMenuItem.Text = "Jugadores";
             // 
             // nuevoJugadorToolStripMenuItem
@@ -254,13 +252,6 @@
             this.editarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
             this.editarJugadoresToolStripMenuItem.Text = "Editar Jugador";
             this.editarJugadoresToolStripMenuItem.Click += new System.EventHandler(this.editarJugadoresToolStripMenuItem_Click);
-            // 
-            // consultarSuspensionesToolStripMenuItem
-            // 
-            this.consultarSuspensionesToolStripMenuItem.Name = "consultarSuspensionesToolStripMenuItem";
-            this.consultarSuspensionesToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.consultarSuspensionesToolStripMenuItem.Text = "Consultar Suspensiones";
-            this.consultarSuspensionesToolStripMenuItem.Click += new System.EventHandler(this.inConsultaDeSuspensiones);
             // 
             // transferirJugadorToolStripMenuItem
             // 
@@ -282,7 +273,7 @@
             this.nuevoPartidoToolStripMenuItem1,
             this.listaDePartidosToolStripMenuItem});
             this.partidoToolStripMenuItem1.Name = "partidoToolStripMenuItem1";
-            this.partidoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.partidoToolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.partidoToolStripMenuItem1.Text = "Partidos";
             // 
             // nuevoPartidoToolStripMenuItem1
@@ -304,7 +295,7 @@
             this.pronosticoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.entrenarSistemaToolStripMenuItem});
             this.pronosticoToolStripMenuItem.Name = "pronosticoToolStripMenuItem";
-            this.pronosticoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pronosticoToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.pronosticoToolStripMenuItem.Text = "Pronostico";
             // 
             // entrenarSistemaToolStripMenuItem
@@ -319,7 +310,7 @@
             this.apostanteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.verPronósticosToolStripMenuItem});
             this.apostanteToolStripMenuItem.Name = "apostanteToolStripMenuItem";
-            this.apostanteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.apostanteToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.apostanteToolStripMenuItem.Text = "Apostante";
             // 
             // verPronósticosToolStripMenuItem
@@ -328,18 +319,6 @@
             this.verPronósticosToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.verPronósticosToolStripMenuItem.Text = "Ver Pronósticos";
             this.verPronósticosToolStripMenuItem.Click += new System.EventHandler(this.inVerPronosticosParaApostante);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
             // toolStripMenuItem1
             // 
@@ -353,9 +332,21 @@
             // funcXRolToolStripMenuItem
             // 
             this.funcXRolToolStripMenuItem.Name = "funcXRolToolStripMenuItem";
-            this.funcXRolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.funcXRolToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
             this.funcXRolToolStripMenuItem.Text = "FuncXRol";
             this.funcXRolToolStripMenuItem.Click += new System.EventHandler(this.funcXRolToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(151, 6);
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
             // SISPPAFUTmdi
             // 
@@ -402,7 +393,6 @@
         private System.Windows.Forms.ToolStripMenuItem listaDePartidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarEquipoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editarJugadoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarSuspensionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rankingToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verRankingMundialToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pronosticoToolStripMenuItem;

@@ -37,12 +37,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             InitializeComponent();
             iniciarGrilla();
-            iniciarJugadores();            
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
+            iniciarJugadores();
         }
 
         public void iniciarJugadores()
@@ -117,16 +112,29 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            frmInsertarJugador frmjugador = new frmInsertarJugador();
-            frmjugador.MdiParent = this.MdiParent;
-            frmjugador.Modo = 2;
+            try
+            {
+                frmInsertarJugador frmjugador = new frmInsertarJugador();
+                frmjugador.MdiParent = this.MdiParent;
+                frmjugador.Modo = 2;
 
-            JugadorBE objJugador;
-            objJugador = lstJugadores[dgJugadores.SelectedRows[0].Index];
+                JugadorBE objJugador;
+                objJugador = lstJugadores[dgJugadores.SelectedRows[0].Index];
 
-            frmjugador.Jugador = objJugador;
-            frmjugador.Show();
-            frmjugador.BringToFront();
+                frmjugador.Jugador = objJugador;
+                frmjugador.Show();
+                frmjugador.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void inCerrar(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
         }
 
     }

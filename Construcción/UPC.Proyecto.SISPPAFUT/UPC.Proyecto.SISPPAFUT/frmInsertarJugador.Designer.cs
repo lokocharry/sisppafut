@@ -46,7 +46,6 @@
             this.txt_peso = new System.Windows.Forms.TextBox();
             this.dtp_fecha = new System.Windows.Forms.DateTimePicker();
             this.cmb_posicion = new System.Windows.Forms.ComboBox();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.btn_guardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -175,21 +174,11 @@
             this.cmb_posicion.Size = new System.Drawing.Size(153, 21);
             this.cmb_posicion.TabIndex = 15;
             // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Location = new System.Drawing.Point(306, 191);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancelar.TabIndex = 18;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.inSalir);
-            // 
             // btn_guardar
             // 
-            this.btn_guardar.Location = new System.Drawing.Point(387, 191);
+            this.btn_guardar.Location = new System.Drawing.Point(378, 187);
             this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.Size = new System.Drawing.Size(75, 23);
+            this.btn_guardar.Size = new System.Drawing.Size(84, 27);
             this.btn_guardar.TabIndex = 19;
             this.btn_guardar.Text = "Guardar";
             this.btn_guardar.UseVisualStyleBackColor = true;
@@ -200,9 +189,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(505, 233);
-            this.ControlBox = false;
             this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.cmb_posicion);
             this.Controls.Add(this.dtp_fecha);
             this.Controls.Add(this.txt_peso);
@@ -222,6 +209,7 @@
             this.MinimizeBox = false;
             this.Name = "frmInsertarJugador";
             this.Text = "Jugador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmJugadorInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -244,7 +232,6 @@
         private System.Windows.Forms.TextBox txt_peso;
         private System.Windows.Forms.DateTimePicker dtp_fecha;
         private System.Windows.Forms.ComboBox cmb_posicion;
-        private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.Button btn_guardar;
     }
 }

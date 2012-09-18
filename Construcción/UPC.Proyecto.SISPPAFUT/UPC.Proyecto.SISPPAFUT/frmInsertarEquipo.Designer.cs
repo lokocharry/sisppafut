@@ -46,7 +46,6 @@
             this.cmb_estadioPrincipal = new System.Windows.Forms.ComboBox();
             this.cmb_estadioAlterno = new System.Windows.Forms.ComboBox();
             this.btn_guardar = new System.Windows.Forms.Button();
-            this.brn_cancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_titulo
@@ -184,23 +183,11 @@
             this.btn_guardar.UseVisualStyleBackColor = true;
             this.btn_guardar.Click += new System.EventHandler(this.btn_GuardarEquipo);
             // 
-            // brn_cancelar
-            // 
-            this.brn_cancelar.Location = new System.Drawing.Point(347, 185);
-            this.brn_cancelar.Name = "brn_cancelar";
-            this.brn_cancelar.Size = new System.Drawing.Size(75, 23);
-            this.brn_cancelar.TabIndex = 14;
-            this.brn_cancelar.Text = "Cancelar";
-            this.brn_cancelar.UseVisualStyleBackColor = true;
-            this.brn_cancelar.Click += new System.EventHandler(this.brn_Cancelar);
-            // 
-            // frmEquipoInsertar
+            // frmInsertarEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(544, 232);
-            this.ControlBox = false;
-            this.Controls.Add(this.brn_cancelar);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.cmb_estadioAlterno);
             this.Controls.Add(this.cmb_estadioPrincipal);
@@ -218,8 +205,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmEquipoInsertar";
+            this.Name = "frmInsertarEquipo";
             this.Text = "Equipo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmEquipoInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -242,6 +230,5 @@
         private System.Windows.Forms.ComboBox cmb_estadioPrincipal;
         private System.Windows.Forms.ComboBox cmb_estadioAlterno;
         private System.Windows.Forms.Button btn_guardar;
-        private System.Windows.Forms.Button brn_cancelar;
     }
 }

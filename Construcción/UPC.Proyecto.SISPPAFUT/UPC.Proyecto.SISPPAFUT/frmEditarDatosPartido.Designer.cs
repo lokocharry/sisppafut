@@ -100,7 +100,6 @@
             this.Tiempo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_eliminar_lesiones = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btn_lesiones_agregar = new System.Windows.Forms.Button();
-            this.btn_cancelar_datos = new System.Windows.Forms.Button();
             this.btn_guardar_datos = new System.Windows.Forms.Button();
             this.gb_equipos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_equipo_visitante)).BeginInit();
@@ -1017,21 +1016,11 @@
             this.btn_lesiones_agregar.UseVisualStyleBackColor = true;
             this.btn_lesiones_agregar.Click += new System.EventHandler(this.btn_lesiones_agregar_Click);
             // 
-            // btn_cancelar_datos
-            // 
-            this.btn_cancelar_datos.Location = new System.Drawing.Point(1091, 566);
-            this.btn_cancelar_datos.Name = "btn_cancelar_datos";
-            this.btn_cancelar_datos.Size = new System.Drawing.Size(135, 23);
-            this.btn_cancelar_datos.TabIndex = 5;
-            this.btn_cancelar_datos.Text = "Cancelar";
-            this.btn_cancelar_datos.UseVisualStyleBackColor = true;
-            this.btn_cancelar_datos.Click += new System.EventHandler(this.inSalir);
-            // 
             // btn_guardar_datos
             // 
-            this.btn_guardar_datos.Location = new System.Drawing.Point(950, 566);
+            this.btn_guardar_datos.Location = new System.Drawing.Point(1096, 562);
             this.btn_guardar_datos.Name = "btn_guardar_datos";
-            this.btn_guardar_datos.Size = new System.Drawing.Size(135, 23);
+            this.btn_guardar_datos.Size = new System.Drawing.Size(135, 31);
             this.btn_guardar_datos.TabIndex = 6;
             this.btn_guardar_datos.Text = "Guardar";
             this.btn_guardar_datos.UseVisualStyleBackColor = true;
@@ -1042,9 +1031,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1238, 601);
-            this.ControlBox = false;
             this.Controls.Add(this.btn_guardar_datos);
-            this.Controls.Add(this.btn_cancelar_datos);
             this.Controls.Add(this.gb_lesiones);
             this.Controls.Add(this.imagen_formacion);
             this.Controls.Add(this.gb_goles);
@@ -1055,6 +1042,7 @@
             this.MinimizeBox = false;
             this.Name = "frmEditarDatosPartido";
             this.Text = "Datos de Partido";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.EditarDatosPartido_Load);
             this.gb_equipos.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_equipo_visitante)).EndInit();
@@ -1108,7 +1096,6 @@
         private System.Windows.Forms.Button btn_lesiones_actualizar;
         private System.Windows.Forms.DataGridView dgv_lesiones;
         private System.Windows.Forms.Button btn_lesiones_agregar;
-        private System.Windows.Forms.Button btn_cancelar_datos;
         private System.Windows.Forms.Button btn_guardar_datos;
         private System.Windows.Forms.ComboBox cmb_lesiones_descanzo;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_jugador_amonestacion;

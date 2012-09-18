@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="Cadena" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">server=(local); database=SISPPAFUT; User Id=SISPPAFUTadmin; Pwd=admin</Value>
+      <Value Profile="(Default)">server=(local); database=SEGURIDAD; User Id=sa; Pwd=password</Value>
     </Setting>
   </Settings>
 </SettingsFile>

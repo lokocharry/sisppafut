@@ -31,13 +31,7 @@ namespace UPC.Proyecto.SISPPAFUT
 
         public frmAsignarJugadoresaEquipo()
         {
-            InitializeComponent();            
-        }
-
-        private void btn_cancelar_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-                this.Close();
+            InitializeComponent();
         }
 
         private void frmAsignarJugadoresaEquipo_Load(object sender, EventArgs e)
@@ -244,14 +238,10 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void lbl_equipo_Click(object sender, EventArgs e)
+        private void inCerrar(object sender, FormClosingEventArgs e)
         {
-
-        }
-
-        private void lbl_pais_Click(object sender, EventArgs e)
-        {
-
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

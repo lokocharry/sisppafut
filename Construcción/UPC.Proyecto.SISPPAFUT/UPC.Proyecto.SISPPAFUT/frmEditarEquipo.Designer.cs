@@ -36,12 +36,11 @@
             this.lblPais = new System.Windows.Forms.Label();
             this.cmbPais = new System.Windows.Forms.ComboBox();
             this.dgEquipos = new System.Windows.Forms.DataGridView();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Anio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Ciudad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnEditar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgEquipos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -92,26 +91,6 @@
             this.dgEquipos.Size = new System.Drawing.Size(363, 303);
             this.dgEquipos.TabIndex = 3;
             // 
-            // btnEditar
-            // 
-            this.btnEditar.Location = new System.Drawing.Point(320, 402);
-            this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 29);
-            this.btnEditar.TabIndex = 4;
-            this.btnEditar.Text = "Editar";
-            this.btnEditar.UseVisualStyleBackColor = true;
-            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(239, 402);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 29);
-            this.btnCancelar.TabIndex = 5;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // Codigo
             // 
             this.Codigo.HeaderText = "Codigo";
@@ -137,21 +116,32 @@
             this.Ciudad.Name = "Ciudad";
             this.Ciudad.ReadOnly = true;
             // 
+            // btnEditar
+            // 
+            this.btnEditar.Location = new System.Drawing.Point(320, 402);
+            this.btnEditar.Name = "btnEditar";
+            this.btnEditar.Size = new System.Drawing.Size(75, 29);
+            this.btnEditar.TabIndex = 4;
+            this.btnEditar.Text = "Editar";
+            this.btnEditar.UseVisualStyleBackColor = true;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
+            // 
             // frmEditarEquipo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 443);
-            this.ControlBox = false;
-            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.dgEquipos);
             this.Controls.Add(this.cmbPais);
             this.Controls.Add(this.lblPais);
             this.Controls.Add(this.lblTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmEditarEquipo";
             this.Text = "Editar Equipos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             ((System.ComponentModel.ISupportInitialize)(this.dgEquipos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -165,7 +155,6 @@
         private System.Windows.Forms.ComboBox cmbPais;
         private System.Windows.Forms.DataGridView dgEquipos;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Anio;

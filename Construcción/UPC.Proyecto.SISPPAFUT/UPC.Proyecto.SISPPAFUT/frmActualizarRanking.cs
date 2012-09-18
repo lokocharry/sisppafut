@@ -194,12 +194,6 @@ namespace UPC.Proyecto.SISPPAFUT
             txtPuntos.Clear();
         }
 
-        private void inSalir(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-                this.Close();
-        }
-
         private Boolean VerificarDatos()
         {
             return (cmbPais.SelectedIndex > 0 && cmbEquipo.SelectedIndex > 0 &&
@@ -277,6 +271,12 @@ namespace UPC.Proyecto.SISPPAFUT
                 e.Handled = (IsDec) ? true : false;
             else
                 e.Handled = true;
+        }
+
+        private void inCerrar(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

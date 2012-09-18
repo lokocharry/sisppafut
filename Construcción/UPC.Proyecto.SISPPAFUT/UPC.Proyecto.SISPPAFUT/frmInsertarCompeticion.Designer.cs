@@ -35,7 +35,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btn_guardar = new System.Windows.Forms.Button();
-            this.btn_salir = new System.Windows.Forms.Button();
             this.cmb_paises = new System.Windows.Forms.ComboBox();
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -68,16 +67,6 @@
             this.btn_guardar.UseVisualStyleBackColor = true;
             this.btn_guardar.Click += new System.EventHandler(this.btn_GuardarCompeticion);
             // 
-            // btn_salir
-            // 
-            this.btn_salir.Location = new System.Drawing.Point(255, 110);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(75, 23);
-            this.btn_salir.TabIndex = 3;
-            this.btn_salir.Text = "Cancelar";
-            this.btn_salir.UseVisualStyleBackColor = true;
-            this.btn_salir.Click += new System.EventHandler(this.btn_Salir);
-            // 
             // cmb_paises
             // 
             this.cmb_paises.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -96,23 +85,22 @@
             this.txt_nombre.TabIndex = 5;
             this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ValidarEntradaTexto);
             // 
-            // frmCompeticionInsertar
+            // frmInsertarCompeticion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(457, 153);
-            this.ControlBox = false;
             this.Controls.Add(this.txt_nombre);
             this.Controls.Add(this.cmb_paises);
-            this.Controls.Add(this.btn_salir);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmCompeticionInsertar";
+            this.Name = "frmInsertarCompeticion";
             this.Text = "Competicion";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.FrmCompeticionInsertar_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -124,7 +112,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btn_guardar;
-        private System.Windows.Forms.Button btn_salir;
         private System.Windows.Forms.ComboBox cmb_paises;
         private System.Windows.Forms.TextBox txt_nombre;
     }

@@ -177,22 +177,7 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
-        }
-
-        private void inConsultaDeSuspensiones(object sender, EventArgs e)
-        {
-            try
-            {
-                frmConsultaSuspensiones frm = frmConsultaSuspensiones.Instance();
-                frm.MdiParent = this;
-                frm.Show();
-                frm.BringToFront();
-            }
-            catch (Exception ex)
-            {
-                Funciones.RegistrarExcepcion(ex);
-            }
-        }
+        }        
 
         private void editarEquipoToolStripMenuItem_Click(object sender, EventArgs e)
         {

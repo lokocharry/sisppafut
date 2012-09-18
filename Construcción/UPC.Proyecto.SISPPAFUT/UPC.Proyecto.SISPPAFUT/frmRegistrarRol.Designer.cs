@@ -13,11 +13,15 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing)
             {
-                components.Dispose();
+                if (components != null)
+                {
+                    components.Dispose();
+                }
             }
             base.Dispose(disposing);
+            frmRol = null;
         }
 
         #region Windows Form Designer generated code
@@ -112,9 +116,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(367, 227);
+            this.button1.Location = new System.Drawing.Point(362, 227);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(80, 32);
             this.button1.TabIndex = 5;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
@@ -124,7 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 262);
+            this.ClientSize = new System.Drawing.Size(476, 271);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtConfirmaClave);
@@ -134,12 +138,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmRegistrarRol";
             this.ShowIcon = false;
             this.Text = "Registro de Roles";
-            this.Load += new System.EventHandler(this.frmRegistrarRol_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -37,13 +37,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             InitializeComponent();
             iniciarPaises();
-            iniciarGrilla();            
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.Yes)
-                this.Close();
+            iniciarGrilla();
         }
 
         private void iniciarPaises()
@@ -161,6 +155,12 @@ namespace UPC.Proyecto.SISPPAFUT
                 MessageBox.Show("Seleccione un país.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("El país seleccionado no dispone de equipos para mostrar.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void inCerrar(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

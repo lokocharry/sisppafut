@@ -51,7 +51,6 @@
             this.h_altura = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.btn_guardar = new System.Windows.Forms.Button();
-            this.btn_cancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jugadores)).BeginInit();
@@ -67,7 +66,6 @@
             this.lbl_pais.Size = new System.Drawing.Size(35, 13);
             this.lbl_pais.TabIndex = 0;
             this.lbl_pais.Text = "País :";
-            this.lbl_pais.Click += new System.EventHandler(this.lbl_pais_Click);
             // 
             // lbl_equipo
             // 
@@ -77,7 +75,6 @@
             this.lbl_equipo.Size = new System.Drawing.Size(46, 13);
             this.lbl_equipo.TabIndex = 1;
             this.lbl_equipo.Text = "Equipo :";
-            this.lbl_equipo.Click += new System.EventHandler(this.lbl_equipo_Click);
             // 
             // lbl_jugador
             // 
@@ -216,16 +213,6 @@
             this.btn_guardar.UseVisualStyleBackColor = true;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
-            // btn_cancelar
-            // 
-            this.btn_cancelar.Location = new System.Drawing.Point(381, 293);
-            this.btn_cancelar.Name = "btn_cancelar";
-            this.btn_cancelar.Size = new System.Drawing.Size(75, 23);
-            this.btn_cancelar.TabIndex = 9;
-            this.btn_cancelar.Text = "Cancelar";
-            this.btn_cancelar.UseVisualStyleBackColor = true;
-            this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cmb_paises);
@@ -255,10 +242,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(578, 326);
-            this.ControlBox = false;
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.dgv_jugadores);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -266,6 +251,7 @@
             this.MinimizeBox = false;
             this.Name = "frmAsignarJugadoresaEquipo";
             this.Text = "Asignar Jugadores a un Equipo";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmAsignarJugadoresaEquipo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_jugadores)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -287,7 +273,6 @@
         private System.Windows.Forms.Button btn_agregar_jugadores;
         private System.Windows.Forms.DataGridView dgv_jugadores;
         private System.Windows.Forms.Button btn_guardar;
-        private System.Windows.Forms.Button btn_cancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn h_nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn h_apellido;
         private System.Windows.Forms.DataGridViewTextBoxColumn h_nacionalidad;

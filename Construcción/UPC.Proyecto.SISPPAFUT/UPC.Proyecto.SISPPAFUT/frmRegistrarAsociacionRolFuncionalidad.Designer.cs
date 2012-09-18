@@ -13,11 +13,15 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+            if (disposing)
             {
-                components.Dispose();
+                if (components != null)
+                {
+                    components.Dispose();
+                }
             }
             base.Dispose(disposing);
+            frmRolFunc = null;
         }
 
         #region Windows Form Designer generated code
@@ -31,15 +35,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbRol = new System.Windows.Forms.ComboBox();
-            this.cmbFuncionalidad = new System.Windows.Forms.ComboBox();
-            this.btnAgregarLista = new System.Windows.Forms.Button();
-            this.dgvListaAsignaciones = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.dgvListaAsignaciones = new System.Windows.Forms.DataGridView();
             this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.cmbRol = new System.Windows.Forms.ComboBox();
+            this.cmbFuncionalidad = new System.Windows.Forms.ComboBox();
+            this.btnAgregarLista = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaAsignaciones)).BeginInit();
             this.SuspendLayout();
@@ -73,6 +77,53 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista de Asignaciones";
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Location = new System.Drawing.Point(419, 186);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.TabIndex = 1;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // dgvListaAsignaciones
+            // 
+            this.dgvListaAsignaciones.AllowUserToAddRows = false;
+            this.dgvListaAsignaciones.AllowUserToDeleteRows = false;
+            this.dgvListaAsignaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaAsignaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Funcionalidad,
+            this.Rol,
+            this.Eliminar});
+            this.dgvListaAsignaciones.Location = new System.Drawing.Point(17, 30);
+            this.dgvListaAsignaciones.Name = "dgvListaAsignaciones";
+            this.dgvListaAsignaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvListaAsignaciones.Size = new System.Drawing.Size(477, 150);
+            this.dgvListaAsignaciones.TabIndex = 0;
+            this.dgvListaAsignaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SeleccionEliminar);
+            this.dgvListaAsignaciones.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvListaAsignaciones_CurrentCellDirtyStateChanged);
+            // 
+            // Funcionalidad
+            // 
+            this.Funcionalidad.HeaderText = "Funcionalidad";
+            this.Funcionalidad.Name = "Funcionalidad";
+            this.Funcionalidad.ReadOnly = true;
+            this.Funcionalidad.Width = 159;
+            // 
+            // Rol
+            // 
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            this.Rol.Width = 159;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Width = 110;
+            // 
             // cmbRol
             // 
             this.cmbRol.FormattingEnabled = true;
@@ -99,33 +150,6 @@
             this.btnAgregarLista.UseVisualStyleBackColor = true;
             this.btnAgregarLista.Click += new System.EventHandler(this.btnAgregarLista_Click);
             // 
-            // dgvListaAsignaciones
-            // 
-            this.dgvListaAsignaciones.AllowUserToAddRows = false;
-            this.dgvListaAsignaciones.AllowUserToDeleteRows = false;
-            this.dgvListaAsignaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaAsignaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Funcionalidad,
-            this.Rol,
-            this.Eliminar});
-            this.dgvListaAsignaciones.Location = new System.Drawing.Point(17, 30);
-            this.dgvListaAsignaciones.Name = "dgvListaAsignaciones";
-            this.dgvListaAsignaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvListaAsignaciones.Size = new System.Drawing.Size(477, 150);
-            this.dgvListaAsignaciones.TabIndex = 0;
-            this.dgvListaAsignaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SeleccionEliminar);
-            this.dgvListaAsignaciones.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvListaAsignaciones_CurrentCellDirtyStateChanged);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Location = new System.Drawing.Point(419, 186);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
-            this.btnActualizar.TabIndex = 1;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
             // btnGuardar
             // 
             this.btnGuardar.Location = new System.Drawing.Point(480, 307);
@@ -134,26 +158,6 @@
             this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // Funcionalidad
-            // 
-            this.Funcionalidad.HeaderText = "Funcionalidad";
-            this.Funcionalidad.Name = "Funcionalidad";
-            this.Funcionalidad.ReadOnly = true;
-            this.Funcionalidad.Width = 159;
-            // 
-            // Rol
-            // 
-            this.Rol.HeaderText = "Rol";
-            this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
-            this.Rol.Width = 159;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Width = 110;
             // 
             // frmRegistrarAsociacionRolFuncionalidad
             // 
@@ -167,12 +171,13 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmRegistrarAsociacionRolFuncionalidad";
             this.ShowIcon = false;
             this.Text = "Asociación de Rol - Funcionalidad";
-            this.Load += new System.EventHandler(this.frmRegistrarAsociacionRolFuncionalidad_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaAsignaciones)).EndInit();
             this.ResumeLayout(false);

@@ -45,7 +45,6 @@
             this.txtPosicion = new System.Windows.Forms.TextBox();
             this.txtPuntos = new System.Windows.Forms.TextBox();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_pais
@@ -161,29 +160,17 @@
             // 
             this.btnGuardar.Location = new System.Drawing.Point(393, 167);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(95, 31);
+            this.btnGuardar.Size = new System.Drawing.Size(95, 28);
             this.btnGuardar.TabIndex = 12;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(292, 167);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(95, 31);
-            this.btnCancelar.TabIndex = 13;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.inSalir);
-            // 
             // frmActualizarRanking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 218);
-            this.ControlBox = false;
-            this.Controls.Add(this.btnCancelar);
+            this.ClientSize = new System.Drawing.Size(508, 211);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.txtPuntos);
             this.Controls.Add(this.txtPosicion);
@@ -198,8 +185,11 @@
             this.Controls.Add(this.lbl_anio);
             this.Controls.Add(this.lbl_pais);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmActualizarRanking";
             this.Text = "Actualizar Ranking Mundial de Clubes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmActualizarRanking_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -221,6 +211,5 @@
         private System.Windows.Forms.TextBox txtPosicion;
         private System.Windows.Forms.TextBox txtPuntos;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
     }
 }

@@ -84,12 +84,6 @@
     <Compile Include="frmConsultarHistorialJugador.Designer.cs">
       <DependentUpon>frmConsultarHistorialJugador.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConsultaSuspensiones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmConsultaSuspensiones.Designer.cs">
-      <DependentUpon>frmConsultaSuspensiones.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmEditarDatosPartido.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,9 +234,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarHistorialJugador.resx">
       <DependentUpon>frmConsultarHistorialJugador.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmConsultaSuspensiones.resx">
-      <DependentUpon>frmConsultaSuspensiones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarDatosPartido.resx">
       <DependentUpon>frmEditarDatosPartido.cs</DependentUpon>
