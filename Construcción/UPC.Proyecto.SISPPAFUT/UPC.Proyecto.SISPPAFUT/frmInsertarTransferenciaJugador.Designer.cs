@@ -44,11 +44,15 @@
             this.label6 = new System.Windows.Forms.Label();
             this.cmbPaisTransf = new System.Windows.Forms.ComboBox();
             this.cbLiberar = new System.Windows.Forms.CheckBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnTransferir
             // 
-            this.btnTransferir.Location = new System.Drawing.Point(534, 144);
+            this.btnTransferir.Location = new System.Drawing.Point(550, 196);
             this.btnTransferir.Name = "btnTransferir";
             this.btnTransferir.Size = new System.Drawing.Size(131, 34);
             this.btnTransferir.TabIndex = 0;
@@ -60,7 +64,7 @@
             // 
             this.cmbPais.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPais.FormattingEnabled = true;
-            this.cmbPais.Location = new System.Drawing.Point(100, 24);
+            this.cmbPais.Location = new System.Drawing.Point(90, 32);
             this.cmbPais.Name = "cmbPais";
             this.cmbPais.Size = new System.Drawing.Size(121, 21);
             this.cmbPais.TabIndex = 1;
@@ -69,7 +73,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(29, 32);
+            this.label1.Location = new System.Drawing.Point(19, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 13);
             this.label1.TabIndex = 2;
@@ -78,7 +82,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(29, 68);
+            this.label2.Location = new System.Drawing.Point(19, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 3;
@@ -88,7 +92,7 @@
             // 
             this.cmbEquipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEquipo.FormattingEnabled = true;
-            this.cmbEquipo.Location = new System.Drawing.Point(100, 60);
+            this.cmbEquipo.Location = new System.Drawing.Point(90, 68);
             this.cmbEquipo.Name = "cmbEquipo";
             this.cmbEquipo.Size = new System.Drawing.Size(225, 21);
             this.cmbEquipo.TabIndex = 4;
@@ -98,7 +102,7 @@
             // 
             this.cmbJugador.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbJugador.FormattingEnabled = true;
-            this.cmbJugador.Location = new System.Drawing.Point(100, 98);
+            this.cmbJugador.Location = new System.Drawing.Point(90, 106);
             this.cmbJugador.Name = "cmbJugador";
             this.cmbJugador.Size = new System.Drawing.Size(225, 21);
             this.cmbJugador.TabIndex = 5;
@@ -106,7 +110,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(29, 101);
+            this.label3.Location = new System.Drawing.Point(19, 109);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 6;
@@ -116,7 +120,7 @@
             // 
             this.cmbEquipoTransf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEquipoTransf.FormattingEnabled = true;
-            this.cmbEquipoTransf.Location = new System.Drawing.Point(440, 60);
+            this.cmbEquipoTransf.Location = new System.Drawing.Point(94, 68);
             this.cmbEquipoTransf.Name = "cmbEquipoTransf";
             this.cmbEquipoTransf.Size = new System.Drawing.Size(225, 21);
             this.cmbEquipoTransf.TabIndex = 10;
@@ -125,7 +129,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(369, 68);
+            this.label5.Location = new System.Drawing.Point(23, 76);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 9;
@@ -134,7 +138,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(369, 32);
+            this.label6.Location = new System.Drawing.Point(23, 40);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(29, 13);
             this.label6.TabIndex = 8;
@@ -144,7 +148,7 @@
             // 
             this.cmbPaisTransf.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPaisTransf.FormattingEnabled = true;
-            this.cmbPaisTransf.Location = new System.Drawing.Point(440, 24);
+            this.cmbPaisTransf.Location = new System.Drawing.Point(94, 32);
             this.cmbPaisTransf.Name = "cmbPaisTransf";
             this.cmbPaisTransf.Size = new System.Drawing.Size(121, 21);
             this.cmbPaisTransf.TabIndex = 7;
@@ -153,39 +157,63 @@
             // cbLiberar
             // 
             this.cbLiberar.AutoSize = true;
-            this.cbLiberar.Location = new System.Drawing.Point(372, 102);
+            this.cbLiberar.Location = new System.Drawing.Point(26, 110);
             this.cbLiberar.Name = "cbLiberar";
             this.cbLiberar.Size = new System.Drawing.Size(109, 17);
             this.cbLiberar.TabIndex = 11;
             this.cbLiberar.Text = "No indicar equipo";
             this.cbLiberar.UseVisualStyleBackColor = true;
+            this.cbLiberar.Visible = false;
+            this.cbLiberar.CheckedChanged += new System.EventHandler(this.inSeleccionSinEquipo);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.cmbPais);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.cmbEquipo);
+            this.groupBox1.Controls.Add(this.cmbJugador);
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(328, 168);
+            this.groupBox1.TabIndex = 12;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Equipo Origen";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.cbLiberar);
+            this.groupBox2.Controls.Add(this.cmbPaisTransf);
+            this.groupBox2.Controls.Add(this.cmbEquipoTransf);
+            this.groupBox2.Controls.Add(this.label6);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Location = new System.Drawing.Point(346, 12);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(335, 168);
+            this.groupBox2.TabIndex = 13;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Equipo Destino";
             // 
             // frmInsertarTransferenciaJugador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(693, 190);
-            this.Controls.Add(this.cbLiberar);
-            this.Controls.Add(this.cmbEquipoTransf);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.cmbPaisTransf);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.cmbJugador);
-            this.Controls.Add(this.cmbEquipo);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbPais);
+            this.ClientSize = new System.Drawing.Size(693, 244);
             this.Controls.Add(this.btnTransferir);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmInsertarTransferenciaJugador";
             this.Text = "Transferencia de Jugadores";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
-            this.Load += new System.EventHandler(this.frmInsertarTransferenciaJugador_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -203,5 +231,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox cmbPaisTransf;
         private System.Windows.Forms.CheckBox cbLiberar;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
     }
 }

@@ -237,7 +237,13 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 if (ValidarFormulario() == false)
                 {
-                    MessageBox.Show("Complete los datos solicitados");
+                    MessageBox.Show("Complete los datos solicitados", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                if (lista_equipos[cmbEquipo.SelectedIndex - 1].CodigoEquipo == lst_equiposTransf[cmbEquipoTransf.SelectedIndex - 1].CodigoEquipo)
+                {
+                    MessageBox.Show("El equipo de origen no puede ser el equipo destino.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
@@ -252,7 +258,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmbEquipoTransf.Items.Clear();
                 cmbEquipoTransf.Text = "Seleccione un equipo...";
 
-                MessageBox.Show("La transferencia se realizó con éxito");
+                MessageBox.Show("La transferencia se realizó con éxito", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             catch (Exception ex)
@@ -265,11 +271,6 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
                 e.Cancel = true;
-        }
-
-        private void frmInsertarTransferenciaJugador_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
