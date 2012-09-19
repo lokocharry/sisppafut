@@ -1,7 +1,7 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spUpdateGolesPartido]    Script Date: 09/18/2012 16:52:11 ******/
+/****** Object:  StoredProcedure [dbo].[spUpdateGolesPartido]    Script Date: 09/19/2012 11:15:21 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -100,7 +100,8 @@ BEGIN
 		WHERE	CodLiga = @Liga and
 				CodEquipo = @codEqL
 		UPDATE	[SISPPAFUT].[dbo].[Tabla]
-		SET		[PartidosJugadosVisita] = PartidosJugadosVisita+1
+		SET		[PuntosVisita] = PuntosVisita +1
+				,[PartidosJugadosVisita] = PartidosJugadosVisita+1
 				,[EmpatesVisita] = EmpatesVisita+1
 				,[GolesAnotadosVisita] = GolesAnotadosVisita+@GolesVisita
 				,[GolesEncajadosVisita] = GolesEncajadosVisita+@GolesLocal
