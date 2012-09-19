@@ -91,6 +91,7 @@
     <Compile Include="RolXFuncionalidadDALCTest.cs" />
     <Compile Include="SuspensionBCTest.cs" />
     <Compile Include="TablaPosicionesBCTest.cs" />
+    <Compile Include="UsuarioBCTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BL.BC\UPC.Proyecto.SISPPAFUT.BL.BC.csproj">

@@ -145,6 +145,7 @@
             // 
             this.txtContrasenia.Location = new System.Drawing.Point(160, 228);
             this.txtContrasenia.Name = "txtContrasenia";
+            this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(146, 20);
             this.txtContrasenia.TabIndex = 12;
             // 
@@ -152,6 +153,7 @@
             // 
             this.txtRepetirContrasenia.Location = new System.Drawing.Point(160, 263);
             this.txtRepetirContrasenia.Name = "txtRepetirContrasenia";
+            this.txtRepetirContrasenia.PasswordChar = '*';
             this.txtRepetirContrasenia.Size = new System.Drawing.Size(146, 20);
             this.txtRepetirContrasenia.TabIndex = 13;
             // 

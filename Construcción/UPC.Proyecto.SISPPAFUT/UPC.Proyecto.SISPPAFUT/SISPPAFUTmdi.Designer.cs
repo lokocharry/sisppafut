@@ -67,6 +67,7 @@
             this.funcXRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nuevoUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -323,7 +324,8 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.funcXRolToolStripMenuItem});
+            this.funcXRolToolStripMenuItem,
+            this.nuevoUsuarioToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.toolStripMenuItem1.Text = "Seguridad";
@@ -332,7 +334,7 @@
             // funcXRolToolStripMenuItem
             // 
             this.funcXRolToolStripMenuItem.Name = "funcXRolToolStripMenuItem";
-            this.funcXRolToolStripMenuItem.Size = new System.Drawing.Size(124, 22);
+            this.funcXRolToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.funcXRolToolStripMenuItem.Text = "FuncXRol";
             this.funcXRolToolStripMenuItem.Click += new System.EventHandler(this.funcXRolToolStripMenuItem_Click);
             // 
@@ -347,6 +349,13 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
+            // 
+            // nuevoUsuarioToolStripMenuItem
+            // 
+            this.nuevoUsuarioToolStripMenuItem.Name = "nuevoUsuarioToolStripMenuItem";
+            this.nuevoUsuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nuevoUsuarioToolStripMenuItem.Text = "Nuevo Usuario";
+            this.nuevoUsuarioToolStripMenuItem.Click += new System.EventHandler(this.nuevoUsuarioToolStripMenuItem_Click);
             // 
             // SISPPAFUTmdi
             // 
@@ -406,6 +415,7 @@
         private System.Windows.Forms.ToolStripMenuItem tablaDePosicionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem funcXRolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem nuevoUsuarioToolStripMenuItem;
     }
 }
 
