@@ -139,7 +139,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_Liga = new SqlParameter();
                 prm_Liga.ParameterName = "@CodLiga";
                 prm_Liga.SqlDbType = SqlDbType.Int;
-                prm_Liga.Value = codJugador;
+                prm_Liga.Value = codLiga;
 
                 cmd_LeerEstadoSuspension.Parameters.Add(prm_Codigo);
                 cmd_LeerEstadoSuspension.Parameters.Add(prm_Liga);
