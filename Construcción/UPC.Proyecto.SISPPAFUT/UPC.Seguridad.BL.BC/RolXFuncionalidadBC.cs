@@ -9,7 +9,7 @@ namespace UPC.Seguridad.BL.BC
 {
     public class RolXFuncionalidadBC
     {
-        public void Insertar_RolXFuncionalidad(int idRol, int idFuncionalidad)
+        public void Insertar_RolXFuncionalidad(List<RolXFuncionalidadBE> lst_RolFunc)
         {
             RolXFuncionalidadDALC objRolFuncionalidad;
 
@@ -17,12 +17,10 @@ namespace UPC.Seguridad.BL.BC
             {
                 objRolFuncionalidad = new RolXFuncionalidadDALC();
 
-                RolXFuncionalidadBE objRolFuncionalidadBE = new RolXFuncionalidadBE();
-
-                objRolFuncionalidadBE.idRol = idRol;
-                objRolFuncionalidadBE.idFuncionalidad = idFuncionalidad;
-
-                objRolFuncionalidad.insertar_RolXFuncionalidad(objRolFuncionalidadBE);
+                for (int i = 0; i < lst_RolFunc.Count; i++)
+                {
+                    objRolFuncionalidad.insertar_RolXFuncionalidad(lst_RolFunc[i]);
+                }
             }
             catch (Exception)
             {
@@ -39,6 +37,22 @@ namespace UPC.Seguridad.BL.BC
                 objRolFuncionalidadDALC = new RolXFuncionalidadDALC();
 
                 return objRolFuncionalidadDALC.listar_FuncionalidadesXRol(idRol);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int VerificarSiExiste_RolXFuncionalidad(int idRol, int idFuncionalidad)
+        {
+            RolXFuncionalidadDALC objRolXFuncionalidadDALC;
+
+            try
+            {
+                objRolXFuncionalidadDALC = new RolXFuncionalidadDALC();
+
+                return objRolXFuncionalidadDALC.Verificar_RolXFuncionalidadExiste(idRol, idFuncionalidad);
             }
             catch (Exception)
             {

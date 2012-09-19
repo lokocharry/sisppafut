@@ -99,14 +99,21 @@ namespace UPC.Proyecto.SISPPAFUT
                 return;
             }
 
+            int Cantidad = 0;
+
+            RolXFuncionalidadBC objRolxFuncionalidadBC = new RolXFuncionalidadBC();
+            Cantidad = objRolxFuncionalidadBC.VerificarSiExiste_RolXFuncionalidad(lst_roles[cmbRol.SelectedIndex - 1].idRol, lst_funcionalidades[cmbFuncionalidad.SelectedIndex - 1].idFuncionalidad);
+
+            if (Cantidad > 0)
+            {
+                MessageBox.Show("Esta asociación ya existe. Debe registrar una diferente");
+                return;
+            }
+
             RolXFuncionalidadBE objRolFuncionalidadBE = new RolXFuncionalidadBE();
-
             objRolFuncionalidadBE.idFuncionalidad = lst_funcionalidades[cmbFuncionalidad.SelectedIndex - 1].idFuncionalidad;
-
             objRolFuncionalidadBE.NombreFuncionalidad = lst_funcionalidades[cmbFuncionalidad.SelectedIndex - 1].NombreFuncionalidad;
-
             objRolFuncionalidadBE.idRol = lst_roles[cmbRol.SelectedIndex - 1].idRol;
-
             objRolFuncionalidadBE.NombreRol = lst_roles[cmbRol.SelectedIndex - 1].NombreRol;
 
             lst_Asociaciones.Add(objRolFuncionalidadBE);
@@ -114,6 +121,9 @@ namespace UPC.Proyecto.SISPPAFUT
             dgvListaAsignaciones.Rows.Add(objRolFuncionalidadBE.NombreFuncionalidad, objRolFuncionalidadBE.NombreRol);
 
             lst_EstadosAsociaciones.Add(0);
+
+            cmbFuncionalidad.SelectedIndex = 0;
+            cmbRol.SelectedIndex = 0;
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
@@ -129,6 +139,8 @@ namespace UPC.Proyecto.SISPPAFUT
                 }
 
                 dgvListaAsignaciones.Rows.Clear();
+
+                lst_EstadosAsociaciones.RemoveAll(valor => valor == 1);
 
                 if (lst_Asociaciones.Count > 0)
                 {
@@ -171,7 +183,6 @@ namespace UPC.Proyecto.SISPPAFUT
                 {
                     lst_EstadosAsociaciones[e.RowIndex] = 0;
                 }
-
             }
         }
 
@@ -179,6 +190,36 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
                 e.Cancel = true;
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (lst_Asociaciones.Count == 0)
+            {
+                MessageBox.Show("Añada asociaciones a la tabla para poder registrarlas");
+                return;
+            }
+
+            RolXFuncionalidadBC objRolFuncionalidadBC;
+            try
+            {
+                objRolFuncionalidadBC = new RolXFuncionalidadBC();
+
+                objRolFuncionalidadBC.Insertar_RolXFuncionalidad(lst_Asociaciones);
+
+                MessageBox.Show("Se registraron las asociaciones correctamente");
+
+                dgvListaAsignaciones.Rows.Clear();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void frmRegistrarAsociacionRolFuncionalidad_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

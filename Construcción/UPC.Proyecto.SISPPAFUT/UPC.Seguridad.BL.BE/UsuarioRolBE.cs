@@ -21,6 +21,22 @@ namespace UPC.Seguridad.BL.BE
         {
             get { return _idRol; }
             set { _idRol = value; }
-        }        
+        }
+
+        private String nombreUsuario;
+
+        public String NombreUsuario
+        {
+            get { return nombreUsuario; }
+            set { nombreUsuario = value; }
+        }
+
+        private String nombreRol;
+
+        public String NombreRol
+        {
+            get { return nombreRol; }
+            set { nombreRol = value; }
+        }
     }
 }

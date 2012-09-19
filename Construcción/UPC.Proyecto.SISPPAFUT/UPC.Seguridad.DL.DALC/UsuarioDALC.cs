@@ -120,7 +120,7 @@ namespace UPC.Seguridad.DL.DALC
             try
             {
                 conexion = new SqlConnection(Properties.Settings.Default.Cadena);
-                sqlUsuariosListar = "spListarUsuario";
+                sqlUsuariosListar = "spListarUsuarios";
                 cmd_usuarios = new SqlCommand(sqlUsuariosListar, conexion);
                 cmd_usuarios.Connection.Open();
                 dr_usuarios = cmd_usuarios.ExecuteReader();

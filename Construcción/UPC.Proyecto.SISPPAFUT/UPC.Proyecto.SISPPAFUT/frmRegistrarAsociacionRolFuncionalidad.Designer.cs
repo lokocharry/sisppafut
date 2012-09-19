@@ -160,6 +160,7 @@
             this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // frmRegistrarAsociacionRolFuncionalidad
             // 
@@ -180,6 +181,7 @@
             this.ShowIcon = false;
             this.Text = "Asociación de Rol - Funcionalidad";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
+            this.Load += new System.EventHandler(this.frmRegistrarAsociacionRolFuncionalidad_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaAsignaciones)).EndInit();
             this.ResumeLayout(false);

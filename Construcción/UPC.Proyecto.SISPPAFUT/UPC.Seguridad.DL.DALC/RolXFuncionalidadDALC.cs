@@ -116,5 +116,58 @@ namespace UPC.Seguridad.DL.DALC
                 throw;
             }
         }
+
+        public int Verificar_RolXFuncionalidadExiste(int idRol, int idFuncionalidad)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_rolxfunc = null;
+            SqlDataReader dr_rolxfunc = null;
+            SqlParameter prm_idrol;
+            SqlParameter prm_idfuncionalidad;
+
+            String sql_verificarexiste;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+
+                sql_verificarexiste = "spVerificarRolFuncionalidadExiste";
+
+                cmd_rolxfunc = new SqlCommand(sql_verificarexiste, conexion);
+                cmd_rolxfunc.CommandType = CommandType.StoredProcedure;
+
+                prm_idrol = new SqlParameter();
+                prm_idrol.ParameterName = "@idRol";
+                prm_idrol.SqlDbType = SqlDbType.Int;
+                prm_idrol.Value = idRol;
+
+                prm_idfuncionalidad = new SqlParameter();
+                prm_idfuncionalidad.ParameterName = "@idFuncionalidad";
+                prm_idfuncionalidad.SqlDbType = SqlDbType.Int;
+                prm_idfuncionalidad.Value = idFuncionalidad;
+
+                cmd_rolxfunc.Parameters.Add(prm_idrol);
+                cmd_rolxfunc.Parameters.Add(prm_idfuncionalidad);
+
+                cmd_rolxfunc.Connection.Open();
+                dr_rolxfunc = cmd_rolxfunc.ExecuteReader();
+
+                int Cantidad = 0;
+
+                while (dr_rolxfunc.Read())
+                {
+                    Cantidad = dr_rolxfunc.GetInt32(dr_rolxfunc.GetOrdinal("Cantidad"));
+                }
+
+                cmd_rolxfunc.Connection.Close();
+                cmd_rolxfunc.Connection.Dispose();
+
+                return Cantidad;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

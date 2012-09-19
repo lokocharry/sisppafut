@@ -42,6 +42,7 @@
     <Compile Include="FuncionalidadBC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RolBC.cs" />
+    <Compile Include="RolXFuncionalidadBC.cs" />
     <Compile Include="UsuarioBC.cs" />
     <Compile Include="UsuarioRolBC.cs" />
   </ItemGroup>

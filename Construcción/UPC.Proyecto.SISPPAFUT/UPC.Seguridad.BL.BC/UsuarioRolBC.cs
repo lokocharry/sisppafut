@@ -10,15 +10,33 @@ namespace UPC.Seguridad.BL.BC
 {
     public class UsuarioRolBC
     {
-        public void asignar_RolUsuario(int codUsuario, int codRol)
+        public void asignar_RolUsuario(List<UsuarioRolBE> lst_asoc)
         {
             UsuarioRolDALC objUsuarioRolDALC;
             try
             {
                 objUsuarioRolDALC = new UsuarioRolDALC();
-                objUsuarioRolDALC.asignar_Rol(codUsuario, codRol);
+
+                for(int i=0; i<lst_asoc.Count; i++)
+                    objUsuarioRolDALC.asignar_Rol(lst_asoc[i].IdUsuario, lst_asoc[i].IdRol);
             }
-            catch (Exception ex)
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
+        public int VerificarExiste_Asociacion(int idRol, int idUsuario)
+        {
+            UsuarioRolDALC objUsuarioRolDALC;
+
+            try
+            {
+                objUsuarioRolDALC = new UsuarioRolDALC();
+
+                return objUsuarioRolDALC.Verificar_ExisteRolUsuario(idUsuario, idRol);
+            }
+            catch (Exception)
             {
                 throw;
             }

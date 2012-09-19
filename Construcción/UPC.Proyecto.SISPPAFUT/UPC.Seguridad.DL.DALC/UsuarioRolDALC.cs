@@ -61,5 +61,66 @@ namespace UPC.Seguridad.DL.DALC
             }
 
         }
+
+        public int Verificar_ExisteRolUsuario(int codUsuario, int codRol)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_verificarexiste = null;
+
+            SqlParameter prm_CodigoUsuario;
+            SqlParameter prm_CodigoRol;
+
+            SqlDataReader dr_verificar;
+
+            String sqlRolAsignar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlRolAsignar = "spVerificarRolUsuarioExiste";
+
+                cmd_verificarexiste = new SqlCommand(sqlRolAsignar, conexion);
+                cmd_verificarexiste.CommandType = CommandType.StoredProcedure;
+
+                prm_CodigoUsuario = new SqlParameter();
+                prm_CodigoUsuario.ParameterName = "@idUsuario";
+                prm_CodigoUsuario.SqlDbType = SqlDbType.Int;
+                prm_CodigoUsuario.Value = codUsuario;
+
+                prm_CodigoRol = new SqlParameter();
+                prm_CodigoRol.ParameterName = "@idRol";
+                prm_CodigoRol.SqlDbType = SqlDbType.Int;
+                prm_CodigoRol.Value = codRol;
+
+                cmd_verificarexiste.Parameters.Add(prm_CodigoRol);
+                cmd_verificarexiste.Parameters.Add(prm_CodigoUsuario);
+
+                cmd_verificarexiste.Connection.Open();
+                dr_verificar =  cmd_verificarexiste.ExecuteReader();
+
+                int Cantidad = 0;
+
+                while (dr_verificar.Read())
+                {
+                    Cantidad = dr_verificar.GetInt32(dr_verificar.GetOrdinal("Cantidad"));
+                }
+
+                return Cantidad;
+            }
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+                throw;
+            }
+
+            finally
+            {
+                cmd_verificarexiste.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }
