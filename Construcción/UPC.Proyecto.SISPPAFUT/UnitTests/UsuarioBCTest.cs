@@ -85,7 +85,7 @@ namespace UnitTests
         public void listar_UsuariosTest()
         {
             UsuarioBC target = new UsuarioBC();
-            List<UsuarioBE> expected = null;
+            List<UsuarioBE> expected = target.listar_Usuarios();
             List<UsuarioBE> actual;
             actual = target.listar_Usuarios();
             Assert.AreEqual(expected, actual);

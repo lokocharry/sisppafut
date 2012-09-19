@@ -58,6 +58,7 @@
     <Compile Include="RankingEquipoBC.cs" />
     <Compile Include="SuspensionBC.cs" />
     <Compile Include="TablaPosicionesBC.cs" />
+    <Compile Include="UsuarioReferenciaBC.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BL.BE\UPC.Proyecto.SISPPAFUT.BL.BE.csproj">

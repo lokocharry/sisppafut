@@ -66,6 +66,7 @@
     <Compile Include="RankingEquipoDALC.cs" />
     <Compile Include="SuspensionDALC.cs" />
     <Compile Include="TablaPosicionesDALC.cs" />
+    <Compile Include="UsuarioReferenciaDALC.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
