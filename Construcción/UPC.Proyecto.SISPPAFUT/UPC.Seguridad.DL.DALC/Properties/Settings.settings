@@ -2,7 +2,7 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="UPC.Seguridad.DL.DALC.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="Cadena" Type="System.String" Scope="Application">
+    <Setting Name="sCadena" Type="System.String" Scope="Application">
       <Value Profile="(Default)">server=(local); database=SEGURIDAD; User Id=sa; Pwd=password</Value>
     </Setting>
   </Settings>

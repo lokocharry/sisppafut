@@ -24,7 +24,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
 
                 sqlRolFuncInsertar = "spCreateRolFuncionalidad";
 
@@ -75,7 +75,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
 
                 sql_funcionalidadListar = "spListarFuncionalidadxRol";
 
@@ -129,7 +129,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
 
                 sql_verificarexiste = "spVerificarRolFuncionalidadExiste";
 

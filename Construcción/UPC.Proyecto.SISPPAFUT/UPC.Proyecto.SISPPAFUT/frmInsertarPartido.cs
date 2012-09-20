@@ -350,6 +350,8 @@ namespace UPC.Proyecto.SISPPAFUT
             else if (_Modo == 2)
             {
                 editar_partido();
+                frmConsultaPartidosSinJugar frm = frmConsultaPartidosSinJugar.Instance();
+                frm.dgvPatidosDataBind();
             }
         }
 

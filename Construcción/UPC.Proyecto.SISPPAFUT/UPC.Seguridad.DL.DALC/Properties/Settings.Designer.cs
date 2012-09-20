@@ -26,9 +26,9 @@ namespace UPC.Seguridad.DL.DALC.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("server=(local); database=SEGURIDAD; User Id=sa; Pwd=password")]
-        public string Cadena {
+        public string sCadena {
             get {
-                return ((string)(this["Cadena"]));
+                return ((string)(this["sCadena"]));
             }
         }
     }

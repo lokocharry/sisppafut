@@ -87,7 +87,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void dgvPatidosDataBind()
+        public void dgvPatidosDataBind()
         {
             PartidoBC objPartidoBC;
             objPartidoBC = new PartidoBC();

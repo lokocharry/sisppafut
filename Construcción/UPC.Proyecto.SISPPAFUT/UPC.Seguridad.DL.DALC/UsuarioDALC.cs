@@ -30,7 +30,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
                 //Cambiar "Cadena" por la cadena de conexion a SISPPAFUT_seguridad
                 sqlUsuarioInsertar = "spCreateUsuario";
 
@@ -119,7 +119,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
                 sqlUsuariosListar = "spListarUsuarios";
                 cmd_usuarios = new SqlCommand(sqlUsuariosListar, conexion);
                 cmd_usuarios.Connection.Open();

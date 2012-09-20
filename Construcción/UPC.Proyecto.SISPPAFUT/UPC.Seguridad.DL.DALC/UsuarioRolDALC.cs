@@ -23,7 +23,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
                 sqlRolAsignar = "spCreateUsuarioRol";
 
                 cmd_RolAsignar = new SqlCommand(sqlRolAsignar, conexion);
@@ -76,7 +76,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
                 sqlRolAsignar = "spVerificarRolUsuarioExiste";
 
                 cmd_verificarexiste = new SqlCommand(sqlRolAsignar, conexion);

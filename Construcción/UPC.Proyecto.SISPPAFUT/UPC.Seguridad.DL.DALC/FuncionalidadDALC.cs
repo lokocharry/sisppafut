@@ -25,7 +25,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
 
                 sqlFuncionalidadInsertar = "spCreateFuncionalidad";
 
@@ -89,7 +89,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
 
                 sqlFuncionalidadInsertar = "spVerificarFuncionalidadExiste";
 
@@ -147,7 +147,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
 
                 sql_listarfuncionalidad = "spListarFuncionalidades";
 

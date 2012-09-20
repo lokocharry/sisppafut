@@ -39,9 +39,9 @@ namespace UPC.Proyecto.SISPPAFUT
             guardar_usuario();
         }
 
-        private bool ValidarCampos()
+        private Boolean ValidarCampos()
         {
-            bool validacion = true;
+            Boolean validacion = true;
 
             try
             {
@@ -74,12 +74,13 @@ namespace UPC.Proyecto.SISPPAFUT
                     validacion = false;
                 }
                 
-                return validacion;
+                //return validacion;
             }
             catch (Exception ex)
             {
-                throw;
+                Funciones.RegistrarExcepcion(ex);
             }
+            return validacion;
         }
 
         private void LimpiarCampos()
@@ -117,7 +118,12 @@ namespace UPC.Proyecto.SISPPAFUT
 
                         int codNuevoUsuario = 0;
                         codNuevoUsuario = objUsuarioBC.insertar_Usuario(objUsuarioBE);
-                        objUsuarioRolBC.asignar_RolUsuario(codNuevoUsuario, 3); //3 es el codigo del rol "CLIENTE"
+                        List<UsuarioRolBE> lstUsuarioNuevo = new List<UsuarioRolBE>();
+                        UsuarioRolBE objApostadorNuevo = new UsuarioRolBE();
+                        objApostadorNuevo.IdUsuario = codNuevoUsuario;
+                        objApostadorNuevo.IdRol = 3; //3 es el codigo del rol "CLIENTE"
+                        lstUsuarioNuevo.Add(objApostadorNuevo);
+                        objUsuarioRolBC.asignar_RolUsuario(lstUsuarioNuevo);
 
                         if (codNuevoUsuario != 0)
                         {
@@ -128,7 +134,7 @@ namespace UPC.Proyecto.SISPPAFUT
                         }
                         else
                         {
-                            MessageBox.Show("El usuario no se regsitro debido a un error.",
+                            MessageBox.Show("El usuario no se registró debido a un error.",
                                 "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK,
                                 MessageBoxIcon.Error);
                         }

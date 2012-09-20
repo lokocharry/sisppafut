@@ -553,7 +553,10 @@ namespace UPC.Proyecto.SISPPAFUT
                         }
 
                         MessageBox.Show("Los datos del partido han sido registrados.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmConsultaPartidosSinJugar frm = frmConsultaPartidosSinJugar.Instance();
+                        frm.dgvPatidosDataBind();
                         this.Close();
+
                     }
                     else
                         MessageBox.Show("Existe datos inválidos en los goles marcados y amonestaciones. Verifique los datos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);

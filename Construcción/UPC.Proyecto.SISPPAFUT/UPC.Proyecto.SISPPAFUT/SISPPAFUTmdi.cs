@@ -348,11 +348,6 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void funcXRolToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
