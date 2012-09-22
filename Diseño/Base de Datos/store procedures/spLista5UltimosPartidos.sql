@@ -1,13 +1,12 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spLista5UltimosPartidos]    Script Date: 08/28/2012 08:51:32 ******/
+/****** Object:  StoredProcedure [dbo].[spLista5UltimosPartidos]    Script Date: 09/22/2012 12:28:03 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
-
 
 /*
 Se lista aquellos partidos que ya debiero haberse jugado, 
@@ -17,7 +16,8 @@ dato mínimo para verificar que un partido se ha efectuado
 CREATE PROCEDURE [dbo].[spLista5UltimosPartidos]
 (
 	@CodEquipo int,
-	@CodLiga int
+	@CodLiga int,
+	@Fecha datetime
 )
 AS
 BEGIN
@@ -35,15 +35,13 @@ BEGIN
 			JOIN Equipo as equipo_local ON partido.CodEquipoL = equipo_local.CodEquipo
 			JOIN Equipo as equipo_visita ON partido.CodEquipoV = equipo_visita.CodEquipo
 					
-	WHERE	(partido.CodEquipoL = @CodEquipo OR partido.CodEquipoV = @CodEquipo) AND
+	WHERE	DATEDIFF(day,partido.Fecha,@Fecha)>0 AND
+			(partido.CodEquipoL = @CodEquipo OR partido.CodEquipoV = @CodEquipo) AND
 			partido.CodLiga = @CodLiga AND
 			partido.GolesLocal >= 0 AND
-			partido.GolesVisita >= 0
-			
+			partido.GolesVisita >= 0			
 	ORDER BY partido.Fecha DESC		
 END
-
-
 
 GO
 
