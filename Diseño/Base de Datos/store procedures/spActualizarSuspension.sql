@@ -1,7 +1,7 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spActualizarSuspension]    Script Date: 09/18/2012 15:22:00 ******/
+/****** Object:  StoredProcedure [dbo].[spActualizarSuspension]    Script Date: 09/21/2012 13:11:46 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -26,6 +26,7 @@ BEGIN
    begin
    UPDATE [SISPPAFUT].[dbo].[Suspension]
    SET [QRojas] = QRojas + 1
+      ,[QAmarillas] = 0
    where CodJugador = @CodJugador and CodLiga = @codLiga
    end
    IF(@Tipo = 3) -- Se reinicia los contadores

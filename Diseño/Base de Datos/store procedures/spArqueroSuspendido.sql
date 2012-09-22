@@ -1,3 +1,13 @@
+USE [SISPPAFUT]
+GO
+
+/****** Object:  StoredProcedure [dbo].[spArqueroSuspendido]    Script Date: 09/21/2012 23:51:38 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
 CREATE PROCEDURE [dbo].[spArqueroSuspendido]
 (
 	@CodEquipo int,
@@ -19,5 +29,9 @@ BEGIN
 	WHERE	eq.CodEquipo = @CodEquipo	and je.CodEquipo = @CodEquipo	and
 			je.CodJugador = j.CodJugador	and j.Posicion = 'Portero'	and 
 			jp.CodJugador = j.CodJugador) AS k on ju.CodJugador = k.CodJugador)
-	EXECUTE spReadEstadoSuspension @CodJugador	
+	EXECUTE spReadEstadoSuspension @CodJugador,@CodLiga	
 END
+
+GO
+
+

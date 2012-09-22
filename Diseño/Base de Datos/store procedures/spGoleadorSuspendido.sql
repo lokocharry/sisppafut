@@ -1,7 +1,7 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spGoleadorSuspendido]    Script Date: 08/21/2012 14:17:32 ******/
+/****** Object:  StoredProcedure [dbo].[spGoleadorSuspendido]    Script Date: 09/21/2012 23:52:25 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -30,8 +30,9 @@ BEGIN
 										and je.CodEquipo = @CodEquipo	
 										and gp.CodJugador = j.CodJugador
 								ORDER BY 5 DESC) AS k on ju.CodJugador = k.CodJugador)
-	EXECUTE spReadEstadoSuspension @CodJugador
+	EXECUTE spReadEstadoSuspension @CodJugador, @CodLiga
 END
+
 GO
 
 
