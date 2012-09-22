@@ -335,7 +335,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
-        public List<SuspensionBE> CantidadJugadoresSuspendidos(int codEquipo, int codLiga)
+        public List<SuspensionBE> CantidadJugadoresSuspendidos(int codEquipo, int codLiga, DateTime fecha)
         {
             SqlConnection conexion = null;
             SqlDataReader dr;
@@ -343,6 +343,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             String sql;
             SqlParameter prm_CodEquipo;
             SqlParameter prm_CodLiga;
+            SqlParameter prm_Fecha;
 
             try
             {
@@ -362,8 +363,14 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_CodLiga.SqlDbType = SqlDbType.Int;
                 prm_CodLiga.Value = codLiga;
 
+                prm_Fecha = new SqlParameter();
+                prm_Fecha.ParameterName = "@Fecha";
+                prm_Fecha.SqlDbType = SqlDbType.DateTime;
+                prm_Fecha.Value = fecha;
+
                 cmd.Parameters.Add(prm_CodEquipo);
                 cmd.Parameters.Add(prm_CodLiga);
+                cmd.Parameters.Add(prm_Fecha);
 
                 cmd.Connection.Open();
                 dr = cmd.ExecuteReader();

@@ -8,6 +8,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
     {
         private int idPartido;
         private int c_QEquiposLiga;
+        private int c_Mes;
         private int c_QEquiposMundial;
         private int c_QAsistencia;
         private int c_Local_PosLiga;
@@ -46,6 +47,12 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
         {
             get { return c_QEquiposLiga; }
             set { c_QEquiposLiga = value; }
+        }
+        
+        public int C_Mes
+        {
+            get { return c_Mes; }
+            set { c_Mes = value; }
         }
         
         public int C_QEquiposMundial

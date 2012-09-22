@@ -76,7 +76,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
-        public int CantidadJugadoresSuspendidos(int codEquipo, int codLiga)
+        public int CantidadJugadoresSuspendidos(int codEquipo, int codLiga, DateTime fecha)
         {
             SuspensionDALC objSuspensionDALC;
             List<SuspensionBE> lstSuspensiones;
@@ -86,7 +86,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objSuspensionDALC = new SuspensionDALC();
                 lstSuspensiones = new List<SuspensionBE>();
                 int qSuspendidos = 0;
-                lstSuspensiones = objSuspensionDALC.CantidadJugadoresSuspendidos(codEquipo, codLiga);
+                lstSuspensiones = objSuspensionDALC.CantidadJugadoresSuspendidos(codEquipo, codLiga, fecha);
 
                 if (lstSuspensiones.Count > 0)
                 {

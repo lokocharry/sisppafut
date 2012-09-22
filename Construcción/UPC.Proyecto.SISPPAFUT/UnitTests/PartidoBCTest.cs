@@ -248,7 +248,7 @@ namespace UnitTests
             expected.Add(oPartido);
 
             List<PartidoJugadoBE> actual;
-            actual = target.lista_ultimosPartidos(codigo_equipo, codigo_liga);
+            actual = target.lista_ultimosPartidos(codigo_equipo, codigo_liga, Convert.ToDateTime("2012-04-21"));
             Assert.AreEqual(expected[0].Equipo_local, actual[0].Equipo_local);
             Assert.AreEqual(expected[0].Equipo_visita, actual[0].Equipo_visita);
             Assert.AreEqual(expected[0].Goles_local, actual[0].Goles_local);

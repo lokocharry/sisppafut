@@ -133,14 +133,14 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
-        public List<PartidoJugadoBE> lista_ultimosPartidos(int codigo_equipo, int codigo_liga)
+        public List<PartidoJugadoBE> lista_ultimosPartidos(int codigo_equipo, int codigo_liga, DateTime fecha)
         {
             PartidoDALC objPartidoDALC;
 
             try
             {
                 objPartidoDALC = new PartidoDALC();
-                return objPartidoDALC.lista_ultimosPartidos(codigo_equipo, codigo_liga);
+                return objPartidoDALC.lista_ultimosPartidos(codigo_equipo, codigo_liga, fecha);
             }
 
             catch (Exception)

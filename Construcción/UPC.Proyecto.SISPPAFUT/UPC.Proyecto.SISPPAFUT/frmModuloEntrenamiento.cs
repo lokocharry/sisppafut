@@ -63,6 +63,22 @@ namespace UPC.Proyecto.SISPPAFUT
         SuspensionBC objSuspensionBC;
         LigaBC objLigaBC;
 
+        private List<PartidoSinJugarBE> lstPartidosConResultadoYPronostico;
+
+        public List<PartidoSinJugarBE> LstPartidosConResultadoYPronostico
+        {
+            get { return lstPartidosConResultadoYPronostico; }
+            set { lstPartidosConResultadoYPronostico = value; }
+        }
+
+        private List<PartidoSinJugarBE> lstPartidosConResultadoYSinPronostico;
+
+        public List<PartidoSinJugarBE> LstPartidosConResultadoYSinPronostico
+        {
+            get { return lstPartidosConResultadoYSinPronostico; }
+            set { lstPartidosConResultadoYSinPronostico = value; }
+        }
+
         private static frmModuloEntrenamiento frmEntrenamiento = null;
         public static frmModuloEntrenamiento Instance()
         {
@@ -86,6 +102,8 @@ namespace UPC.Proyecto.SISPPAFUT
                 lstPartidosSinJugar = new List<PartidoSinJugarBE>();
                 lstPartidosJugados = new List<PartidoSinJugarBE>();
                 listaPartidosPronosticados = new List<PartidoPronosticadoBE>();
+                lstPartidosConResultadoYPronostico = new List<PartidoSinJugarBE>();
+                lstPartidosConResultadoYSinPronostico = new List<PartidoSinJugarBE>();
                 dg_PronosticosConfigurar();
                 dg_PronosticosDataBind();
                 objLigaBC = new LigaBC();
@@ -163,10 +181,13 @@ namespace UPC.Proyecto.SISPPAFUT
                 {
                     foreach(PartidoSinJugarBE _cDto in LstPartidosPronosticados)
                     {
-                        if(cDto.Codigo_partido == _cDto.Codigo_partido)
-                            break;
+                        if (cDto.Codigo_partido == _cDto.Codigo_partido)
+                        {
+                            LstPartidosConResultadoYPronostico.Add(cDto);
+                            break; 
+                        }
                     }
-
+                    LstPartidosConResultadoYSinPronostico.Add(cDto);
                     dg_Pronosticos.Rows.Add(cDto.Codigo_partido, null, cDto.Equipo_local, cDto.Equipo_visitante,
                                                 null, null, null, null);
                 }
@@ -210,9 +231,9 @@ namespace UPC.Proyecto.SISPPAFUT
                 ListaPartidosPronosticados = objPartidoPronosticadoBC.listar_PartidosPronosticos();
                 qPartidosJugados = ListaPartidosPronosticados.Count;
                 //-- Paso 2: Se recolecta los partidos cuyo resultado se desconoce
-                if (LstPartidosJugados.Count > 0)
+                if (LstPartidosConResultadoYSinPronostico.Count > 0)
                 {
-                    foreach (PartidoSinJugarBE cDto in LstPartidosJugados)
+                    foreach (PartidoSinJugarBE cDto in LstPartidosConResultadoYSinPronostico)
                     {
                         objSuspensionBC = new SuspensionBC();
                         EquipoBC objEquipoBC = new EquipoBC();
@@ -231,14 +252,15 @@ namespace UPC.Proyecto.SISPPAFUT
                         int paisV = objEquipoBC.obtenerEquipo(cDto.Equipo_visitante).CodigoPais;
                         int codUltimoPartidoLocal = 0;
                         int codUltimoPartidoVisita = 0;
-
+                        
                         objPartidoPronosticadoBE = new PartidoPronosticadoBE();
                         listaPartidoJugadoLocal = new List<PartidoJugadoBE>();
-                        listaPartidoJugadoLocal = objPartidoBC.lista_ultimosPartidos(codEquipoL, codLiga);
+                        listaPartidoJugadoLocal = objPartidoBC.lista_ultimosPartidos(codEquipoL, codLiga, cDto.Fecha);
+                        objPartidoPronosticadoBE.C_Mes = cDto.Fecha.Month;
                         objPartidoPronosticadoBE.C_Local_GolesAnotados = 0;
                         objPartidoPronosticadoBE.C_Local_GolesEncajados = 0;
                         listaPartidoJugadoVisita = new List<PartidoJugadoBE>();
-                        listaPartidoJugadoVisita = objPartidoBC.lista_ultimosPartidos(codEquipoV, codLiga);
+                        listaPartidoJugadoVisita = objPartidoBC.lista_ultimosPartidos(codEquipoV, codLiga, cDto.Fecha);
                         objPartidoPronosticadoBE.C_Visita_GolesAnotados = 0;
                         objPartidoPronosticadoBE.C_Visita_GolesEncajados = 0;
                         objPartidoPronosticadoBE.C_Local_Pts = 0;
@@ -246,8 +268,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
                         //-- DATOS DEL EQUIPO LOCAL
                         objPartidoPronosticadoBE.C_Local = true;
-                        objPartidoPronosticadoBE.C_Local_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoL, codLiga);
-                        objPartidoPronosticadoBE.C_Local_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoL, codLiga);
+                        //objPartidoPronosticadoBE.C_Local_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoL, codLiga);
+                        //objPartidoPronosticadoBE.C_Local_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoL, codLiga);
                         if (listaPartidoJugadoLocal.Count > 0)
                         {
                             codUltimoPartidoLocal = listaPartidoJugadoLocal[0].CodPartido;
@@ -267,12 +289,12 @@ namespace UPC.Proyecto.SISPPAFUT
                         objPartidoPronosticadoBE.C_Local_PromEdad = objEquipoBC.obtener_PromedioEquipoTitular(codEquipoL, codLiga);
                         objPartidoPronosticadoBE.C_Local_QExpulsados = objEquipoBC.obtener_CantidadExpulsadosUltimoPartido(codUltimoPartidoLocal, codEquipoL, codLiga);
                         objPartidoPronosticadoBE.C_Local_QPartidosMes = objEquipoBC.obtener_CantidadPartidosUltimoMes(codEquipoL, cDto.Fecha);
-                        objPartidoPronosticadoBE.C_Local_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoL, codLiga);
+                        objPartidoPronosticadoBE.C_Local_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoL, codLiga, cDto.Fecha);
 
                         //-- DATOS DEL EQUIPO VISITA
                         objPartidoPronosticadoBE.C_Visita = false;
-                        objPartidoPronosticadoBE.C_Visita_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoV, codLiga);
-                        objPartidoPronosticadoBE.C_Visita_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoV, codLiga);
+                        //objPartidoPronosticadoBE.C_Visita_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoV, codLiga);
+                        //objPartidoPronosticadoBE.C_Visita_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoV, codLiga);
                         if (listaPartidoJugadoVisita.Count > 0)
                         {
                             codUltimoPartidoVisita = listaPartidoJugadoVisita[0].CodPartido;
@@ -292,7 +314,7 @@ namespace UPC.Proyecto.SISPPAFUT
                         objPartidoPronosticadoBE.C_Visita_PromEdad = objEquipoBC.obtener_PromedioEquipoTitular(codEquipoV, codLiga);
                         objPartidoPronosticadoBE.C_Visita_QExpulsados = objEquipoBC.obtener_CantidadExpulsadosUltimoPartido(codUltimoPartidoVisita, codEquipoV, codLiga);
                         objPartidoPronosticadoBE.C_Visita_QPartidosMes = objEquipoBC.obtener_CantidadPartidosUltimoMes(codEquipoV, cDto.Fecha);
-                        objPartidoPronosticadoBE.C_Visita_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoV, codLiga);
+                        objPartidoPronosticadoBE.C_Visita_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoV, codLiga, cDto.Fecha);
 
                         // OTRAS VARIABLES
                         //objPartidoPronosticadoBE.C_QAsistencia = <esto es lo que no decido si va o no va en la red neuronal>
@@ -306,20 +328,38 @@ namespace UPC.Proyecto.SISPPAFUT
                         if (objPartidoActual != null)
                         {
                             if(objPartidoActual.Goles_local>objPartidoActual.Goles_visita)
-                                    objPartidoPronosticadoBE.C_Resultado = ",L";
+                                    objPartidoPronosticadoBE.C_Resultado = "L";
                                 else
                                     if (objPartidoActual.Goles_local < objPartidoActual.Goles_visita)
-                                        objPartidoPronosticadoBE.C_Resultado = ",V";
+                                        objPartidoPronosticadoBE.C_Resultado = "V";
                                     else
                                         if (objPartidoActual.Goles_local == objPartidoActual.Goles_visita)
-                                            objPartidoPronosticadoBE.C_Resultado = ",E";
+                                            objPartidoPronosticadoBE.C_Resultado = "E";
                         }
 
                         ListaPartidosPronosticados.Add(objPartidoPronosticadoBE);
                     }                    
-                }                
+                }
+
+                List<PartidoPronosticadoBE> lstTmp = new List<PartidoPronosticadoBE>();
                 
-                //--
+                foreach (PartidoPronosticadoBE dTo in ListaPartidosPronosticados)
+                {
+                    lstTmp.Add(dTo);
+                }
+
+                foreach (PartidoPronosticadoBE cDto in lstTmp)
+                {
+                    foreach (PartidoSinJugarBE _cDto in LstPartidosSinJugar)
+                    {
+                        if (cDto.IdPartido == _cDto.Codigo_partido)
+                        {
+                            ListaPartidosPronosticados.Remove(cDto);
+                            break;
+                        }
+                    }
+                }
+                
                 if (LstPartidosSinJugar.Count > 0)
                 {
                     foreach (PartidoSinJugarBE cDto in LstPartidosSinJugar)
@@ -344,11 +384,12 @@ namespace UPC.Proyecto.SISPPAFUT
 
                         objPartidoPronosticadoBE = new PartidoPronosticadoBE();
                         listaPartidoJugadoLocal = new List<PartidoJugadoBE>();
-                        listaPartidoJugadoLocal = objPartidoBC.lista_ultimosPartidos(codEquipoL, codLiga);
+                        listaPartidoJugadoLocal = objPartidoBC.lista_ultimosPartidos(codEquipoL, codLiga, cDto.Fecha);
+                        objPartidoPronosticadoBE.C_Mes = cDto.Fecha.Month;
                         objPartidoPronosticadoBE.C_Local_GolesAnotados = 0;
                         objPartidoPronosticadoBE.C_Local_GolesEncajados = 0;
                         listaPartidoJugadoVisita = new List<PartidoJugadoBE>();
-                        listaPartidoJugadoVisita = objPartidoBC.lista_ultimosPartidos(codEquipoV, codLiga);
+                        listaPartidoJugadoVisita = objPartidoBC.lista_ultimosPartidos(codEquipoV, codLiga, cDto.Fecha);
                         objPartidoPronosticadoBE.C_Visita_GolesAnotados = 0;
                         objPartidoPronosticadoBE.C_Visita_GolesEncajados = 0;
                         objPartidoPronosticadoBE.C_Local_Pts = 0;
@@ -356,8 +397,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
                         //-- DATOS DEL EQUIPO LOCAL
                         objPartidoPronosticadoBE.C_Local = true;
-                        objPartidoPronosticadoBE.C_Local_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoL, codLiga);
-                        objPartidoPronosticadoBE.C_Local_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoL, codLiga);
+                        //objPartidoPronosticadoBE.C_Local_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoL, codLiga);
+                        //objPartidoPronosticadoBE.C_Local_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoL, codLiga);
                         if (listaPartidoJugadoLocal.Count > 0)
                         {
                             codUltimoPartidoLocal = listaPartidoJugadoLocal[0].CodPartido;
@@ -377,12 +418,12 @@ namespace UPC.Proyecto.SISPPAFUT
                         objPartidoPronosticadoBE.C_Local_PromEdad = objEquipoBC.obtener_PromedioEquipoTitular(codEquipoL, codLiga);
                         objPartidoPronosticadoBE.C_Local_QExpulsados = objEquipoBC.obtener_CantidadExpulsadosUltimoPartido(codUltimoPartidoLocal, codEquipoL, codLiga);
                         objPartidoPronosticadoBE.C_Local_QPartidosMes = objEquipoBC.obtener_CantidadPartidosUltimoMes(codEquipoL, cDto.Fecha);
-                        objPartidoPronosticadoBE.C_Local_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoL, codLiga);
+                        objPartidoPronosticadoBE.C_Local_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoL, codLiga, cDto.Fecha);
 
                         //-- DATOS DEL EQUIPO VISITA
                         objPartidoPronosticadoBE.C_Visita = false;
-                        objPartidoPronosticadoBE.C_Visita_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoV, codLiga);
-                        objPartidoPronosticadoBE.C_Visita_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoV, codLiga);
+                        //objPartidoPronosticadoBE.C_Visita_ArqueroSuspendido = objSuspensionBC.consultar_ArqueroSuspendido(codEquipoV, codLiga);
+                        //objPartidoPronosticadoBE.C_Visita_GoleadorSuspendido = objSuspensionBC.consultar_GoleadorSuspendido(codEquipoV, codLiga);
                         if (listaPartidoJugadoVisita.Count > 0)
                         {
                             codUltimoPartidoVisita = listaPartidoJugadoVisita[0].CodPartido;
@@ -402,7 +443,7 @@ namespace UPC.Proyecto.SISPPAFUT
                         objPartidoPronosticadoBE.C_Visita_PromEdad = objEquipoBC.obtener_PromedioEquipoTitular(codEquipoV, codLiga);
                         objPartidoPronosticadoBE.C_Visita_QExpulsados = objEquipoBC.obtener_CantidadExpulsadosUltimoPartido(codUltimoPartidoVisita, codEquipoV, codLiga);
                         objPartidoPronosticadoBE.C_Visita_QPartidosMes = objEquipoBC.obtener_CantidadPartidosUltimoMes(codEquipoV, cDto.Fecha);
-                        objPartidoPronosticadoBE.C_Visita_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoV, codLiga);
+                        objPartidoPronosticadoBE.C_Visita_QSuspendidos = objSuspensionBC.CantidadJugadoresSuspendidos(codEquipoV, codLiga, cDto.Fecha);
 
                         // OTRAS VARIABLES
                         //objPartidoPronosticadoBE.C_QAsistencia = <esto es lo que no decido si va o no va en la red neuronal>
@@ -411,7 +452,7 @@ namespace UPC.Proyecto.SISPPAFUT
 
                         objPartidoPronosticadoBE.IdPartido = cDto.Codigo_partido;
 
-                        objPartidoPronosticadoBE.C_Resultado = ",?";
+                        objPartidoPronosticadoBE.C_Resultado = "?";
 
                         ListaPartidosPronosticados.Add(objPartidoPronosticadoBE);
                     }
@@ -419,8 +460,7 @@ namespace UPC.Proyecto.SISPPAFUT
                     //qPartidosJugados = ListaPartidosPronosticados.Count - LstPartidosJugados.Count;
                     //qPartidosSinJugar = LstPartidosSinPronosticos.Count;
                 }
-                //--
-
+                
                 if (ListaPartidosPronosticados.Count > 0)
                 {
                     //-- Paso 3: Se crea el fichero que contendrá toda la información para entrenar el sistema
@@ -494,14 +534,15 @@ namespace UPC.Proyecto.SISPPAFUT
 
             archivo.WriteLine("@relation SISPPAFUT");
             archivo.WriteLine("@attribute qEquiposLiga numeric");
+            archivo.WriteLine("@attribute mes numeric");
             //archivo.WriteLine("@attribute qEquiposMundial numeric");
             //archivo.WriteLine("@attribute qAsistencia numeric");
             archivo.WriteLine("@attribute Local_PosLiga numeric");
             archivo.WriteLine("@attribute Local_Pts numeric");
             archivo.WriteLine("@attribute Local {True, False}");
             archivo.WriteLine("@attribute Local_PosRankMund numeric");
-            archivo.WriteLine("@attribute Local_GoleadorSuspendido {True, False}");
-            archivo.WriteLine("@attribute Local_ArqueroSuspendido {True, False}");
+            //archivo.WriteLine("@attribute Local_GoleadorSuspendido {True, False}");
+            //archivo.WriteLine("@attribute Local_ArqueroSuspendido {True, False}");
             archivo.WriteLine("@attribute Local_qExpulsados numeric");
             archivo.WriteLine("@attribute Local_qSuspendidos numeric");
             archivo.WriteLine("@attribute Local_GolesAnotados numeric");
@@ -512,8 +553,8 @@ namespace UPC.Proyecto.SISPPAFUT
             archivo.WriteLine("@attribute Visita_Pts numeric");
             archivo.WriteLine("@attribute Visita {True, False}");
             archivo.WriteLine("@attribute Visita_PosRankMund numeric");
-            archivo.WriteLine("@attribute Visita_GoleadorSuspendido {True, False}");
-            archivo.WriteLine("@attribute Visita_ArqueroSuspendido {True, False}");
+            //archivo.WriteLine("@attribute Visita_GoleadorSuspendido {True, False}");
+            //archivo.WriteLine("@attribute Visita_ArqueroSuspendido {True, False}");
             archivo.WriteLine("@attribute Visita_qExpulsados numeric");
             archivo.WriteLine("@attribute Visita_qSuspendidos numeric");
             archivo.WriteLine("@attribute Visita_GolesAnotados numeric");
@@ -526,19 +567,21 @@ namespace UPC.Proyecto.SISPPAFUT
             foreach (PartidoPronosticadoBE cDto in Data)
             {
                 string _data = String.Empty;
-                _data = cDto.C_QEquiposLiga + "," + 
-                        //cDto.C_QEquiposMundial  + "," + 
-                        //cDto.C_QAsistencia + "," +
-                        cDto.C_Local_PosLiga        + "," + 
+                _data = cDto.C_QEquiposLiga + "," +
+                        cDto.C_Mes + "," + 
+                        //cDto.C_QEquiposMundial+ "," + 
+                        //cDto.C_QAsistencia    + "," +
+                        cDto.C_Local_PosLiga    + "," + 
                         cDto.C_Local_Pts + "," + cDto.C_Local + "," + cDto.C_Local_PosRankMund + "," + 
-                        cDto.C_Local_GoleadorSuspendido + "," + cDto.C_Local_ArqueroSuspendido + "," + 
+                        //cDto.C_Local_GoleadorSuspendido + "," + cDto.C_Local_ArqueroSuspendido + "," + 
                         cDto.C_Local_QExpulsados + "," + cDto.C_Local_QSuspendidos + "," + cDto.C_Local_GolesAnotados + "," + 
                         cDto.C_Local_GolesEncajados + "," + cDto.C_Local_PromEdad + "," + cDto.C_Local_QPartidosMes + "," + 
                         cDto.C_Visita_PosLiga + "," + cDto.C_Visita_Pts + "," + cDto.C_Visita + "," + 
-                        cDto.C_Visita_PosRankMund + "," + cDto.C_Visita_GoleadorSuspendido + "," + 
-                        cDto.C_Visita_ArqueroSuspendido + "," + cDto.C_Visita_QExpulsados + "," + cDto.C_Visita_QSuspendidos + "," +
-                        cDto.C_Visita_GolesAnotados + "," + cDto.C_Visita_GolesEncajados + "," + cDto.C_Visita_PromEdad + "," + 
-                        cDto.C_Visita_QPartidosMes+cDto.C_Resultado;
+                        cDto.C_Visita_PosRankMund + "," + 
+                        //cDto.C_Visita_GoleadorSuspendido + "," + cDto.C_Visita_ArqueroSuspendido + "," + 
+                        cDto.C_Visita_QExpulsados + "," + cDto.C_Visita_QSuspendidos + "," +
+                        cDto.C_Visita_GolesAnotados + "," + cDto.C_Visita_GolesEncajados + "," + cDto.C_Visita_PromEdad + "," +
+                        cDto.C_Visita_QPartidosMes + "," + cDto.C_Resultado;
                 archivo.WriteLine(_data);
             }
             

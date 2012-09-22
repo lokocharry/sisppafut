@@ -17,6 +17,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             SqlParameter idPartido;
             SqlParameter c_QEquiposLiga;
+            SqlParameter c_Mes;
             //SqlParameter c_QEquiposMundial;
             //SqlParameter c_QAsistencia;
             SqlParameter c_Local_PosLiga;
@@ -67,6 +68,11 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 c_QEquiposLiga.ParameterName = "@c_QEquiposLiga";
                 c_QEquiposLiga.SqlDbType = SqlDbType.Int;
                 c_QEquiposLiga.Value = objBE.C_QEquiposLiga;
+
+                c_Mes = new SqlParameter();
+                c_Mes.ParameterName = "@c_mes";
+                c_Mes.SqlDbType = SqlDbType.Int;
+                c_Mes.Value = objBE.C_Mes;
                 /*
                 c_QEquiposMundial = new SqlParameter();
                 c_QEquiposMundial.ParameterName = "@c_QEquiposMundial";
@@ -97,7 +103,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 c_Local_PosRankMund.ParameterName = "@c_Local_PosRankMund";
                 c_Local_PosRankMund.SqlDbType = SqlDbType.Int;
                 c_Local_PosRankMund.Value = objBE.C_Local_PosRankMund;
-
+                /*
                 c_Local_GoleadorSuspendido = new SqlParameter();
                 c_Local_GoleadorSuspendido.ParameterName = "@c_Local_GoleadorSuspendido";
                 c_Local_GoleadorSuspendido.SqlDbType = SqlDbType.Bit;
@@ -107,7 +113,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 c_Local_ArqueroSuspendido.ParameterName = "@c_Local_ArqueroSuspendido";
                 c_Local_ArqueroSuspendido.SqlDbType = SqlDbType.Bit;
                 c_Local_ArqueroSuspendido.Value = objBE.C_Local_ArqueroSuspendido;
-
+                */
                 c_Local_QExpulsados = new SqlParameter();
                 c_Local_QExpulsados.ParameterName = "@c_Local_QExpulsados";
                 c_Local_QExpulsados.SqlDbType = SqlDbType.Int;
@@ -157,7 +163,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 c_Visita_PosRankMund.ParameterName = "@c_Visita_PosRankMund";
                 c_Visita_PosRankMund.SqlDbType = SqlDbType.Int;
                 c_Visita_PosRankMund.Value = objBE.C_Visita_PosRankMund;
-
+                /*
                 c_Visita_GoleadorSuspendido = new SqlParameter();
                 c_Visita_GoleadorSuspendido.ParameterName = "@c_Visita_GoleadorSuspendido";
                 c_Visita_GoleadorSuspendido.SqlDbType = SqlDbType.Bit;
@@ -167,7 +173,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 c_Visita_ArqueroSuspendido.ParameterName = "@c_Visita_ArqueroSuspendido";
                 c_Visita_ArqueroSuspendido.SqlDbType = SqlDbType.Bit;
                 c_Visita_ArqueroSuspendido.Value = objBE.C_Visita_ArqueroSuspendido;
-
+                */
                 c_Visita_QExpulsados = new SqlParameter();
                 c_Visita_QExpulsados.ParameterName = "@c_Visita_QExpulsados";
                 c_Visita_QExpulsados.SqlDbType = SqlDbType.Int;
@@ -206,14 +212,15 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(idPartido);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_QEquiposLiga);
+                cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Mes);
                 //cmd_PartidoPronosticadoInsertar.Parameters.Add(c_QEquiposMundial);
                 //cmd_PartidoPronosticadoInsertar.Parameters.Add(c_QAsistencia);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_PosLiga);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_Pts);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_PosRankMund);
-                cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_GoleadorSuspendido);
-                cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_ArqueroSuspendido);
+                //cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_GoleadorSuspendido);
+                //cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_ArqueroSuspendido);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_QExpulsados);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_QSuspendidos);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Local_GolesAnotados);
@@ -224,8 +231,8 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Visita_Pts);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Visita);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Visita_PosRankMund);
-                cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Visita_GoleadorSuspendido);
-                cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Visita_ArqueroSuspendido);
+                //cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Visita_GoleadorSuspendido);
+                //cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Visita_ArqueroSuspendido);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Visita_QExpulsados);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Visita_QSuspendidos);
                 cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Visita_GolesAnotados);
@@ -278,31 +285,32 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
                     objBE.IdPartido = dr.GetInt32(dr.GetOrdinal("idPartido"));
                     objBE.C_QEquiposLiga = dr.GetInt32(dr.GetOrdinal("c_QEquiposLiga"));
+                    objBE.C_Mes = dr.GetInt32(dr.GetOrdinal("c_Mes"));
                     //objBE.C_QEquiposMundial = dr.GetInt32(dr.GetOrdinal("c_QEquiposMundial"));
                     //objBE.C_QAsistencia = dr.GetInt32(dr.GetOrdinal("c_QAsistencia"));
                     objBE.C_Local_PosLiga = dr.GetInt32(dr.GetOrdinal("c_Local_PosLiga"));
                     objBE.C_Local_Pts = dr.GetInt32(dr.GetOrdinal("c_Local_Pts"));
                     objBE.C_Local = dr.GetBoolean(dr.GetOrdinal("c_Local"));
                     objBE.C_Local_PosRankMund = dr.GetInt32(dr.GetOrdinal("c_Local_PosRankMund"));
-                    objBE.C_Local_GoleadorSuspendido = dr.GetBoolean(dr.GetOrdinal("c_Local_GoleadorSuspendido"));
-                    objBE.C_Local_ArqueroSuspendido = dr.GetBoolean(dr.GetOrdinal("c_Local_ArqueroSuspendido"));
+                    //objBE.C_Local_GoleadorSuspendido = dr.GetBoolean(dr.GetOrdinal("c_Local_GoleadorSuspendido"));
+                    //objBE.C_Local_ArqueroSuspendido = dr.GetBoolean(dr.GetOrdinal("c_Local_ArqueroSuspendido"));
                     objBE.C_Local_QExpulsados = dr.GetInt32(dr.GetOrdinal("c_Local_QExpulsados"));
                     objBE.C_Local_QSuspendidos = dr.GetInt32(dr.GetOrdinal("c_Local_QSuspendidos"));
                     objBE.C_Local_GolesAnotados = dr.GetInt32(dr.GetOrdinal("c_Local_GolesAnotados"));
                     objBE.C_Local_GolesEncajados = dr.GetInt32(dr.GetOrdinal("c_Local_GolesEncajados"));
-                    objBE.C_Local_PromEdad = dr.GetInt32(dr.GetOrdinal("c_Local_PromEdad"));
+                    objBE.C_Local_PromEdad = dr.GetDecimal(dr.GetOrdinal("c_Local_PromEdad"));
                     objBE.C_Local_QPartidosMes = dr.GetInt32(dr.GetOrdinal("c_Local_QPartidosMes"));
                     objBE.C_Visita_PosLiga = dr.GetInt32(dr.GetOrdinal("c_Visita_PosLiga"));
                     objBE.C_Visita_Pts = dr.GetInt32(dr.GetOrdinal("c_Visita_Pts"));
                     objBE.C_Visita = dr.GetBoolean(dr.GetOrdinal("c_Visita"));
                     objBE.C_Visita_PosRankMund = dr.GetInt32(dr.GetOrdinal("c_Visita_PosRankMund"));
-                    objBE.C_Visita_GoleadorSuspendido = dr.GetBoolean(dr.GetOrdinal("c_Visita_GoleadorSuspendido"));
-                    objBE.C_Visita_ArqueroSuspendido = dr.GetBoolean(dr.GetOrdinal("c_Visita_ArqueroSuspendido"));
+                    //objBE.C_Visita_GoleadorSuspendido = dr.GetBoolean(dr.GetOrdinal("c_Visita_GoleadorSuspendido"));
+                    //objBE.C_Visita_ArqueroSuspendido = dr.GetBoolean(dr.GetOrdinal("c_Visita_ArqueroSuspendido"));
                     objBE.C_Visita_QExpulsados = dr.GetInt32(dr.GetOrdinal("c_Visita_QExpulsados"));
                     objBE.C_Visita_QSuspendidos = dr.GetInt32(dr.GetOrdinal("c_Visita_QSuspendidos"));
                     objBE.C_Visita_GolesAnotados = dr.GetInt32(dr.GetOrdinal("c_Visita_GolesAnotados"));
                     objBE.C_Visita_GolesEncajados = dr.GetInt32(dr.GetOrdinal("c_Visita_GolesEncajados"));
-                    objBE.C_Visita_PromEdad = dr.GetInt32(dr.GetOrdinal("c_Visita_PromEdad"));
+                    objBE.C_Visita_PromEdad = dr.GetDecimal(dr.GetOrdinal("c_Visita_PromEdad"));
                     objBE.C_Visita_QPartidosMes = dr.GetInt32(dr.GetOrdinal("c_Visita_QPartidosMes"));
                     objBE.C_Resultado = dr.GetString(dr.GetOrdinal("c_Resultado"));
 

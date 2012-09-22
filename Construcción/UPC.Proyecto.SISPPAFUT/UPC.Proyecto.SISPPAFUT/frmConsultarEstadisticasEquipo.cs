@@ -194,7 +194,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 PartidoBC objPartidoBC = new PartidoBC();
                 if (cmb_equipo.SelectedIndex > 0 && cmb_liga.SelectedIndex > 0)
                 {
-                    lista_partidos = objPartidoBC.lista_ultimosPartidos(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga);
+                    lista_partidos = objPartidoBC.lista_ultimosPartidos(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo, lista_ligas[cmb_liga.SelectedIndex - 1].CodigoLiga, DateTime.Today.Date);
                     JugadorBC objJugadorBC = new JugadorBC();
                     lista_jugadores = objJugadorBC.listar_Jugadores_xEquipo(lista_equipos[cmb_equipo.SelectedIndex - 1].CodigoEquipo);
 

@@ -573,7 +573,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
         }
 
-        public List<PartidoJugadoBE> lista_ultimosPartidos(int codigo_equipo, int codigo_liga)
+        public List<PartidoJugadoBE> lista_ultimosPartidos(int codigo_equipo, int codigo_liga, DateTime fecha)
         {
             SqlConnection conexion = null;
             SqlDataReader dr_partidos;
@@ -582,6 +582,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             SqlParameter prm_equipo;
             SqlParameter prm_liga;
+            SqlParameter prm_fecha;
 
             try
             {
@@ -601,8 +602,14 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_liga.SqlDbType = SqlDbType.Int;
                 prm_liga.Value = codigo_liga;
 
+                prm_fecha = new SqlParameter();
+                prm_fecha.ParameterName = "@Fecha";
+                prm_fecha.SqlDbType = SqlDbType.DateTime;
+                prm_fecha.Value = fecha;
+
                 cmd_partidos.Parameters.Add(prm_equipo);
                 cmd_partidos.Parameters.Add(prm_liga);
+                cmd_partidos.Parameters.Add(prm_fecha);
 
                 cmd_partidos.Connection.Open();
                 dr_partidos = cmd_partidos.ExecuteReader();
