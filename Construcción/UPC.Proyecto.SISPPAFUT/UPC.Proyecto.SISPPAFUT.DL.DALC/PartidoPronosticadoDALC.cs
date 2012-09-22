@@ -59,7 +59,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd_PartidoPronosticadoInsertar.CommandType = CommandType.StoredProcedure;
 
                 idPartido = new SqlParameter();
-                idPartido.ParameterName = "@codPartido";
+                idPartido.ParameterName = "@idPartido";
                 idPartido.SqlDbType = SqlDbType.Int;
                 idPartido.Value = objBE.IdPartido;
 

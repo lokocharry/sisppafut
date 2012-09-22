@@ -148,5 +148,21 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public List<PartidoSinJugarBE> lista_partidos_jugados()
+        {
+            PartidoDALC objPartidoDALC;
+
+            try
+            {
+                objPartidoDALC = new PartidoDALC();
+                return objPartidoDALC.listar_partidos_jugados();
+            }
+
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

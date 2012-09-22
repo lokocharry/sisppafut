@@ -846,14 +846,14 @@ namespace UPC.Proyecto.SISPPAFUT
                 red_Perceptron.setDebug(false);
                 red_Perceptron.setAutoBuild(true);
                 red_Perceptron.setDecay(false);
-                red_Perceptron.setHiddenLayers("9,9");
-                red_Perceptron.setLearningRate(0.38);
+                red_Perceptron.setHiddenLayers("12");
+                red_Perceptron.setLearningRate(0.3);
                 red_Perceptron.setMomentum(0.2);
                 red_Perceptron.setNominalToBinaryFilter(true);
                 red_Perceptron.setNormalizeAttributes(true);
                 red_Perceptron.setNormalizeNumericClass(true);
                 red_Perceptron.setReset(true);
-                red_Perceptron.setSeed(2);
+                red_Perceptron.setSeed(0);
                 red_Perceptron.setTrainingTime(1500);
                 red_Perceptron.setValidationSetSize(0);
                 red_Perceptron.setValidationThreshold(20);

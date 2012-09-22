@@ -341,6 +341,8 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             SqlDataReader dr;
             SqlCommand cmd = null;
             String sql;
+            SqlParameter prm_CodEquipo;
+            SqlParameter prm_CodLiga;
 
             try
             {
@@ -349,6 +351,19 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd = conexion.CreateCommand();
                 cmd.CommandText = sql;
                 cmd.CommandType = CommandType.StoredProcedure;
+
+                prm_CodEquipo = new SqlParameter();
+                prm_CodEquipo.ParameterName = "@CodEquipo";
+                prm_CodEquipo.SqlDbType = SqlDbType.Int;
+                prm_CodEquipo.Value = codEquipo;
+
+                prm_CodLiga = new SqlParameter();
+                prm_CodLiga.ParameterName = "@CodLiga";
+                prm_CodLiga.SqlDbType = SqlDbType.Int;
+                prm_CodLiga.Value = codLiga;
+
+                cmd.Parameters.Add(prm_CodEquipo);
+                cmd.Parameters.Add(prm_CodLiga);
 
                 cmd.Connection.Open();
                 dr = cmd.ExecuteReader();
