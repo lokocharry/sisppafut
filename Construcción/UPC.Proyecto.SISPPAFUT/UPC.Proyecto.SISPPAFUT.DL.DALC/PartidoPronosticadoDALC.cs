@@ -330,5 +330,146 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
 
         }
+
+        public int existePronostico(int codPartido)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_Partido;
+            SqlCommand cmd_PartidoValidar;
+            String sqlPartidoValidar;
+            SqlParameter prm_codPartido;
+
+            int cantidad = 0;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlPartidoValidar = "spVerificarExistePronostico";
+
+                cmd_PartidoValidar = new SqlCommand(sqlPartidoValidar, conexion);
+                cmd_PartidoValidar.CommandType = CommandType.StoredProcedure;
+
+                prm_codPartido = new SqlParameter();
+                prm_codPartido.ParameterName = "@codPartido";
+                prm_codPartido.SqlDbType = SqlDbType.Int;
+                prm_codPartido.Value = codPartido;
+    
+                cmd_PartidoValidar.Parameters.Add(prm_codPartido);
+
+                cmd_PartidoValidar.Connection.Open();
+                dr_Partido = cmd_PartidoValidar.ExecuteReader();
+
+                if (dr_Partido.Read())
+                {
+                    cantidad = dr_Partido.GetInt32(dr_Partido.GetOrdinal("CANTIDAD"));
+                }
+
+                cmd_PartidoValidar.Connection.Close();
+                conexion.Dispose();
+
+                return cantidad;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+        }
+
+        public int existePartidoPronosticado(int codPartido)
+        {
+            SqlConnection conexion = null;
+            SqlDataReader dr_Partido;
+            SqlCommand cmd_PartidoValidar;
+            String sqlPartidoValidar;
+            SqlParameter prm_codPartido;
+
+            int cantidad = 0;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                sqlPartidoValidar = "spVerificarExistePartidoPronostico";
+
+                cmd_PartidoValidar = new SqlCommand(sqlPartidoValidar, conexion);
+                cmd_PartidoValidar.CommandType = CommandType.StoredProcedure;
+
+                prm_codPartido = new SqlParameter();
+                prm_codPartido.ParameterName = "@codPartido";
+                prm_codPartido.SqlDbType = SqlDbType.Int;
+                prm_codPartido.Value = codPartido;
+
+                cmd_PartidoValidar.Parameters.Add(prm_codPartido);
+
+                cmd_PartidoValidar.Connection.Open();
+                dr_Partido = cmd_PartidoValidar.ExecuteReader();
+
+                if (dr_Partido.Read())
+                {
+                    cantidad = dr_Partido.GetInt32(dr_Partido.GetOrdinal("CANTIDAD"));
+                }
+
+                cmd_PartidoValidar.Connection.Close();
+                conexion.Dispose();
+
+                return cantidad;
+            }
+            catch (Exception ex)
+            {
+                conexion.Dispose();
+                throw;
+            }
+        }
+
+        public void ActualizarPartidoPronosticado(PartidoPronosticadoBE objBE)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_PartidoPronosticadoInsertar;
+
+            SqlParameter idPartido;
+            SqlParameter c_Resultado;
+
+            String sqlPartidoPronosticadoInsertar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+
+                sqlPartidoPronosticadoInsertar = "spUpdatePartidoPronosticado";
+
+                cmd_PartidoPronosticadoInsertar = new SqlCommand(sqlPartidoPronosticadoInsertar, conexion);
+                cmd_PartidoPronosticadoInsertar.CommandType = CommandType.StoredProcedure;
+
+                idPartido = new SqlParameter();
+                idPartido.ParameterName = "@idPartido";
+                idPartido.SqlDbType = SqlDbType.Int;
+                idPartido.Value = objBE.IdPartido;
+
+                c_Resultado = new SqlParameter();
+                c_Resultado.ParameterName = "@c_Resultado";
+                c_Resultado.SqlDbType = SqlDbType.VarChar;
+                c_Resultado.Size = 5;
+                c_Resultado.Value = objBE.C_Resultado;
+
+                cmd_PartidoPronosticadoInsertar.Parameters.Add(idPartido);
+                cmd_PartidoPronosticadoInsertar.Parameters.Add(c_Resultado);
+
+                cmd_PartidoPronosticadoInsertar.Connection.Open();
+                cmd_PartidoPronosticadoInsertar.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+                conexion.Dispose();
+                throw;
+            }
+            finally
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                    conexion = null;
+                }
+            }
+        }
     }
 }

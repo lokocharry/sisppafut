@@ -36,5 +36,50 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
+
+        public int VerificarExistePronostico(int codPartido)
+        {
+            try
+            {
+                PartidoPronosticadoDALC objPartidoPronosticoDALC;
+                objPartidoPronosticoDALC = new PartidoPronosticadoDALC();
+
+                return objPartidoPronosticoDALC.existePronostico(codPartido);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public int VerificarExistePartidoPronostico(int codPartido)
+        {
+            try
+            {
+                PartidoPronosticadoDALC objPartidoPronosticoDALC;
+                objPartidoPronosticoDALC = new PartidoPronosticadoDALC();
+
+                return objPartidoPronosticoDALC.existePartidoPronosticado(codPartido);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public void ActualizarPartidoPronosticado(PartidoPronosticadoBE PP)
+        {
+            try
+            {
+                PartidoPronosticadoDALC objPartidoPronosticoDALC;
+                objPartidoPronosticoDALC = new PartidoPronosticadoDALC();
+
+                objPartidoPronosticoDALC.ActualizarPartidoPronosticado(PP);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

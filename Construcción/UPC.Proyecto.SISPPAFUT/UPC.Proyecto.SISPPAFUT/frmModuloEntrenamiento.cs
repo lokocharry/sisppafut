@@ -188,16 +188,25 @@ namespace UPC.Proyecto.SISPPAFUT
                         }
                     }
                     LstPartidosConResultadoYSinPronostico.Add(cDto);
-                    dg_Pronosticos.Rows.Add(cDto.Codigo_partido, null, cDto.Equipo_local, cDto.Equipo_visitante,
-                                                null, null, null, null);
+                    //dg_Pronosticos.Rows.Add(cDto.Codigo_partido, null, cDto.Equipo_local, cDto.Equipo_visitante,null, null, null, null);
                 }
                 //-- Muestro la relación de partidos no jugados
                 if (LstPartidosSinJugar.Count > 0)
                 {
                     foreach (PartidoSinJugarBE cDto in LstPartidosSinJugar)
                     {
-                        dg_Pronosticos.Rows.Add(cDto.Codigo_partido, null, cDto.Equipo_local, cDto.Equipo_visitante,
-                                                null, null, null, null);
+                        int r = 0;
+                        foreach (PartidoSinJugarBE _cDto in LstPartidosPronosticados)
+                        {
+                            if (cDto.Codigo_partido == _cDto.Codigo_partido)
+                            {
+                                r = 1;break;
+                            }                            
+                        }
+
+                        if(r==0)
+                            dg_Pronosticos.Rows.Add(cDto.Codigo_partido, null, cDto.Equipo_local, cDto.Equipo_visitante,
+                                                                            null, null, null, null);
                     }
                 }
             }
@@ -228,6 +237,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 //-- Paso 1: Se recolecta los partidos que ya tienen datos resumidos de partidos cuyo resultado se conoce
                 
                 objPartidoPronosticadoBC = new PartidoPronosticadoBC();
+                //-- Solo recopilo la información de los partidos que tienen un resultado real pero no tienen pronóstico
                 ListaPartidosPronosticados = objPartidoPronosticadoBC.listar_PartidosPronosticos();
                 qPartidosJugados = ListaPartidosPronosticados.Count;
                 //-- Paso 2: Se recolecta los partidos cuyo resultado se desconoce
@@ -339,25 +349,6 @@ namespace UPC.Proyecto.SISPPAFUT
 
                         ListaPartidosPronosticados.Add(objPartidoPronosticadoBE);
                     }                    
-                }
-
-                List<PartidoPronosticadoBE> lstTmp = new List<PartidoPronosticadoBE>();
-                
-                foreach (PartidoPronosticadoBE dTo in ListaPartidosPronosticados)
-                {
-                    lstTmp.Add(dTo);
-                }
-
-                foreach (PartidoPronosticadoBE cDto in lstTmp)
-                {
-                    foreach (PartidoSinJugarBE _cDto in LstPartidosSinJugar)
-                    {
-                        if (cDto.IdPartido == _cDto.Codigo_partido)
-                        {
-                            ListaPartidosPronosticados.Remove(cDto);
-                            break;
-                        }
-                    }
                 }
                 
                 if (LstPartidosSinJugar.Count > 0)
@@ -496,9 +487,13 @@ namespace UPC.Proyecto.SISPPAFUT
                         objPronosticoBC = new PronosticoBC();
                         for (int i = 0; i<ListaPartidosPronosticados.Count; i++)
                         {
-                            listaPronosticos[i].CodigoPartido = ListaPartidosPronosticados[i].IdPartido;
-                            if (i < qPartidosJugados)
+                            if (objPartidoPronosticadoBC.VerificarExistePronostico(ListaPartidosPronosticados[i].IdPartido) > 0)
                             {
+                                listaPronosticos[i].CodigoPartido = ListaPartidosPronosticados[i].IdPartido;
+                                if (objPartidoPronosticadoBC.VerificarExistePartidoPronostico(ListaPartidosPronosticados[i].IdPartido) > 0)
+                                {
+                                    objPartidoPronosticadoBC.ActualizarPartidoPronosticado(ListaPartidosPronosticados[i]);
+                                }
                                 objPronosticoBC.actualizar_Pronostico(listaPronosticos[i]);
                             }
                             else
