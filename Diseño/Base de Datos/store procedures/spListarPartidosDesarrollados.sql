@@ -1,7 +1,7 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spListarPartidosDesarrollados]    Script Date: 09/22/2012 16:36:28 ******/
+/****** Object:  StoredProcedure [dbo].[spListarPartidosDesarrollados]    Script Date: 09/22/2012 20:39:24 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -19,7 +19,8 @@ FROM			Partido P JOIN Liga L ON (P.CodLiga = L.CodLiga)
 						  JOIN Competicion CO ON (CO.CodCompeticion = L.CodCompeticion) 
 						  JOIN Pais PA ON (PA.CodPais = CO.CodPais)						  
 WHERE			(P.GolesLocal >= 0 OR P.GolesVisita >= 0) AND
-				(SELECT COUNT(*) FROM Pronostico PR WHERE P.CodPartido = PR.CodPartido)=0
+				((SELECT PP.c_Resultado FROM PartidoPronosticado PP WHERE PP.idPartido = P.CodPartido) = '?' OR
+				 (SELECT COUNT(*) FROM PartidoPronosticado PP WHERE PP.idPartido = P.CodPartido) = 0)
 END
 
 GO

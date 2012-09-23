@@ -1,7 +1,7 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spListarPartidosPronosticados]    Script Date: 09/22/2012 13:26:28 ******/
+/****** Object:  StoredProcedure [dbo].[spListarPartidosPronosticados]    Script Date: 09/22/2012 20:59:02 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -42,6 +42,7 @@ SELECT [idPartido]
       ,[c_Visita_QPartidosMes]
       ,[c_Resultado]
   FROM [SISPPAFUT].[dbo].[PartidoPronosticado]
+  WHERE	c_Resultado = 'L' OR c_Resultado = 'E' OR c_Resultado = 'V'
 END
 
 GO
