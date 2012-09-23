@@ -41,5 +41,19 @@ namespace UPC.Seguridad.BL.BC
                 throw;
             }
         }
+
+        public List<RolBE> Listar_RolesXUsuario(int idUsuario)
+        {
+            try
+            {
+                UsuarioRolDALC objUsuarioRolDALC = new UsuarioRolDALC();
+
+                return objUsuarioRolDALC.Listar_RolesXUsuario(idUsuario);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

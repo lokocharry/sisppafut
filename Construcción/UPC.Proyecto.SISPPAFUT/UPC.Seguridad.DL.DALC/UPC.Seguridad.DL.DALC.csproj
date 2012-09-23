@@ -49,6 +49,7 @@
     <Compile Include="RolDALC.cs" />
     <Compile Include="RolXFuncionalidadDALC.cs" />
     <Compile Include="UsuarioDALC.cs" />
+    <Compile Include="UsuarioFuncionalidadDALC.cs" />
     <Compile Include="UsuarioRolDALC.cs" />
   </ItemGroup>
   <ItemGroup>

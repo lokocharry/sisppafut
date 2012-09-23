@@ -378,6 +378,22 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private void usuarioXFuncToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmRegistrarAsociacionUsuarioFuncionalidad frm = frmRegistrarAsociacionUsuarioFuncionalidad.Instance();
+
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }        
     }
 }

@@ -122,5 +122,66 @@ namespace UPC.Seguridad.DL.DALC
                 conexion.Dispose();
             }
         }
+
+        public List<RolBE> Listar_RolesXUsuario(int codUsuario)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_listar = null;
+
+            SqlParameter prm_CodigoUsuario;
+
+            SqlDataReader dr_listado;
+
+            String sqlListar;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                sqlListar = "spListarRolxUsuario";
+
+                cmd_listar = new SqlCommand(sqlListar, conexion);
+                cmd_listar.CommandType = CommandType.StoredProcedure;
+
+                prm_CodigoUsuario = new SqlParameter();
+                prm_CodigoUsuario.ParameterName = "@idUsuario";
+                prm_CodigoUsuario.SqlDbType = SqlDbType.Int;
+                prm_CodigoUsuario.Value = codUsuario;
+
+                cmd_listar.Parameters.Add(prm_CodigoUsuario);
+
+                cmd_listar.Connection.Open();
+                dr_listado = cmd_listar.ExecuteReader();
+
+                RolBE objRolBE;
+
+                List<RolBE> lst_roles = new List<RolBE>();
+
+                while (dr_listado.Read())
+                {
+                    objRolBE = new RolBE();
+
+                    objRolBE.idRol = dr_listado.GetInt32(dr_listado.GetOrdinal("idRol"));
+                    objRolBE.NombreRol = dr_listado.GetString(dr_listado.GetOrdinal("nombreRol"));
+
+                    lst_roles.Add(objRolBE);
+                }
+
+                return lst_roles;
+            }
+            catch (Exception ex)
+            {
+                if (conexion != null && conexion.State == ConnectionState.Open)
+                {
+                    conexion.Dispose();
+                }
+                throw;
+            }
+
+            finally
+            {
+                cmd_listar.Connection.Close();
+                conexion.Dispose();
+            }
+        }
     }
 }

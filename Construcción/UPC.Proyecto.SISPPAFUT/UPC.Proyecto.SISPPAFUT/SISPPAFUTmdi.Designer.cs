@@ -68,6 +68,7 @@
             this.nuevoUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioXFuncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,7 +112,7 @@
             // registrarToolStripMenuItem
             // 
             this.registrarToolStripMenuItem.Name = "registrarToolStripMenuItem";
-            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registrarToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.registrarToolStripMenuItem.Text = "Nuevo País";
             this.registrarToolStripMenuItem.Click += new System.EventHandler(this.inNuevoPais);
             // 
@@ -325,7 +326,8 @@
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.funcXRolToolStripMenuItem,
-            this.nuevoUsuarioToolStripMenuItem});
+            this.nuevoUsuarioToolStripMenuItem,
+            this.usuarioXFuncToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.toolStripMenuItem1.Text = "Seguridad";
@@ -355,6 +357,13 @@
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
+            // 
+            // usuarioXFuncToolStripMenuItem
+            // 
+            this.usuarioXFuncToolStripMenuItem.Name = "usuarioXFuncToolStripMenuItem";
+            this.usuarioXFuncToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuarioXFuncToolStripMenuItem.Text = "UsuarioXFunc";
+            this.usuarioXFuncToolStripMenuItem.Click += new System.EventHandler(this.usuarioXFuncToolStripMenuItem_Click);
             // 
             // SISPPAFUTmdi
             // 
@@ -415,6 +424,7 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem funcXRolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuarioXFuncToolStripMenuItem;
     }
 }
 

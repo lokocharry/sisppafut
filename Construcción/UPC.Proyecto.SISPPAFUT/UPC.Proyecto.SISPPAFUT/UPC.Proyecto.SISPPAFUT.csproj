@@ -162,6 +162,12 @@
     <Compile Include="frmRegistrarAsociacionRolFuncionalidad.Designer.cs">
       <DependentUpon>frmRegistrarAsociacionRolFuncionalidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistrarAsociacionUsuarioFuncionalidad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarAsociacionUsuarioFuncionalidad.Designer.cs">
+      <DependentUpon>frmRegistrarAsociacionUsuarioFuncionalidad.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegistrarFuncionalidad.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -285,6 +291,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarAsociacionRolFuncionalidad.resx">
       <DependentUpon>frmRegistrarAsociacionRolFuncionalidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarAsociacionUsuarioFuncionalidad.resx">
+      <DependentUpon>frmRegistrarAsociacionUsuarioFuncionalidad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarFuncionalidad.resx">
       <DependentUpon>frmRegistrarFuncionalidad.cs</DependentUpon>

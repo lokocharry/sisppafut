@@ -18,3 +18,8 @@ C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyec
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\UPC.Seguridad.BL.BE.dll
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\UPC.Seguridad.BL.BE.pdb
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\bin\Debug\UPC.Seguridad.BL.BE.dll
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\bin\Debug\UPC.Seguridad.BL.BE.pdb
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\UPC.Seguridad.BL.BE.dll
+C:\Users\User\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\obj\Debug\UPC.Seguridad.BL.BE.pdb
