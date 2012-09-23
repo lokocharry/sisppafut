@@ -36,11 +36,15 @@
             this.cmbFuncionalidad = new System.Windows.Forms.ComboBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btnActualizar = new System.Windows.Forms.Button();
+            this.dgvAsociaciones = new System.Windows.Forms.DataGridView();
+            this.Usuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAsociaciones)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -104,25 +108,18 @@
             this.btnAgregar.TabIndex = 6;
             this.btnAgregar.Text = "Agregar a lista";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.btnActualizar);
-            this.groupBox1.Controls.Add(this.dataGridView1);
+            this.groupBox1.Controls.Add(this.dgvAsociaciones);
             this.groupBox1.Location = new System.Drawing.Point(27, 124);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(485, 219);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Asignaciones";
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(17, 29);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(452, 150);
-            this.dataGridView1.TabIndex = 0;
             // 
             // btnActualizar
             // 
@@ -132,6 +129,50 @@
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // dgvAsociaciones
+            // 
+            this.dgvAsociaciones.AllowUserToAddRows = false;
+            this.dgvAsociaciones.AllowUserToDeleteRows = false;
+            this.dgvAsociaciones.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAsociaciones.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Usuario,
+            this.Rol,
+            this.Funcionalidad,
+            this.Eliminar});
+            this.dgvAsociaciones.Location = new System.Drawing.Point(17, 29);
+            this.dgvAsociaciones.Name = "dgvAsociaciones";
+            this.dgvAsociaciones.Size = new System.Drawing.Size(452, 150);
+            this.dgvAsociaciones.TabIndex = 0;
+            this.dgvAsociaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inSeleccionEliminar);
+            this.dgvAsociaciones.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvAsociaciones_CurrentCellDirtyStateChanged);
+            // 
+            // Usuario
+            // 
+            this.Usuario.HeaderText = "Usuario";
+            this.Usuario.Name = "Usuario";
+            this.Usuario.ReadOnly = true;
+            // 
+            // Rol
+            // 
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            // 
+            // Funcionalidad
+            // 
+            this.Funcionalidad.HeaderText = "Funcionalidad";
+            this.Funcionalidad.Name = "Funcionalidad";
+            this.Funcionalidad.ReadOnly = true;
+            this.Funcionalidad.Width = 125;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Eliminar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Eliminar.Width = 80;
             // 
             // btnGuardar
             // 
@@ -141,6 +182,7 @@
             this.btnGuardar.TabIndex = 8;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // frmRegistrarAsociacionUsuarioFuncionalidad
             // 
@@ -163,7 +205,7 @@
             this.Text = "Asociación de Usuario-Funcionalidad";
             this.Load += new System.EventHandler(this.frmRegistrarAsociacionUsuarioFuncionalidad_Load);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAsociaciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,8 +221,12 @@
         private System.Windows.Forms.ComboBox cmbFuncionalidad;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvAsociaciones;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Usuario;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Funcionalidad;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Eliminar;
     }
 }

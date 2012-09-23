@@ -23,6 +23,8 @@ namespace UPC.Proyecto.SISPPAFUT
         List<RolBE> lst_roles;
         List<UsuarioBE> lst_usuarios;
         List<FuncionalidadBE> lst_funcionalidades;
+        List<UsuarioFuncionalidadBE> lst_Asociaciones;
+        List<int> lst_estados;
 
         private static frmRegistrarAsociacionUsuarioFuncionalidad frmRolFunc = null;
 
@@ -89,7 +91,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void frmRegistrarAsociacionUsuarioFuncionalidad_Load(object sender, EventArgs e)
         {
-
+            lst_estados = new List<int>();
+            lst_Asociaciones = new List<UsuarioFuncionalidadBE>();
         }
 
         public void CargarFuncionalidades()
@@ -139,6 +142,119 @@ namespace UPC.Proyecto.SISPPAFUT
             else
             {
                 cmbRol.Items.Clear();
+            }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if (cmbFuncionalidad.SelectedIndex <= 0 || cmbRol.SelectedIndex <= 0 || cmbUsuario.SelectedIndex <= 0)
+            {
+                MessageBox.Show("Seleccione un usuario, rol y funcionalidad");
+                return;
+            }
+
+            UsuarioFuncionalidadBE objUsuarioFuncionalidadBE = new UsuarioFuncionalidadBE();
+
+            objUsuarioFuncionalidadBE.Rol = lst_roles[cmbRol.SelectedIndex - 1].NombreRol;
+            objUsuarioFuncionalidadBE.Usuario = lst_usuarios[cmbUsuario.SelectedIndex-1].NombreUsuario;
+            objUsuarioFuncionalidadBE.Funcionalidad = lst_funcionalidades[cmbFuncionalidad.SelectedIndex -1].NombreFuncionalidad;
+            objUsuarioFuncionalidadBE.idFuncionalidad = lst_funcionalidades[cmbFuncionalidad.SelectedIndex - 1].idFuncionalidad;
+            objUsuarioFuncionalidadBE.idUsuario = lst_usuarios[cmbUsuario.SelectedIndex - 1].IdUsuario;
+
+            String Rol = lst_roles[cmbRol.SelectedIndex-1].NombreRol;
+
+            lst_Asociaciones.Add(objUsuarioFuncionalidadBE);
+            dgvAsociaciones.Rows.Add(objUsuarioFuncionalidadBE.Usuario,Rol, objUsuarioFuncionalidadBE.Funcionalidad);
+
+            lst_estados.Add(0);
+            
+            cmbFuncionalidad.SelectedIndex = 0;                   
+            cmbRol.SelectedIndex = 0;
+            cmbUsuario.SelectedIndex = 0;    
+        }
+
+        private void dgvAsociaciones_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgvAsociaciones.IsCurrentCellDirty)
+            {
+                dgvAsociaciones.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void inSeleccionEliminar(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0)
+                return;
+
+            if (dgvAsociaciones.Columns[e.ColumnIndex].Name == "Eliminar")
+            {
+                DataGridViewRow row = dgvAsociaciones.Rows[e.RowIndex];
+
+                DataGridViewCheckBoxCell seleccion = row.Cells["Eliminar"] as DataGridViewCheckBoxCell;
+
+                if (Convert.ToBoolean(seleccion.Value))
+                {
+                    lst_estados[e.RowIndex] = 1;
+                }
+                else
+                {
+                    lst_estados[e.RowIndex] = 0;
+                }
+            }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                for (int i = 0; i < lst_estados.Count; i++)
+                {
+                    if (lst_estados[i] == 1)
+                    {
+                        lst_Asociaciones.RemoveAt(i);
+                    }
+                }
+
+                dgvAsociaciones.Rows.Clear();
+
+                lst_estados.RemoveAll(valor => valor == 1);
+
+                if (lst_Asociaciones.Count > 0)
+                {
+                    foreach (UsuarioFuncionalidadBE cDto in lst_Asociaciones)
+                    {
+                        dgvAsociaciones.Rows.Add(cDto.Usuario, cDto.Rol, cDto.Funcionalidad);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            if (lst_Asociaciones.Count == 0)
+            {
+                MessageBox.Show("Añada asociaciones a la tabla para poder registrarlas");
+                return;
+            }
+
+            UsuarioFuncionalidadBC objUsuarioFuncionalidadBC;
+            try
+            {
+                objUsuarioFuncionalidadBC = new UsuarioFuncionalidadBC();
+
+                objUsuarioFuncionalidadBC.Insertar_UsuarioFuncionalidad(lst_Asociaciones);
+
+                MessageBox.Show("Se registraron las asociaciones correctamente");
+
+                dgvAsociaciones.Rows.Clear();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
             }
         }
     }

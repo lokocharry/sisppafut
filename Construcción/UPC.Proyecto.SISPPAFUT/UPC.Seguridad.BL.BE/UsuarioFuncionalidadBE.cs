@@ -23,6 +23,14 @@ namespace UPC.Seguridad.BL.BE
             set { idfuncionalidad = value; }
         }
 
+        private String rol;
+
+        public String Rol
+        {
+            get { return rol; }
+            set { rol = value; }
+        }
+
         private String nusuario;
 
         public String Usuario
@@ -31,12 +39,12 @@ namespace UPC.Seguridad.BL.BE
             set { nusuario = value; }
         }
 
-        private String nrol;
+        private String nfuncionalidad;
 
-        public String Rol
+        public String Funcionalidad
         {
-            get { return nrol; }
-            set { nrol = value; }
+            get { return nfuncionalidad; }
+            set { nfuncionalidad = value; }
         }
     }
 }

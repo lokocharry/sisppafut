@@ -44,6 +44,7 @@
     <Compile Include="RolBC.cs" />
     <Compile Include="RolXFuncionalidadBC.cs" />
     <Compile Include="UsuarioBC.cs" />
+    <Compile Include="UsuarioFuncionalidadBC.cs" />
     <Compile Include="UsuarioRolBC.cs" />
   </ItemGroup>
   <ItemGroup>
