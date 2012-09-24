@@ -86,10 +86,11 @@ namespace UnitTests
         {
             UsuarioBC target = new UsuarioBC();
             List<UsuarioBE> expected = target.listar_Usuarios();
-            List<UsuarioBE> actual;
-            actual = target.listar_Usuarios();
-            Assert.AreEqual(expected, actual);
-            Assert.Inconclusive("Verify the correctness of this test method.");
+            int actual;
+            actual = 0;
+
+            Assert.AreNotEqual(expected.Count, actual);
+            //Se verifica que la lista no este vacia y se puedann devolver valores
         }
     }
 }
