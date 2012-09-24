@@ -7,12 +7,12 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BE
 {
     public class UsuarioReferenciaBE
     {
-        private int _codUsuario;
+        private int _idUsuario;
 
-        public int CodUsuario
+        public int IdUsuario
         {
-            get { return _codUsuario; }
-            set { _codUsuario = value; }
+            get { return _idUsuario; }
+            set { _idUsuario = value; }
         }
 
         private String _nombreUsuario;

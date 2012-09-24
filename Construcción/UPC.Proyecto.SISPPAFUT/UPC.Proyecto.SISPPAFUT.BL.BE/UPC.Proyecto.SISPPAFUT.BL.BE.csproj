@@ -58,7 +58,7 @@
     <Compile Include="PartidoPronosticadoBE.cs" />
     <Compile Include="PartidoSinJugarBE.cs" />
     <Compile Include="PronosticoBE.cs" />
-    <Compile Include="PronosticoCliente.cs" />
+    <Compile Include="PronosticoClienteBE.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RankingEquipoBE.cs" />
     <Compile Include="SuspensionBE.cs" />

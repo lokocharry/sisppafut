@@ -180,6 +180,12 @@
     <Compile Include="frmRegistrarFuncionalidad.Designer.cs">
       <DependentUpon>frmRegistrarFuncionalidad.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRegistrarPronostico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistrarPronostico.Designer.cs">
+      <DependentUpon>frmRegistrarPronostico.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRegistrarRol.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarFuncionalidad.resx">
       <DependentUpon>frmRegistrarFuncionalidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistrarPronostico.resx">
+      <DependentUpon>frmRegistrarPronostico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRegistrarRol.resx">
       <DependentUpon>frmRegistrarRol.cs</DependentUpon>

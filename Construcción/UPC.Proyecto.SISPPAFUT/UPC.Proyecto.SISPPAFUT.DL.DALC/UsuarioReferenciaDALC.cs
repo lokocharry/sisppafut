@@ -31,7 +31,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 cmd_UsuarioReferenciaInsertar.CommandType = CommandType.StoredProcedure;
 
                 prm_CodigoUsuario = new SqlParameter();
-                prm_CodigoUsuario.ParameterName = "@identificador";
+                prm_CodigoUsuario.ParameterName = "@idUsuario";
                 prm_CodigoUsuario.SqlDbType = SqlDbType.Int;
                 prm_CodigoUsuario.Value = objUsuarioReferenciaBE.CodUsuario;
 
