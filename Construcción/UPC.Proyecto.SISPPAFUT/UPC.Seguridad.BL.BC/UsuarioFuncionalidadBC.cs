@@ -23,5 +23,32 @@ namespace UPC.Seguridad.BL.BC
                 throw;
             }
         }
+
+        public int Verificar_ExisteUsuarioFuncionalidad(int idUsuario, int idFuncionalidad)
+        {
+            try
+            {
+                UsuarioFuncionalidadDALC objUsuarioFuncionalidadDALC = new UsuarioFuncionalidadDALC();
+                return objUsuarioFuncionalidadDALC.Verificar_UsuarioXFuncionalidadExiste(idUsuario, idFuncionalidad);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        public List<FuncionalidadBE> Listar_FuncionalidadesXUsuario(int idUsuario)
+        {
+            try
+            {
+                UsuarioFuncionalidadDALC objUsuarioFuncionalidadDALC = new UsuarioFuncionalidadDALC();
+
+                return objUsuarioFuncionalidadDALC.listar_FuncionalidadesXUsuario(idUsuario);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }

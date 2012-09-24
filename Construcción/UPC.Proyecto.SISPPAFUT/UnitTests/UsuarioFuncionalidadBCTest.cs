@@ -1,4 +1,4 @@
-﻿using UPC.Seguridad.DL.DALC;
+﻿using UPC.Seguridad.BL.BC;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using UPC.Seguridad.BL.BE;
@@ -9,11 +9,11 @@ namespace UnitTests
     
     
     /// <summary>
-    ///This is a test class for RolXFuncionalidadDALCTest and is intended
-    ///to contain all RolXFuncionalidadDALCTest Unit Tests
+    ///This is a test class for UsuarioFuncionalidadBCTest and is intended
+    ///to contain all UsuarioFuncionalidadBCTest Unit Tests
     ///</summary>
     [TestClass()]
-    public class RolXFuncionalidadDALCTest
+    public class UsuarioFuncionalidadBCTest
     {
 
 
@@ -67,16 +67,50 @@ namespace UnitTests
 
 
         /// <summary>
-        ///A test for listar_FuncionalidadesXRol
+        ///A test for Insertar_UsuarioFuncionalidad
         ///</summary>
         [TestMethod()]
-        public void listar_FuncionalidadesXRolTest()
+        public void Insertar_UsuarioFuncionalidadTest()
         {
-            RolXFuncionalidadDALC target = new RolXFuncionalidadDALC();
-            int idRol = 1;
-            int expected = 17; // TODO: Initialize to an appropriate value
+            UsuarioFuncionalidadBC target = new UsuarioFuncionalidadBC();
+            List<UsuarioFuncionalidadBE> lst_usuarios = new List<UsuarioFuncionalidadBE>();
+
+            UsuarioFuncionalidadBE obj1 = new UsuarioFuncionalidadBE();
+            obj1.idFuncionalidad = 17;
+            obj1.idUsuario = 4;
+
+            lst_usuarios.Add(obj1);
+
+            target.Insertar_UsuarioFuncionalidad(lst_usuarios);
+ 
+        }
+
+        /// <summary>
+        ///A test for Verificar_ExisteUsuarioFuncionalidad
+        ///</summary>
+        [TestMethod()]
+        public void Verificar_ExisteUsuarioFuncionalidadTest()
+        {
+            UsuarioFuncionalidadBC target = new UsuarioFuncionalidadBC();
+            int idUsuario = 1;
+            int idFuncionalidad = 1;
+            int expected = 1; 
+            int actual;
+            actual = target.Verificar_ExisteUsuarioFuncionalidad(idUsuario, idFuncionalidad);
+            Assert.AreEqual(expected, actual);
+        }
+
+        /// <summary>
+        ///A test for Listar_FuncionalidadesXUsuario
+        ///</summary>
+        [TestMethod()]
+        public void Listar_FuncionalidadesXUsuarioTest()
+        {
+            UsuarioFuncionalidadBC target = new UsuarioFuncionalidadBC();
+            int idUsuario = 1;
+            int expected = 17;
             List<FuncionalidadBE> actual;
-            actual = target.listar_FuncionalidadesXRol(idRol);
+            actual = target.Listar_FuncionalidadesXUsuario(idUsuario);
             Assert.AreEqual(expected, actual.Count);
         }
     }

@@ -1,8 +1,8 @@
 ﻿using UPC.Seguridad.BL.BC;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
-
-using UPC.Seguridad.BL.BC;
+using UPC.Seguridad.BL.BE;
+using System.Collections.Generic;
 
 namespace UnitTests
 {
@@ -72,10 +72,51 @@ namespace UnitTests
         [TestMethod()]
         public void Insertar_RolXFuncionalidadTest()
         {
-            //RolXFuncionalidadBC target = new RolXFuncionalidadBC();
-            int idRol = 3;
-            int idFuncionalidad = 20;
-            //target.Insertar_RolXFuncionalidad(idRol, idFuncionalidad);
+            RolXFuncionalidadBC target = new RolXFuncionalidadBC();
+            List<RolXFuncionalidadBE> lst_RolFunc = new List<RolXFuncionalidadBE>();
+
+            RolXFuncionalidadBE obj1 = new RolXFuncionalidadBE();
+            obj1.idRol = 4;
+            obj1.idFuncionalidad = 20;
+
+            lst_RolFunc.Add(obj1);
+
+            RolXFuncionalidadBE obj2 = new RolXFuncionalidadBE();
+            obj2.idRol = 3;
+            obj2.idFuncionalidad = 19;
+
+            lst_RolFunc.Add(obj2);
+            
+            target.Insertar_RolXFuncionalidad(lst_RolFunc);
+        }
+
+        /// <summary>
+        ///A test for Listar_FuncionalidadesXRol
+        ///</summary>
+        [TestMethod()]
+        public void Listar_FuncionalidadesXRolTest()
+        {
+            RolXFuncionalidadBC target = new RolXFuncionalidadBC();
+            int idRol = 1;
+            int expected = 17;
+            List<FuncionalidadBE> actual;
+            actual = target.Listar_FuncionalidadesXRol(idRol);
+            Assert.AreEqual(expected, actual.Count);
+        }
+
+        /// <summary>
+        ///A test for VerificarSiExiste_RolXFuncionalidad
+        ///</summary>
+        [TestMethod()]
+        public void VerificarSiExiste_RolXFuncionalidadTest()
+        {
+            RolXFuncionalidadBC target = new RolXFuncionalidadBC();
+            int idRol = 1;
+            int idFuncionalidad = 1;
+            int expected = 1;
+            int actual;
+            actual = target.VerificarSiExiste_RolXFuncionalidad(idRol, idFuncionalidad);
+            Assert.AreEqual(expected, actual);
         }
     }
 }

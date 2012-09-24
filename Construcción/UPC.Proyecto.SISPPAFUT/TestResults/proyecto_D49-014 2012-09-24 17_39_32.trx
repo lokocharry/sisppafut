@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<TestRun id="d8b08c1c-d709-4c76-96f2-c59ed2d8681b" name="proyecto@D49-014 2012-09-17 16:36:05" runUser="D49-014\proyecto" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<TestRun id="fe103ed0-976e-4a4f-a5ea-2eaef1b759c8" name="proyecto@D49-014 2012-09-24 17:39:32" runUser="D49-014\proyecto" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <TestSettings name="Local" id="d7146e08-8266-4b9b-aa43-bf7a65afa95e">
     <Description>These are default test settings for a local test run.</Description>
-    <Deployment enabled="false" runDeploymentRoot="proyecto_D49-014 2012-09-17 16_36_05">
+    <Deployment enabled="false" runDeploymentRoot="proyecto_D49-014 2012-09-24 17_39_32">
       <DeploymentItem filename="C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll" />
       <DeploymentItem filename="C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BC\bin\Debug\UPC.Seguridad.BL.BC.dll" />
       <DeploymentItem filename="C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.dll" />
@@ -16,14 +16,14 @@
       </AgentRule>
     </Execution>
   </TestSettings>
-  <Times creation="2012-09-17T16:36:05.5823976-05:00" queuing="2012-09-17T16:36:06.5694963-05:00" start="2012-09-17T16:36:06.5794973-05:00" finish="2012-09-17T16:36:06.8185212-05:00" />
+  <Times creation="2012-09-24T17:39:32.7298879-05:00" queuing="2012-09-24T17:39:34.7660043-05:00" start="2012-09-24T17:39:34.7740048-05:00" finish="2012-09-24T17:39:34.9980176-05:00" />
   <ResultSummary outcome="Completed">
     <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
   </ResultSummary>
   <TestDefinitions>
-    <UnitTest name="Insertar_RolTest" storage="c:\users\proyecto\desktop\tdp1\construcción\upc.proyecto.sisppafut\unittests\bin\debug\unittests.dll" id="2c0e0681-5ccc-2fdb-5b85-ca6eb560f327">
-      <Execution id="6e4960a7-3801-42e6-a341-f3fb8fa020ed" />
-      <TestMethod codeBase="C:/Users/proyecto/Desktop/TDP1/Construcción/UPC.Proyecto.SISPPAFUT/UnitTests/bin/Debug/UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTests.RolBCTest, UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Insertar_RolTest" />
+    <UnitTest name="Verificar_ExisteUsuarioFuncionalidadTest" storage="c:\users\proyecto\desktop\tdp1\construcción\upc.proyecto.sisppafut\unittests\bin\debug\unittests.dll" id="c0440e81-0abd-5d18-a8b7-3b601b251998">
+      <Execution id="cb0e369a-83bb-4d09-a25d-0fe650492204" />
+      <TestMethod codeBase="C:/Users/proyecto/Desktop/TDP1/Construcción/UPC.Proyecto.SISPPAFUT/UnitTests/bin/Debug/UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTests.UsuarioFuncionalidadBCTest, UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Verificar_ExisteUsuarioFuncionalidadTest" />
     </UnitTest>
   </TestDefinitions>
   <TestLists>
@@ -31,10 +31,10 @@
     <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
   </TestLists>
   <TestEntries>
-    <TestEntry testId="2c0e0681-5ccc-2fdb-5b85-ca6eb560f327" executionId="6e4960a7-3801-42e6-a341-f3fb8fa020ed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="c0440e81-0abd-5d18-a8b7-3b601b251998" executionId="cb0e369a-83bb-4d09-a25d-0fe650492204" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <Results>
-    <UnitTestResult executionId="6e4960a7-3801-42e6-a341-f3fb8fa020ed" testId="2c0e0681-5ccc-2fdb-5b85-ca6eb560f327" testName="Insertar_RolTest" computerName="D49-014" duration="00:00:00.0320847" startTime="2012-09-17T16:36:06.5844978-05:00" endTime="2012-09-17T16:36:06.8065200-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6e4960a7-3801-42e6-a341-f3fb8fa020ed">
+    <UnitTestResult executionId="cb0e369a-83bb-4d09-a25d-0fe650492204" testId="c0440e81-0abd-5d18-a8b7-3b601b251998" testName="Verificar_ExisteUsuarioFuncionalidadTest" computerName="D49-014" duration="00:00:00.0279652" startTime="2012-09-24T17:39:34.7780050-05:00" endTime="2012-09-24T17:39:34.9860169-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="cb0e369a-83bb-4d09-a25d-0fe650492204">
     </UnitTestResult>
   </Results>
 </TestRun>

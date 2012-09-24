@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<TestRun id="af5e0026-1e04-446f-80de-285b6760140d" name="proyecto@D49-014 2012-09-17 17:41:29" runUser="D49-014\proyecto" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+<TestRun id="d6631e53-6d37-4681-8ad2-8b15f4486e69" name="proyecto@D49-014 2012-09-24 17:17:04" runUser="D49-014\proyecto" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
   <TestSettings name="Local" id="d7146e08-8266-4b9b-aa43-bf7a65afa95e">
     <Description>These are default test settings for a local test run.</Description>
-    <Deployment enabled="false" runDeploymentRoot="proyecto_D49-014 2012-09-17 17_41_29">
+    <Deployment enabled="false" runDeploymentRoot="proyecto_D49-014 2012-09-24 17_17_04">
       <DeploymentItem filename="C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll" />
       <DeploymentItem filename="C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BC\bin\Debug\UPC.Seguridad.BL.BC.dll" />
       <DeploymentItem filename="C:\Users\proyecto\Desktop\TDP1\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.dll" />
@@ -16,13 +16,13 @@
       </AgentRule>
     </Execution>
   </TestSettings>
-  <Times creation="2012-09-17T17:41:29.2154269-05:00" queuing="2012-09-17T17:41:30.4774269-05:00" start="2012-09-17T17:41:30.4864269-05:00" finish="2012-09-17T17:41:37.7824269-05:00" />
-  <ResultSummary outcome="Error">
-    <Counters total="1" executed="1" error="1" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  <Times creation="2012-09-24T17:17:04.6977848-05:00" queuing="2012-09-24T17:17:08.3409932-05:00" start="2012-09-24T17:17:08.4970021-05:00" finish="2012-09-24T17:17:11.1101516-05:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
   </ResultSummary>
   <TestDefinitions>
     <UnitTest name="Insertar_RolXFuncionalidadTest" storage="c:\users\proyecto\desktop\tdp1\construcción\upc.proyecto.sisppafut\unittests\bin\debug\unittests.dll" id="117b198a-7811-607c-3074-d4bb240d76f1">
-      <Execution id="c259c079-ae65-49ab-957f-a64e79e5285f" />
+      <Execution id="19f72344-8bb7-4aa8-989c-ba7b1145c54a" />
       <TestMethod codeBase="C:/Users/proyecto/Desktop/TDP1/Construcción/UPC.Proyecto.SISPPAFUT/UnitTests/bin/Debug/UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTests.RolXFuncionalidadBCTest, UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="Insertar_RolXFuncionalidadTest" />
     </UnitTest>
   </TestDefinitions>
@@ -31,15 +31,10 @@
     <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
   </TestLists>
   <TestEntries>
-    <TestEntry testId="117b198a-7811-607c-3074-d4bb240d76f1" executionId="c259c079-ae65-49ab-957f-a64e79e5285f" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="117b198a-7811-607c-3074-d4bb240d76f1" executionId="19f72344-8bb7-4aa8-989c-ba7b1145c54a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
   </TestEntries>
   <Results>
-    <UnitTestResult executionId="c259c079-ae65-49ab-957f-a64e79e5285f" testId="117b198a-7811-607c-3074-d4bb240d76f1" testName="Insertar_RolXFuncionalidadTest" computerName="D49-014" startTime="2012-09-17T17:41:30.4884269-05:00" endTime="2012-09-17T17:41:37.7714269-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="c259c079-ae65-49ab-957f-a64e79e5285f">
-      <Output>
-        <ErrorInfo>
-          <Message>The agent process was stopped while the test was running.</Message>
-        </ErrorInfo>
-      </Output>
+    <UnitTestResult executionId="19f72344-8bb7-4aa8-989c-ba7b1145c54a" testId="117b198a-7811-607c-3074-d4bb240d76f1" testName="Insertar_RolXFuncionalidadTest" computerName="D49-014" duration="00:00:00.2975749" startTime="2012-09-24T17:17:08.6090086-05:00" endTime="2012-09-24T17:17:09.5370616-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="19f72344-8bb7-4aa8-989c-ba7b1145c54a">
     </UnitTestResult>
   </Results>
 </TestRun>

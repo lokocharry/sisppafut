@@ -66,9 +66,10 @@
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.funcXRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuarioXFuncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.usuarioXFuncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rolXUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -327,7 +328,8 @@
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.funcXRolToolStripMenuItem,
             this.nuevoUsuarioToolStripMenuItem,
-            this.usuarioXFuncToolStripMenuItem});
+            this.usuarioXFuncToolStripMenuItem,
+            this.rolXUsuarioToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(154, 22);
             this.toolStripMenuItem1.Text = "Seguridad";
@@ -346,6 +348,13 @@
             this.nuevoUsuarioToolStripMenuItem.Text = "Nuevo Usuario";
             this.nuevoUsuarioToolStripMenuItem.Click += new System.EventHandler(this.nuevoUsuarioToolStripMenuItem_Click);
             // 
+            // usuarioXFuncToolStripMenuItem
+            // 
+            this.usuarioXFuncToolStripMenuItem.Name = "usuarioXFuncToolStripMenuItem";
+            this.usuarioXFuncToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.usuarioXFuncToolStripMenuItem.Text = "UsuarioXFunc";
+            this.usuarioXFuncToolStripMenuItem.Click += new System.EventHandler(this.usuarioXFuncToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -358,12 +367,12 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
-            // usuarioXFuncToolStripMenuItem
+            // rolXUsuarioToolStripMenuItem
             // 
-            this.usuarioXFuncToolStripMenuItem.Name = "usuarioXFuncToolStripMenuItem";
-            this.usuarioXFuncToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.usuarioXFuncToolStripMenuItem.Text = "UsuarioXFunc";
-            this.usuarioXFuncToolStripMenuItem.Click += new System.EventHandler(this.usuarioXFuncToolStripMenuItem_Click);
+            this.rolXUsuarioToolStripMenuItem.Name = "rolXUsuarioToolStripMenuItem";
+            this.rolXUsuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rolXUsuarioToolStripMenuItem.Text = "RolXUsuario";
+            this.rolXUsuarioToolStripMenuItem.Click += new System.EventHandler(this.rolXUsuarioToolStripMenuItem_Click);
             // 
             // SISPPAFUTmdi
             // 
@@ -425,6 +434,7 @@
         private System.Windows.Forms.ToolStripMenuItem funcXRolToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nuevoUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioXFuncToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem rolXUsuarioToolStripMenuItem;
     }
 }
 

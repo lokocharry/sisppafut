@@ -108,14 +108,12 @@
             // 
             this.Funcionalidad.HeaderText = "Funcionalidad";
             this.Funcionalidad.Name = "Funcionalidad";
-            this.Funcionalidad.ReadOnly = true;
             this.Funcionalidad.Width = 159;
             // 
             // Rol
             // 
             this.Rol.HeaderText = "Rol";
             this.Rol.Name = "Rol";
-            this.Rol.ReadOnly = true;
             this.Rol.Width = 159;
             // 
             // Eliminar

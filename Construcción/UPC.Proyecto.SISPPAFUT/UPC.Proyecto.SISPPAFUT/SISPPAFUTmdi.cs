@@ -394,6 +394,22 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private void rolXUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmRegistrarAsociacionRolUsuario frm = frmRegistrarAsociacionRolUsuario.Instance();
+
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }        
     }
 }

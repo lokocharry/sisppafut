@@ -251,6 +251,8 @@ namespace UPC.Proyecto.SISPPAFUT
                 MessageBox.Show("Se registraron las asociaciones correctamente");
 
                 dgvAsociaciones.Rows.Clear();
+                lst_estados.Clear();
+                lst_Asociaciones.Clear();
             }
             catch (Exception ex)
             {

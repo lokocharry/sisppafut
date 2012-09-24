@@ -169,5 +169,7 @@ namespace UPC.Seguridad.DL.DALC
                 throw;
             }
         }
+    
+        
     }
 }
