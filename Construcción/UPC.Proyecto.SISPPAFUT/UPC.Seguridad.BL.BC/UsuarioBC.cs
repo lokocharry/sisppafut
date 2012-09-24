@@ -43,5 +43,20 @@ namespace UPC.Seguridad.BL.BC
             }
         }
 
+        public int Verificar_LoginUsuario(String usuario, String contrasenia)
+        {
+            UsuarioDALC objUsuarioDALC;
+
+            try
+            {
+                objUsuarioDALC = new UsuarioDALC();
+                return objUsuarioDALC.Verificar_LoginUsuario(usuario, contrasenia);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }

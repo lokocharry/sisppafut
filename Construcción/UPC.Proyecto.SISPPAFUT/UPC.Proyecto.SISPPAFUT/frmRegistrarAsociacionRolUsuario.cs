@@ -95,37 +95,44 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btnAgregarLista_Click(object sender, EventArgs e)
         {
-            if (cmbUsuario.SelectedIndex <= 0 || cmbRol.SelectedIndex <= 0)
+            try
             {
-                MessageBox.Show("Seleccione un usuario y un rol");
-                return;
+                if (cmbUsuario.SelectedIndex <= 0 || cmbRol.SelectedIndex <= 0)
+                {
+                    MessageBox.Show("Seleccione un usuario y un rol");
+                    return;
+                }
+
+                int Cantidad = 0;
+
+                UsuarioRolBC objUsuarioRolBC = new UsuarioRolBC();
+                Cantidad = objUsuarioRolBC.VerificarExiste_Asociacion(lst_roles[cmbRol.SelectedIndex - 1].idRol, lst_usuarios[cmbUsuario.SelectedIndex - 1].IdUsuario);
+
+                if (Cantidad > 0)
+                {
+                    MessageBox.Show("Esta asociación ya existe. Debe registrar una diferente");
+                    return;
+                }
+
+                UsuarioRolBE objRolUsuarioBE = new UsuarioRolBE();
+                objRolUsuarioBE.IdUsuario = lst_usuarios[cmbUsuario.SelectedIndex - 1].IdUsuario;
+                objRolUsuarioBE.NombreUsuario = lst_usuarios[cmbUsuario.SelectedIndex - 1].NombreUsuario;
+                objRolUsuarioBE.IdRol = lst_roles[cmbRol.SelectedIndex - 1].idRol;
+                objRolUsuarioBE.NombreRol = lst_roles[cmbRol.SelectedIndex - 1].NombreRol;
+
+                lst_Asociaciones.Add(objRolUsuarioBE);
+
+                dgvAsignaciones.Rows.Add(objRolUsuarioBE.NombreUsuario, objRolUsuarioBE.NombreRol);
+
+                lst_estados.Add(0);
+
+                cmbUsuario.SelectedIndex = 0;
+                cmbRol.SelectedIndex = 0;
             }
-
-            int Cantidad = 0;
-
-            UsuarioRolBC objUsuarioRolBC = new UsuarioRolBC();
-            Cantidad = objUsuarioRolBC.VerificarExiste_Asociacion(lst_roles[cmbRol.SelectedIndex - 1].idRol, lst_usuarios[cmbUsuario.SelectedIndex - 1].IdUsuario);
-
-            if (Cantidad > 0)
+            catch (Exception ex)
             {
-                MessageBox.Show("Esta asociación ya existe. Debe registrar una diferente");
-                return;
+                Funciones.RegistrarExcepcion(ex);
             }
-
-            UsuarioRolBE objRolUsuarioBE = new UsuarioRolBE();
-            objRolUsuarioBE.IdUsuario = lst_usuarios[cmbUsuario.SelectedIndex - 1].IdUsuario;
-            objRolUsuarioBE.NombreUsuario = lst_usuarios[cmbUsuario.SelectedIndex - 1].NombreUsuario;
-            objRolUsuarioBE.IdRol = lst_roles[cmbRol.SelectedIndex - 1].idRol;
-            objRolUsuarioBE.NombreRol = lst_roles[cmbRol.SelectedIndex - 1].NombreRol;
-
-            lst_Asociaciones.Add(objRolUsuarioBE);
-
-            dgvAsignaciones.Rows.Add(objRolUsuarioBE.NombreUsuario, objRolUsuarioBE.NombreRol);
-
-            lst_estados.Add(0);
-
-            cmbUsuario.SelectedIndex = 0;
-            cmbRol.SelectedIndex = 0;
         }
 
         private void dgvAsignaciones_CurrentCellDirtyStateChanged(object sender, EventArgs e)

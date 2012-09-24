@@ -92,5 +92,20 @@ namespace UnitTests
             Assert.AreNotEqual(expected.Count, actual);
             //Se verifica que la lista no este vacia y se puedann devolver valores
         }
+
+        /// <summary>
+        ///A test for Verificar_LoginUsuario
+        ///</summary>
+        [TestMethod()]
+        public void Verificar_LoginUsuarioTest()
+        {
+            UsuarioBC target = new UsuarioBC();
+            string usuario = "demoADMIN";
+            string contrasenia = "demoAdmin";
+            int expected = 1;
+            int actual;
+            actual = target.Verificar_LoginUsuario(usuario, contrasenia);
+            Assert.AreEqual(expected, actual);
+        }
     }
 }

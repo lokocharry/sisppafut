@@ -147,30 +147,48 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            if (cmbFuncionalidad.SelectedIndex <= 0 || cmbRol.SelectedIndex <= 0 || cmbUsuario.SelectedIndex <= 0)
+            try
             {
-                MessageBox.Show("Seleccione un usuario, rol y funcionalidad");
-                return;
+                if (cmbFuncionalidad.SelectedIndex <= 0 || cmbRol.SelectedIndex <= 0 || cmbUsuario.SelectedIndex <= 0)
+                {
+                    MessageBox.Show("Seleccione un usuario, rol y funcionalidad");
+                    return;
+                }
+               
+                int Cantidad = 0;
+
+                UsuarioFuncionalidadBC objUsuarioFuncionalidadBC = new UsuarioFuncionalidadBC();
+                Cantidad = objUsuarioFuncionalidadBC.Verificar_ExisteUsuarioFuncionalidad(lst_usuarios[cmbUsuario.SelectedIndex - 1].IdUsuario, lst_funcionalidades[cmbFuncionalidad.SelectedIndex - 1].idFuncionalidad);
+
+                if (Cantidad > 0)
+                {
+                    MessageBox.Show("Esta asociación ya existe. Debe registrar una diferente");
+                    return;
+                }
+
+                UsuarioFuncionalidadBE objUsuarioFuncionalidadBE = new UsuarioFuncionalidadBE();
+
+                objUsuarioFuncionalidadBE.Rol = lst_roles[cmbRol.SelectedIndex - 1].NombreRol;
+                objUsuarioFuncionalidadBE.Usuario = lst_usuarios[cmbUsuario.SelectedIndex - 1].NombreUsuario;
+                objUsuarioFuncionalidadBE.Funcionalidad = lst_funcionalidades[cmbFuncionalidad.SelectedIndex - 1].NombreFuncionalidad;
+                objUsuarioFuncionalidadBE.idFuncionalidad = lst_funcionalidades[cmbFuncionalidad.SelectedIndex - 1].idFuncionalidad;
+                objUsuarioFuncionalidadBE.idUsuario = lst_usuarios[cmbUsuario.SelectedIndex - 1].IdUsuario;
+
+                String Rol = lst_roles[cmbRol.SelectedIndex - 1].NombreRol;
+
+                lst_Asociaciones.Add(objUsuarioFuncionalidadBE);
+                dgvAsociaciones.Rows.Add(objUsuarioFuncionalidadBE.Usuario, Rol, objUsuarioFuncionalidadBE.Funcionalidad);
+
+                lst_estados.Add(0);
+
+                cmbFuncionalidad.SelectedIndex = 0;
+                cmbRol.SelectedIndex = 0;
+                cmbUsuario.SelectedIndex = 0;
             }
-
-            UsuarioFuncionalidadBE objUsuarioFuncionalidadBE = new UsuarioFuncionalidadBE();
-
-            objUsuarioFuncionalidadBE.Rol = lst_roles[cmbRol.SelectedIndex - 1].NombreRol;
-            objUsuarioFuncionalidadBE.Usuario = lst_usuarios[cmbUsuario.SelectedIndex-1].NombreUsuario;
-            objUsuarioFuncionalidadBE.Funcionalidad = lst_funcionalidades[cmbFuncionalidad.SelectedIndex -1].NombreFuncionalidad;
-            objUsuarioFuncionalidadBE.idFuncionalidad = lst_funcionalidades[cmbFuncionalidad.SelectedIndex - 1].idFuncionalidad;
-            objUsuarioFuncionalidadBE.idUsuario = lst_usuarios[cmbUsuario.SelectedIndex - 1].IdUsuario;
-
-            String Rol = lst_roles[cmbRol.SelectedIndex-1].NombreRol;
-
-            lst_Asociaciones.Add(objUsuarioFuncionalidadBE);
-            dgvAsociaciones.Rows.Add(objUsuarioFuncionalidadBE.Usuario,Rol, objUsuarioFuncionalidadBE.Funcionalidad);
-
-            lst_estados.Add(0);
-            
-            cmbFuncionalidad.SelectedIndex = 0;                   
-            cmbRol.SelectedIndex = 0;
-            cmbUsuario.SelectedIndex = 0;    
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }
 
         private void dgvAsociaciones_CurrentCellDirtyStateChanged(object sender, EventArgs e)

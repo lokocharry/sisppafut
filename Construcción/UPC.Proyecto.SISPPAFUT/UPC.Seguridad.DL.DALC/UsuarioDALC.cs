@@ -157,6 +157,61 @@ namespace UPC.Seguridad.DL.DALC
             }
         }
 
+        public int Verificar_LoginUsuario(String usuario, String contrasenia)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_usuario = null;
+            SqlDataReader dr_usuario = null;
+            SqlParameter prm_usuario;
+            SqlParameter prm_contrasenia;
+
+            String sql_verificarLogin;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+
+                sql_verificarLogin = "spVerificarLogin";
+
+                cmd_usuario = new SqlCommand(sql_verificarLogin, conexion);
+                cmd_usuario.CommandType = CommandType.StoredProcedure;
+
+                prm_usuario = new SqlParameter();
+                prm_usuario.ParameterName = "@nombreUsuario";
+                prm_usuario.SqlDbType = SqlDbType.VarChar;
+                prm_usuario.Size = 40;
+                prm_usuario.Value = usuario;
+
+                prm_contrasenia = new SqlParameter();
+                prm_contrasenia.ParameterName = "@contrasenia";
+                prm_contrasenia.SqlDbType = SqlDbType.VarChar;
+                prm_contrasenia.Size = 15;
+                prm_contrasenia.Value = contrasenia;
+
+                cmd_usuario.Parameters.Add(prm_usuario);
+                cmd_usuario.Parameters.Add(prm_contrasenia);
+
+                cmd_usuario.Connection.Open();
+                dr_usuario = cmd_usuario.ExecuteReader();
+
+                int Cantidad = 0;
+
+                while (dr_usuario.Read())
+                {
+                    Cantidad = dr_usuario.GetInt32(dr_usuario.GetOrdinal("Cantidad"));
+                }
+
+                cmd_usuario.Connection.Close();
+                cmd_usuario.Connection.Dispose();
+
+                return Cantidad;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+
     }
 }
 
