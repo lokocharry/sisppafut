@@ -41,16 +41,18 @@ namespace UPC.Proyecto.SISPPAFUT
 
                 UsuarioBC objUsuarioBC = new UsuarioBC();
 
-                int Verificar = objUsuarioBC.Verificar_LoginUsuario(usuario, contrasenia);
+                int idUsuario = objUsuarioBC.Verificar_LoginUsuario(usuario, contrasenia);
 
-                if (Verificar != 1)
+                if (idUsuario <= 0)
                 {
                     MessageBox.Show("Datos de login incorrectos. Verifique sus datos");
                     txtContrasenia.Clear();
                     return;
                 }
 
-                SISPPAFUTmdi frm = SISPPAFUTmdi.Instance();
+                SISPPAFUTmdiPrincipal frm = SISPPAFUTmdiPrincipal.Instance();
+
+                frm.RecibirCodigoUsuario(idUsuario);
 
                 frm.Show();
                 frm.BringToFront();

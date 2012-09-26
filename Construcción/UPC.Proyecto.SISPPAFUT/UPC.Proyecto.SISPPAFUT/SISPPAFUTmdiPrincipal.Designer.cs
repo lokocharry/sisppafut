@@ -30,42 +30,43 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDePaisesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarPaísToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionLigas = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevaLiga = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTablaPosiciones = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionEquipos = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevoEquipo = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEditarEquipo = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAsignarJugadores = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnActualizarRanking = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVerRanking = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEstadisticaEquipo = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionJugadores = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevoJugador = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEditarJugador = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnTransferirJugador = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnConsultarHistorial = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionEstadios = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevoEstadio = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionPartidos = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnGestionSuspensiones = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevoPartido = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionDesarrollo = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnGestionEntrenadores = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnListarPartidos = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionRoles = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevoRol = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevaFuncionalidad = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAsociarRolFuncionalidad = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAsociarRolUsuario = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnAsociarFuncionalidadUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEntrenamiento = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnEntrenarSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRegistroClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevoCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.btnVisualizacionPronostico = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRegistroPronostico = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevaLigaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tablaDePosicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asignarJugadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.actualizarRankingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verRankingMundialToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.estadísticaDeEquipoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editarJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.transferirJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consultarHistorialDeJugadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoEstadioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoPartidoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarPartidosSinJugarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.entrenarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevoClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verPronósticosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nuevaFuncionalidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asociarRolAFuncionalidadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asociarRolAUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.asociarFuncionalidadAUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnVerPronostico = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarCompeticiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,284 +76,293 @@
             this.btnMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(755, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(747, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // btnMenu
             // 
             this.btnMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestiónDePaisesToolStripMenuItem,
+            this.toolStripMenuItem1,
             this.btnGestionLigas,
+            this.btnGestionEstadios,
             this.btnGestionEquipos,
             this.btnGestionJugadores,
-            this.btnGestionEstadios,
             this.btnGestionPartidos,
-            this.btnGestionSuspensiones,
             this.btnGestionDesarrollo,
-            this.btnGestionEntrenadores,
-            this.btnGestionRoles,
             this.btnEntrenamiento,
-            this.btnRegistroClientes,
             this.btnVisualizacionPronostico,
-            this.btnRegistroPronostico});
+            this.btnGestionRoles,
+            this.btnRegistroClientes});
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(119, 20);
             this.btnMenu.Text = "Menú de Opciones";
             // 
+            // gestiónDePaisesToolStripMenuItem
+            // 
+            this.gestiónDePaisesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarPaísToolStripMenuItem});
+            this.gestiónDePaisesToolStripMenuItem.Name = "gestiónDePaisesToolStripMenuItem";
+            this.gestiónDePaisesToolStripMenuItem.Size = new System.Drawing.Size(268, 22);
+            this.gestiónDePaisesToolStripMenuItem.Text = "Gestión de Paises";
+            // 
+            // registrarPaísToolStripMenuItem
+            // 
+            this.registrarPaísToolStripMenuItem.Name = "registrarPaísToolStripMenuItem";
+            this.registrarPaísToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.registrarPaísToolStripMenuItem.Text = "Registrar País";
+            // 
             // btnGestionLigas
             // 
             this.btnGestionLigas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevaLigaToolStripMenuItem,
-            this.tablaDePosicionesToolStripMenuItem});
+            this.btnNuevaLiga,
+            this.btnTablaPosiciones});
             this.btnGestionLigas.Name = "btnGestionLigas";
             this.btnGestionLigas.Size = new System.Drawing.Size(268, 22);
             this.btnGestionLigas.Text = "Gestión de Ligas";
             // 
+            // btnNuevaLiga
+            // 
+            this.btnNuevaLiga.Name = "btnNuevaLiga";
+            this.btnNuevaLiga.Size = new System.Drawing.Size(178, 22);
+            this.btnNuevaLiga.Text = "Nueva Liga";
+            // 
+            // btnTablaPosiciones
+            // 
+            this.btnTablaPosiciones.Name = "btnTablaPosiciones";
+            this.btnTablaPosiciones.Size = new System.Drawing.Size(178, 22);
+            this.btnTablaPosiciones.Text = "Tabla de Posiciones";
+            // 
             // btnGestionEquipos
             // 
             this.btnGestionEquipos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoEquipoToolStripMenuItem,
-            this.editarEquipoToolStripMenuItem,
-            this.asignarJugadoresToolStripMenuItem,
-            this.actualizarRankingToolStripMenuItem,
-            this.verRankingMundialToolStripMenuItem,
-            this.estadísticaDeEquipoToolStripMenuItem});
+            this.btnNuevoEquipo,
+            this.btnEditarEquipo,
+            this.btnAsignarJugadores,
+            this.btnActualizarRanking,
+            this.btnVerRanking,
+            this.btnEstadisticaEquipo});
             this.btnGestionEquipos.Name = "btnGestionEquipos";
             this.btnGestionEquipos.Size = new System.Drawing.Size(268, 22);
             this.btnGestionEquipos.Text = "Gestión de Equipos";
             // 
+            // btnNuevoEquipo
+            // 
+            this.btnNuevoEquipo.Name = "btnNuevoEquipo";
+            this.btnNuevoEquipo.Size = new System.Drawing.Size(185, 22);
+            this.btnNuevoEquipo.Text = "Nuevo Equipo";
+            // 
+            // btnEditarEquipo
+            // 
+            this.btnEditarEquipo.Name = "btnEditarEquipo";
+            this.btnEditarEquipo.Size = new System.Drawing.Size(185, 22);
+            this.btnEditarEquipo.Text = "Editar Equipo";
+            // 
+            // btnAsignarJugadores
+            // 
+            this.btnAsignarJugadores.Name = "btnAsignarJugadores";
+            this.btnAsignarJugadores.Size = new System.Drawing.Size(185, 22);
+            this.btnAsignarJugadores.Text = "Asignar Jugadores";
+            // 
+            // btnActualizarRanking
+            // 
+            this.btnActualizarRanking.Name = "btnActualizarRanking";
+            this.btnActualizarRanking.Size = new System.Drawing.Size(185, 22);
+            this.btnActualizarRanking.Text = "Actualizar Ranking";
+            // 
+            // btnVerRanking
+            // 
+            this.btnVerRanking.Name = "btnVerRanking";
+            this.btnVerRanking.Size = new System.Drawing.Size(185, 22);
+            this.btnVerRanking.Text = "Ver Ranking Mundial";
+            // 
+            // btnEstadisticaEquipo
+            // 
+            this.btnEstadisticaEquipo.Name = "btnEstadisticaEquipo";
+            this.btnEstadisticaEquipo.Size = new System.Drawing.Size(185, 22);
+            this.btnEstadisticaEquipo.Text = "Estadística de Equipo";
+            // 
             // btnGestionJugadores
             // 
             this.btnGestionJugadores.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoJugadorToolStripMenuItem,
-            this.editarJugadorToolStripMenuItem,
-            this.transferirJugadorToolStripMenuItem,
-            this.consultarHistorialDeJugadorToolStripMenuItem});
+            this.btnNuevoJugador,
+            this.btnEditarJugador,
+            this.btnTransferirJugador,
+            this.btnConsultarHistorial});
             this.btnGestionJugadores.Name = "btnGestionJugadores";
             this.btnGestionJugadores.Size = new System.Drawing.Size(268, 22);
             this.btnGestionJugadores.Text = "Gestión de Jugadores";
             // 
+            // btnNuevoJugador
+            // 
+            this.btnNuevoJugador.Name = "btnNuevoJugador";
+            this.btnNuevoJugador.Size = new System.Drawing.Size(233, 22);
+            this.btnNuevoJugador.Text = "Nuevo Jugador";
+            // 
+            // btnEditarJugador
+            // 
+            this.btnEditarJugador.Name = "btnEditarJugador";
+            this.btnEditarJugador.Size = new System.Drawing.Size(233, 22);
+            this.btnEditarJugador.Text = "Editar Jugador";
+            // 
+            // btnTransferirJugador
+            // 
+            this.btnTransferirJugador.Name = "btnTransferirJugador";
+            this.btnTransferirJugador.Size = new System.Drawing.Size(233, 22);
+            this.btnTransferirJugador.Text = "Transferir Jugador";
+            // 
+            // btnConsultarHistorial
+            // 
+            this.btnConsultarHistorial.Name = "btnConsultarHistorial";
+            this.btnConsultarHistorial.Size = new System.Drawing.Size(233, 22);
+            this.btnConsultarHistorial.Text = "Consultar Historial de Jugador";
+            // 
             // btnGestionEstadios
             // 
             this.btnGestionEstadios.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoEstadioToolStripMenuItem});
+            this.btnNuevoEstadio});
             this.btnGestionEstadios.Name = "btnGestionEstadios";
             this.btnGestionEstadios.Size = new System.Drawing.Size(268, 22);
             this.btnGestionEstadios.Text = "Gestión de Estadios";
             // 
+            // btnNuevoEstadio
+            // 
+            this.btnNuevoEstadio.Name = "btnNuevoEstadio";
+            this.btnNuevoEstadio.Size = new System.Drawing.Size(152, 22);
+            this.btnNuevoEstadio.Text = "Nuevo Estadio";
+            // 
             // btnGestionPartidos
             // 
             this.btnGestionPartidos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoPartidoToolStripMenuItem});
+            this.btnNuevoPartido});
             this.btnGestionPartidos.Name = "btnGestionPartidos";
             this.btnGestionPartidos.Size = new System.Drawing.Size(268, 22);
             this.btnGestionPartidos.Text = "Gestión de Partidos";
             // 
-            // btnGestionSuspensiones
+            // btnNuevoPartido
             // 
-            this.btnGestionSuspensiones.Name = "btnGestionSuspensiones";
-            this.btnGestionSuspensiones.Size = new System.Drawing.Size(268, 22);
-            this.btnGestionSuspensiones.Text = "Gestión de Suspensiones";
+            this.btnNuevoPartido.Name = "btnNuevoPartido";
+            this.btnNuevoPartido.Size = new System.Drawing.Size(152, 22);
+            this.btnNuevoPartido.Text = "Nuevo Partido";
             // 
             // btnGestionDesarrollo
             // 
             this.btnGestionDesarrollo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.listarPartidosSinJugarToolStripMenuItem});
+            this.btnListarPartidos});
             this.btnGestionDesarrollo.Name = "btnGestionDesarrollo";
             this.btnGestionDesarrollo.Size = new System.Drawing.Size(268, 22);
             this.btnGestionDesarrollo.Text = "Gestión del desarrollo de los Partidos";
             // 
-            // btnGestionEntrenadores
+            // btnListarPartidos
             // 
-            this.btnGestionEntrenadores.Name = "btnGestionEntrenadores";
-            this.btnGestionEntrenadores.Size = new System.Drawing.Size(268, 22);
-            this.btnGestionEntrenadores.Text = "Gestión de Entrenadores";
+            this.btnListarPartidos.Name = "btnListarPartidos";
+            this.btnListarPartidos.Size = new System.Drawing.Size(196, 22);
+            this.btnListarPartidos.Text = "Listar Partidos sin jugar";
             // 
             // btnGestionRoles
             // 
             this.btnGestionRoles.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoRolToolStripMenuItem,
-            this.nuevaFuncionalidadToolStripMenuItem,
-            this.asociarRolAFuncionalidadToolStripMenuItem,
-            this.asociarRolAUsuarioToolStripMenuItem,
-            this.asociarFuncionalidadAUsuarioToolStripMenuItem});
+            this.btnNuevoRol,
+            this.btnNuevaFuncionalidad,
+            this.btnAsociarRolFuncionalidad,
+            this.btnAsociarRolUsuario,
+            this.btnAsociarFuncionalidadUsuario});
             this.btnGestionRoles.Name = "btnGestionRoles";
             this.btnGestionRoles.Size = new System.Drawing.Size(268, 22);
-            this.btnGestionRoles.Text = "Gestión de Roles";
+            this.btnGestionRoles.Text = "Gestión de Permisos";
+            // 
+            // btnNuevoRol
+            // 
+            this.btnNuevoRol.Name = "btnNuevoRol";
+            this.btnNuevoRol.Size = new System.Drawing.Size(243, 22);
+            this.btnNuevoRol.Text = "Nuevo Rol";
+            // 
+            // btnNuevaFuncionalidad
+            // 
+            this.btnNuevaFuncionalidad.Name = "btnNuevaFuncionalidad";
+            this.btnNuevaFuncionalidad.Size = new System.Drawing.Size(243, 22);
+            this.btnNuevaFuncionalidad.Text = "Nueva Funcionalidad";
+            // 
+            // btnAsociarRolFuncionalidad
+            // 
+            this.btnAsociarRolFuncionalidad.Name = "btnAsociarRolFuncionalidad";
+            this.btnAsociarRolFuncionalidad.Size = new System.Drawing.Size(243, 22);
+            this.btnAsociarRolFuncionalidad.Text = "Asociar Rol a Funcionalidad";
+            // 
+            // btnAsociarRolUsuario
+            // 
+            this.btnAsociarRolUsuario.Name = "btnAsociarRolUsuario";
+            this.btnAsociarRolUsuario.Size = new System.Drawing.Size(243, 22);
+            this.btnAsociarRolUsuario.Text = "Asociar Rol a Usuario";
+            // 
+            // btnAsociarFuncionalidadUsuario
+            // 
+            this.btnAsociarFuncionalidadUsuario.Name = "btnAsociarFuncionalidadUsuario";
+            this.btnAsociarFuncionalidadUsuario.Size = new System.Drawing.Size(243, 22);
+            this.btnAsociarFuncionalidadUsuario.Text = "Asociar Funcionalidad a Usuario";
             // 
             // btnEntrenamiento
             // 
             this.btnEntrenamiento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.entrenarSistemaToolStripMenuItem});
+            this.btnEntrenarSistema});
             this.btnEntrenamiento.Name = "btnEntrenamiento";
             this.btnEntrenamiento.Size = new System.Drawing.Size(268, 22);
             this.btnEntrenamiento.Text = "Entrenamiento del Sistema";
             // 
+            // btnEntrenarSistema
+            // 
+            this.btnEntrenarSistema.Name = "btnEntrenarSistema";
+            this.btnEntrenarSistema.Size = new System.Drawing.Size(162, 22);
+            this.btnEntrenarSistema.Text = "Entrenar Sistema";
+            // 
             // btnRegistroClientes
             // 
             this.btnRegistroClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoClienteToolStripMenuItem});
+            this.btnNuevoCliente});
             this.btnRegistroClientes.Name = "btnRegistroClientes";
             this.btnRegistroClientes.Size = new System.Drawing.Size(268, 22);
             this.btnRegistroClientes.Text = "Registro de Clientes";
             // 
+            // btnNuevoCliente
+            // 
+            this.btnNuevoCliente.Name = "btnNuevoCliente";
+            this.btnNuevoCliente.Size = new System.Drawing.Size(152, 22);
+            this.btnNuevoCliente.Text = "Nuevo Cliente";
+            // 
             // btnVisualizacionPronostico
             // 
             this.btnVisualizacionPronostico.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verPronósticosToolStripMenuItem});
+            this.btnVerPronostico});
             this.btnVisualizacionPronostico.Name = "btnVisualizacionPronostico";
             this.btnVisualizacionPronostico.Size = new System.Drawing.Size(268, 22);
             this.btnVisualizacionPronostico.Text = "Visualización de Pronósticos";
             // 
-            // btnRegistroPronostico
+            // btnVerPronostico
             // 
-            this.btnRegistroPronostico.Name = "btnRegistroPronostico";
-            this.btnRegistroPronostico.Size = new System.Drawing.Size(268, 22);
-            this.btnRegistroPronostico.Text = "Registros de Pronósticos";
+            this.btnVerPronostico.Name = "btnVerPronostico";
+            this.btnVerPronostico.Size = new System.Drawing.Size(156, 22);
+            this.btnVerPronostico.Text = "Ver Pronósticos";
             // 
-            // nuevaLigaToolStripMenuItem
+            // toolStripMenuItem1
             // 
-            this.nuevaLigaToolStripMenuItem.Name = "nuevaLigaToolStripMenuItem";
-            this.nuevaLigaToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.nuevaLigaToolStripMenuItem.Text = "Nueva Liga";
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarCompeticiónToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(268, 22);
+            this.toolStripMenuItem1.Text = "Gestión de Competiciones";
             // 
-            // tablaDePosicionesToolStripMenuItem
+            // registrarCompeticiónToolStripMenuItem
             // 
-            this.tablaDePosicionesToolStripMenuItem.Name = "tablaDePosicionesToolStripMenuItem";
-            this.tablaDePosicionesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.tablaDePosicionesToolStripMenuItem.Text = "Tabla de Posiciones";
-            // 
-            // nuevoEquipoToolStripMenuItem
-            // 
-            this.nuevoEquipoToolStripMenuItem.Name = "nuevoEquipoToolStripMenuItem";
-            this.nuevoEquipoToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.nuevoEquipoToolStripMenuItem.Text = "Nuevo Equipo";
-            // 
-            // editarEquipoToolStripMenuItem
-            // 
-            this.editarEquipoToolStripMenuItem.Name = "editarEquipoToolStripMenuItem";
-            this.editarEquipoToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.editarEquipoToolStripMenuItem.Text = "Editar Equipo";
-            // 
-            // asignarJugadoresToolStripMenuItem
-            // 
-            this.asignarJugadoresToolStripMenuItem.Name = "asignarJugadoresToolStripMenuItem";
-            this.asignarJugadoresToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.asignarJugadoresToolStripMenuItem.Text = "Asignar Jugadores";
-            // 
-            // actualizarRankingToolStripMenuItem
-            // 
-            this.actualizarRankingToolStripMenuItem.Name = "actualizarRankingToolStripMenuItem";
-            this.actualizarRankingToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.actualizarRankingToolStripMenuItem.Text = "Actualizar Ranking";
-            // 
-            // verRankingMundialToolStripMenuItem
-            // 
-            this.verRankingMundialToolStripMenuItem.Name = "verRankingMundialToolStripMenuItem";
-            this.verRankingMundialToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.verRankingMundialToolStripMenuItem.Text = "Ver Ranking Mundial";
-            // 
-            // estadísticaDeEquipoToolStripMenuItem
-            // 
-            this.estadísticaDeEquipoToolStripMenuItem.Name = "estadísticaDeEquipoToolStripMenuItem";
-            this.estadísticaDeEquipoToolStripMenuItem.Size = new System.Drawing.Size(185, 22);
-            this.estadísticaDeEquipoToolStripMenuItem.Text = "Estadística de Equipo";
-            // 
-            // nuevoJugadorToolStripMenuItem
-            // 
-            this.nuevoJugadorToolStripMenuItem.Name = "nuevoJugadorToolStripMenuItem";
-            this.nuevoJugadorToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.nuevoJugadorToolStripMenuItem.Text = "Nuevo Jugador";
-            // 
-            // editarJugadorToolStripMenuItem
-            // 
-            this.editarJugadorToolStripMenuItem.Name = "editarJugadorToolStripMenuItem";
-            this.editarJugadorToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.editarJugadorToolStripMenuItem.Text = "Editar Jugador";
-            // 
-            // transferirJugadorToolStripMenuItem
-            // 
-            this.transferirJugadorToolStripMenuItem.Name = "transferirJugadorToolStripMenuItem";
-            this.transferirJugadorToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.transferirJugadorToolStripMenuItem.Text = "Transferir Jugador";
-            // 
-            // consultarHistorialDeJugadorToolStripMenuItem
-            // 
-            this.consultarHistorialDeJugadorToolStripMenuItem.Name = "consultarHistorialDeJugadorToolStripMenuItem";
-            this.consultarHistorialDeJugadorToolStripMenuItem.Size = new System.Drawing.Size(233, 22);
-            this.consultarHistorialDeJugadorToolStripMenuItem.Text = "Consultar Historial de Jugador";
-            // 
-            // nuevoEstadioToolStripMenuItem
-            // 
-            this.nuevoEstadioToolStripMenuItem.Name = "nuevoEstadioToolStripMenuItem";
-            this.nuevoEstadioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nuevoEstadioToolStripMenuItem.Text = "Nuevo Estadio";
-            // 
-            // nuevoPartidoToolStripMenuItem
-            // 
-            this.nuevoPartidoToolStripMenuItem.Name = "nuevoPartidoToolStripMenuItem";
-            this.nuevoPartidoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nuevoPartidoToolStripMenuItem.Text = "Nuevo Partido";
-            // 
-            // listarPartidosSinJugarToolStripMenuItem
-            // 
-            this.listarPartidosSinJugarToolStripMenuItem.Name = "listarPartidosSinJugarToolStripMenuItem";
-            this.listarPartidosSinJugarToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.listarPartidosSinJugarToolStripMenuItem.Text = "Listar Partidos sin jugar";
-            // 
-            // nuevoRolToolStripMenuItem
-            // 
-            this.nuevoRolToolStripMenuItem.Name = "nuevoRolToolStripMenuItem";
-            this.nuevoRolToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.nuevoRolToolStripMenuItem.Text = "Nuevo Rol";
-            // 
-            // entrenarSistemaToolStripMenuItem
-            // 
-            this.entrenarSistemaToolStripMenuItem.Name = "entrenarSistemaToolStripMenuItem";
-            this.entrenarSistemaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
-            this.entrenarSistemaToolStripMenuItem.Text = "Entrenar Sistema";
-            // 
-            // nuevoClienteToolStripMenuItem
-            // 
-            this.nuevoClienteToolStripMenuItem.Name = "nuevoClienteToolStripMenuItem";
-            this.nuevoClienteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nuevoClienteToolStripMenuItem.Text = "Nuevo Cliente";
-            // 
-            // verPronósticosToolStripMenuItem
-            // 
-            this.verPronósticosToolStripMenuItem.Name = "verPronósticosToolStripMenuItem";
-            this.verPronósticosToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
-            this.verPronósticosToolStripMenuItem.Text = "Ver Pronósticos";
-            // 
-            // nuevaFuncionalidadToolStripMenuItem
-            // 
-            this.nuevaFuncionalidadToolStripMenuItem.Name = "nuevaFuncionalidadToolStripMenuItem";
-            this.nuevaFuncionalidadToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.nuevaFuncionalidadToolStripMenuItem.Text = "Nueva Funcionalidad";
-            // 
-            // asociarRolAFuncionalidadToolStripMenuItem
-            // 
-            this.asociarRolAFuncionalidadToolStripMenuItem.Name = "asociarRolAFuncionalidadToolStripMenuItem";
-            this.asociarRolAFuncionalidadToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.asociarRolAFuncionalidadToolStripMenuItem.Text = "Asociar Rol a Funcionalidad";
-            // 
-            // asociarRolAUsuarioToolStripMenuItem
-            // 
-            this.asociarRolAUsuarioToolStripMenuItem.Name = "asociarRolAUsuarioToolStripMenuItem";
-            this.asociarRolAUsuarioToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.asociarRolAUsuarioToolStripMenuItem.Text = "Asociar Rol a Usuario";
-            // 
-            // asociarFuncionalidadAUsuarioToolStripMenuItem
-            // 
-            this.asociarFuncionalidadAUsuarioToolStripMenuItem.Name = "asociarFuncionalidadAUsuarioToolStripMenuItem";
-            this.asociarFuncionalidadAUsuarioToolStripMenuItem.Size = new System.Drawing.Size(243, 22);
-            this.asociarFuncionalidadAUsuarioToolStripMenuItem.Text = "Asociar Funcionalidad a Usuario";
+            this.registrarCompeticiónToolStripMenuItem.Name = "registrarCompeticiónToolStripMenuItem";
+            this.registrarCompeticiónToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.registrarCompeticiónToolStripMenuItem.Text = "Registrar Competición";
             // 
             // SISPPAFUTmdiPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 539);
+            this.ClientSize = new System.Drawing.Size(747, 531);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -378,36 +388,37 @@
         private System.Windows.Forms.ToolStripMenuItem btnGestionJugadores;
         private System.Windows.Forms.ToolStripMenuItem btnGestionEstadios;
         private System.Windows.Forms.ToolStripMenuItem btnGestionPartidos;
-        private System.Windows.Forms.ToolStripMenuItem btnGestionSuspensiones;
         private System.Windows.Forms.ToolStripMenuItem btnGestionDesarrollo;
-        private System.Windows.Forms.ToolStripMenuItem btnGestionEntrenadores;
         private System.Windows.Forms.ToolStripMenuItem btnGestionRoles;
         private System.Windows.Forms.ToolStripMenuItem btnEntrenamiento;
         private System.Windows.Forms.ToolStripMenuItem btnRegistroClientes;
         private System.Windows.Forms.ToolStripMenuItem btnVisualizacionPronostico;
-        private System.Windows.Forms.ToolStripMenuItem btnRegistroPronostico;
-        private System.Windows.Forms.ToolStripMenuItem nuevaLigaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tablaDePosicionesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoEquipoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarEquipoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem asignarJugadoresToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem actualizarRankingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verRankingMundialToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem estadísticaDeEquipoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoJugadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editarJugadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem transferirJugadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem consultarHistorialDeJugadorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoEstadioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoPartidoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listarPartidosSinJugarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoRolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem entrenarSistemaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevoClienteToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem verPronósticosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem nuevaFuncionalidadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem asociarRolAFuncionalidadToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem asociarRolAUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem asociarFuncionalidadAUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem btnNuevaLiga;
+        private System.Windows.Forms.ToolStripMenuItem btnTablaPosiciones;
+        private System.Windows.Forms.ToolStripMenuItem btnNuevoEquipo;
+        private System.Windows.Forms.ToolStripMenuItem btnEditarEquipo;
+        private System.Windows.Forms.ToolStripMenuItem btnAsignarJugadores;
+        private System.Windows.Forms.ToolStripMenuItem btnActualizarRanking;
+        private System.Windows.Forms.ToolStripMenuItem btnVerRanking;
+        private System.Windows.Forms.ToolStripMenuItem btnEstadisticaEquipo;
+        private System.Windows.Forms.ToolStripMenuItem btnNuevoJugador;
+        private System.Windows.Forms.ToolStripMenuItem btnEditarJugador;
+        private System.Windows.Forms.ToolStripMenuItem btnTransferirJugador;
+        private System.Windows.Forms.ToolStripMenuItem btnConsultarHistorial;
+        private System.Windows.Forms.ToolStripMenuItem btnNuevoEstadio;
+        private System.Windows.Forms.ToolStripMenuItem btnNuevoPartido;
+        private System.Windows.Forms.ToolStripMenuItem btnListarPartidos;
+        private System.Windows.Forms.ToolStripMenuItem btnNuevoRol;
+        private System.Windows.Forms.ToolStripMenuItem btnEntrenarSistema;
+        private System.Windows.Forms.ToolStripMenuItem btnNuevoCliente;
+        private System.Windows.Forms.ToolStripMenuItem btnVerPronostico;
+        private System.Windows.Forms.ToolStripMenuItem btnNuevaFuncionalidad;
+        private System.Windows.Forms.ToolStripMenuItem btnAsociarRolFuncionalidad;
+        private System.Windows.Forms.ToolStripMenuItem btnAsociarRolUsuario;
+        private System.Windows.Forms.ToolStripMenuItem btnAsociarFuncionalidadUsuario;
+        private System.Windows.Forms.ToolStripMenuItem gestiónDePaisesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarPaísToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem registrarCompeticiónToolStripMenuItem;
     }
 }

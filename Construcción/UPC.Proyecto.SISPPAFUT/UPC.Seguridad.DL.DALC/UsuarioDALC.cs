@@ -194,17 +194,17 @@ namespace UPC.Seguridad.DL.DALC
                 cmd_usuario.Connection.Open();
                 dr_usuario = cmd_usuario.ExecuteReader();
 
-                int Cantidad = 0;
+                int idUsuario = 0;
 
                 while (dr_usuario.Read())
                 {
-                    Cantidad = dr_usuario.GetInt32(dr_usuario.GetOrdinal("Cantidad"));
+                    idUsuario = dr_usuario.GetInt32(dr_usuario.GetOrdinal("idUsuario"));
                 }
 
                 cmd_usuario.Connection.Close();
                 cmd_usuario.Connection.Dispose();
 
-                return Cantidad;
+                return idUsuario;
             }
             catch (Exception)
             {
