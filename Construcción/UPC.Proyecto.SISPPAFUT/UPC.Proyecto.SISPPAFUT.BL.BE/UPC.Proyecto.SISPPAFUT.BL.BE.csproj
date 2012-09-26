@@ -45,6 +45,7 @@
     <Compile Include="ExcepcionBE.cs" />
     <Compile Include="GolBE.cs" />
     <Compile Include="HistorialJugadorBE.cs" />
+    <Compile Include="InstanciaNormalizadaBE.cs" />
     <Compile Include="JugadorBE.cs" />
     <Compile Include="JugadorEquipoBE.cs" />
     <Compile Include="JugadorPartidoBE.cs" />
