@@ -65,7 +65,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             }
             finally
             {
-                cmd_InsertarJugador.Connection.Close();
+                cmd_InsertarPronosticoCliente.Connection.Close();
                 conexion.Dispose();
             }
         }

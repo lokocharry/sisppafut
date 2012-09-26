@@ -33,7 +33,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prm_CodigoUsuario = new SqlParameter();
                 prm_CodigoUsuario.ParameterName = "@idUsuario";
                 prm_CodigoUsuario.SqlDbType = SqlDbType.Int;
-                prm_CodigoUsuario.Value = objUsuarioReferenciaBE.CodUsuario;
+                prm_CodigoUsuario.Value = objUsuarioReferenciaBE.IdUsuario;
 
                 prm_NombreUsuario = new SqlParameter();
                 prm_NombreUsuario.ParameterName = "@nombreUsuario";

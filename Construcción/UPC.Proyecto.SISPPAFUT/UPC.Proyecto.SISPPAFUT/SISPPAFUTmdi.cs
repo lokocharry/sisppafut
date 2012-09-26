@@ -410,6 +410,22 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private void registrarPronosticoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmRegistrarPronostico frm = frmRegistrarPronostico.Instance();
+
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }        
     }
 }

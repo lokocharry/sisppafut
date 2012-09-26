@@ -67,9 +67,10 @@
             this.funcXRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuarioXFuncToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rolXUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rolXUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarPronosticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -296,7 +297,8 @@
             // pronosticoToolStripMenuItem
             // 
             this.pronosticoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.entrenarSistemaToolStripMenuItem});
+            this.entrenarSistemaToolStripMenuItem,
+            this.registrarPronosticoToolStripMenuItem});
             this.pronosticoToolStripMenuItem.Name = "pronosticoToolStripMenuItem";
             this.pronosticoToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.pronosticoToolStripMenuItem.Text = "Pronostico";
@@ -304,7 +306,7 @@
             // entrenarSistemaToolStripMenuItem
             // 
             this.entrenarSistemaToolStripMenuItem.Name = "entrenarSistemaToolStripMenuItem";
-            this.entrenarSistemaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.entrenarSistemaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.entrenarSistemaToolStripMenuItem.Text = "Entrenar Sistema";
             this.entrenarSistemaToolStripMenuItem.Click += new System.EventHandler(this.entrenarSistemaToolStripMenuItem_Click);
             // 
@@ -355,6 +357,13 @@
             this.usuarioXFuncToolStripMenuItem.Text = "UsuarioXFunc";
             this.usuarioXFuncToolStripMenuItem.Click += new System.EventHandler(this.usuarioXFuncToolStripMenuItem_Click);
             // 
+            // rolXUsuarioToolStripMenuItem
+            // 
+            this.rolXUsuarioToolStripMenuItem.Name = "rolXUsuarioToolStripMenuItem";
+            this.rolXUsuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rolXUsuarioToolStripMenuItem.Text = "RolXUsuario";
+            this.rolXUsuarioToolStripMenuItem.Click += new System.EventHandler(this.rolXUsuarioToolStripMenuItem_Click);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
@@ -367,12 +376,12 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.InSalir);
             // 
-            // rolXUsuarioToolStripMenuItem
+            // registrarPronosticoToolStripMenuItem
             // 
-            this.rolXUsuarioToolStripMenuItem.Name = "rolXUsuarioToolStripMenuItem";
-            this.rolXUsuarioToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.rolXUsuarioToolStripMenuItem.Text = "RolXUsuario";
-            this.rolXUsuarioToolStripMenuItem.Click += new System.EventHandler(this.rolXUsuarioToolStripMenuItem_Click);
+            this.registrarPronosticoToolStripMenuItem.Name = "registrarPronosticoToolStripMenuItem";
+            this.registrarPronosticoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.registrarPronosticoToolStripMenuItem.Text = "Registrar Pronostico";
+            this.registrarPronosticoToolStripMenuItem.Click += new System.EventHandler(this.registrarPronosticoToolStripMenuItem_Click);
             // 
             // SISPPAFUTmdi
             // 
@@ -435,6 +444,7 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioXFuncToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolXUsuarioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarPronosticoToolStripMenuItem;
     }
 }
 
