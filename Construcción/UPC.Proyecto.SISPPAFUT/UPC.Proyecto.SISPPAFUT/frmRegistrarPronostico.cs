@@ -53,7 +53,6 @@ namespace UPC.Proyecto.SISPPAFUT
                 dgvPronosticos.AllowUserToResizeRows = false;
                 dgvPronosticos.AllowDrop = false;
                 dgvPronosticos.MultiSelect = false;
-                dgvPronosticos.ReadOnly = true;
             }
             catch (Exception ex)
             {
@@ -115,9 +114,48 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 PronosticoClienteBC objPronosticoClienteBC;
                 PronosticoClienteBE objPronosticoClienteBE;
-                
-                //for(int i=0;i<
+                String pronostico = "";
+                List<PronosticoClienteBE> listaPronosticos = new List<PronosticoClienteBE>();
 
+                for (int i = 0; i < dgvPronosticos.RowCount; i++)
+                {
+                    objPronosticoClienteBE = new PronosticoClienteBE();
+                    objPronosticoClienteBE.CodigoPartido = Convert.ToInt32(dgvPronosticos.Rows[i].Cells[0].Value);
+                    objPronosticoClienteBE.CodigoUsuario = 3; //Reemplazar por el codigo del cliente logeado
+
+                    if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[3].Value) == true)
+                    {
+                        pronostico = "L";
+                    }
+                    if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[4].Value) == true)
+                    {
+                        pronostico = "E";
+                    }
+                    if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[5].Value) == true)
+                    {
+                        pronostico = "V";
+                    }
+
+                    objPronosticoClienteBE.Pronostico = pronostico;                    
+                    pronostico = "";
+
+                    if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[3].Value) == true ||
+                        Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[4].Value) == true ||
+                        Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[5].Value) == true)
+                    {
+                        listaPronosticos.Add(objPronosticoClienteBE);
+                    }
+                }
+
+                objPronosticoClienteBC = new PronosticoClienteBC();
+                for (int i = 0; i < listaPronosticos.Count; i++)
+                {
+                    objPronosticoClienteBC.inssertarPronosticoCliente(listaPronosticos[i]);
+                }
+
+                MessageBox.Show("Los pronosticos han sido registrados satisfactoriamente.", 
+                    "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, 
+                    MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {

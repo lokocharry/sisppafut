@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e5cfe63d-420a-43c0-b04a-69c51701b108" name="proyecto@D49-015 2012-09-26 18:47:32" runUser="D49-015\proyecto" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="d7146e08-8266-4b9b-aa43-bf7a65afa95e">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="proyecto_D49-015 2012-09-26 18_47_32">
+      <DeploymentItem filename="C:\Users\proyecto\Downloads\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll" />
+      <DeploymentItem filename="C:\Users\proyecto\Downloads\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\bin\Debug\UPC.Seguridad.BL.BE.dll" />
+      <DeploymentItem filename="C:\Users\proyecto\Downloads\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\bin\Debug\UPC.Seguridad.DL.DALC.dll" />
+      <DeploymentItem filename="C:\Users\proyecto\Downloads\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.dll" />
+      <DeploymentItem filename="C:\Users\proyecto\Downloads\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll" />
+      <DeploymentItem filename="C:\Users\proyecto\Downloads\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BC\bin\Debug\UPC.Seguridad.BL.BC.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-09-26T18:47:32.5033390-05:00" queuing="2012-09-26T18:47:33.7823390-05:00" start="2012-09-26T18:47:33.7943390-05:00" finish="2012-09-26T18:47:34.0643390-05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="listarPronosticosClienteTest" storage="c:\users\proyecto\downloads\sandbox\sisppafut\construcción\upc.proyecto.sisppafut\unittests\bin\debug\unittests.dll" id="a429e8a2-9160-8505-47a3-d9d88b390cc1">
+      <Execution id="1d1736a5-c7ea-454d-8c06-f3f983f10ea8" />
+      <TestMethod codeBase="C:/Users/proyecto/Downloads/sandbox/SISPPAFUT/Construcción/UPC.Proyecto.SISPPAFUT/UnitTests/bin/Debug/UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTests.PronosticoClienteBCTest, UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="listarPronosticosClienteTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="a429e8a2-9160-8505-47a3-d9d88b390cc1" executionId="1d1736a5-c7ea-454d-8c06-f3f983f10ea8" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="1d1736a5-c7ea-454d-8c06-f3f983f10ea8" testId="a429e8a2-9160-8505-47a3-d9d88b390cc1" testName="listarPronosticosClienteTest" computerName="D49-015" duration="00:00:00.0570844" startTime="2012-09-26T18:47:33.7993390-05:00" endTime="2012-09-26T18:47:34.0523390-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="1d1736a5-c7ea-454d-8c06-f3f983f10ea8">
+      <Output>
+        <ErrorInfo>
+          <Message>Test method UnitTests.PronosticoClienteBCTest.listarPronosticosClienteTest threw exception: 
+System.Data.SqlClient.SqlException: Could not find stored procedure 'spListarPronosticoCliente'.</Message>
+          <StackTrace>    at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning()
+   at System.Data.SqlClient.TdsParser.Run(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj)
+   at System.Data.SqlClient.SqlDataReader.ConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, DbAsyncResult result)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader()
+   at UPC.Proyecto.SISPPAFUT.DL.DALC.PronosticoClienteDALC.listarPronosticosCliente(Int32 codCliente) in C:\Users\proyecto\Downloads\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\PronosticoClienteDALC.cs:line 124
+   at UPC.Proyecto.SISPPAFUT.BL.BC.PronosticoClienteBC.listarPronosticosCliente(Int32 icodCliente) in C:\Users\proyecto\Downloads\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\PronosticoClienteBC.cs:line 39
+   at UnitTests.PronosticoClienteBCTest.listarPronosticosClienteTest() in C:\Users\proyecto\Downloads\sandbox\SISPPAFUT\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\PronosticoClienteBCTest.cs:line 113
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

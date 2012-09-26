@@ -64,6 +64,7 @@
             this.registrarPronosticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apostanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verPronósticosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarPronosticoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.funcXRolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -297,8 +298,7 @@
             // pronosticoToolStripMenuItem
             // 
             this.pronosticoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.entrenarSistemaToolStripMenuItem,
-            this.registrarPronosticoToolStripMenuItem});
+            this.entrenarSistemaToolStripMenuItem});
             this.pronosticoToolStripMenuItem.Name = "pronosticoToolStripMenuItem";
             this.pronosticoToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.pronosticoToolStripMenuItem.Text = "Pronostico";
@@ -306,7 +306,7 @@
             // entrenarSistemaToolStripMenuItem
             // 
             this.entrenarSistemaToolStripMenuItem.Name = "entrenarSistemaToolStripMenuItem";
-            this.entrenarSistemaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.entrenarSistemaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.entrenarSistemaToolStripMenuItem.Text = "Entrenar Sistema";
             this.entrenarSistemaToolStripMenuItem.Click += new System.EventHandler(this.entrenarSistemaToolStripMenuItem_Click);
             // 
@@ -320,7 +320,8 @@
             // apostanteToolStripMenuItem
             // 
             this.apostanteToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.verPronósticosToolStripMenuItem});
+            this.verPronósticosToolStripMenuItem,
+            this.registrarPronosticoToolStripMenuItem1});
             this.apostanteToolStripMenuItem.Name = "apostanteToolStripMenuItem";
             this.apostanteToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.apostanteToolStripMenuItem.Text = "Apostante";
@@ -328,9 +329,16 @@
             // verPronósticosToolStripMenuItem
             // 
             this.verPronósticosToolStripMenuItem.Name = "verPronósticosToolStripMenuItem";
-            this.verPronósticosToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.verPronósticosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.verPronósticosToolStripMenuItem.Text = "Ver Pronósticos";
             this.verPronósticosToolStripMenuItem.Click += new System.EventHandler(this.inVerPronosticosParaApostante);
+            // 
+            // registrarPronosticoToolStripMenuItem1
+            // 
+            this.registrarPronosticoToolStripMenuItem1.Name = "registrarPronosticoToolStripMenuItem1";
+            this.registrarPronosticoToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.registrarPronosticoToolStripMenuItem1.Text = "Registrar Pronostico";
+            this.registrarPronosticoToolStripMenuItem1.Click += new System.EventHandler(this.registrarPronosticoToolStripMenuItem1_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -444,7 +452,7 @@
         private System.Windows.Forms.ToolStripMenuItem nuevoUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuarioXFuncToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rolXUsuarioToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem registrarPronosticoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarPronosticoToolStripMenuItem1;
     }
 }
 
