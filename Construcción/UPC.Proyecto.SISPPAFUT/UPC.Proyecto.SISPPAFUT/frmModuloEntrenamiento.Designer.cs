@@ -64,10 +64,11 @@
             this.dg_Pronosticos.Location = new System.Drawing.Point(12, 12);
             this.dg_Pronosticos.Name = "dg_Pronosticos";
             this.dg_Pronosticos.ReadOnly = true;
+            this.dg_Pronosticos.RowHeadersVisible = false;
             this.dg_Pronosticos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             this.dg_Pronosticos.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dg_Pronosticos.Size = new System.Drawing.Size(648, 353);
+            this.dg_Pronosticos.Size = new System.Drawing.Size(625, 353);
             this.dg_Pronosticos.TabIndex = 0;
             // 
             // codPartido
@@ -127,7 +128,7 @@
             // 
             // btnEntrenar
             // 
-            this.btnEntrenar.Location = new System.Drawing.Point(545, 371);
+            this.btnEntrenar.Location = new System.Drawing.Point(522, 371);
             this.btnEntrenar.Name = "btnEntrenar";
             this.btnEntrenar.Size = new System.Drawing.Size(115, 31);
             this.btnEntrenar.TabIndex = 1;
@@ -139,7 +140,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 411);
+            this.ClientSize = new System.Drawing.Size(649, 411);
             this.Controls.Add(this.btnEntrenar);
             this.Controls.Add(this.dg_Pronosticos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;

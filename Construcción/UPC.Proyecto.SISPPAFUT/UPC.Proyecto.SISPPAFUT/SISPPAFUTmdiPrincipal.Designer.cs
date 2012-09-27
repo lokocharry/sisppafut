@@ -61,6 +61,7 @@
             this.btnListarPartidos = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEntrenamiento = new System.Windows.Forms.ToolStripMenuItem();
             this.btnEntrenarSistema = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevoPronostico = new System.Windows.Forms.ToolStripMenuItem();
             this.btnVisualizacionPronostico = new System.Windows.Forms.ToolStripMenuItem();
             this.btnVerPronostico = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionPermisos = new System.Windows.Forms.ToolStripMenuItem();
@@ -72,7 +73,6 @@
             this.btnRegistroClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNuevoCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnNuevoPronostico = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +82,7 @@
             this.btnMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(739, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(735, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -117,7 +117,7 @@
             // btnRegistrarPais
             // 
             this.btnRegistrarPais.Name = "btnRegistrarPais";
-            this.btnRegistrarPais.Size = new System.Drawing.Size(152, 22);
+            this.btnRegistrarPais.Size = new System.Drawing.Size(144, 22);
             this.btnRegistrarPais.Text = "Registrar País";
             this.btnRegistrarPais.Click += new System.EventHandler(this.btnRegistrarPais_Click);
             // 
@@ -170,7 +170,7 @@
             // btnNuevoEstadio
             // 
             this.btnNuevoEstadio.Name = "btnNuevoEstadio";
-            this.btnNuevoEstadio.Size = new System.Drawing.Size(152, 22);
+            this.btnNuevoEstadio.Size = new System.Drawing.Size(150, 22);
             this.btnNuevoEstadio.Text = "Nuevo Estadio";
             this.btnNuevoEstadio.Click += new System.EventHandler(this.btnNuevoEstadio_Click);
             // 
@@ -279,7 +279,7 @@
             // btnNuevoPartido
             // 
             this.btnNuevoPartido.Name = "btnNuevoPartido";
-            this.btnNuevoPartido.Size = new System.Drawing.Size(152, 22);
+            this.btnNuevoPartido.Size = new System.Drawing.Size(150, 22);
             this.btnNuevoPartido.Text = "Nuevo Partido";
             this.btnNuevoPartido.Click += new System.EventHandler(this.btnNuevoPartido_Click);
             // 
@@ -313,6 +313,13 @@
             this.btnEntrenarSistema.Size = new System.Drawing.Size(185, 22);
             this.btnEntrenarSistema.Text = "Entrenar Sistema";
             this.btnEntrenarSistema.Click += new System.EventHandler(this.btnEntrenarSistema_Click);
+            // 
+            // btnNuevoPronostico
+            // 
+            this.btnNuevoPronostico.Name = "btnNuevoPronostico";
+            this.btnNuevoPronostico.Size = new System.Drawing.Size(185, 22);
+            this.btnNuevoPronostico.Text = "Registrar Pronósticos";
+            this.btnNuevoPronostico.Click += new System.EventHandler(this.btnNuevoPronostico_Click);
             // 
             // btnVisualizacionPronostico
             // 
@@ -387,7 +394,7 @@
             // btnNuevoCliente
             // 
             this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Size = new System.Drawing.Size(152, 22);
+            this.btnNuevoCliente.Size = new System.Drawing.Size(149, 22);
             this.btnNuevoCliente.Text = "Nuevo Cliente";
             this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
             // 
@@ -398,18 +405,11 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
-            // btnNuevoPronostico
-            // 
-            this.btnNuevoPronostico.Name = "btnNuevoPronostico";
-            this.btnNuevoPronostico.Size = new System.Drawing.Size(185, 22);
-            this.btnNuevoPronostico.Text = "Registrar Pronósticos";
-            this.btnNuevoPronostico.Click += new System.EventHandler(this.btnNuevoPronostico_Click);
-            // 
             // SISPPAFUTmdiPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 523);
+            this.ClientSize = new System.Drawing.Size(735, 519);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -418,6 +418,7 @@
             this.Name = "SISPPAFUTmdiPrincipal";
             this.ShowIcon = false;
             this.Text = "Sistema Inteligente para Pronóstico de Partidos de Fútbol";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.SISPPAFUTmdiPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

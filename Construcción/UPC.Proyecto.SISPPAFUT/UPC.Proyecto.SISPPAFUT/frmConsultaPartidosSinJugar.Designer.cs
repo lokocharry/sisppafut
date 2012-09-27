@@ -46,7 +46,7 @@
             // 
             // dgv_lista_partidos
             // 
-            this.dgv_lista_partidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_lista_partidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgv_lista_partidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cod_partido,
             this.partido_pais,
@@ -56,7 +56,9 @@
             this.partido_fecha});
             this.dgv_lista_partidos.Location = new System.Drawing.Point(22, 25);
             this.dgv_lista_partidos.Name = "dgv_lista_partidos";
-            this.dgv_lista_partidos.Size = new System.Drawing.Size(546, 354);
+            this.dgv_lista_partidos.RowHeadersVisible = false;
+            this.dgv_lista_partidos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgv_lista_partidos.Size = new System.Drawing.Size(520, 354);
             this.dgv_lista_partidos.TabIndex = 0;
             // 
             // cod_partido
@@ -98,7 +100,7 @@
             // 
             // btn_editar_partido
             // 
-            this.btn_editar_partido.Location = new System.Drawing.Point(281, 397);
+            this.btn_editar_partido.Location = new System.Drawing.Point(255, 389);
             this.btn_editar_partido.Name = "btn_editar_partido";
             this.btn_editar_partido.Size = new System.Drawing.Size(113, 32);
             this.btn_editar_partido.TabIndex = 1;
@@ -108,7 +110,7 @@
             // 
             // btn_editar_datos_partido
             // 
-            this.btn_editar_datos_partido.Location = new System.Drawing.Point(400, 397);
+            this.btn_editar_datos_partido.Location = new System.Drawing.Point(374, 389);
             this.btn_editar_datos_partido.Name = "btn_editar_datos_partido";
             this.btn_editar_datos_partido.Size = new System.Drawing.Size(168, 32);
             this.btn_editar_datos_partido.TabIndex = 2;
@@ -120,7 +122,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(592, 441);
+            this.ClientSize = new System.Drawing.Size(561, 433);
             this.Controls.Add(this.btn_editar_datos_partido);
             this.Controls.Add(this.btn_editar_partido);
             this.Controls.Add(this.dgv_lista_partidos);
