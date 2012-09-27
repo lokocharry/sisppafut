@@ -61,7 +61,6 @@
             this.listaDePartidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pronosticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entrenarSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registrarPronosticoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.apostanteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verPronósticosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registrarPronosticoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -309,13 +308,6 @@
             this.entrenarSistemaToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.entrenarSistemaToolStripMenuItem.Text = "Entrenar Sistema";
             this.entrenarSistemaToolStripMenuItem.Click += new System.EventHandler(this.entrenarSistemaToolStripMenuItem_Click);
-            // 
-            // registrarPronosticoToolStripMenuItem
-            // 
-            this.registrarPronosticoToolStripMenuItem.Name = "registrarPronosticoToolStripMenuItem";
-            this.registrarPronosticoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.registrarPronosticoToolStripMenuItem.Text = "Registrar Pronostico";
-            this.registrarPronosticoToolStripMenuItem.Click += new System.EventHandler(this.registrarPronosticoToolStripMenuItem_Click);
             // 
             // apostanteToolStripMenuItem
             // 

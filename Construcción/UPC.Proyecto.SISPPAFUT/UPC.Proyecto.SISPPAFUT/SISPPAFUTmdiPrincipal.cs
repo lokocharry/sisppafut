@@ -76,28 +76,28 @@ namespace UPC.Proyecto.SISPPAFUT
                     btnGestionPaises.Visible = false;
                 }
 
-                if (estado_Funcionalidades[1] == 0)
+                if (estado_Funcionalidades[1] == 0)//Func 2
                 {
                     btnRegistrarCompeticion.Visible = false;
                     btnGestionCompeticion.Visible = false;
                 }
 
-                if (estado_Funcionalidades[2] == 0)
+                if (estado_Funcionalidades[2] == 0)//Func 3
                 {
                     btnNuevaLiga.Visible = false;
                 }
 
-                if (estado_Funcionalidades[3] == 0)
+                if (estado_Funcionalidades[3] == 0)//Func 4
                 {
                     btnTablaPosiciones.Visible = false;
                 }
 
-                if (estado_Funcionalidades[2] == 0 && estado_Funcionalidades[3] == 0)
+                if (estado_Funcionalidades[2] == 0 && estado_Funcionalidades[3] == 0) //Gestión 
                 {
                     btnGestionLigas.Visible = false;
                 }
 
-                if (estado_Funcionalidades[4] == 0)
+                if (estado_Funcionalidades[4] == 0)//Func 5
                 {
                     btnNuevoEstadio.Visible = false;
                     btnGestionEstadios.Visible = false;
