@@ -792,35 +792,35 @@ namespace UPC.Proyecto.SISPPAFUT
             //-- Contenido del fichero
 
             archivo.WriteLine("@relation SISPPAFUT");
-            archivo.WriteLine("@attribute qEquiposLiga real");
-            archivo.WriteLine("@attribute mes real");
+            archivo.WriteLine("@attribute QEq real");
+            archivo.WriteLine("@attribute M real");
             //archivo.WriteLine("@attribute qEquiposMundial numeric");
             //archivo.WriteLine("@attribute qAsistencia numeric");
-            archivo.WriteLine("@attribute Local_PosLiga real");
-            archivo.WriteLine("@attribute Local_Pts real");
-            archivo.WriteLine("@attribute Local {True, False}");
-            archivo.WriteLine("@attribute Local_PosRankMund real");
+            archivo.WriteLine("@attribute PL_L real");
+            archivo.WriteLine("@attribute PTS_L real");
+            archivo.WriteLine("@attribute LO_L {True, False}");
+            archivo.WriteLine("@attribute PRK_L real");
             //archivo.WriteLine("@attribute Local_GoleadorSuspendido {True, False}");
             //archivo.WriteLine("@attribute Local_ArqueroSuspendido {True, False}");
-            archivo.WriteLine("@attribute Local_qExpulsados real");
-            archivo.WriteLine("@attribute Local_qSuspendidos real");
-            archivo.WriteLine("@attribute Local_GolesAnotados real");
-            archivo.WriteLine("@attribute Local_GolesEncajados real");
-            archivo.WriteLine("@attribute Local_PromEdad real");
-            archivo.WriteLine("@attribute Local_qPartidosMes real");
-            archivo.WriteLine("@attribute Visita_PosLiga real");
-            archivo.WriteLine("@attribute Visita_Pts real");
-            archivo.WriteLine("@attribute Visita {True, False}");
-            archivo.WriteLine("@attribute Visita_PosRankMund real");
+            archivo.WriteLine("@attribute QJE_L real");
+            archivo.WriteLine("@attribute QJS_L real");
+            archivo.WriteLine("@attribute GA_L real");
+            archivo.WriteLine("@attribute GE_L real");
+            archivo.WriteLine("@attribute PEE_L real");
+            archivo.WriteLine("@attribute QPJ_L real");
+            archivo.WriteLine("@attribute PL_V real");
+            archivo.WriteLine("@attribute PTS_V real");
+            archivo.WriteLine("@attribute LO_V {True, False}");
+            archivo.WriteLine("@attribute PRK_V real");
             //archivo.WriteLine("@attribute Visita_GoleadorSuspendido {True, False}");
             //archivo.WriteLine("@attribute Visita_ArqueroSuspendido {True, False}");
-            archivo.WriteLine("@attribute Visita_qExpulsados real");
-            archivo.WriteLine("@attribute Visita_qSuspendidos real");
-            archivo.WriteLine("@attribute Visita_GolesAnotados real");
-            archivo.WriteLine("@attribute Visita_GolesEncajados real");
-            archivo.WriteLine("@attribute Visita_PromEdad real");
-            archivo.WriteLine("@attribute Visita_qPartidosMes real");
-            archivo.WriteLine("@attribute resultado {L, E, V}");
+            archivo.WriteLine("@attribute QJE_V real");
+            archivo.WriteLine("@attribute QJS_V real");
+            archivo.WriteLine("@attribute GA_V real");
+            archivo.WriteLine("@attribute GE_V real");
+            archivo.WriteLine("@attribute PEE_V real");
+            archivo.WriteLine("@attribute QPJ_V real");
+            archivo.WriteLine("@attribute Resultado {L, E, V}");
             archivo.WriteLine("@data");
             
             foreach (InstanciaNormalizadaBE cDto in Data)//PartidoPronosticadoBE cDto in Data)
