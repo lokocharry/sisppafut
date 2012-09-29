@@ -534,8 +534,7 @@ namespace UPC.Proyecto.SISPPAFUT
                     //-- Paso 5: Se hace un análisis final de los pronósticos 
                     
                     if (listaPronosticos.Count > 0)
-                    {
-                        
+                    {                        
                         //Mientras que no se entrene con el maestro/supervisor no se implementará esto
                         foreach (PronosticoBE cDto in listaPronosticos)
                         {                            
@@ -550,6 +549,8 @@ namespace UPC.Proyecto.SISPPAFUT
                                     else
                                         cDto.Pronostico = "LV";
                                 }
+                                else
+                                    cDto.Pronostico = "N/J";
                             }
                             else
                             if (cDto.Pronostico == "E" && (cDto.PorcentajeEmpate * 1000 >= 500 && cDto.PorcentajeEmpate * 1000 < 700))
@@ -563,6 +564,8 @@ namespace UPC.Proyecto.SISPPAFUT
                                     else
                                         cDto.Pronostico = "EV";
                                 }
+                                else
+                                    cDto.Pronostico = "N/J";
                             }
                             else
                             if (cDto.Pronostico == "V" && (cDto.PorcentajeVisita * 1000 >= 500 && cDto.PorcentajeVisita * 1000 < 700))
@@ -576,6 +579,8 @@ namespace UPC.Proyecto.SISPPAFUT
                                     else
                                         cDto.Pronostico = "EV";
                                 }
+                                else
+                                    cDto.Pronostico = "N/J";
                             }
                         }
                         objPronosticoBC = new PronosticoBC();
@@ -820,9 +825,9 @@ namespace UPC.Proyecto.SISPPAFUT
             archivo.WriteLine("@attribute M real");
             //archivo.WriteLine("@attribute qEquiposMundial numeric");
             //archivo.WriteLine("@attribute qAsistencia numeric");
-            archivo.WriteLine("@attribute PL_L real");
+            //archivo.WriteLine("@attribute PL_L real");
             archivo.WriteLine("@attribute PTS_L real");
-            archivo.WriteLine("@attribute LO_L {True, False}");
+            //archivo.WriteLine("@attribute LO_L {True, False}");
             archivo.WriteLine("@attribute PRK_L real");
             //archivo.WriteLine("@attribute Local_GoleadorSuspendido {True, False}");
             //archivo.WriteLine("@attribute Local_ArqueroSuspendido {True, False}");
@@ -832,9 +837,9 @@ namespace UPC.Proyecto.SISPPAFUT
             archivo.WriteLine("@attribute GE_L real");
             archivo.WriteLine("@attribute PEE_L real");
             archivo.WriteLine("@attribute QPJ_L real");
-            archivo.WriteLine("@attribute PL_V real");
+            //archivo.WriteLine("@attribute PL_V real");
             archivo.WriteLine("@attribute PTS_V real");
-            archivo.WriteLine("@attribute LO_V {True, False}");
+            //archivo.WriteLine("@attribute LO_V {True, False}");
             archivo.WriteLine("@attribute PRK_V real");
             //archivo.WriteLine("@attribute Visita_GoleadorSuspendido {True, False}");
             //archivo.WriteLine("@attribute Visita_ArqueroSuspendido {True, False}");
@@ -854,17 +859,23 @@ namespace UPC.Proyecto.SISPPAFUT
                         cDto.C_Mes + "," + 
                         //cDto.C_QEquiposMundial+ "," + 
                         //cDto.C_QAsistencia    + "," +
-                        cDto.C_Local_PosLiga    + "," + 
-                        cDto.C_Local_Pts + "," + cDto.C_Local + "," + cDto.C_Local_PosRankMund + "," + 
+                        //cDto.C_Local_PosLiga    + "," + 
+                        cDto.C_Local_Pts + "," + 
+                        //cDto.C_Local + "," + 
+                        cDto.C_Local_PosRankMund + "," + 
                         //cDto.C_Local_GoleadorSuspendido + "," + cDto.C_Local_ArqueroSuspendido + "," + 
                         cDto.C_Local_QExpulsados + "," + cDto.C_Local_QSuspendidos + "," + cDto.C_Local_GolesAnotados + "," + 
-                        cDto.C_Local_GolesEncajados + "," + cDto.C_Local_PromEdad + "," + cDto.C_Local_QPartidosMes + "," + 
-                        cDto.C_Visita_PosLiga + "," + cDto.C_Visita_Pts + "," + cDto.C_Visita + "," + 
+                        cDto.C_Local_GolesEncajados + "," + cDto.C_Local_PromEdad + "," + 
+                        cDto.C_Local_QPartidosMes + "," + 
+                        //cDto.C_Visita_PosLiga + "," + 
+                        cDto.C_Visita_Pts + "," + 
+                        //cDto.C_Visita + "," + 
                         cDto.C_Visita_PosRankMund + "," + 
                         //cDto.C_Visita_GoleadorSuspendido + "," + cDto.C_Visita_ArqueroSuspendido + "," + 
                         cDto.C_Visita_QExpulsados + "," + cDto.C_Visita_QSuspendidos + "," +
                         cDto.C_Visita_GolesAnotados + "," + cDto.C_Visita_GolesEncajados + "," + cDto.C_Visita_PromEdad + "," +
-                        cDto.C_Visita_QPartidosMes + "," + cDto.C_Resultado;
+                        cDto.C_Visita_QPartidosMes + "," + 
+                        cDto.C_Resultado;
                 archivo.WriteLine(_data);
             }
             
