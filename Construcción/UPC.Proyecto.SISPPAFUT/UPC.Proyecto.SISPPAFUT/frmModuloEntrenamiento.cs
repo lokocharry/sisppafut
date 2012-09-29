@@ -535,25 +535,49 @@ namespace UPC.Proyecto.SISPPAFUT
                     
                     if (listaPronosticos.Count > 0)
                     {
-                        /*
-                         * Mientras que no se entrene con el maestro/supervisor no se implementará esto
+                        
+                        //Mientras que no se entrene con el maestro/supervisor no se implementará esto
                         foreach (PronosticoBE cDto in listaPronosticos)
-                        {
-                            if (cDto.Pronostico == "L" && cDto.PorcentajeLocal < 85)
+                        {                            
+                            if (cDto.Pronostico == "L" && (cDto.PorcentajeLocal*1000 >= 500 && cDto.PorcentajeLocal*1000 < 700))
                             {
-                                //
+                                if (Math.Abs((cDto.PorcentajeEmpate - cDto.PorcentajeVisita)) * 1000 >= 300)
+                                {
+                                    if (cDto.PorcentajeEmpate > cDto.PorcentajeVisita)
+                                    {
+                                        cDto.Pronostico = "LE";
+                                    }
+                                    else
+                                        cDto.Pronostico = "LV";
+                                }
                             }
                             else
-                            if (cDto.Pronostico == "E" && cDto.PorcentajeLocal < 85)
+                            if (cDto.Pronostico == "E" && (cDto.PorcentajeEmpate * 1000 >= 500 && cDto.PorcentajeEmpate * 1000 < 700))
                             {
-                                //
+                                if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeVisita)) * 1000 >= 300)
+                                {
+                                    if (cDto.PorcentajeLocal > cDto.PorcentajeVisita)
+                                    {
+                                        cDto.Pronostico = "LE";
+                                    }
+                                    else
+                                        cDto.Pronostico = "EV";
+                                }
                             }
                             else
-                            if (cDto.Pronostico == "V" && cDto.PorcentajeLocal < 85)
+                            if (cDto.Pronostico == "V" && (cDto.PorcentajeVisita * 1000 >= 500 && cDto.PorcentajeVisita * 1000 < 700))
                             {
-                                //
+                                if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeEmpate)) * 1000 >= 300)
+                                {
+                                    if (cDto.PorcentajeLocal > cDto.PorcentajeEmpate)
+                                    {
+                                        cDto.Pronostico = "LV";
+                                    }
+                                    else
+                                        cDto.Pronostico = "EV";
+                                }
                             }
-                        }*/
+                        }
                         objPronosticoBC = new PronosticoBC();
                         for (int i = 0; i<ListaPartidosPronosticados.Count; i++)
                         {
