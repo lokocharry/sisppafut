@@ -5,6 +5,7 @@ using System.Net;
 using System.Windows.Forms;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
 
+using ikvm.awt;
 namespace UPC.Proyecto.SISPPAFUT
 {
     public sealed class RedNeuronal

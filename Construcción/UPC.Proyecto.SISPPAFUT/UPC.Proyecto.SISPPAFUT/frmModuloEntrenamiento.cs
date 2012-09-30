@@ -538,49 +538,88 @@ namespace UPC.Proyecto.SISPPAFUT
                         //Mientras que no se entrene con el maestro/supervisor no se implementará esto
                         foreach (PronosticoBE cDto in listaPronosticos)
                         {                            
-                            if (cDto.Pronostico == "L" && (cDto.PorcentajeLocal*1000 >= 500 && cDto.PorcentajeLocal*1000 < 700))
+                            if (cDto.Pronostico == "L" && (cDto.PorcentajeLocal*1000 < 800))//(cDto.PorcentajeLocal*1000 >= 500 && cDto.PorcentajeLocal*1000 < 700))
                             {
-                                if (Math.Abs((cDto.PorcentajeEmpate - cDto.PorcentajeVisita)) * 1000 >= 300)
+                                if (cDto.PorcentajeLocal * 1000 <= 700)
                                 {
-                                    if (cDto.PorcentajeEmpate > cDto.PorcentajeVisita)
+                                    if (Math.Abs((cDto.PorcentajeEmpate - cDto.PorcentajeVisita)) * 1000 >= 300)
                                     {
-                                        cDto.Pronostico = "LE";
+                                        if (cDto.PorcentajeEmpate > cDto.PorcentajeVisita)
+                                        {
+                                            cDto.Pronostico = "LE";
+                                        }
+                                        else
+                                            cDto.Pronostico = "LV";
                                     }
                                     else
-                                        cDto.Pronostico = "LV";
+                                        cDto.Pronostico = "N/J";
                                 }
                                 else
-                                    cDto.Pronostico = "N/J";
+                                    if (Math.Abs((cDto.PorcentajeEmpate - cDto.PorcentajeVisita)) * 1000 >= 210)
+                                    {
+                                        if (cDto.PorcentajeEmpate > cDto.PorcentajeVisita)
+                                        {
+                                            cDto.Pronostico = "LE";
+                                        }
+                                        else
+                                            cDto.Pronostico = "LV";
+                                    }
                             }
                             else
-                            if (cDto.Pronostico == "E" && (cDto.PorcentajeEmpate * 1000 >= 500 && cDto.PorcentajeEmpate * 1000 < 700))
+                            if (cDto.Pronostico == "E" && (cDto.PorcentajeEmpate * 1000 < 800))//(cDto.PorcentajeEmpate * 1000 >= 500 && cDto.PorcentajeEmpate * 1000 < 700))
                             {
-                                if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeVisita)) * 1000 >= 300)
+                                if (cDto.PorcentajeEmpate * 1000 <= 700)
                                 {
-                                    if (cDto.PorcentajeLocal > cDto.PorcentajeVisita)
+                                    if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeVisita)) * 1000 >= 300)
                                     {
-                                        cDto.Pronostico = "LE";
+                                        if (cDto.PorcentajeLocal > cDto.PorcentajeVisita)
+                                        {
+                                            cDto.Pronostico = "LE";
+                                        }
+                                        else
+                                            cDto.Pronostico = "EV";
                                     }
                                     else
-                                        cDto.Pronostico = "EV";
+                                        cDto.Pronostico = "N/J";
                                 }
                                 else
-                                    cDto.Pronostico = "N/J";
+                                    if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeVisita)) * 1000 >= 210)
+                                    {
+                                        if (cDto.PorcentajeLocal > cDto.PorcentajeVisita)
+                                        {
+                                            cDto.Pronostico = "LE";
+                                        }
+                                        else
+                                            cDto.Pronostico = "EV";
+                                    }
                             }
                             else
-                            if (cDto.Pronostico == "V" && (cDto.PorcentajeVisita * 1000 >= 500 && cDto.PorcentajeVisita * 1000 < 700))
+                            if (cDto.Pronostico == "V" && (cDto.PorcentajeVisita * 1000 < 800))//(cDto.PorcentajeVisita * 1000 >= 500 && cDto.PorcentajeVisita * 1000 < 700))
                             {
-                                if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeEmpate)) * 1000 >= 300)
+                                if (cDto.PorcentajeVisita * 1000 <= 700)
                                 {
-                                    if (cDto.PorcentajeLocal > cDto.PorcentajeEmpate)
+                                    if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeEmpate)) * 1000 >= 300)
                                     {
-                                        cDto.Pronostico = "LV";
+                                        if (cDto.PorcentajeLocal > cDto.PorcentajeEmpate)
+                                        {
+                                            cDto.Pronostico = "LV";
+                                        }
+                                        else
+                                            cDto.Pronostico = "EV";
                                     }
                                     else
-                                        cDto.Pronostico = "EV";
+                                        cDto.Pronostico = "N/J";
                                 }
                                 else
-                                    cDto.Pronostico = "N/J";
+                                    if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeEmpate)) * 1000 >= 210)
+                                    {
+                                        if (cDto.PorcentajeLocal > cDto.PorcentajeEmpate)
+                                        {
+                                            cDto.Pronostico = "LV";
+                                        }
+                                        else
+                                            cDto.Pronostico = "EV";
+                                    }
                             }
                         }
                         objPronosticoBC = new PronosticoBC();
@@ -617,185 +656,191 @@ namespace UPC.Proyecto.SISPPAFUT
         }
 
         private List<InstanciaNormalizadaBE> Normalizacion(List<PartidoPronosticadoBE> LstPDN)
-        {
-            InstanciaNormalizadaBE instancia;
-            List<InstanciaNormalizadaBE> lstInstancias = new List<InstanciaNormalizadaBE>();
-            List<Decimal> max = new List<Decimal>();
-            List<Decimal> min = new List<Decimal>();
-            max.Add(LstPDN[0].C_Local_GolesAnotados);
-            max.Add(LstPDN[0].C_Local_GolesEncajados);
-            max.Add(LstPDN[0].C_Local_PosLiga);
-            max.Add(LstPDN[0].C_Local_PosRankMund);
-            max.Add(LstPDN[0].C_Local_PromEdad);
-            max.Add(LstPDN[0].C_Local_Pts);
-            max.Add(LstPDN[0].C_Local_QExpulsados);
-            max.Add(LstPDN[0].C_Local_QPartidosMes);
-            max.Add(LstPDN[0].C_Local_QSuspendidos);
-            max.Add(LstPDN[0].C_Mes);
-            max.Add(LstPDN[0].C_QEquiposLiga);
-            max.Add(LstPDN[0].C_Visita_GolesAnotados);
-            max.Add(LstPDN[0].C_Visita_GolesEncajados);
-            max.Add(LstPDN[0].C_Visita_PosLiga);
-            max.Add(LstPDN[0].C_Visita_PosRankMund);
-            max.Add(LstPDN[0].C_Visita_PromEdad);
-            max.Add(LstPDN[0].C_Visita_Pts);
-            max.Add(LstPDN[0].C_Visita_QExpulsados);
-            max.Add(LstPDN[0].C_Visita_QPartidosMes);
-            max.Add(LstPDN[0].C_Visita_QSuspendidos);
-            min.Add(LstPDN[0].C_Local_GolesAnotados);
-            min.Add(LstPDN[0].C_Local_GolesEncajados);
-            min.Add(LstPDN[0].C_Local_PosLiga);
-            min.Add(LstPDN[0].C_Local_PosRankMund);
-            min.Add(LstPDN[0].C_Local_PromEdad);
-            min.Add(LstPDN[0].C_Local_Pts);
-            min.Add(LstPDN[0].C_Local_QExpulsados);
-            min.Add(LstPDN[0].C_Local_QPartidosMes);
-            min.Add(LstPDN[0].C_Local_QSuspendidos);
-            min.Add(LstPDN[0].C_Mes);
-            min.Add(10);
-            min.Add(LstPDN[0].C_Visita_GolesAnotados);
-            min.Add(LstPDN[0].C_Visita_GolesEncajados);
-            min.Add(LstPDN[0].C_Visita_PosLiga);
-            min.Add(LstPDN[0].C_Visita_PosRankMund);
-            min.Add(LstPDN[0].C_Visita_PromEdad);
-            min.Add(LstPDN[0].C_Visita_Pts);
-            min.Add(LstPDN[0].C_Visita_QExpulsados);
-            min.Add(LstPDN[0].C_Visita_QPartidosMes);
-            min.Add(LstPDN[0].C_Visita_QSuspendidos);
-            foreach (PartidoPronosticadoBE iDN in LstPDN)
+        {            
+            try
             {
-                if (max[0] < iDN.C_Local_GolesAnotados)
-                    max[0] = iDN.C_Local_GolesAnotados;
-                else
-                    if (min[0] > iDN.C_Local_GolesAnotados)
-                        min[0] = iDN.C_Local_GolesAnotados;
-                if (max[1] < iDN.C_Local_GolesEncajados)
-                    max[1] = iDN.C_Local_GolesEncajados;
-                else
-                    if (min[1] > iDN.C_Local_GolesEncajados)
-                        min[1] = iDN.C_Local_GolesEncajados;
-                if (max[2] < iDN.C_Local_PosLiga)
-                    max[2] = iDN.C_Local_PosLiga;
-                else
-                    if (min[2] > iDN.C_Local_PosLiga)
-                        min[2] = iDN.C_Local_PosLiga;
-                if (max[3] < iDN.C_Local_PosRankMund)
-                    max[3] = iDN.C_Local_PosRankMund;
-                else
-                    if (min[3] > iDN.C_Local_PosRankMund)
-                        min[3] = iDN.C_Local_PosRankMund;
-                if (max[4] < iDN.C_Local_PromEdad)
-                    max[4] = iDN.C_Local_PromEdad;
-                else
-                    if (min[4] > iDN.C_Local_PromEdad)
-                        min[4] = iDN.C_Local_PromEdad;
-                if (max[5] < iDN.C_Local_Pts)
-                    max[5] = iDN.C_Local_Pts;
-                else
-                    if (min[5] > iDN.C_Local_Pts)
-                        min[5] = iDN.C_Local_Pts;
-                if (max[6] < iDN.C_Local_QExpulsados)
-                    max[6] = iDN.C_Local_QExpulsados;
-                else
-                    if (min[6] > iDN.C_Local_QExpulsados)
-                        min[6] = iDN.C_Local_QExpulsados;
-                if (max[7] < iDN.C_Local_QPartidosMes)
-                    max[7] = iDN.C_Local_QPartidosMes;
-                else
-                    if (min[7] > iDN.C_Local_QPartidosMes)
-                        min[7] = iDN.C_Local_QPartidosMes;
-                if (max[8] < iDN.C_Local_QSuspendidos)
-                    max[8] = iDN.C_Local_QSuspendidos;
-                else
-                    if (min[8] > iDN.C_Local_QSuspendidos)
-                        min[8] = iDN.C_Local_QSuspendidos;
-                if (max[9] < iDN.C_Mes)
-                    max[9] = iDN.C_Mes;
-                else
-                    if (min[9] > iDN.C_Mes)
-                        min[9] = iDN.C_Mes;
-                if (max[10] < iDN.C_QEquiposLiga)
-                    max[10] = iDN.C_QEquiposLiga;
-                else
-                    if (min[10] > iDN.C_QEquiposLiga)
-                        min[10] = iDN.C_QEquiposLiga;
-                if (max[11] < iDN.C_Visita_GolesAnotados)
-                    max[11] = iDN.C_Visita_GolesAnotados;
-                else
-                    if (min[11] > iDN.C_Visita_GolesAnotados)
-                        min[11] = iDN.C_Visita_GolesAnotados;
-                if (max[12] < iDN.C_Visita_GolesEncajados)
-                    max[12] = iDN.C_Visita_GolesEncajados;
-                else
-                    if (min[12] > iDN.C_Visita_GolesEncajados)
-                        min[12] = iDN.C_Visita_GolesEncajados;
-                if (max[13] < iDN.C_Visita_PosLiga)
-                    max[13] = iDN.C_Visita_PosLiga;
-                else
-                    if (min[13] > iDN.C_Visita_PosLiga)
-                        min[13] = iDN.C_Visita_PosLiga;
-                if (max[14] < iDN.C_Visita_PosRankMund)
-                    max[14] = iDN.C_Visita_PosRankMund;
-                else
-                    if (min[14] > iDN.C_Visita_PosRankMund)
-                        min[14] = iDN.C_Visita_PosRankMund;
-                if (max[15] < iDN.C_Visita_PromEdad)
-                    max[15] = iDN.C_Visita_PromEdad;
-                else
-                    if (min[15] > iDN.C_Visita_PromEdad)
-                        min[15] = iDN.C_Visita_PromEdad;
-                if (max[16] < iDN.C_Visita_Pts)
-                    max[16] = iDN.C_Visita_Pts;
-                else
-                    if (min[16] > iDN.C_Visita_Pts)
-                        min[16] = iDN.C_Visita_Pts;
-                if (max[17] < iDN.C_Visita_QExpulsados)
-                    max[17] = iDN.C_Visita_QExpulsados;
-                else
-                    if (min[17] > iDN.C_Visita_QExpulsados)
-                        min[17] = iDN.C_Visita_QExpulsados;
-                if (max[18] < iDN.C_Visita_QPartidosMes)
-                    max[18] = iDN.C_Visita_QPartidosMes;
-                else
-                    if (min[18] > iDN.C_Visita_QPartidosMes)
-                        min[18] = iDN.C_Visita_QPartidosMes;
-                if (max[19] < iDN.C_Visita_QSuspendidos)
-                    max[19] = iDN.C_Visita_QSuspendidos;
-                else
-                    if (min[19] > iDN.C_Visita_QSuspendidos)
-                        min[19] = iDN.C_Visita_QSuspendidos;
-            }
+                InstanciaNormalizadaBE instancia = null;
+                List<InstanciaNormalizadaBE> lstInstancias = new List<InstanciaNormalizadaBE>();
+                List<Decimal> max = new List<Decimal>();
+                List<Decimal> min = new List<Decimal>();
+                max.Add(LstPDN[0].C_Local_GolesAnotados);
+                max.Add(LstPDN[0].C_Local_GolesEncajados);
+                max.Add(LstPDN[0].C_Local_PosLiga);
+                max.Add(LstPDN[0].C_Local_PosRankMund);
+                max.Add(LstPDN[0].C_Local_PromEdad);
+                max.Add(LstPDN[0].C_Local_Pts);
+                max.Add(LstPDN[0].C_Local_QExpulsados);
+                max.Add(LstPDN[0].C_Local_QPartidosMes);
+                max.Add(LstPDN[0].C_Local_QSuspendidos);
+                max.Add(LstPDN[0].C_Mes);
+                max.Add(LstPDN[0].C_QEquiposLiga);
+                max.Add(LstPDN[0].C_Visita_GolesAnotados);
+                max.Add(LstPDN[0].C_Visita_GolesEncajados);
+                max.Add(LstPDN[0].C_Visita_PosLiga);
+                max.Add(LstPDN[0].C_Visita_PosRankMund);
+                max.Add(LstPDN[0].C_Visita_PromEdad);
+                max.Add(LstPDN[0].C_Visita_Pts);
+                max.Add(LstPDN[0].C_Visita_QExpulsados);
+                max.Add(LstPDN[0].C_Visita_QPartidosMes);
+                max.Add(LstPDN[0].C_Visita_QSuspendidos);
+                min.Add(LstPDN[0].C_Local_GolesAnotados);
+                min.Add(LstPDN[0].C_Local_GolesEncajados);
+                min.Add(LstPDN[0].C_Local_PosLiga);
+                min.Add(LstPDN[0].C_Local_PosRankMund);
+                min.Add(LstPDN[0].C_Local_PromEdad);
+                min.Add(LstPDN[0].C_Local_Pts);
+                min.Add(LstPDN[0].C_Local_QExpulsados);
+                min.Add(LstPDN[0].C_Local_QPartidosMes);
+                min.Add(LstPDN[0].C_Local_QSuspendidos);
+                min.Add(LstPDN[0].C_Mes);
+                min.Add(10);
+                min.Add(LstPDN[0].C_Visita_GolesAnotados);
+                min.Add(LstPDN[0].C_Visita_GolesEncajados);
+                min.Add(LstPDN[0].C_Visita_PosLiga);
+                min.Add(LstPDN[0].C_Visita_PosRankMund);
+                min.Add(LstPDN[0].C_Visita_PromEdad);
+                min.Add(LstPDN[0].C_Visita_Pts);
+                min.Add(LstPDN[0].C_Visita_QExpulsados);
+                min.Add(LstPDN[0].C_Visita_QPartidosMes);
+                min.Add(LstPDN[0].C_Visita_QSuspendidos);
+                foreach (PartidoPronosticadoBE iDN in LstPDN)
+                {
+                    if (max[0] < iDN.C_Local_GolesAnotados)
+                        max[0] = iDN.C_Local_GolesAnotados;
+                    else
+                        if (min[0] > iDN.C_Local_GolesAnotados)
+                            min[0] = iDN.C_Local_GolesAnotados;
+                    if (max[1] < iDN.C_Local_GolesEncajados)
+                        max[1] = iDN.C_Local_GolesEncajados;
+                    else
+                        if (min[1] > iDN.C_Local_GolesEncajados)
+                            min[1] = iDN.C_Local_GolesEncajados;
+                    if (max[2] < iDN.C_Local_PosLiga)
+                        max[2] = iDN.C_Local_PosLiga;
+                    else
+                        if (min[2] > iDN.C_Local_PosLiga)
+                            min[2] = iDN.C_Local_PosLiga;
+                    if (max[3] < iDN.C_Local_PosRankMund)
+                        max[3] = iDN.C_Local_PosRankMund;
+                    else
+                        if (min[3] > iDN.C_Local_PosRankMund)
+                            min[3] = iDN.C_Local_PosRankMund;
+                    if (max[4] < iDN.C_Local_PromEdad)
+                        max[4] = iDN.C_Local_PromEdad;
+                    else
+                        if (min[4] > iDN.C_Local_PromEdad)
+                            min[4] = iDN.C_Local_PromEdad;
+                    if (max[5] < iDN.C_Local_Pts)
+                        max[5] = iDN.C_Local_Pts;
+                    else
+                        if (min[5] > iDN.C_Local_Pts)
+                            min[5] = iDN.C_Local_Pts;
+                    if (max[6] < iDN.C_Local_QExpulsados)
+                        max[6] = iDN.C_Local_QExpulsados;
+                    else
+                        if (min[6] > iDN.C_Local_QExpulsados)
+                            min[6] = iDN.C_Local_QExpulsados;
+                    if (max[7] < iDN.C_Local_QPartidosMes)
+                        max[7] = iDN.C_Local_QPartidosMes;
+                    else
+                        if (min[7] > iDN.C_Local_QPartidosMes)
+                            min[7] = iDN.C_Local_QPartidosMes;
+                    if (max[8] < iDN.C_Local_QSuspendidos)
+                        max[8] = iDN.C_Local_QSuspendidos;
+                    else
+                        if (min[8] > iDN.C_Local_QSuspendidos)
+                            min[8] = iDN.C_Local_QSuspendidos;
+                    if (max[9] < iDN.C_Mes)
+                        max[9] = iDN.C_Mes;
+                    else
+                        if (min[9] > iDN.C_Mes)
+                            min[9] = iDN.C_Mes;
+                    if (max[10] < iDN.C_QEquiposLiga)
+                        max[10] = iDN.C_QEquiposLiga;
+                    else
+                        if (min[10] > iDN.C_QEquiposLiga)
+                            min[10] = iDN.C_QEquiposLiga;
+                    if (max[11] < iDN.C_Visita_GolesAnotados)
+                        max[11] = iDN.C_Visita_GolesAnotados;
+                    else
+                        if (min[11] > iDN.C_Visita_GolesAnotados)
+                            min[11] = iDN.C_Visita_GolesAnotados;
+                    if (max[12] < iDN.C_Visita_GolesEncajados)
+                        max[12] = iDN.C_Visita_GolesEncajados;
+                    else
+                        if (min[12] > iDN.C_Visita_GolesEncajados)
+                            min[12] = iDN.C_Visita_GolesEncajados;
+                    if (max[13] < iDN.C_Visita_PosLiga)
+                        max[13] = iDN.C_Visita_PosLiga;
+                    else
+                        if (min[13] > iDN.C_Visita_PosLiga)
+                            min[13] = iDN.C_Visita_PosLiga;
+                    if (max[14] < iDN.C_Visita_PosRankMund)
+                        max[14] = iDN.C_Visita_PosRankMund;
+                    else
+                        if (min[14] > iDN.C_Visita_PosRankMund)
+                            min[14] = iDN.C_Visita_PosRankMund;
+                    if (max[15] < iDN.C_Visita_PromEdad)
+                        max[15] = iDN.C_Visita_PromEdad;
+                    else
+                        if (min[15] > iDN.C_Visita_PromEdad)
+                            min[15] = iDN.C_Visita_PromEdad;
+                    if (max[16] < iDN.C_Visita_Pts)
+                        max[16] = iDN.C_Visita_Pts;
+                    else
+                        if (min[16] > iDN.C_Visita_Pts)
+                            min[16] = iDN.C_Visita_Pts;
+                    if (max[17] < iDN.C_Visita_QExpulsados)
+                        max[17] = iDN.C_Visita_QExpulsados;
+                    else
+                        if (min[17] > iDN.C_Visita_QExpulsados)
+                            min[17] = iDN.C_Visita_QExpulsados;
+                    if (max[18] < iDN.C_Visita_QPartidosMes)
+                        max[18] = iDN.C_Visita_QPartidosMes;
+                    else
+                        if (min[18] > iDN.C_Visita_QPartidosMes)
+                            min[18] = iDN.C_Visita_QPartidosMes;
+                    if (max[19] < iDN.C_Visita_QSuspendidos)
+                        max[19] = iDN.C_Visita_QSuspendidos;
+                    else
+                        if (min[19] > iDN.C_Visita_QSuspendidos)
+                            min[19] = iDN.C_Visita_QSuspendidos;
+                }
 
-            foreach (PartidoPronosticadoBE iDN in LstPDN)
+                foreach (PartidoPronosticadoBE iDN in LstPDN)
+                {
+                    instancia = new InstanciaNormalizadaBE();
+                    instancia.C_Local_GolesAnotados = Math.Round(valorNormalizado(iDN.C_Local_GolesAnotados, max[0], min[0], 0), 4);
+                    instancia.C_Local_GolesEncajados = Math.Round(valorNormalizado(iDN.C_Local_GolesEncajados, max[1], min[1], 0), 4);
+                    instancia.C_Local_PosLiga = Math.Round(valorNormalizado(iDN.C_Local_PosLiga, max[2], min[2], 1), 4);
+                    instancia.C_Local_PosRankMund = Math.Round(valorNormalizado(iDN.C_Local_PosRankMund, max[3], min[3], 1), 4);
+                    instancia.C_Local_PromEdad = Math.Round(valorNormalizado(iDN.C_Local_PromEdad, max[4], min[4], 0), 4);
+                    instancia.C_Local_Pts = Math.Round(valorNormalizado(iDN.C_Local_Pts, max[5], min[5], 0), 4);
+                    instancia.C_Local_QExpulsados = Math.Round(valorNormalizado(iDN.C_Local_QExpulsados, max[6], min[6], 1), 4);
+                    instancia.C_Local_QPartidosMes = Math.Round(valorNormalizado(iDN.C_Local_QPartidosMes, max[7], min[7], 0), 4);
+                    instancia.C_Local_QSuspendidos = Math.Round(valorNormalizado(iDN.C_Local_QSuspendidos, max[8], min[8], 1), 4);
+                    instancia.C_Mes = Math.Round(valorNormalizado(iDN.C_Mes, max[9], min[9], 0), 4);
+                    instancia.C_QEquiposLiga = Math.Round(valorNormalizado(iDN.C_QEquiposLiga, max[10], min[10], 0), 4);
+                    instancia.C_Visita_GolesAnotados = Math.Round(valorNormalizado(iDN.C_Visita_GolesAnotados, max[11], min[11], 0), 4);
+                    instancia.C_Visita_GolesEncajados = Math.Round(valorNormalizado(iDN.C_Visita_GolesEncajados, max[12], min[12], 0), 4);
+                    instancia.C_Visita_PosLiga = Math.Round(valorNormalizado(iDN.C_Visita_PosLiga, max[13], min[13], 1), 4);
+                    instancia.C_Visita_PosRankMund = Math.Round(valorNormalizado(iDN.C_Visita_PosRankMund, max[14], min[14], 1), 4);
+                    instancia.C_Visita_PromEdad = Math.Round(valorNormalizado(iDN.C_Visita_PromEdad, max[15], min[15], 0), 4);
+                    instancia.C_Visita_Pts = Math.Round(valorNormalizado(iDN.C_Visita_Pts, max[16], min[16], 0), 4);
+                    instancia.C_Visita_QExpulsados = Math.Round(valorNormalizado(iDN.C_Visita_QExpulsados, max[17], min[17], 1), 4);
+                    instancia.C_Visita_QPartidosMes = Math.Round(valorNormalizado(iDN.C_Visita_QPartidosMes, max[18], min[18], 0), 4);
+                    instancia.C_Visita_QSuspendidos = Math.Round(valorNormalizado(iDN.C_Visita_QSuspendidos, max[19], min[19], 1), 4);
+                    instancia.C_Local = iDN.C_Local;
+                    instancia.C_Visita = iDN.C_Visita;
+                    instancia.C_Resultado = iDN.C_Resultado;
+                    lstInstancias.Add(instancia);
+                }
+                return lstInstancias;
+            }
+            catch (Exception ex)
             {
-                instancia = new InstanciaNormalizadaBE();
-                instancia.C_Local_GolesAnotados = Math.Round(valorNormalizado(iDN.C_Local_GolesAnotados, max[0], min[0], 0),4);
-                instancia.C_Local_GolesEncajados = Math.Round(valorNormalizado(iDN.C_Local_GolesEncajados, max[1], min[1], 0),4);
-                instancia.C_Local_PosLiga = Math.Round(valorNormalizado(iDN.C_Local_PosLiga, max[2], min[2], 1),4);
-                instancia.C_Local_PosRankMund = Math.Round(valorNormalizado(iDN.C_Local_PosRankMund, max[3], min[3], 1),4);
-                instancia.C_Local_PromEdad = Math.Round(valorNormalizado(iDN.C_Local_PromEdad, max[4], min[4], 0),4);
-                instancia.C_Local_Pts = Math.Round(valorNormalizado(iDN.C_Local_Pts, max[5], min[5], 0),4);
-                instancia.C_Local_QExpulsados = Math.Round(valorNormalizado(iDN.C_Local_QExpulsados, max[6], min[6], 1),4);
-                instancia.C_Local_QPartidosMes = Math.Round(valorNormalizado(iDN.C_Local_QPartidosMes, max[7], min[7], 0),4);
-                instancia.C_Local_QSuspendidos = Math.Round(valorNormalizado(iDN.C_Local_QSuspendidos, max[8], min[8], 1),4);
-                instancia.C_Mes = Math.Round(valorNormalizado(iDN.C_Mes, max[9], min[9], 0),4);
-                instancia.C_QEquiposLiga = Math.Round(valorNormalizado(iDN.C_QEquiposLiga, max[10], min[10], 0),4);
-                instancia.C_Visita_GolesAnotados = Math.Round(valorNormalizado(iDN.C_Visita_GolesAnotados, max[11], min[11], 0),4);
-                instancia.C_Visita_GolesEncajados = Math.Round(valorNormalizado(iDN.C_Visita_GolesEncajados, max[12], min[12], 0),4);
-                instancia.C_Visita_PosLiga = Math.Round(valorNormalizado(iDN.C_Visita_PosLiga, max[13], min[13], 1),4);
-                instancia.C_Visita_PosRankMund = Math.Round(valorNormalizado(iDN.C_Visita_PosRankMund, max[14], min[14], 1),4);
-                instancia.C_Visita_PromEdad = Math.Round(valorNormalizado(iDN.C_Visita_PromEdad, max[15], min[15], 0),4);
-                instancia.C_Visita_Pts = Math.Round(valorNormalizado(iDN.C_Visita_Pts, max[16], min[16], 0),4);
-                instancia.C_Visita_QExpulsados = Math.Round(valorNormalizado(iDN.C_Visita_QExpulsados, max[17], min[17], 1),4);
-                instancia.C_Visita_QPartidosMes = Math.Round(valorNormalizado(iDN.C_Visita_QPartidosMes, max[18], min[18], 0),4);
-                instancia.C_Visita_QSuspendidos = Math.Round(valorNormalizado(iDN.C_Visita_QSuspendidos, max[19], min[19], 1), 4);
-                instancia.C_Local = iDN.C_Local;
-                instancia.C_Visita = iDN.C_Visita;
-                instancia.C_Resultado = iDN.C_Resultado;
-                lstInstancias.Add(instancia);
-            }
-
-            return lstInstancias;
+                Funciones.RegistrarExcepcion(ex); return null;
+            }            
         }
 
         private Decimal valorNormalizado(Decimal V, Decimal Xmax, Decimal Xmin, int tipo)
@@ -812,74 +857,89 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void CrearFicheroARFF(List<InstanciaNormalizadaBE> Data)//List<PartidoPronosticadoBE> Data)
         {
-            String fic = Application.StartupPath + "\\SISPPAFUT.arff";
-            //const string fic = @"C:\Users\Michael\Documents\UPC\2012\TP1\Documentos\SISPPAFUT.arff";
-
-            //-- fuente de la función: http://www.elguille.info/NET/dotnet/leer_escribir_ficheros_texto.htm
-            System.IO.StreamWriter archivo = new StreamWriter(fic, false);
-
-            //-- Contenido del fichero
-
-            archivo.WriteLine("@relation SISPPAFUT");
-            archivo.WriteLine("@attribute QEq real");
-            archivo.WriteLine("@attribute M real");
-            //archivo.WriteLine("@attribute qEquiposMundial numeric");
-            //archivo.WriteLine("@attribute qAsistencia numeric");
-            //archivo.WriteLine("@attribute PL_L real");
-            archivo.WriteLine("@attribute PTS_L real");
-            //archivo.WriteLine("@attribute LO_L {True, False}");
-            archivo.WriteLine("@attribute PRK_L real");
-            //archivo.WriteLine("@attribute Local_GoleadorSuspendido {True, False}");
-            //archivo.WriteLine("@attribute Local_ArqueroSuspendido {True, False}");
-            archivo.WriteLine("@attribute QJE_L real");
-            archivo.WriteLine("@attribute QJS_L real");
-            archivo.WriteLine("@attribute GA_L real");
-            archivo.WriteLine("@attribute GE_L real");
-            archivo.WriteLine("@attribute PEE_L real");
-            archivo.WriteLine("@attribute QPJ_L real");
-            //archivo.WriteLine("@attribute PL_V real");
-            archivo.WriteLine("@attribute PTS_V real");
-            //archivo.WriteLine("@attribute LO_V {True, False}");
-            archivo.WriteLine("@attribute PRK_V real");
-            //archivo.WriteLine("@attribute Visita_GoleadorSuspendido {True, False}");
-            //archivo.WriteLine("@attribute Visita_ArqueroSuspendido {True, False}");
-            archivo.WriteLine("@attribute QJE_V real");
-            archivo.WriteLine("@attribute QJS_V real");
-            archivo.WriteLine("@attribute GA_V real");
-            archivo.WriteLine("@attribute GE_V real");
-            archivo.WriteLine("@attribute PEE_V real");
-            archivo.WriteLine("@attribute QPJ_V real");
-            archivo.WriteLine("@attribute Resultado {L, E, V}");
-            archivo.WriteLine("@data");
-            
-            foreach (InstanciaNormalizadaBE cDto in Data)//PartidoPronosticadoBE cDto in Data)
+            try
             {
-                string _data = String.Empty;
-                _data = cDto.C_QEquiposLiga + "," +
-                        cDto.C_Mes + "," + 
-                        //cDto.C_QEquiposMundial+ "," + 
-                        //cDto.C_QAsistencia    + "," +
-                        //cDto.C_Local_PosLiga    + "," + 
-                        cDto.C_Local_Pts + "," + 
-                        //cDto.C_Local + "," + 
-                        cDto.C_Local_PosRankMund + "," + 
-                        //cDto.C_Local_GoleadorSuspendido + "," + cDto.C_Local_ArqueroSuspendido + "," + 
-                        cDto.C_Local_QExpulsados + "," + cDto.C_Local_QSuspendidos + "," + cDto.C_Local_GolesAnotados + "," + 
-                        cDto.C_Local_GolesEncajados + "," + cDto.C_Local_PromEdad + "," + 
-                        cDto.C_Local_QPartidosMes + "," + 
-                        //cDto.C_Visita_PosLiga + "," + 
-                        cDto.C_Visita_Pts + "," + 
-                        //cDto.C_Visita + "," + 
-                        cDto.C_Visita_PosRankMund + "," + 
-                        //cDto.C_Visita_GoleadorSuspendido + "," + cDto.C_Visita_ArqueroSuspendido + "," + 
-                        cDto.C_Visita_QExpulsados + "," + cDto.C_Visita_QSuspendidos + "," +
-                        cDto.C_Visita_GolesAnotados + "," + cDto.C_Visita_GolesEncajados + "," + cDto.C_Visita_PromEdad + "," +
-                        cDto.C_Visita_QPartidosMes + "," + 
-                        cDto.C_Resultado;
-                archivo.WriteLine(_data);
+                String fic = Application.StartupPath + "\\SISPPAFUT.arff";
+                //const string fic = @"C:\Users\Michael\Documents\UPC\2012\TP1\Documentos\SISPPAFUT.arff";
+
+                //-- fuente de la función: http://www.elguille.info/NET/dotnet/leer_escribir_ficheros_texto.htm
+                System.IO.StreamWriter archivo = new StreamWriter(fic, false);
+
+                //-- Contenido del fichero
+
+                archivo.WriteLine("@relation SISPPAFUT");
+                archivo.WriteLine("@attribute QEq real");
+                archivo.WriteLine("@attribute M real");
+                //archivo.WriteLine("@attribute qEquiposMundial numeric");
+                //archivo.WriteLine("@attribute qAsistencia numeric");
+                archivo.WriteLine("@attribute PL_L real");
+                archivo.WriteLine("@attribute PTS_L real");
+                archivo.WriteLine("@attribute LO_L {True, False}");
+                archivo.WriteLine("@attribute PRK_L real");
+                //archivo.WriteLine("@attribute Local_GoleadorSuspendido {True, False}");
+                //archivo.WriteLine("@attribute Local_ArqueroSuspendido {True, False}");
+                archivo.WriteLine("@attribute QJE_L real");
+                archivo.WriteLine("@attribute QJS_L real");
+                archivo.WriteLine("@attribute GA_L real");
+                archivo.WriteLine("@attribute GE_L real");
+                archivo.WriteLine("@attribute PEE_L real");
+                archivo.WriteLine("@attribute QPJ_L real");
+                archivo.WriteLine("@attribute PL_V real");
+                archivo.WriteLine("@attribute PTS_V real");
+                archivo.WriteLine("@attribute LO_V {True, False}");
+                archivo.WriteLine("@attribute PRK_V real");
+                //archivo.WriteLine("@attribute Visita_GoleadorSuspendido {True, False}");
+                //archivo.WriteLine("@attribute Visita_ArqueroSuspendido {True, False}");
+                archivo.WriteLine("@attribute QJE_V real");
+                archivo.WriteLine("@attribute QJS_V real");
+                archivo.WriteLine("@attribute GA_V real");
+                archivo.WriteLine("@attribute GE_V real");
+                archivo.WriteLine("@attribute PEE_V real");
+                archivo.WriteLine("@attribute QPJ_V real");
+                archivo.WriteLine("@attribute Resultado {L, E, V}");
+                archivo.WriteLine("@data");
+
+                foreach (InstanciaNormalizadaBE cDto in Data)//PartidoPronosticadoBE cDto in Data)
+                {
+                    string _data = String.Empty;
+                    _data = cDto.C_QEquiposLiga + "," +
+                            cDto.C_Mes + "," +
+                            //cDto.C_QEquiposMundial+ "," + 
+                            //cDto.C_QAsistencia    + "," +
+                            cDto.C_Local_PosLiga + "," +
+                            cDto.C_Local_Pts + "," +
+                            cDto.C_Local + "," +
+                            cDto.C_Local_PosRankMund + "," +
+                            //cDto.C_Local_GoleadorSuspendido + "," + 
+                            //cDto.C_Local_ArqueroSuspendido + "," + 
+                            cDto.C_Local_QExpulsados + "," +
+                            cDto.C_Local_QSuspendidos + "," +
+                            cDto.C_Local_GolesAnotados + "," +
+                            cDto.C_Local_GolesEncajados + "," +
+                            cDto.C_Local_PromEdad + "," +
+                            cDto.C_Local_QPartidosMes + "," +
+                            cDto.C_Visita_PosLiga + "," +
+                            cDto.C_Visita_Pts + "," +
+                            cDto.C_Visita + "," +
+                            cDto.C_Visita_PosRankMund + "," +
+                            //cDto.C_Visita_GoleadorSuspendido + "," + 
+                            //cDto.C_Visita_ArqueroSuspendido + "," + 
+                            cDto.C_Visita_QExpulsados + "," +
+                            cDto.C_Visita_QSuspendidos + "," +
+                            cDto.C_Visita_GolesAnotados + "," +
+                            cDto.C_Visita_GolesEncajados + "," +
+                            cDto.C_Visita_PromEdad + "," +
+                            cDto.C_Visita_QPartidosMes + "," +
+                            cDto.C_Resultado;
+                    archivo.WriteLine(_data);
+                }
+
+                archivo.Close();
             }
-            
-            archivo.Close();
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }
 
         private void inCerrar(object sender, FormClosingEventArgs e)
