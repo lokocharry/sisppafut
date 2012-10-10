@@ -53,7 +53,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 SISPPAFUTmdiPrincipal frm = SISPPAFUTmdiPrincipal.Instance();
 
                 frm.RecibirCodigoUsuario(idUsuario);
-
+                frm.Usuario = usuario;
                 frm.Show();
                 frm.BringToFront();
 

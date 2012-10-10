@@ -9,6 +9,14 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class EquipoBC
     {
+        String Usuario;
+
+        public void RecibirCodigoUsuario(String Usuario)
+        {
+            this.Usuario = Usuario;
+        }
+
+        
         public int insertarEquipo(EquipoBE objEquipoBE)
         {
             EquipoDALC objEquipoDALC;
@@ -22,7 +30,22 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     return -1;
                 }
 
-                return objEquipoDALC.insertar_Equipo(objEquipoBE);
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                int idoperacion = objEquipoDALC.insertar_Equipo(objEquipoBE);
+
+                objLogBE.CodOperacion = idoperacion;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se insertó un nuevo equipo";
+                objLogBE.Tabla = "Equipo";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return idoperacion;
             }
             catch (Exception ex)
             {

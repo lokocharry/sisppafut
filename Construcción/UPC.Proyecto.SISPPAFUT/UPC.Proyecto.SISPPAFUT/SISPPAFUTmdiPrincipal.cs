@@ -23,6 +23,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 estado_Funcionalidades.Add(0);
         }
         int CodigoUsuario = 0;
+        String NombreUsuario;
         List<FuncionalidadBE> lst_funcionalidades;
         List<int> estado_Funcionalidades;
 
@@ -38,6 +39,12 @@ namespace UPC.Proyecto.SISPPAFUT
         public void RecibirCodigoUsuario(int CodigoUsuario)
         {
             this.CodigoUsuario = CodigoUsuario;
+        }
+
+        public String Usuario
+        {
+            get { return NombreUsuario; }
+            set { NombreUsuario = value; }
         }
 
         public void CargarFuncionalidadesUsuario()
@@ -331,6 +338,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 frmInsertarEquipo frmEquipo = frmInsertarEquipo.Instance();
                 frmEquipo.NombreEquipo = null;
                 frmEquipo.Modo = 1;
+                frmEquipo.Usuario = Usuario;
                 frmEquipo.MdiParent = this;
                 frmEquipo.Show();
                 frmEquipo.BringToFront();

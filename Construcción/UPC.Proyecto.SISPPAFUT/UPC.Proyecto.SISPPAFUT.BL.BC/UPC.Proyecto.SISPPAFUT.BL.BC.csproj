@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -69,6 +70,10 @@
     <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.DL.DALC\UPC.Proyecto.SISPPAFUT.DL.DALC.csproj">
       <Project>{3E8E1A66-3993-4657-A0C0-C08F6A1A3EA3}</Project>
       <Name>UPC.Proyecto.SISPPAFUT.DL.DALC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UPC.Seguridad.BL.BC\UPC.Seguridad.BL.BC.csproj">
+      <Project>{D5FF63C2-6D83-4998-8766-2AB46151DEAD}</Project>
+      <Name>UPC.Seguridad.BL.BC</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
