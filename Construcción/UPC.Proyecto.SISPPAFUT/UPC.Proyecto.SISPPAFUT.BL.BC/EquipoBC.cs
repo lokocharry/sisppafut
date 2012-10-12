@@ -58,6 +58,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 EquipoDALC objEquipoDALC = new EquipoDALC();
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = 0;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se listaron los equipos de "+Pais;
+                objLogBE.Tabla = "Equipo";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+                
                 return objEquipoDALC.listar_Equipos(Pais);
             }
             catch(Exception ex)
@@ -71,6 +85,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 EquipoDALC objEquipoDALC = new EquipoDALC();
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = 0;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se listaron los equipos de la liga con id: "+Liga.ToString();
+                objLogBE.Tabla = "Equipo";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
                 return objEquipoDALC.listar_EquiposDeLiga(Liga);
             }
             catch (Exception ex)
@@ -86,6 +114,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 EquipoBE objEquipoBE;
                 EquipoDALC objEquipoDALC = new EquipoDALC();
                 objEquipoBE = objEquipoDALC.obtener_Equipo(_equipo);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = objEquipoBE.CodigoEquipo;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se obtuvo un el equipo "+_equipo;
+                objLogBE.Tabla = "Equipo";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+                
                 return objEquipoBE;
             }
             catch (Exception ex)
@@ -100,6 +142,19 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             {
                 EquipoDALC objEquipoDALC = new EquipoDALC();
                 objEquipoDALC.actualizar_equipo(codigo_equipo, estadio_principal, estadio_alterno);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = codigo_equipo;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se actualizó un equipo";
+                objLogBE.Tabla = "Equipo";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
             }
             catch (Exception ex)
             {

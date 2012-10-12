@@ -9,10 +9,37 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class CompeticionBC
     {
+
+        String Usuario;
+
+        public void RecibirCodigoUsuario(String Usuario)
+        {
+            this.Usuario = Usuario;
+        }
+
         public int insertar_Competicion(CompeticionBE objCompeticionBE)
         {
             CompeticionDALC objCompeticionDALC = new CompeticionDALC();
-            return objCompeticionDALC.insertar_Competicion(objCompeticionBE);
+
+            int result = objCompeticionDALC.insertar_Competicion(objCompeticionBE);
+
+            if (result != 0)
+            {
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = result;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se insertó una nueva competición";
+                objLogBE.Tabla = "Competicion";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+            }
+            
+            return result;
         }
 
         public List<CompeticionBE> ListarCompeticion(String Pais)
@@ -21,6 +48,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             {
                 CompeticionDALC objCompeticionDALC = new CompeticionDALC();
                 List<CompeticionBE> lst = objCompeticionDALC.listar_Competicion(Pais);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = 0;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se listaron las competiciones del pais: "+Pais;
+                objLogBE.Tabla = "Competicion";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+                
                 return lst;
             }
             catch(Exception ex)
@@ -42,6 +83,20 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     if (cDto.Nombre_competicion == _competicion)
                         return cDto;
                 }
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = competicion.Codigo_competicion;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se obtuvo una competición";
+                objLogBE.Tabla = "Competicion";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
                 return competicion;
             }
             catch (Exception ex)

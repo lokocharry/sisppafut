@@ -9,6 +9,13 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class JugadorBC
     {
+        String Usuario;
+
+        public void RecibirCodigoUsuario(String Usuario)
+        {
+            this.Usuario = Usuario;
+        }
+
         public int insertar_Jugador(JugadorBE objJugadorBE)
         {
             JugadorDALC objJugadorDALC;            
@@ -17,7 +24,23 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             {
                 objJugadorDALC = new JugadorDALC();                                
                 resultado = objJugadorDALC.insertar_Jugador(objJugadorBE);
-                
+
+                if (resultado != 0)
+                {
+                    LogBC objLogBC = new LogBC();
+                    LogBE objLogBE = new LogBE();
+
+                    objLogBE.CodOperacion = resultado;
+                    objLogBE.Fecha = DateTime.Now;
+                    String nameHost = System.Net.Dns.GetHostName();
+                    objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                    objLogBE.Razon = "Se insertó un nuevo jugador";
+                    objLogBE.Tabla = "Jugador";
+                    objLogBE.Usuario = Usuario;
+
+                    objLogBC.RegistrarLog(objLogBE);
+                }
+
                 return resultado;
             }
 
@@ -34,7 +57,24 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 objJugadorDALC = new JugadorDALC();
-                return objJugadorDALC.listar_Jugadores();
+
+                List<JugadorBE> lst_jugadores = new List<JugadorBE>();
+                lst_jugadores = objJugadorDALC.listar_Jugadores();
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = 0;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se listó a los jugadores";
+                objLogBE.Tabla = "Jugador";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return lst_jugadores;
             }
 
             catch (Exception)
@@ -51,7 +91,25 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             {
                 //-- Se lista solo los jugadores que estén habilitados para jugar (excluir jugadores lesionados y suspendidos)
                 objJugadorDALC = new JugadorDALC();
-                return objJugadorDALC.listar_Jugadores_xEquipo(codigo_equipo);
+
+                List<JugadorBE> lst_jugadores = new List<JugadorBE>();
+
+                lst_jugadores = objJugadorDALC.listar_Jugadores_xEquipo(codigo_equipo);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = codigo_equipo;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se listó a los jugadores por equipo";
+                objLogBE.Tabla = "JugadorEquipo";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return lst_jugadores;
             }
 
             catch (Exception)
@@ -66,11 +124,25 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 
             try
             {
+                LogBC objLogBC = new LogBC();
                 objJugadorDALC = new JugadorDALC();
 
                 for (int i = 0; i < lista_jugadores.Count; i++)
                 {
                     objJugadorDALC.asignarJugador_aEquipo(lista_jugadores[i]);
+
+                    
+                    LogBE objLogBE = new LogBE();
+
+                    objLogBE.CodOperacion = lista_jugadores[i].Codigo_jugador;
+                    objLogBE.Fecha = DateTime.Now;
+                    String nameHost = System.Net.Dns.GetHostName();
+                    objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                    objLogBE.Razon = "Se asignó jugador a equipo con id: "+lista_jugadores[i].Codigo_equipo.ToString();
+                    objLogBE.Tabla = "JugadorEquipo";
+                    objLogBE.Usuario = Usuario;
+
+                    objLogBC.RegistrarLog(objLogBE);
                 }
             }
 
@@ -88,6 +160,19 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             {
                 objJugadorDALC = new JugadorDALC();
                 objJugadorDALC.editarJugador(codigoJugador, nAltura, nPeso);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = codigoJugador;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se actualizó un jugador";
+                objLogBE.Tabla = "Jugador";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
             }
             catch (Exception)
             {
@@ -102,7 +187,23 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 objJugadorDALC = new JugadorDALC();
-                return objJugadorDALC.cantidadGolesxJugador(jugador, liga);
+
+                int cantidad = objJugadorDALC.cantidadGolesxJugador(jugador, liga);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = jugador;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se obtuvo la cantidad de goles por jugador en una liga con id: "+liga.ToString();
+                objLogBE.Tabla = "Jugador";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return cantidad;
             }
 
             catch (Exception)
@@ -118,7 +219,23 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 objJugadorDALC = new JugadorDALC();
-                return objJugadorDALC.cantidadPartidosxJugador(jugador, liga);
+
+                int Cantidad = objJugadorDALC.cantidadPartidosxJugador(jugador, liga);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = jugador;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se obtuvo la cantida de partidos jugados por un jugador en una liga con id: "+liga.ToString();
+                objLogBE.Tabla = "Jugador";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return Cantidad;
             }
 
             catch (Exception)
@@ -134,9 +251,25 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 objJugadorDALC = new JugadorDALC();
-                return objJugadorDALC.estado_LesionJugador(codigo_jugador, fecha);
-            }
 
+                String estado = objJugadorDALC.estado_LesionJugador(codigo_jugador, fecha);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = codigo_jugador;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se obtuvo el estado de lesión de un jugador en una fecha";
+                objLogBE.Tabla = "LesionPartido";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return estado;
+
+            }
             catch (Exception)
             {
                 throw;
@@ -150,7 +283,25 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 objHistorialJugadorDALC = new HistorialJugadorDALC();
-                return objHistorialJugadorDALC.listar_historialdejugador(codigo_jugador);
+
+                List<HistorialJugadorBE> lst_historial = new List<HistorialJugadorBE>();
+                lst_historial = objHistorialJugadorDALC.listar_historialdejugador(codigo_jugador);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = codigo_jugador;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se obtuvo el historial de un jugador";
+                objLogBE.Tabla = "HistorialJugadorEquipo";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                
+                return lst_historial;
             }
             catch (Exception)
             {
@@ -166,6 +317,19 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             {
                 objJugadorDALC = new JugadorDALC();
                 objJugadorDALC.TransferirJugadorAEquipo(codigo_jugador, codigo_nuevoequipo);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = codigo_jugador;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se transfirió a un jugador a un equipo con id: " + codigo_nuevoequipo.ToString();
+                objLogBE.Tabla = "JugadorEquipo";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
             }
             catch (Exception)
             {
@@ -180,7 +344,24 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 objJugadorDALC = new JugadorDALC();
-                return objJugadorDALC.ListarNacionalidades();
+
+                List<String> lst_nacionalidades = new List<String>();
+                lst_nacionalidades = objJugadorDALC.ListarNacionalidades();
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = 0;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se listaron las nacionalidades";
+                objLogBE.Tabla = "Jugador";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return lst_nacionalidades;
             }
             catch (Exception)
             {
@@ -195,7 +376,24 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 objJugadorDALC = new JugadorDALC();
-                return objJugadorDALC.listar_Jugadores_xNacionalidad(Nacionalidad);
+
+                List<JugadorBE> lst_jugadores = new List<JugadorBE>();
+                lst_jugadores = objJugadorDALC.listar_Jugadores_xNacionalidad(Nacionalidad);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = 0;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se listaron los jugadores con la nacionalidad: " + Nacionalidad;
+                objLogBE.Tabla = "Jugador";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return lst_jugadores;
             }
             catch (Exception)
             {

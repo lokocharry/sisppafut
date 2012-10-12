@@ -9,6 +9,14 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class AmonestacionBC
     {
+
+        String Usuario;
+
+        public void RecibirCodigoUsuario(String Usuario)
+        {
+            this.Usuario = Usuario;
+        }
+
         public void insertar_Amonestacion(List<AmonestacionBE> lista_amonestaciones)
         {
             AmonestacionDALC objAmonestacionDALC;
@@ -24,6 +32,17 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     objLogBE = new LogBE();
                     objAmonestacionDALC = new AmonestacionDALC();
                     objAmonestacionDALC.insertar_Amonestacion(lista_amonestaciones[i]);
+
+                    objLogBE.CodOperacion = lista_amonestaciones[i].Codigo_amonestacion;
+                    objLogBE.Fecha = DateTime.Now;
+                    String nameHost = System.Net.Dns.GetHostName();
+                    objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                    objLogBE.Razon = "Se insertó una amonestación";
+                    objLogBE.Tabla = "AmonestacionPartido";
+                    objLogBE.Usuario = Usuario;
+
+                    objLogBC.RegistrarLog(objLogBE);
+
                 }
             }
 

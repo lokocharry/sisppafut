@@ -10,6 +10,13 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class EstadioBC
     {
+        String Usuario;
+
+        public void RecibirCodigoUsuario(String Usuario)
+        {
+            this.Usuario = Usuario;
+        }
+
         public int insertar_Estadio(EstadioBE objEstadioBE)
         {
             int result = 0;
@@ -23,14 +30,16 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     //Guardar el registro;
                     LogBC objLogBC = new LogBC();
                     LogBE objLogBE = new LogBE();
-                    IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+
                     objLogBE.CodOperacion = result;
                     objLogBE.Fecha = DateTime.Now;
-                    objLogBE.IP = entry.AddressList[0].ToString();
-                    objLogBE.Razon = "Inserción de un nuevo registro en el sistema";
+                    String nameHost = System.Net.Dns.GetHostName();
+                    objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                    objLogBE.Razon = "Se insertó un nuevo estadio";
                     objLogBE.Tabla = "Estadio";
-                    objLogBE.Usuario = "Adminn"; //Debo obtener el usuario
-                    int r = (objLogBC.RegistrarLog(objLogBE));
+                    objLogBE.Usuario = Usuario;
+
+                    objLogBC.RegistrarLog(objLogBE);
                 }
 
                 return result;
@@ -46,7 +55,24 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 EstadioDALC objEstadioDALC = new EstadioDALC();
-                return objEstadioDALC.listar_Estadios();
+
+                List<EstadioBE> lst_Estadio = new List<EstadioBE>();
+                lst_Estadio = objEstadioDALC.listar_Estadios();
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = 0;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se listaron los estadios";
+                objLogBE.Tabla = "Estadio";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return lst_Estadio;
             }
             catch (Exception ex)
             {
@@ -59,7 +85,25 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 EstadioDALC objEstadioDALC = new EstadioDALC();
-                return objEstadioDALC.obtenerEstadioDeEquipo(codigo_equipo);
+
+                List<EstadioBE> lst_estadios = new List<EstadioBE>();
+
+                lst_estadios = objEstadioDALC.obtenerEstadioDeEquipo(codigo_equipo);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = 0;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se listaron los estadios de un equipo";
+                objLogBE.Tabla = "Estadio";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return lst_estadios;
             }
             catch (Exception ex)
             {
@@ -72,7 +116,25 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 EstadioDALC objEstadioDALC = new EstadioDALC();
-                return objEstadioDALC.obtenerEstadioDePais(codigo_pais);
+
+                List<EstadioBE> lst_estadios = new List<EstadioBE>();
+
+                lst_estadios = objEstadioDALC.obtenerEstadioDePais(codigo_pais);
+
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = 0;
+                objLogBE.Fecha = DateTime.Now;
+                String nameHost = System.Net.Dns.GetHostName();
+                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                objLogBE.Razon = "Se listaron los estadios de un pais";
+                objLogBE.Tabla = "Estadio";
+                objLogBE.Usuario = Usuario;
+
+                objLogBC.RegistrarLog(objLogBE);
+
+                return lst_estadios;
             }
             catch (Exception ex)
             {
