@@ -9,6 +9,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class LesionPartidoBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public void insertar_Lesiones(List<LesionPartidoBE> lista_lesiones)
         {
             LesionPartidoDALC objLesionDALC;

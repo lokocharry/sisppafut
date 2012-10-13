@@ -9,6 +9,10 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class CompeticionBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
 
         String Usuario;
 
@@ -34,7 +38,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se insertó una nueva competición";
                 objLogBE.Tabla = "Competicion";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
             }
@@ -58,7 +62,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se listaron las competiciones del pais: "+Pais;
                 objLogBE.Tabla = "Competicion";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
                 
@@ -93,7 +97,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se obtuvo una competición";
                 objLogBE.Tabla = "Competicion";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 

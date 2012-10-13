@@ -9,6 +9,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class SuspensionBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public void crear_Suspension(SuspensionBE objSuspension)
         {
             try
@@ -76,6 +81,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             }
         }
 
+        //-- En el siguiente no va log porque es parte del entrenamiento
         public int CantidadJugadoresSuspendidos(int codEquipo, int codLiga, DateTime fecha)
         {
             SuspensionDALC objSuspensionDALC;

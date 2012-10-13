@@ -9,11 +9,17 @@ using System.Windows.Forms;
 
 using UPC.Seguridad.BL.BC;
 using UPC.Seguridad.BL.BE;
+using UPC.Proyecto.SISPPAFUT.BL.BC;
 
 namespace UPC.Proyecto.SISPPAFUT
 {
     public partial class SISPPAFUTmdiPrincipal : Form
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public SISPPAFUTmdiPrincipal()
         {
             InitializeComponent();
@@ -21,6 +27,24 @@ namespace UPC.Proyecto.SISPPAFUT
 
             for (int i = 0; i < 27; i++)
                 estado_Funcionalidades.Add(0);
+            //-- En cada BC asigno el usuario que se logueó
+            AmonestacionBC.Propiedades.userLogged = Propiedades.userLogged;
+            CompeticionBC.Propiedades.userLogged = Propiedades.userLogged;
+            EquipoBC.Propiedades.userLogged = Propiedades.userLogged;
+            EstadioBC.Propiedades.userLogged = Propiedades.userLogged;
+            GolBC.Propiedades.userLogged = Propiedades.userLogged;
+            JugadorBC.Propiedades.userLogged = Propiedades.userLogged;
+            JugadorEquipoBC.Propiedades.userLogged = Propiedades.userLogged;
+            JugadorPartidoBC.Propiedades.userLogged = Propiedades.userLogged;
+            LesionPartidoBC.Propiedades.userLogged = Propiedades.userLogged;
+            LigaBC.Propiedades.userLogged = Propiedades.userLogged;
+            LigaEquipoBC.Propiedades.userLogged = Propiedades.userLogged;
+            PaisBC.Propiedades.userLogged = Propiedades.userLogged;
+            PartidoBC.Propiedades.userLogged = Propiedades.userLogged;
+            PronosticoClienteBC.Propiedades.userLogged = Propiedades.userLogged;
+            RankingEquipoBC.Propiedades.userLogged = Propiedades.userLogged;
+            SuspensionBC.Propiedades.userLogged = Propiedades.userLogged;
+            TablaPosicionesBC.Propiedades.userLogged = Propiedades.userLogged;
         }
         int CodigoUsuario = 0;
         String NombreUsuario;
@@ -338,7 +362,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 frmInsertarEquipo frmEquipo = frmInsertarEquipo.Instance();
                 frmEquipo.NombreEquipo = null;
                 frmEquipo.Modo = 1;
-                frmEquipo.Usuario = Usuario;
+                frmEquipo.Usuario = Propiedades.userLogged;
                 frmEquipo.MdiParent = this;
                 frmEquipo.Show();
                 frmEquipo.BringToFront();

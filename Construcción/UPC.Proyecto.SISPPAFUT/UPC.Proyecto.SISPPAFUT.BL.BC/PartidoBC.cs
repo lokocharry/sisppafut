@@ -9,6 +9,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class PartidoBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public int insertar_Partido(PartidoBE objPartidoBE)
         {
             PartidoDALC objPartidoDALC = new PartidoDALC();

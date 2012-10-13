@@ -6,9 +6,14 @@ using UPC.Proyecto.SISPPAFUT.DL.DALC;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
 
 namespace UPC.Proyecto.SISPPAFUT.BL.BC
-{
+{   
     public class JugadorBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         String Usuario;
 
         public void RecibirCodigoUsuario(String Usuario)
@@ -36,7 +41,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                     objLogBE.Razon = "Se insertó un nuevo jugador";
                     objLogBE.Tabla = "Jugador";
-                    objLogBE.Usuario = Usuario;
+                    objLogBE.Usuario = Propiedades.userLogged;
 
                     objLogBC.RegistrarLog(objLogBE);
                 }
@@ -70,7 +75,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se listó a los jugadores";
                 objLogBE.Tabla = "Jugador";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -105,7 +110,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se listó a los jugadores por equipo";
                 objLogBE.Tabla = "JugadorEquipo";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -140,7 +145,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                     objLogBE.Razon = "Se asignó jugador a equipo con id: "+lista_jugadores[i].Codigo_equipo.ToString();
                     objLogBE.Tabla = "JugadorEquipo";
-                    objLogBE.Usuario = Usuario;
+                    objLogBE.Usuario = Propiedades.userLogged;
 
                     objLogBC.RegistrarLog(objLogBE);
                 }
@@ -170,7 +175,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se actualizó un jugador";
                 objLogBE.Tabla = "Jugador";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
             }
@@ -199,7 +204,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se obtuvo la cantidad de goles por jugador en una liga con id: "+liga.ToString();
                 objLogBE.Tabla = "Jugador";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -231,7 +236,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se obtuvo la cantida de partidos jugados por un jugador en una liga con id: "+liga.ToString();
                 objLogBE.Tabla = "Jugador";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -263,7 +268,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se obtuvo el estado de lesión de un jugador en una fecha";
                 objLogBE.Tabla = "LesionPartido";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -296,7 +301,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se obtuvo el historial de un jugador";
                 objLogBE.Tabla = "HistorialJugadorEquipo";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -327,7 +332,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se transfirió a un jugador a un equipo con id: " + codigo_nuevoequipo.ToString();
                 objLogBE.Tabla = "JugadorEquipo";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
             }
@@ -357,7 +362,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se listaron las nacionalidades";
                 objLogBE.Tabla = "Jugador";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -389,7 +394,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se listaron los jugadores con la nacionalidad: " + Nacionalidad;
                 objLogBE.Tabla = "Jugador";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 

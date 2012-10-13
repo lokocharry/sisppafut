@@ -7,11 +7,18 @@ using System.Text;
 using System.Windows.Forms;
 
 using UPC.Seguridad.BL.BC;
+using UPC.Proyecto.SISPPAFUT.BL.BE;
+using UPC.Proyecto.SISPPAFUT.BL.BC;
 
 namespace UPC.Proyecto.SISPPAFUT
 {
     public partial class SISPPAFUTlogin : Form
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public SISPPAFUTlogin()
         {
             InitializeComponent();
@@ -49,14 +56,15 @@ namespace UPC.Proyecto.SISPPAFUT
                     txtContrasenia.Clear();
                     return;
                 }
-
+                                
+                SISPPAFUTlogin.Propiedades.userLogged = usuario;
+                SISPPAFUTmdiPrincipal.Propiedades.userLogged = SISPPAFUTlogin.Propiedades.userLogged;
                 SISPPAFUTmdiPrincipal frm = SISPPAFUTmdiPrincipal.Instance();
-
                 frm.RecibirCodigoUsuario(idUsuario);
-                frm.Usuario = usuario;
+                frm.Usuario = SISPPAFUTlogin.Propiedades.userLogged;
+                
                 frm.Show();
                 frm.BringToFront();
-
                 txtUsuario.Clear();
                 txtContrasenia.Clear();
             }

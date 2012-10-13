@@ -9,6 +9,10 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class AmonestacionBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
 
         String Usuario;
 
@@ -39,7 +43,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                     objLogBE.Razon = "Se insertó una amonestación";
                     objLogBE.Tabla = "AmonestacionPartido";
-                    objLogBE.Usuario = Usuario;
+                    objLogBE.Usuario = Propiedades.userLogged;
 
                     objLogBC.RegistrarLog(objLogBE);
 

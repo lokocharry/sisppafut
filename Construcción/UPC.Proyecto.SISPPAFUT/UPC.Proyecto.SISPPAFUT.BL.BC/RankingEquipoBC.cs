@@ -9,6 +9,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class RankingEquipoBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public int insertar_ranking(RankingEquipoBE objRankingEquipoBE)
         {
             RankingEquipoDALC objRankingEquipoDALC;

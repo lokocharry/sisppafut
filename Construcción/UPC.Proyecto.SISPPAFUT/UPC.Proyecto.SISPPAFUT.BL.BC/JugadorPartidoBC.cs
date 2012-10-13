@@ -9,6 +9,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class JugadorPartidoBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public void insertar_jugadores(List<JugadorPartidoBE> lista_jugadores)
         {
             JugadorPartidoDALC objJugadorPartidoDALC;

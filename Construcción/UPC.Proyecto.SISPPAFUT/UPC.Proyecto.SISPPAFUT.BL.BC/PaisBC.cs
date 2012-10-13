@@ -9,6 +9,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class PaisBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public int insertarPais(PaisBE objPaisBE)
         {
             PaisDALC objPaisDALC;

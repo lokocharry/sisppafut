@@ -9,13 +9,17 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class EquipoBC
     {
-        String Usuario;
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
 
+        String Usuario;
+        
         public void RecibirCodigoUsuario(String Usuario)
         {
             this.Usuario = Usuario;
         }
-
         
         public int insertarEquipo(EquipoBE objEquipoBE)
         {
@@ -41,7 +45,8 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se insertó un nuevo equipo";
                 objLogBE.Tabla = "Equipo";
-                objLogBE.Usuario = Usuario;
+                //objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -68,7 +73,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se listaron los equipos de "+Pais;
                 objLogBE.Tabla = "Equipo";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
                 
@@ -95,7 +100,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se listaron los equipos de la liga con id: "+Liga.ToString();
                 objLogBE.Tabla = "Equipo";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -124,7 +129,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se obtuvo un el equipo "+_equipo;
                 objLogBE.Tabla = "Equipo";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
                 
@@ -152,7 +157,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se actualizó un equipo";
                 objLogBE.Tabla = "Equipo";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
             }

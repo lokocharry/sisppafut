@@ -10,6 +10,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class EstadioBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         String Usuario;
 
         public void RecibirCodigoUsuario(String Usuario)
@@ -37,7 +42,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                     objLogBE.Razon = "Se insertó un nuevo estadio";
                     objLogBE.Tabla = "Estadio";
-                    objLogBE.Usuario = Usuario;
+                    objLogBE.Usuario = Propiedades.userLogged;//Usuario;
 
                     objLogBC.RegistrarLog(objLogBE);
                 }
@@ -68,7 +73,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se listaron los estadios";
                 objLogBE.Tabla = "Estadio";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;//Usuario;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -99,7 +104,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se listaron los estadios de un equipo";
                 objLogBE.Tabla = "Estadio";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -130,7 +135,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
                 objLogBE.Razon = "Se listaron los estadios de un pais";
                 objLogBE.Tabla = "Estadio";
-                objLogBE.Usuario = Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 

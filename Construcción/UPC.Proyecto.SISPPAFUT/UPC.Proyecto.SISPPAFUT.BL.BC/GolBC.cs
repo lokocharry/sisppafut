@@ -9,6 +9,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class GolBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public void insertar_Goles(List<GolBE> lista_goles)
         {
             GolDALC objGolDALC;

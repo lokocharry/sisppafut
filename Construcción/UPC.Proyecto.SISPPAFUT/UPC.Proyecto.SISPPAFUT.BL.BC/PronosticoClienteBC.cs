@@ -10,6 +10,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class PronosticoClienteBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public void inssertarPronosticoCliente(PronosticoClienteBE objPronosticoClienteBE)
         {
             try

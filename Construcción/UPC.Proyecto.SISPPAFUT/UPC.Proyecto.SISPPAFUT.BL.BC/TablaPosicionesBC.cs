@@ -9,6 +9,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class TablaPosicionesBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public void InsertarEquiposTablaPosiciones(int codLiga, List<LigaEquipoBE> lstLigaEquipos)
         {
             TablaPosicionesDALC objDALC = new TablaPosicionesDALC();
@@ -37,7 +42,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 int iCod = objDALC.insertar_Tabla(objBE);
             }
         }
-
+        //-- En el siguiente no va log porque es parte del entrenamiento
         public List<TablaPosicionesBE> ObtenerTablaPosicionLiga(int codLiga)
         {
             List<TablaPosicionesBE> lstTabla;
@@ -53,7 +58,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 throw;
             }
         }
-
+        //-- En el siguiente no va log porque es parte del entrenamiento
         public Int64 ConsultarPosicionEquipoTabla(int codLiga, int codEquipo)
         {
             Int64 pos = 0;

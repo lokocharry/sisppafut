@@ -9,6 +9,11 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 {
     public class LigaBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public int insertarLiga(String pais, String competicion, LigaBE objLigaBE, List<LigaEquipoBE> lstEquipos)
         {
             LigaDALC objLigaDALC;

@@ -6,9 +6,14 @@ using UPC.Proyecto.SISPPAFUT.BL.BE;
 using UPC.Proyecto.SISPPAFUT.DL.DALC;
 
 namespace UPC.Proyecto.SISPPAFUT.BL.BC
-{
+{   
     public class JugadorEquipoBC
     {
+        public static class Propiedades
+        {
+            public static string userLogged { get; set; }
+        }
+
         public List<JugadorEquipoBE> listaJugadorEquipo()
         {
             JugadorEquipoDALC objJugadorDALC;

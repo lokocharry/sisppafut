@@ -127,3 +127,7 @@ C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyec
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\obj\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.dll
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\obj\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.pdb
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.dll.config
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\obj\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.Properties.Resources.resources
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\obj\Debug\GenerateResource-ResGen.write.1.tlog
