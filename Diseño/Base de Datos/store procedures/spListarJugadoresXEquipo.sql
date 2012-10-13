@@ -1,13 +1,12 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spListarJugadoresXEquipo]    Script Date: 05/17/2012 18:38:09 ******/
+/****** Object:  StoredProcedure [dbo].[spListarJugadoresXEquipo]    Script Date: 10/11/2012 15:14:25 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
-
 
 -- =============================================
 -- Author:		Martinez, Renzo
@@ -24,30 +23,23 @@ BEGIN
 
 	SET NOCOUNT ON;
 	
-	SELECT 
-		j.CodJugador,
-		j.Nombres,
-		j.Apellidos,
-		j.Nacionalidad,
-		j.FechaNacimiento,
-		j.Posicion,
-		j.Altura,
-		j.Peso
-				
-	FROM 
-		Jugador j	
-	
-	JOIN
-		JugadorEquipo je
-	
-	ON
-		je.CodEquipo = @CodEquipo AND je.CodJugador = j.CodJugador
-		--p.CodPais = e.CodPais AND e.CodPais = @Codigo
+SELECT	J.CodJugador, J.Nombres, J.Apellidos, J.Nacionalidad, J.FechaNacimiento, J.Posicion, J.Altura, J.Peso
+FROM	Jugador J join JugadorEquipo JE on J.CodJugador = JE.CodJugador
+WHERE	JE.CodEquipo = @CodEquipo AND J.Posicion = 'Portero'
+UNION ALL
+SELECT	J.CodJugador, J.Nombres, J.Apellidos, J.Nacionalidad, J.FechaNacimiento, J.Posicion, J.Altura, J.Peso
+FROM	Jugador J join JugadorEquipo JE on J.CodJugador = JE.CodJugador
+WHERE	JE.CodEquipo = @CodEquipo AND J.Posicion = 'Defensa'
+UNION ALL
+SELECT	J.CodJugador, J.Nombres, J.Apellidos, J.Nacionalidad, J.FechaNacimiento, J.Posicion, J.Altura, J.Peso
+FROM	Jugador J join JugadorEquipo JE on J.CodJugador = JE.CodJugador
+WHERE	JE.CodEquipo = @CodEquipo AND J.Posicion = 'Centrocampista'
+UNION ALL
+SELECT	J.CodJugador, J.Nombres, J.Apellidos, J.Nacionalidad, J.FechaNacimiento, J.Posicion, J.Altura, J.Peso
+FROM	Jugador J join JugadorEquipo JE on J.CodJugador = JE.CodJugador
+WHERE	JE.CodEquipo = @CodEquipo AND J.Posicion = 'Delantero'
 			
 END
-
-
-
 
 GO
 

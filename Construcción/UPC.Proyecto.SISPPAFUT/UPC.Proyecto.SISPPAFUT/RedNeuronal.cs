@@ -859,7 +859,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 red_Perceptron.setValidationSetSize(0);
                 red_Perceptron.setValidationThreshold(20);
                 //-- Se inicia el proceso de entrenamiento
-                int trainSize = data.numInstances();
+                int trainSize = 250;//--data.numInstances();
                 weka.core.Instances train = new weka.core.Instances(data, 0, trainSize);
                 red_Perceptron.buildClassifier(train);
                 //-- Se leen los resultados del entrenamiento y se almacenan en la lista de pronósticos

@@ -638,7 +638,7 @@ namespace UPC.Proyecto.SISPPAFUT
                             {
                                 PartidoPronosticadoBC objPPBC = new PartidoPronosticadoBC();
                                 PartidoPronosticadoBE objPPBE = new PartidoPronosticadoBE();
-
+                                listaPronosticos[i].CodigoPartido = ListaPartidosPronosticados[i].IdPartido;
                                 objPPBE = ListaPartidosPronosticados[i];
                                 objPPBC.insertar_PartidoPronosticado(objPPBE);
 

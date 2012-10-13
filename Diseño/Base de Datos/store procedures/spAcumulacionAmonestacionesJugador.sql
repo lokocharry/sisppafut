@@ -1,12 +1,13 @@
 USE [SISPPAFUT]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spAcumulacionAmonestacionesJugador]    Script Date: 09/22/2012 12:54:21 ******/
+/****** Object:  StoredProcedure [dbo].[spAcumulacionAmonestacionesJugador]    Script Date: 10/12/2012 14:25:03 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
+
 
 CREATE PROCEDURE [dbo].[spAcumulacionAmonestacionesJugador]
 (
@@ -24,9 +25,11 @@ FROM		AmonestacionPartido AP JOIN Jugador J ON AP.CodJugador = J.CodJugador
 WHERE		DATEDIFF(day,P.Fecha,@Fecha)>0 AND
 			JE.CodEquipo	= @codEquipo	AND
 			LE.CodLiga		= @codLiga		AND
-			AP.Tipo			= 0
+			AP.Tipo			= 0				AND
+			P.CodLiga		= @codLiga
 GROUP BY	AP.CodJugador
 END
+
 
 GO
 
