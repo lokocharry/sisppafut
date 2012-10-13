@@ -284,6 +284,7 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 frmInsertarPais frmPais = frmInsertarPais.Instance();
+
                 frmPais.MdiParent = this;
                 frmPais.Show();
                 frmPais.BringToFront();
@@ -362,7 +363,6 @@ namespace UPC.Proyecto.SISPPAFUT
                 frmInsertarEquipo frmEquipo = frmInsertarEquipo.Instance();
                 frmEquipo.NombreEquipo = null;
                 frmEquipo.Modo = 1;
-                frmEquipo.Usuario = Propiedades.userLogged;
                 frmEquipo.MdiParent = this;
                 frmEquipo.Show();
                 frmEquipo.BringToFront();

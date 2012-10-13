@@ -15,13 +15,6 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             public static string userLogged { get; set; }
         }
 
-        String Usuario;
-
-        public void RecibirCodigoUsuario(String Usuario)
-        {
-            this.Usuario = Usuario;
-        }
-
         public int insertar_Estadio(EstadioBE objEstadioBE)
         {
             int result = 0;
@@ -32,17 +25,17 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 
                 if (result != 0)
                 {
-                    //Guardar el registro;
+                    //--Se registra el log
                     LogBC objLogBC = new LogBC();
                     LogBE objLogBE = new LogBE();
 
                     objLogBE.CodOperacion = result;
                     objLogBE.Fecha = DateTime.Now;
-                    String nameHost = System.Net.Dns.GetHostName();
-                    objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
-                    objLogBE.Razon = "Se insertó un nuevo estadio";
+                    IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                    objLogBE.IP = entry.AddressList[0].ToString();
+                    objLogBE.Razon = "Se registró un nuevo estadio";
                     objLogBE.Tabla = "Estadio";
-                    objLogBE.Usuario = Propiedades.userLogged;//Usuario;
+                    objLogBE.Usuario = Propiedades.userLogged;
 
                     objLogBC.RegistrarLog(objLogBE);
                 }
@@ -64,16 +57,17 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 List<EstadioBE> lst_Estadio = new List<EstadioBE>();
                 lst_Estadio = objEstadioDALC.listar_Estadios();
 
+                //--Se registra el log
                 LogBC objLogBC = new LogBC();
                 LogBE objLogBE = new LogBE();
 
                 objLogBE.CodOperacion = 0;
                 objLogBE.Fecha = DateTime.Now;
-                String nameHost = System.Net.Dns.GetHostName();
-                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
                 objLogBE.Razon = "Se listaron los estadios";
                 objLogBE.Tabla = "Estadio";
-                objLogBE.Usuario = Propiedades.userLogged;//Usuario;
+                objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
@@ -95,13 +89,14 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 
                 lst_estadios = objEstadioDALC.obtenerEstadioDeEquipo(codigo_equipo);
 
+                //--Se registra el log
                 LogBC objLogBC = new LogBC();
                 LogBE objLogBE = new LogBE();
 
                 objLogBE.CodOperacion = 0;
                 objLogBE.Fecha = DateTime.Now;
-                String nameHost = System.Net.Dns.GetHostName();
-                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
                 objLogBE.Razon = "Se listaron los estadios de un equipo";
                 objLogBE.Tabla = "Estadio";
                 objLogBE.Usuario = Propiedades.userLogged;
@@ -126,13 +121,14 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
 
                 lst_estadios = objEstadioDALC.obtenerEstadioDePais(codigo_pais);
 
+                //--Se registra el log
                 LogBC objLogBC = new LogBC();
                 LogBE objLogBE = new LogBE();
 
                 objLogBE.CodOperacion = 0;
                 objLogBE.Fecha = DateTime.Now;
-                String nameHost = System.Net.Dns.GetHostName();
-                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
                 objLogBE.Razon = "Se listaron los estadios de un pais";
                 objLogBE.Tabla = "Estadio";
                 objLogBE.Usuario = Propiedades.userLogged;

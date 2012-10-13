@@ -137,5 +137,10 @@ namespace UPC.Proyecto.SISPPAFUT
                 e.Cancel = true;
         }
 
+        private void frmEditarJugador_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

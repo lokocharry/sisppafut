@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Net;
 
 using UPC.Proyecto.SISPPAFUT.BL.BE;
 using UPC.Proyecto.SISPPAFUT.DL.DALC;
@@ -18,28 +19,50 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
         {
             TablaPosicionesDALC objDALC = new TablaPosicionesDALC();
             TablaPosicionesBE objBE;
+            LogBC objLogBC;
 
-            foreach (LigaEquipoBE cDto in lstLigaEquipos)
+            try
             {
-                objBE = new TablaPosicionesBE();
-                objBE.codEquipo = cDto.CodigoEquipo;
-                objBE.codLiga = codLiga;
-                objBE.derrotasLocal = 0;
-                objBE.derrotasVisita = 0;
-                objBE.empatesLocal = 0;
-                objBE.empatesVisita = 0;
-                objBE.golesAnotadosLocal = 0;
-                objBE.golesAnotadosVisita = 0;
-                objBE.golesEncajadosLocal = 0;
-                objBE.golesEncajadosVisita = 0;
-                objBE.partidosJugadosLocal = 0;
-                objBE.partidosJugadosVisita = 0;
-                objBE.puntosLocal = 0;
-                objBE.puntosVisita = 0;
-                objBE.victoriasLocal = 0;
-                objBE.victoriasVisita = 0;
+                foreach (LigaEquipoBE cDto in lstLigaEquipos)
+                {
+                    objBE = new TablaPosicionesBE();
+                    objBE.codEquipo = cDto.CodigoEquipo;
+                    objBE.codLiga = codLiga;
+                    objBE.derrotasLocal = 0;
+                    objBE.derrotasVisita = 0;
+                    objBE.empatesLocal = 0;
+                    objBE.empatesVisita = 0;
+                    objBE.golesAnotadosLocal = 0;
+                    objBE.golesAnotadosVisita = 0;
+                    objBE.golesEncajadosLocal = 0;
+                    objBE.golesEncajadosVisita = 0;
+                    objBE.partidosJugadosLocal = 0;
+                    objBE.partidosJugadosVisita = 0;
+                    objBE.puntosLocal = 0;
+                    objBE.puntosVisita = 0;
+                    objBE.victoriasLocal = 0;
+                    objBE.victoriasVisita = 0;
 
-                int iCod = objDALC.insertar_Tabla(objBE);
+                    int iCod = objDALC.insertar_Tabla(objBE);
+
+                    //--Se registra el log
+                    objLogBC = new LogBC();
+                    LogBE objLogBE = new LogBE();
+
+                    objLogBE.CodOperacion = iCod;
+                    objLogBE.Fecha = DateTime.Now;
+                    IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                    objLogBE.IP = entry.AddressList[0].ToString();
+                    objLogBE.Razon = "Se registró un equipo con id: " + objBE.codEquipo + " en la tabla de posiciones de la liga: " + objBE.codLiga.ToString();
+                    objLogBE.Tabla = "Tabla";
+                    objLogBE.Usuario = Propiedades.userLogged;
+
+                    objLogBC.RegistrarLog(objLogBE);
+                }
+            }
+            catch(Exception)
+            {
+                throw;
             }
         }
         //-- En el siguiente no va log porque es parte del entrenamiento

@@ -162,5 +162,10 @@ namespace UPC.Proyecto.SISPPAFUT
             if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
                 e.Cancel = true;
         }
+
+        private void frmEditarEquipo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

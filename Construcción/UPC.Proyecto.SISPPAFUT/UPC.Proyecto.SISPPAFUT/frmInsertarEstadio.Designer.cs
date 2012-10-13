@@ -171,6 +171,7 @@
             this.Name = "frmInsertarEstadio";
             this.Text = "Estadio";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
+            this.Load += new System.EventHandler(this.frmInsertarEstadio_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

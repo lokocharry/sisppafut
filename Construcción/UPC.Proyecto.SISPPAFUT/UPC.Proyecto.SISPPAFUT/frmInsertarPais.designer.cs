@@ -91,6 +91,7 @@
             this.Name = "frmInsertarPais";
             this.Text = "Pais";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
+            this.Load += new System.EventHandler(this.frmInsertarPais_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

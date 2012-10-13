@@ -342,6 +342,7 @@
             this.ShowIcon = false;
             this.Text = "Tabla de Posiciones";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InCerrar);
+            this.Load += new System.EventHandler(this.frmTablaPosiciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaPosiciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

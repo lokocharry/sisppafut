@@ -83,7 +83,6 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 cmbEquipo.Items.Clear();
-
                 EquipoBC objEquipoBC = new EquipoBC();
                 lista_equipos = new List<EquipoBE>();
 
@@ -121,7 +120,6 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmbJugador.Items.Clear();
 
                 cmbJugador.Items.Add("Seleccione un jugador...");
-
                 JugadorBC objJugadorBC = new JugadorBC();
                 lista_jugadores = new List<JugadorBE>();
 

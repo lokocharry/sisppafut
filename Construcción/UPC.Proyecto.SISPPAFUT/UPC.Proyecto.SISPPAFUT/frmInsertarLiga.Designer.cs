@@ -278,6 +278,7 @@
             this.Name = "frmInsertarLiga";
             this.Text = "Liga";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
+            this.Load += new System.EventHandler(this.frmInsertarLiga_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_equipos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

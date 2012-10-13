@@ -14,13 +14,6 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             public static string userLogged { get; set; }
         }
 
-        String Usuario;
-
-        public void RecibirCodigoUsuario(String Usuario)
-        {
-            this.Usuario = Usuario;
-        }
-
         public void insertar_Amonestacion(List<AmonestacionBE> lista_amonestaciones)
         {
             AmonestacionDALC objAmonestacionDALC;
@@ -37,16 +30,16 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     objAmonestacionDALC = new AmonestacionDALC();
                     objAmonestacionDALC.insertar_Amonestacion(lista_amonestaciones[i]);
 
+                    //--Se registra el log
                     objLogBE.CodOperacion = lista_amonestaciones[i].Codigo_amonestacion;
                     objLogBE.Fecha = DateTime.Now;
-                    String nameHost = System.Net.Dns.GetHostName();
-                    objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
-                    objLogBE.Razon = "Se insertó una amonestación";
+                    IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                    objLogBE.IP = entry.AddressList[0].ToString();
+                    objLogBE.Razon = "Se registró una amonestación";
                     objLogBE.Tabla = "AmonestacionPartido";
                     objLogBE.Usuario = Propiedades.userLogged;
 
                     objLogBC.RegistrarLog(objLogBE);
-
                 }
             }
 

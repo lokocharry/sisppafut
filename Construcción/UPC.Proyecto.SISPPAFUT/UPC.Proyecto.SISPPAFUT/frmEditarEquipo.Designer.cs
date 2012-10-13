@@ -142,6 +142,7 @@
             this.Name = "frmEditarEquipo";
             this.Text = "Editar Equipos";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
+            this.Load += new System.EventHandler(this.frmEditarEquipo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgEquipos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

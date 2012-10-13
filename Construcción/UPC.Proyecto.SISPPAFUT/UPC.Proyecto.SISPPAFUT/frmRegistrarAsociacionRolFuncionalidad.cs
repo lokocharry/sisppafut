@@ -140,13 +140,14 @@ namespace UPC.Proyecto.SISPPAFUT
                 {
                     if (lst_EstadosAsociaciones[i] == 1)
                     {
+                        lst_EstadosAsociaciones.RemoveAt(i);
                         lst_Asociaciones.RemoveAt(i);
                     }
                 }
 
                 dgvListaAsignaciones.Rows.Clear();
 
-                lst_EstadosAsociaciones.RemoveAll(valor => valor == 1);
+                //lst_EstadosAsociaciones.RemoveAll(valor => valor == 1);
 
                 if (lst_Asociaciones.Count > 0)
                 {

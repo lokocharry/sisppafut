@@ -13,6 +13,14 @@ namespace UPC.Proyecto.SISPPAFUT
 {
     public partial class frmInsertarUsuario : Form
     {
+        private string usuario;
+
+        public String Usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
+
         private static frmInsertarUsuario frmUsuario = null;
 
         public frmInsertarUsuario()

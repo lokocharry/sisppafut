@@ -230,12 +230,13 @@ namespace UPC.Proyecto.SISPPAFUT
                     if (lst_estados[i] == 1)
                     {
                         lst_Asociaciones.RemoveAt(i);
+                        lst_estados.RemoveAt(i);
                     }
                 }
 
                 dgvAsociaciones.Rows.Clear();
 
-                lst_estados.RemoveAll(valor => valor == 1);
+                //lst_estados.RemoveAll(valor => valor == 1);
 
                 if (lst_Asociaciones.Count > 0)
                 {

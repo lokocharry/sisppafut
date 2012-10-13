@@ -13,7 +13,6 @@ namespace UPC.Proyecto.SISPPAFUT
 {
     public partial class frmInsertarEquipo : Form
     {
-        private String usuario;
         private List<PaisBE> listaPaises;
         private List<EstadioBE> listaEstadios;
         private String _NombreEquipo;
@@ -27,12 +26,6 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             get { return _NombreEquipo; }
             set { _NombreEquipo = value; }
-        }
-
-        public String Usuario
-        {
-            get { return usuario; }
-            set { usuario = value; }
         }
 
         private static frmInsertarEquipo frmEquipo = null;
@@ -280,7 +273,6 @@ namespace UPC.Proyecto.SISPPAFUT
                     else
                         objEquipoBE.CodigoEstadioAlterno = 0;
 
-                    objEquipoBC.RecibirCodigoUsuario(Usuario);
                     iCodigo = objEquipoBC.insertarEquipo(objEquipoBE);
 
                     if (iCodigo == -1)

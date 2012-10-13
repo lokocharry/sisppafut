@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
+using System.Net;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
 using UPC.Proyecto.SISPPAFUT.DL.DALC;
 
@@ -12,13 +13,6 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
         public static class Propiedades
         {
             public static string userLogged { get; set; }
-        }
-
-        String Usuario;
-        
-        public void RecibirCodigoUsuario(String Usuario)
-        {
-            this.Usuario = Usuario;
         }
         
         public int insertarEquipo(EquipoBE objEquipoBE)
@@ -34,18 +28,18 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                     return -1;
                 }
 
-                LogBC objLogBC = new LogBC();
-                LogBE objLogBE = new LogBE();
-
                 int idoperacion = objEquipoDALC.insertar_Equipo(objEquipoBE);
+
+                //--Se registra el log
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();           
 
                 objLogBE.CodOperacion = idoperacion;
                 objLogBE.Fecha = DateTime.Now;
-                String nameHost = System.Net.Dns.GetHostName();
-                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
-                objLogBE.Razon = "Se insertó un nuevo equipo";
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
+                objLogBE.Razon = "Se registró un nuevo equipo";
                 objLogBE.Tabla = "Equipo";
-                //objLogBE.Usuario = Usuario;
                 objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
@@ -64,13 +58,14 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             {
                 EquipoDALC objEquipoDALC = new EquipoDALC();
 
+                //--Se registra el log
                 LogBC objLogBC = new LogBC();
                 LogBE objLogBE = new LogBE();
 
                 objLogBE.CodOperacion = 0;
                 objLogBE.Fecha = DateTime.Now;
-                String nameHost = System.Net.Dns.GetHostName();
-                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
                 objLogBE.Razon = "Se listaron los equipos de "+Pais;
                 objLogBE.Tabla = "Equipo";
                 objLogBE.Usuario = Propiedades.userLogged;
@@ -90,21 +85,24 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             try
             {
                 EquipoDALC objEquipoDALC = new EquipoDALC();
+                List<EquipoBE> lst_equipos = new List<EquipoBE>();
+                lst_equipos = objEquipoDALC.listar_EquiposDeLiga(Liga);
 
+                //--Se registra el log
                 LogBC objLogBC = new LogBC();
                 LogBE objLogBE = new LogBE();
 
                 objLogBE.CodOperacion = 0;
                 objLogBE.Fecha = DateTime.Now;
-                String nameHost = System.Net.Dns.GetHostName();
-                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
                 objLogBE.Razon = "Se listaron los equipos de la liga con id: "+Liga.ToString();
                 objLogBE.Tabla = "Equipo";
                 objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
 
-                return objEquipoDALC.listar_EquiposDeLiga(Liga);
+                return lst_equipos;
             }
             catch (Exception ex)
             {
@@ -120,14 +118,15 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 EquipoDALC objEquipoDALC = new EquipoDALC();
                 objEquipoBE = objEquipoDALC.obtener_Equipo(_equipo);
 
+                //--Se registra el log
                 LogBC objLogBC = new LogBC();
                 LogBE objLogBE = new LogBE();
 
                 objLogBE.CodOperacion = objEquipoBE.CodigoEquipo;
                 objLogBE.Fecha = DateTime.Now;
-                String nameHost = System.Net.Dns.GetHostName();
-                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
-                objLogBE.Razon = "Se obtuvo un el equipo "+_equipo;
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
+                objLogBE.Razon = "Se consultó el equipo: "+_equipo;
                 objLogBE.Tabla = "Equipo";
                 objLogBE.Usuario = Propiedades.userLogged;
 
@@ -148,13 +147,14 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 EquipoDALC objEquipoDALC = new EquipoDALC();
                 objEquipoDALC.actualizar_equipo(codigo_equipo, estadio_principal, estadio_alterno);
 
+                //--Se registra el log
                 LogBC objLogBC = new LogBC();
                 LogBE objLogBE = new LogBE();
 
                 objLogBE.CodOperacion = codigo_equipo;
                 objLogBE.Fecha = DateTime.Now;
-                String nameHost = System.Net.Dns.GetHostName();
-                objLogBE.IP = System.Net.Dns.GetHostAddresses(nameHost).ToString();
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
                 objLogBE.Razon = "Se actualizó un equipo";
                 objLogBE.Tabla = "Equipo";
                 objLogBE.Usuario = Propiedades.userLogged;
@@ -174,6 +174,21 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 Decimal promEdad;
                 EquipoDALC objEquipoDALC = new EquipoDALC();
                 promEdad = objEquipoDALC.obtener_PromedioEquipoTitular(codEquipo, codLiga);
+
+                //--Se registra el log
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = codEquipo;
+                objLogBE.Fecha = DateTime.Now;
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
+                objLogBE.Razon = "Se consultó la edad promedio del equipo titular en la liga con id: " + codLiga.ToString();
+                objLogBE.Tabla = "JugadorEquipo";
+                objLogBE.Usuario = Propiedades.userLogged;
+
+                objLogBC.RegistrarLog(objLogBE);
+
                 return promEdad;
             }
             catch (Exception ex)
@@ -189,6 +204,21 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 int qExpulsados;
                 EquipoDALC objEquipoDALC = new EquipoDALC();
                 qExpulsados = objEquipoDALC.obtener_CantidadExpulsadosUltimoPartido(codPartido, codEquipo, codLiga);
+
+                //--Se registra el log
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = codPartido;
+                objLogBE.Fecha = DateTime.Now;
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
+                objLogBE.Razon = "Se consultó la cantidad de expulsados en el último partido para el equipo: "+codEquipo.ToString()+ " en la liga " + codLiga.ToString();
+                objLogBE.Tabla = "AmonestacionPartido";
+                objLogBE.Usuario = Propiedades.userLogged;
+
+                objLogBC.RegistrarLog(objLogBE);
+
                 return qExpulsados;
             }
             catch (Exception ex)
@@ -204,6 +234,21 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 int qPartidosMes;
                 EquipoDALC objEquipoDALC = new EquipoDALC();
                 qPartidosMes = objEquipoDALC.obtener_CantidadPartidosUltimoMes(codEquipo, fecha);
+
+                //--Se registra el log
+                LogBC objLogBC = new LogBC();
+                LogBE objLogBE = new LogBE();
+
+                objLogBE.CodOperacion = codEquipo;
+                objLogBE.Fecha = DateTime.Now;
+                IPHostEntry entry = Dns.GetHostByName(Dns.GetHostName());
+                objLogBE.IP = entry.AddressList[0].ToString();
+                objLogBE.Razon = "Se consultó la cantidad de partidos del equipo en el último mes";
+                objLogBE.Tabla = "Partido";
+                objLogBE.Usuario = Propiedades.userLogged;
+
+                objLogBC.RegistrarLog(objLogBE);
+
                 return qPartidosMes;
             }
             catch (Exception ex)

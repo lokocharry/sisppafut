@@ -17,6 +17,14 @@ namespace UPC.Proyecto.SISPPAFUT
         List<PaisBE> lista_paises;
         List<EquipoBE> lista_equipos;
 
+        private string usuario;
+
+        public String Usuario
+        {
+            get { return usuario; }
+            set { usuario = value; }
+        }
+
         public frmActualizarRanking()
         {
             InitializeComponent();
