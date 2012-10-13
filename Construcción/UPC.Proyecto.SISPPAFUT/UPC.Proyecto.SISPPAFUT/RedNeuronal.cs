@@ -859,19 +859,36 @@ namespace UPC.Proyecto.SISPPAFUT
                 red_Perceptron.setValidationSetSize(0);
                 red_Perceptron.setValidationThreshold(20);
                 //-- Se inicia el proceso de entrenamiento
-                int trainSize = 250;//--data.numInstances();
+                int trainSize = 250;//data.numInstances();
+                int testInst = data.numInstances() - trainSize;
                 weka.core.Instances train = new weka.core.Instances(data, 0, trainSize);
+                weka.core.Instances test = new weka.core.Instances(data, trainSize,testInst);
                 red_Perceptron.buildClassifier(train);
                 //-- Se leen los resultados del entrenamiento y se almacenan en la lista de pronósticos
                 for (int i = 0; i < trainSize; i++)
                 {
                     //-- Se instancia un pronóstico
                     objPronosticoBE = new PronosticoBE();
-                    weka.core.Instance currentInst = data.instance(i);
+                    weka.core.Instance currentInst = train.instance(i);
                     double predictedClass = red_Perceptron.classifyInstance(currentInst);
                     double[] resultPredict = red_Perceptron.distributionForInstance(train.instance(i));
 
                     objPronosticoBE.Pronostico = train.classAttribute().value((int)predictedClass);
+                    objPronosticoBE.PorcentajeLocal = Convert.ToDecimal(resultPredict[0]);
+                    objPronosticoBE.PorcentajeEmpate = Convert.ToDecimal(resultPredict[1]);
+                    objPronosticoBE.PorcentajeVisita = Convert.ToDecimal(resultPredict[2]);
+                    //-- Se agrega objeto a la lista
+                    lstPronosticos.Add(objPronosticoBE);
+                }
+                for (int i = 0; i < testInst; i++)
+                {
+                    //-- Se instancia un pronóstico
+                    objPronosticoBE = new PronosticoBE();
+                    weka.core.Instance currentInst = test.instance(i);
+                    double predictedClass = red_Perceptron.classifyInstance(currentInst);
+                    double[] resultPredict = red_Perceptron.distributionForInstance(test.instance(i));
+
+                    objPronosticoBE.Pronostico = test.classAttribute().value((int)predictedClass);
                     objPronosticoBE.PorcentajeLocal = Convert.ToDecimal(resultPredict[0]);
                     objPronosticoBE.PorcentajeEmpate = Convert.ToDecimal(resultPredict[1]);
                     objPronosticoBE.PorcentajeVisita = Convert.ToDecimal(resultPredict[2]);
