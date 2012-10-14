@@ -82,6 +82,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertar_CompeticionTest()
         {
+            CompeticionBC.Propiedades.userLogged = "demoADMIN";
             CompeticionBC target = new CompeticionBC();
             
             CompeticionBE objCompeticionBE = new CompeticionBE();
@@ -100,6 +101,7 @@ namespace UnitTests
         [TestMethod()]
         public void ListarCompeticionTest()
         {
+            CompeticionBC.Propiedades.userLogged = "demoADMIN";
             CompeticionBC target = new CompeticionBC();
             string Pais = "España";
 

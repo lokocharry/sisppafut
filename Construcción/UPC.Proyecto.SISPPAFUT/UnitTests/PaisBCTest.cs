@@ -82,6 +82,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertarPaisTest()
         {
+            PaisBC.Propiedades.userLogged = "demoADMIN";
             PaisBC target = new PaisBC(); 
             
             PaisBE objPaisBE = new PaisBE();
@@ -100,6 +101,7 @@ namespace UnitTests
         [TestMethod()]
         public void listarPaisesTest()
         {
+            PaisBC.Propiedades.userLogged = "demoADMIN";
             PaisBC target = new PaisBC(); 
 
             List<PaisBE> expected = new List<PaisBE>();

@@ -81,6 +81,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertar_rankingTest()
         {
+            RankingEquipoBC.Propiedades.userLogged = "demoADMIN";
             RankingEquipoBC target = new RankingEquipoBC();
             RankingEquipoBE objRankingEquipoBE = new RankingEquipoBE();
 
@@ -103,6 +104,7 @@ namespace UnitTests
         [TestMethod()]
         public void obtener_rankingTest()
         {
+            RankingEquipoBC.Propiedades.userLogged = "demoADMIN";
             RankingEquipoBC target = new RankingEquipoBC();
             int anio = 2012;
             int mes = 4;

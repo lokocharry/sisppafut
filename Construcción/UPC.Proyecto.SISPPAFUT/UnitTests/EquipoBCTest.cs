@@ -82,6 +82,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertarEquipoTest()
         {
+            EquipoBC.Propiedades.userLogged = "demoADMIN";
             EquipoBC target = new EquipoBC();
             
             EquipoBE objEquipoBE = new EquipoBE();
@@ -104,6 +105,7 @@ namespace UnitTests
         [TestMethod()]
         public void listarEquiposDeLigaTest()
         {
+            EquipoBC.Propiedades.userLogged = "demoADMIN";
             EquipoBC target = new EquipoBC();
             int Liga = 3;
             List<EquipoBE> expected = new List<EquipoBE>();
@@ -133,6 +135,7 @@ namespace UnitTests
         [TestMethod()]
         public void listarEquiposTest()
         {
+            EquipoBC.Propiedades.userLogged = "demoADMIN";
             EquipoBC target = new EquipoBC();
             string Pais = "España";
             List<EquipoBE> expected = new List<EquipoBE>();
@@ -196,6 +199,7 @@ namespace UnitTests
         [TestMethod()]
         public void actualizarEquipoTest()
         {
+            EquipoBC.Propiedades.userLogged = "demoADMIN";
             EquipoBC target = new EquipoBC();
             int codigo_equipo = 5;
             int estadio_principal = 8;

@@ -72,6 +72,7 @@ namespace UnitTests
         [TestMethod()]
         public void listaJugadorEquipoTest()
         {
+            JugadorEquipoBC.Propiedades.userLogged = "demoADMIN";
             JugadorEquipoBC target = new JugadorEquipoBC();
             int expected = 44;
             List<JugadorEquipoBE> actual;

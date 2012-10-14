@@ -72,6 +72,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertar_jugadoresTest()
         {
+            JugadorPartidoBC.Propiedades.userLogged = "demoADMIN";
             List<JugadorPartidoBE> lista_jugadores = new List<JugadorPartidoBE>();
 
             JugadorPartidoBE obj = new JugadorPartidoBE();

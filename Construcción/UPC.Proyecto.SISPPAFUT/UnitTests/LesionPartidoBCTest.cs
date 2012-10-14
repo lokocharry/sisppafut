@@ -72,6 +72,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertar_LesionesTest()
         {
+            LesionPartidoBC.Propiedades.userLogged = "demoADMIN";
             List<LesionPartidoBE> lista_lesiones = new List<LesionPartidoBE>();
 
             LesionPartidoBE obj = new LesionPartidoBE();

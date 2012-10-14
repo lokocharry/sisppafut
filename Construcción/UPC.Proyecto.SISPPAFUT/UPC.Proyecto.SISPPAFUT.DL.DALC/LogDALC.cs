@@ -72,6 +72,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 razon.Size = 500;
                 razon.SqlValue = obj.Razon;
 
+                cmd.Parameters.Add(codRegistro);
                 cmd.Parameters.Add(codOperacion);
                 cmd.Parameters.Add(tabla);
                 cmd.Parameters.Add(usuario);

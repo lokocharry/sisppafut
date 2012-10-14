@@ -72,6 +72,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertar_PartidoTest()
         {
+            PartidoBC.Propiedades.userLogged = "demoADMIN";
             PartidoBC target = new PartidoBC(); 
             PartidoBE objPartidoBE = new PartidoBE();
 
@@ -105,6 +106,7 @@ namespace UnitTests
         [TestMethod()]
         public void obtener_PartidoTest()
         {
+            PartidoBC.Propiedades.userLogged = "demoADMIN";
             PartidoBE expected = new PartidoBE();
             expected.Codigo_partido = 2;
             expected.Codigo_liga = 3;
@@ -133,6 +135,7 @@ namespace UnitTests
         [TestMethod()]
         public void lista_partidos_sinjugarTest()
         {
+            PartidoBC.Propiedades.userLogged = "demoADMIN";
             List<PartidoSinJugarBE> expected = new List<PartidoSinJugarBE>();
 
             PartidoSinJugarBE obj = new PartidoSinJugarBE();
@@ -193,6 +196,7 @@ namespace UnitTests
         [TestMethod()]
         public void editar_PartidoTest()
         {
+            PartidoBC.Propiedades.userLogged = "demoADMIN";
             PartidoBC target = new PartidoBC();
             int codigoPartido = 1;
             DateTime nuevaFecha = new DateTime(2012,5,10);
@@ -211,6 +215,7 @@ namespace UnitTests
         [TestMethod()]
         public void actualizar_ResultadoTest()
         {
+            PartidoBC.Propiedades.userLogged = "demoADMIN";
             PartidoBC target = new PartidoBC(); // TODO: Initialize to an appropriate value
             int codigo_partido = 5; // TODO: Initialize to an appropriate value
             int goles_local = 3; // TODO: Initialize to an appropriate value
@@ -231,6 +236,7 @@ namespace UnitTests
         [TestMethod()]
         public void lista_ultimosPartidosTest()
         {
+            PartidoBC.Propiedades.userLogged = "demoADMIN";
             PartidoBC target = new PartidoBC(); 
             int codigo_equipo = 1;
             int codigo_liga = 3;

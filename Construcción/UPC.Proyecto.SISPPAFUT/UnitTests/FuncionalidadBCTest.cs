@@ -80,6 +80,7 @@ namespace UnitTests
         [TestMethod()]
         public void Insertar_FuncionalidadTest()
         {
+            FuncionalidadBC.Propiedades.userLogged = "demoADMIN";
             FuncionalidadBC target = new FuncionalidadBC();
             string NombreFuncionalidad = "Gestión de Ligas";
             string DescripcionFuncionalidad = "Mediante esta funcionalidad se pueden administrar las ligas en el sistema";
@@ -95,6 +96,7 @@ namespace UnitTests
         [TestMethod()]
         public void Verificar_ExisteFuncionalidadTest()
         {
+            FuncionalidadBC.Propiedades.userLogged = "demoADMIN";
             FuncionalidadBC target = new FuncionalidadBC();
             string NombreFuncionalidad = "Gestión de Ligas";
             int expected = 1;

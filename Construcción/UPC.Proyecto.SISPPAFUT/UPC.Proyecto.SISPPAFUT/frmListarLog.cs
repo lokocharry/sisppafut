@@ -34,8 +34,7 @@ namespace UPC.Proyecto.SISPPAFUT
         private void button1_Click(object sender, EventArgs e)
         {
             LogBC objLogBC;
-            lst_log.Clear();
-
+            lst_log = new List<LogBE>();
             dgvLog.Rows.Clear();
 
             try
@@ -59,7 +58,7 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void frmListarLog_Load(object sender, EventArgs e)
         {
-            lst_log = new List<LogBE>();
+            
         }
     }
 }

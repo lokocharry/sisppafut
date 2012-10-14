@@ -72,6 +72,7 @@ namespace UnitTests
         [TestMethod()]
         public void Insertar_RolXFuncionalidadTest()
         {
+            RolXFuncionalidadBC.Propiedades.userLogged = "demoADMIN";
             RolXFuncionalidadBC target = new RolXFuncionalidadBC();
             List<RolXFuncionalidadBE> lst_RolFunc = new List<RolXFuncionalidadBE>();
 
@@ -96,6 +97,7 @@ namespace UnitTests
         [TestMethod()]
         public void Listar_FuncionalidadesXRolTest()
         {
+            RolXFuncionalidadBC.Propiedades.userLogged = "demoADMIN";
             RolXFuncionalidadBC target = new RolXFuncionalidadBC();
             int idRol = 1;
             int expected = 17;
@@ -110,6 +112,7 @@ namespace UnitTests
         [TestMethod()]
         public void VerificarSiExiste_RolXFuncionalidadTest()
         {
+            RolXFuncionalidadBC.Propiedades.userLogged = "demoADMIN";
             RolXFuncionalidadBC target = new RolXFuncionalidadBC();
             int idRol = 1;
             int idFuncionalidad = 1;

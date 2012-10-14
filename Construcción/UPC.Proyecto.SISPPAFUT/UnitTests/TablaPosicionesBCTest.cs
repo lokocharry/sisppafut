@@ -72,6 +72,7 @@ namespace UnitTests
         [TestMethod()]
         public void ObtenerTablaPosicionLigaTest()
         {
+            TablaPosicionesBC.Propiedades.userLogged = "demoADMIN";
             TablaPosicionesBC target = new TablaPosicionesBC(); // TODO: Initialize to an appropriate value
             int codLiga = 3; // TODO: Initialize to an appropriate value
             List<TablaPosicionesBE> expected = new List<TablaPosicionesBE>();

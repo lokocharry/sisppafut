@@ -72,6 +72,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertar_GolesTest()
         {
+            GolBC.Propiedades.userLogged = "demoADMIN";
             List<GolBE> lista_goles = new List<GolBE>();
 
             GolBE obj = new GolBE();

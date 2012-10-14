@@ -79,6 +79,7 @@ namespace UnitTests
         [TestMethod()]
         public void actualizar_SuspensionTest()
         {
+            SuspensionBC.Propiedades.userLogged = "demoADMIN";
             SuspensionBC target = new SuspensionBC();
             int codJugador = 1;
             int tipo = 3;
@@ -95,6 +96,7 @@ namespace UnitTests
         [TestMethod()]
         public void crear_SuspensionTest()
         {
+            SuspensionBC.Propiedades.userLogged = "demoADMIN";
             SuspensionBC target = new SuspensionBC();
             SuspensionBE objSuspensionBE = new SuspensionBE();
             objSuspensionBE.CodigoJugador = 4;
@@ -114,6 +116,7 @@ namespace UnitTests
         [TestMethod()]
         public void leer_EstadoSuspensionTest()
         {
+            SuspensionBC.Propiedades.userLogged = "demoADMIN";
             SuspensionBC target = new SuspensionBC();
             int codJugador = 1;
             int codLiga = 1;

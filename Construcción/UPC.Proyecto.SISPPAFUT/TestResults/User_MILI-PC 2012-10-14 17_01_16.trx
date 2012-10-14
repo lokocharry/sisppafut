@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="598cbbfb-40e4-45d0-8af2-53072941791d" name="User@MILI-PC 2012-10-14 17:01:16" runUser="MILI-PC\User" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="d7146e08-8266-4b9b-aa43-bf7a65afa95e">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="User_MILI-PC 2012-10-14 17_01_16">
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.DL.DALC\bin\Debug\UPC.Proyecto.SISPPAFUT.DL.DALC.dll" />
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BE\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BE.dll" />
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BE\bin\Debug\UPC.Seguridad.BL.BE.dll" />
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.DL.DALC\bin\Debug\UPC.Seguridad.DL.DALC.dll" />
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT.BL.BC\bin\Debug\UPC.Proyecto.SISPPAFUT.BL.BC.dll" />
+      <DeploymentItem filename="C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Seguridad.BL.BC\bin\Debug\UPC.Seguridad.BL.BC.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2012-10-14T17:01:16.0661925-05:00" queuing="2012-10-14T17:01:17.7452886-05:00" start="2012-10-14T17:01:17.8892968-05:00" finish="2012-10-14T17:01:18.9403569-05:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="ListarLogsFechaTest" storage="c:\users\user\desktop\tdp\construcción\upc.proyecto.sisppafut\unittests\bin\debug\unittests.dll" id="47204c7d-e6f4-b343-c9bb-59f61a5429fd">
+      <Execution id="b38e1312-df77-4e4f-8595-c9b3c0754759" />
+      <TestMethod codeBase="C:/Users/User/Desktop/TDP/Construcción/UPC.Proyecto.SISPPAFUT/UnitTests/bin/Debug/UnitTests.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="UnitTests.LogBCTest, UnitTests, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ListarLogsFechaTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Resultados que no están en la lista" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="Todos los resultados cargados" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="47204c7d-e6f4-b343-c9bb-59f61a5429fd" executionId="b38e1312-df77-4e4f-8595-c9b3c0754759" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="b38e1312-df77-4e4f-8595-c9b3c0754759" testId="47204c7d-e6f4-b343-c9bb-59f61a5429fd" testName="ListarLogsFechaTest" computerName="MILI-PC" duration="00:00:00.2623985" startTime="2012-10-14T17:01:17.9192985-05:00" endTime="2012-10-14T17:01:18.8883540-05:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b38e1312-df77-4e4f-8595-c9b3c0754759">
+      <Output>
+        <ErrorInfo>
+          <Message>El método de prueba UnitTests.LogBCTest.ListarLogsFechaTest produjo la excepción: 
+System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.</Message>
+          <StackTrace>    en UnitTests.LogBCTest.ListarLogsFechaTest() en C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UnitTests\LogBCTest.cs:línea 100
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

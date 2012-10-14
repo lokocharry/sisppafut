@@ -24,6 +24,13 @@ namespace UPC.Proyecto.SISPPAFUT
             return frmRegistroPronosticos;
         }
 
+        private int idusuario;
+
+        public int idUsuario
+        {
+            get { return idusuario; }
+            set { idusuario = value; }
+        }
 
         public frmRegistrarPronostico()
         {
@@ -121,7 +128,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 {
                     objPronosticoClienteBE = new PronosticoClienteBE();
                     objPronosticoClienteBE.CodigoPartido = Convert.ToInt32(dgvPronosticos.Rows[i].Cells[0].Value);
-                    objPronosticoClienteBE.CodigoUsuario = 3; //Reemplazar por el codigo del cliente logeado
+                    objPronosticoClienteBE.CodigoUsuario = idusuario; 
 
                     if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[3].Value) == true)
                     {

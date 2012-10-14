@@ -70,6 +70,7 @@ namespace UnitTests
         [TestMethod()]
         public void Insertar_RolTest()
         {
+            RolBC.Propiedades.userLogged = "demoADMIN";
             RolBC target = new RolBC();
             string NombreRol = "Administrador del Sistema";
             string ClaveRol = "admin";

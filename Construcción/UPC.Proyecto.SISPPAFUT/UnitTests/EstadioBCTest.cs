@@ -82,6 +82,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertar_EstadioTest()
         {
+            EstadioBC.Propiedades.userLogged = "demoADMIN";
             EstadioBC target = new EstadioBC();
 
             EstadioBE objEstadioBE = new EstadioBE();
@@ -103,6 +104,7 @@ namespace UnitTests
         [TestMethod()]
         public void listarEstadiosTest()
         {
+            EstadioBC.Propiedades.userLogged = "demoADMIN";
             EstadioBC target = new EstadioBC();
             List<EstadioBE> expected = new List<EstadioBE>();
             List<EstadioBE> actual;
@@ -168,6 +170,7 @@ namespace UnitTests
         [TestMethod()]
         public void listarEstadiosDeEquipoTest()
         {
+            EstadioBC.Propiedades.userLogged = "demoADMIN";
             EstadioBC target = new EstadioBC();
             int codigo_equipo = 1;
             List<EstadioBE> expected = new List<EstadioBE>();

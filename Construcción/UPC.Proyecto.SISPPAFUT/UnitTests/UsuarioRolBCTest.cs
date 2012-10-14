@@ -72,6 +72,7 @@ namespace UnitTests
         [TestMethod()]
         public void asignar_RolUsuarioTest()
         {
+            UsuarioRolBC.Propiedades.userLogged = "demoADMIN";
             UsuarioRolBC target = new UsuarioRolBC();
             List<UsuarioRolBE> lst_asoc = new List<UsuarioRolBE>();
             
@@ -96,6 +97,7 @@ namespace UnitTests
         [TestMethod()]
         public void VerificarExiste_AsociacionTest()
         {
+            UsuarioRolBC.Propiedades.userLogged = "demoADMIN";
             UsuarioRolBC target = new UsuarioRolBC();
             int idRol = 3; 
             int idUsuario = 3;
@@ -111,6 +113,7 @@ namespace UnitTests
         [TestMethod()]
         public void Listar_RolesXUsuarioTest()
         {
+            UsuarioRolBC.Propiedades.userLogged = "demoADMIN";
             UsuarioRolBC target = new UsuarioRolBC(); 
             int idUsuario = 1;
             int expected = 1;

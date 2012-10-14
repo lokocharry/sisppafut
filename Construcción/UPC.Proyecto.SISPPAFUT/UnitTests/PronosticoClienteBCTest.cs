@@ -76,41 +76,46 @@ namespace UnitTests
         public void inssertarPronosticoClienteTest()
         {
             PronosticoClienteBC target = new PronosticoClienteBC();
+            PronosticoClienteBC.Propiedades.userLogged = "demoADMIN";
             PronosticoClienteBE objPronosticoClienteBE = new PronosticoClienteBE();
 
-            objPronosticoClienteBE.CodigoPartido = 151;
-            objPronosticoClienteBE.CodigoUsuario = 3;
+            objPronosticoClienteBE.CodigoPartido = 769;
+            objPronosticoClienteBE.CodigoUsuario = 2;
             objPronosticoClienteBE.Pronostico = "L";
 
             target.inssertarPronosticoCliente(objPronosticoClienteBE);
 
-            Assert.AreNotEqual(target.listarPronosticosCliente(3).Count, 0);
+            Assert.AreEqual(target.listarPronosticosCliente(2).Count, 1);
         }
 
         [TestMethod()]
         public void listarPronosticosClienteTest()
         {
             PronosticoClienteBC target = new PronosticoClienteBC();
-
+            PronosticoClienteBC.Propiedades.userLogged = "demoADMIN";
             PronosticoClienteBE objPronosticoClienteBE = new PronosticoClienteBE();
-            objPronosticoClienteBE.CodigoPartido = 151;
-            objPronosticoClienteBE.CodigoUsuario = 3;
+            objPronosticoClienteBE.CodigoPartido = 756;
+            objPronosticoClienteBE.CodigoUsuario = 1;
             objPronosticoClienteBE.Pronostico = "L";
             target.inssertarPronosticoCliente(objPronosticoClienteBE);
 
             objPronosticoClienteBE = new PronosticoClienteBE();
-            objPronosticoClienteBE.CodigoPartido = 152;
-            objPronosticoClienteBE.CodigoUsuario = 3;
+            objPronosticoClienteBE.CodigoPartido = 757;
+            objPronosticoClienteBE.CodigoUsuario = 1;
             objPronosticoClienteBE.Pronostico = "E";
             target.inssertarPronosticoCliente(objPronosticoClienteBE);
 
             objPronosticoClienteBE = new PronosticoClienteBE();
-            objPronosticoClienteBE.CodigoPartido = 153;
-            objPronosticoClienteBE.CodigoUsuario = 3;
+            objPronosticoClienteBE.CodigoPartido = 758;
+            objPronosticoClienteBE.CodigoUsuario = 1;
             objPronosticoClienteBE.Pronostico = "V";
             target.inssertarPronosticoCliente(objPronosticoClienteBE);
 
-            Assert.AreEqual(target.listarPronosticosCliente(3).Count, 3);
+            Assert.AreEqual(target.listarPronosticosCliente(1).Count, 13);
         }
+
+        /// <summary>
+        ///Una prueba de inssertarPronosticoCliente
+        ///</summary>
     }
 }

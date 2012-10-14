@@ -72,6 +72,7 @@ namespace UnitTests
         [TestMethod()]
         public void Insertar_UsuarioFuncionalidadTest()
         {
+            UsuarioFuncionalidadBC.Propiedades.userLogged = "demoADMIN";
             UsuarioFuncionalidadBC target = new UsuarioFuncionalidadBC();
             List<UsuarioFuncionalidadBE> lst_usuarios = new List<UsuarioFuncionalidadBE>();
 
@@ -91,6 +92,7 @@ namespace UnitTests
         [TestMethod()]
         public void Verificar_ExisteUsuarioFuncionalidadTest()
         {
+            UsuarioFuncionalidadBC.Propiedades.userLogged = "demoADMIN";
             UsuarioFuncionalidadBC target = new UsuarioFuncionalidadBC();
             int idUsuario = 1;
             int idFuncionalidad = 1;
@@ -106,6 +108,7 @@ namespace UnitTests
         [TestMethod()]
         public void Listar_FuncionalidadesXUsuarioTest()
         {
+            UsuarioFuncionalidadBC.Propiedades.userLogged = "demoADMIN";
             UsuarioFuncionalidadBC target = new UsuarioFuncionalidadBC();
             int idUsuario = 1;
             int expected = 17;

@@ -46,6 +46,8 @@
             // 
             // dgvPronosticos
             // 
+            this.dgvPronosticos.AllowUserToAddRows = false;
+            this.dgvPronosticos.AllowUserToDeleteRows = false;
             this.dgvPronosticos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPronosticos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CodPartido,
@@ -69,14 +71,12 @@
             // 
             this.EquipoLocal.HeaderText = "Equipo Local";
             this.EquipoLocal.Name = "EquipoLocal";
-            this.EquipoLocal.ReadOnly = true;
             this.EquipoLocal.Width = 150;
             // 
             // EquipoVisitante
             // 
             this.EquipoVisitante.HeaderText = "Equipo Visitante";
             this.EquipoVisitante.Name = "EquipoVisitante";
-            this.EquipoVisitante.ReadOnly = true;
             this.EquipoVisitante.Width = 150;
             // 
             // Local

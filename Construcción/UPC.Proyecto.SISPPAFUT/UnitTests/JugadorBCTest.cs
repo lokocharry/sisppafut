@@ -81,6 +81,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertar_JugadorTest()
         {
+            JugadorBC.Propiedades.userLogged = "demoADMIN";
             JugadorBC target = new JugadorBC();
             JugadorBE objJugadorBE = new JugadorBE();
 
@@ -104,6 +105,7 @@ namespace UnitTests
         [TestMethod()]
         public void listar_Jugadores_xEquipoTest()
         {
+            JugadorBC.Propiedades.userLogged = "demoADMIN";
             JugadorBC target = new JugadorBC();
             int codigo_equipo = 1;
             
@@ -119,6 +121,7 @@ namespace UnitTests
         [TestMethod()]
         public void asignar_JugadoraEquipoTest()
         {
+            JugadorBC.Propiedades.userLogged = "demoADMIN";
             List<JugadorEquipoBE> lista_jugadores = new List<JugadorEquipoBE>();
 
             JugadorEquipoBE obj = new JugadorEquipoBE();
@@ -146,6 +149,7 @@ namespace UnitTests
         [TestMethod()]
         public void editar_JugadorTest()
         {
+            JugadorBC.Propiedades.userLogged = "demoADMIN";
             JugadorBC target = new JugadorBC();
             int codigoJugador = 1;
             Decimal nAltura = 1.70m;
@@ -165,6 +169,7 @@ namespace UnitTests
         [TestMethod()]
         public void transferirJugadorNuevoEquipoTest()
         {
+            JugadorBC.Propiedades.userLogged = "demoADMIN";
             JugadorBC target = new JugadorBC(); // TODO: Inicializar en un valor adecuado
             int codigo_jugador = 47; // TODO: Inicializar en un valor adecuado
             int codigo_nuevoequipo = 27; // TODO: Inicializar en un valor adecuado
@@ -189,6 +194,7 @@ namespace UnitTests
         [TestMethod()]
         public void listar_HistorialDeJugadorTest()
         {
+            JugadorBC.Propiedades.userLogged = "demoADMIN";
             JugadorBC target = new JugadorBC(); // TODO: Initialize to an appropriate value
             int codigo_jugador = 1; // TODO: Initialize to an appropriate value
             List<HistorialJugadorBE> expected = new List<HistorialJugadorBE>(); 
@@ -213,6 +219,7 @@ namespace UnitTests
         [TestMethod()]
         public void cantidadGolesxJugadorTest()
         {
+            JugadorBC.Propiedades.userLogged = "demoADMIN";
             JugadorBC target = new JugadorBC(); // TODO: Inicializar en un valor adecuado
             int jugador = 10; // TODO: Inicializar en un valor adecuado
             int liga = 3; // TODO: Inicializar en un valor adecuado
@@ -228,6 +235,7 @@ namespace UnitTests
         [TestMethod()]
         public void cantidadPartidosxJugadorTest()
         {
+            JugadorBC.Propiedades.userLogged = "demoADMIN";
             JugadorBC target = new JugadorBC(); // TODO: Inicializar en un valor adecuado
             int jugador = 10; // TODO: Inicializar en un valor adecuado
             int liga = 3; // TODO: Inicializar en un valor adecuado

@@ -14,6 +14,8 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
             {
                 LogDALC objLogDALC = new LogDALC();
                 result = objLogDALC.InsertarLogBE(objLogBE);
+
+                return result;
             }
             catch (Exception ex)
             {

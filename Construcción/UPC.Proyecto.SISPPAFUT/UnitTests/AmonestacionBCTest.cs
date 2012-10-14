@@ -72,6 +72,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertar_AmonestacionTest()
         {
+            AmonestacionBC.Propiedades.userLogged = "demoADMIN";
             List<AmonestacionBE> lista_amonestaciones = new List<AmonestacionBE>();
 
             AmonestacionBE obj = new AmonestacionBE();

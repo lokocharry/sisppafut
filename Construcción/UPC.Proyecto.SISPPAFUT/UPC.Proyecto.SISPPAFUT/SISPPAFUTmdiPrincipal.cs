@@ -689,6 +689,7 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 frmRegistrarPronostico frm = frmRegistrarPronostico.Instance();
 
+                frm.idUsuario = CodigoUsuario;
                 frm.MdiParent = this;
                 frm.Show();
                 frm.BringToFront();

@@ -82,6 +82,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertarLigaTest()
         {
+            LigaBC.Propiedades.userLogged = "demoADMIN";
             LigaBC target = new LigaBC();
             string pais = "España";
             string competicion = "La liga";
@@ -109,6 +110,7 @@ namespace UnitTests
         [TestMethod()]
         public void listaLigasPorCompeticionTest()
         {
+            LigaBC.Propiedades.userLogged = "demoADMIN";
             LigaBC target = new LigaBC();
             int codigoCompeticion = 1;
             List<LigaBE> expected = new List<LigaBE>();
@@ -136,6 +138,7 @@ namespace UnitTests
         [TestMethod()]
         public void listarLigasTest()
         {
+            LigaBC.Propiedades.userLogged = "demoADMIN";
             LigaBC target = new LigaBC();
             List<LigaBE> expected = new List<LigaBE>();
 

@@ -40,6 +40,7 @@ namespace UPC.Proyecto.SISPPAFUT.BL.BC
                 objLogBE.Usuario = Propiedades.userLogged;
 
                 objLogBC.RegistrarLog(objLogBE);
+                listarPronosticosCliente(objPronosticoClienteBE.CodigoUsuario);
 
             }
             catch (Exception ex)

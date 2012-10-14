@@ -65,6 +65,7 @@ namespace UnitTests
         [TestMethod()]
         public void insertar_UsuarioTest()
         {
+            UsuarioBC.Propiedades.userLogged = "demoADMIN";
             UsuarioBC target = new UsuarioBC();
             UsuarioBE objUsuarioBE = new UsuarioBE();
 
@@ -84,6 +85,7 @@ namespace UnitTests
         [TestMethod()]
         public void listar_UsuariosTest()
         {
+            UsuarioBC.Propiedades.userLogged = "demoADMIN";
             UsuarioBC target = new UsuarioBC();
             List<UsuarioBE> expected = target.listar_Usuarios();
             int actual;
@@ -99,6 +101,7 @@ namespace UnitTests
         [TestMethod()]
         public void Verificar_LoginUsuarioTest()
         {
+            UsuarioBC.Propiedades.userLogged = "demoADMIN";
             UsuarioBC target = new UsuarioBC();
             string usuario = "demoADMIN";
             string contrasenia = "demoAdmin";
