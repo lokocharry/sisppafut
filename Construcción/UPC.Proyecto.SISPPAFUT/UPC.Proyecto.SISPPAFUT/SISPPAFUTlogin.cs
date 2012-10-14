@@ -43,8 +43,12 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
+                
                 String usuario = txtUsuario.Text;
                 String contrasenia = txtContrasenia.Text;
+
+                SISPPAFUTlogin.Propiedades.userLogged = usuario;
+                SISPPAFUTmdiPrincipal.Propiedades.userLogged = SISPPAFUTlogin.Propiedades.userLogged;
 
                 UsuarioBC objUsuarioBC = new UsuarioBC();
 
@@ -55,10 +59,8 @@ namespace UPC.Proyecto.SISPPAFUT
                     MessageBox.Show("Datos de login incorrectos. Verifique sus datos");
                     txtContrasenia.Clear();
                     return;
-                }
-                                
-                SISPPAFUTlogin.Propiedades.userLogged = usuario;
-                SISPPAFUTmdiPrincipal.Propiedades.userLogged = SISPPAFUTlogin.Propiedades.userLogged;
+                }                                
+                
                 SISPPAFUTmdiPrincipal frm = SISPPAFUTmdiPrincipal.Instance();
                 frm.RecibirCodigoUsuario(idUsuario);
                 frm.Usuario = SISPPAFUTlogin.Propiedades.userLogged;

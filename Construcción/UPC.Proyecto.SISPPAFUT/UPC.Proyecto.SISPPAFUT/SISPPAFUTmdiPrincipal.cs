@@ -25,7 +25,7 @@ namespace UPC.Proyecto.SISPPAFUT
             InitializeComponent();
             estado_Funcionalidades = new List<int>(); //Valores -> 0: desactivado , 1: activado
 
-            for (int i = 0; i < 27; i++)
+            for (int i = 0; i < 28; i++)
                 estado_Funcionalidades.Add(0);
             //-- En cada BC asigno el usuario que se logueó
             AmonestacionBC.Propiedades.userLogged = Propiedades.userLogged;
@@ -45,6 +45,14 @@ namespace UPC.Proyecto.SISPPAFUT
             RankingEquipoBC.Propiedades.userLogged = Propiedades.userLogged;
             SuspensionBC.Propiedades.userLogged = Propiedades.userLogged;
             TablaPosicionesBC.Propiedades.userLogged = Propiedades.userLogged;
+
+            UsuarioBC.Propiedades.userLogged = Propiedades.userLogged;
+            FuncionalidadBC.Propiedades.userLogged = Propiedades.userLogged;
+            RolBC.Propiedades.userLogged = Propiedades.userLogged;
+            RolXFuncionalidadBC.Propiedades.userLogged = Propiedades.userLogged;
+            UsuarioFuncionalidadBC.Propiedades.userLogged = Propiedades.userLogged;
+            UsuarioRolBC.Propiedades.userLogged = Propiedades.userLogged;
+
         }
         int CodigoUsuario = 0;
         String NombreUsuario;
@@ -261,6 +269,11 @@ namespace UPC.Proyecto.SISPPAFUT
                 if (estado_Funcionalidades[26] == 0 && estado_Funcionalidades[17] == 0)
                 {
                     btnEntrenamiento.Visible = false;
+                }
+
+                if (estado_Funcionalidades[27] == 0)
+                {
+                    btnConsultarLog.Visible = false;
                 }
             }
             catch (Exception ex)
@@ -675,6 +688,22 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 frmRegistrarPronostico frm = frmRegistrarPronostico.Instance();
+
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void btnConsultarLog_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmListarLog frm = frmListarLog.Instance();
 
                 frm.MdiParent = this;
                 frm.Show();

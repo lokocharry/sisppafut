@@ -120,6 +120,12 @@
     <Compile Include="frmInsertarUsuario.Designer.cs">
       <DependentUpon>frmInsertarUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmListarLog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmListarLog.Designer.cs">
+      <DependentUpon>frmListarLog.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmModuloEntrenamiento.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInsertarUsuario.resx">
       <DependentUpon>frmInsertarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmListarLog.resx">
+      <DependentUpon>frmListarLog.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModuloEntrenamiento.resx">
       <DependentUpon>frmModuloEntrenamiento.cs</DependentUpon>

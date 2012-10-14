@@ -48,6 +48,14 @@
     <Compile Include="UsuarioRolBC.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BL.BC\UPC.Proyecto.SISPPAFUT.BL.BC.csproj">
+      <Project>{324A488E-99D2-4B95-9E4A-9B6097E923BC}</Project>
+      <Name>UPC.Proyecto.SISPPAFUT.BL.BC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\UPC.Proyecto.SISPPAFUT.BL.BE\UPC.Proyecto.SISPPAFUT.BL.BE.csproj">
+      <Project>{4C03FE03-0DF0-4CC7-911E-67D851251B27}</Project>
+      <Name>UPC.Proyecto.SISPPAFUT.BL.BE</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UPC.Seguridad.BL.BE\UPC.Seguridad.BL.BE.csproj">
       <Project>{074D8A53-5320-4564-94A9-87CEC4454FBE}</Project>
       <Name>UPC.Seguridad.BL.BE</Name>

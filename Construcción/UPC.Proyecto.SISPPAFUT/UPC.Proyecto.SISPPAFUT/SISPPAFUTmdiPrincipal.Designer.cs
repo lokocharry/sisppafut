@@ -73,6 +73,7 @@
             this.btnRegistroClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNuevoCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnConsultarLog = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,7 +83,7 @@
             this.btnMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(735, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(731, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -101,6 +102,7 @@
             this.btnVisualizacionPronostico,
             this.btnGestionPermisos,
             this.btnRegistroClientes,
+            this.btnConsultarLog,
             this.salirToolStripMenuItem});
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(119, 20);
@@ -394,7 +396,7 @@
             // btnNuevoCliente
             // 
             this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Size = new System.Drawing.Size(149, 22);
+            this.btnNuevoCliente.Size = new System.Drawing.Size(152, 22);
             this.btnNuevoCliente.Text = "Nuevo Cliente";
             this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
             // 
@@ -405,11 +407,18 @@
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
+            // btnConsultarLog
+            // 
+            this.btnConsultarLog.Name = "btnConsultarLog";
+            this.btnConsultarLog.Size = new System.Drawing.Size(268, 22);
+            this.btnConsultarLog.Text = "Consultar log";
+            this.btnConsultarLog.Click += new System.EventHandler(this.btnConsultarLog_Click);
+            // 
             // SISPPAFUTmdiPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(735, 519);
+            this.ClientSize = new System.Drawing.Size(731, 515);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -470,5 +479,6 @@
         private System.Windows.Forms.ToolStripMenuItem btnRegistrarCompeticion;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnNuevoPronostico;
+        private System.Windows.Forms.ToolStripMenuItem btnConsultarLog;
     }
 }

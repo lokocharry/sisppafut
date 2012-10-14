@@ -81,10 +81,6 @@
       <Project>{3E8E1A66-3993-4657-A0C0-C08F6A1A3EA3}</Project>
       <Name>UPC.Proyecto.SISPPAFUT.DL.DALC</Name>
     </ProjectReference>
-    <ProjectReference Include="..\UPC.Seguridad.BL.BC\UPC.Seguridad.BL.BC.csproj">
-      <Project>{D5FF63C2-6D83-4998-8766-2AB46151DEAD}</Project>
-      <Name>UPC.Seguridad.BL.BC</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
