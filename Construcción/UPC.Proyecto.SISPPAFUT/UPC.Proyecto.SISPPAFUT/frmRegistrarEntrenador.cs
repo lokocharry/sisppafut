@@ -70,11 +70,19 @@ namespace UPC.Proyecto.SISPPAFUT
             txtApellidos.Text = objEntrenadorBE.Apellidos;
             txtNacionalidad.Text = objEntrenadorBE.Nacionalidad;
             cmbFecha.Value = objEntrenadorBE.Fecha;
-         }
+        }
+
+        public void BloquearCampos()
+        {
+            txtNombres.Enabled = false;
+            txtApellidos.Enabled = false;
+            txtNacionalidad.Enabled = false;
+        }
 
         private void frmJugadorEdit()
         {
             CargarDatos();
+            BloquearCampos();
         }
 
         private void frmRegistrarEntrenador_Load(object sender, EventArgs e)
@@ -92,19 +100,21 @@ namespace UPC.Proyecto.SISPPAFUT
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             EntrenadorBC objEntrenadorBC;
-            EntrenadorBE objEntrenadorBE;
+            
             try
             {
                 objEntrenadorBC = new EntrenadorBC();
-                objEntrenadorBE = new EntrenadorBE();
-
-                objEntrenadorBE.Apellidos = txtApellidos.Text;
-                objEntrenadorBE.Fecha = cmbFecha.Value;
-                objEntrenadorBE.Nacionalidad = txtNacionalidad.Text;
-                objEntrenadorBE.Nombres = txtNombres.Text;
 
                 if (_Modo == 1)
                 {
+                    EntrenadorBE objEntrenadorBE;                    
+                    objEntrenadorBE = new EntrenadorBE();
+
+                    objEntrenadorBE.Apellidos = txtApellidos.Text;
+                    objEntrenadorBE.Fecha = cmbFecha.Value;
+                    objEntrenadorBE.Nacionalidad = txtNacionalidad.Text;
+                    objEntrenadorBE.Nombres = txtNombres.Text;
+                
                     int result = objEntrenadorBC.RegistrarEntrenador(objEntrenadorBE);
                     LimpiarCampos();
                     if(result !=0)
@@ -112,6 +122,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 }
                 else if (_Modo == 2)
                 {
+                    objEntrenadorBE.Fecha = cmbFecha.Value;
                     objEntrenadorBC.ActualizarEntrenador(objEntrenadorBE);
                     MessageBox.Show("Se actualizó el entrenador");
                 }

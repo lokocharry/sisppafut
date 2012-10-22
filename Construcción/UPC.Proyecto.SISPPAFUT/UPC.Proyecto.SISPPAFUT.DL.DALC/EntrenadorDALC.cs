@@ -28,11 +28,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prmCodEntrenador.SqlDbType = SqlDbType.Int;
                 prmCodEntrenador.Direction = ParameterDirection.ReturnValue;
 
-                SqlParameter prmCodEquipo = new SqlParameter();
-                prmCodEquipo.ParameterName = "@CodEquipo";
-                prmCodEquipo.SqlDbType = SqlDbType.Int;
-                prmCodEquipo.Value = objEntrenadorBE.CodEquipo;
-
                 SqlParameter prmNombres = new SqlParameter();
                 prmNombres.ParameterName = "@Nombres";
                 prmNombres.SqlDbType = SqlDbType.VarChar;
@@ -57,7 +52,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prmFecha.Value = objEntrenadorBE.Fecha;
 
                 cmd.Parameters.Add(prmCodEntrenador);
-                cmd.Parameters.Add(prmCodEquipo);
                 cmd.Parameters.Add(prmNombres);
                 cmd.Parameters.Add(prmApellidos);
                 cmd.Parameters.Add(prmNacionalidad);
@@ -98,40 +92,13 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 prmCodEntrenador.SqlDbType = SqlDbType.Int;
                 prmCodEntrenador.Value = objEntrenadorBE.CodEntrenador;
 
-                SqlParameter prmCodEquipo = new SqlParameter();
-                prmCodEquipo.ParameterName = "@CodEquipo";
-                prmCodEquipo.SqlDbType = SqlDbType.Int;
-                prmCodEquipo.Value = objEntrenadorBE.CodEquipo;
-
-                SqlParameter prmNombres = new SqlParameter();
-                prmNombres.ParameterName = "@Nombres";
-                prmNombres.SqlDbType = SqlDbType.VarChar;
-                prmNombres.Size = 20;
-                prmNombres.Value = objEntrenadorBE.Nombres;
-
-                SqlParameter prmApellidos = new SqlParameter();
-                prmApellidos.ParameterName = "@Apellidos";
-                prmApellidos.SqlDbType = SqlDbType.VarChar;
-                prmApellidos.Size = 20;
-                prmApellidos.Value = objEntrenadorBE.Apellidos;
-
-                SqlParameter prmNacionalidad = new SqlParameter();
-                prmNacionalidad.ParameterName = "@Nacionalidad";
-                prmNacionalidad.SqlDbType = SqlDbType.VarChar;
-                prmNacionalidad.Size = 20;
-                prmNacionalidad.Value = objEntrenadorBE.Nacionalidad;
-
                 SqlParameter prmFecha = new SqlParameter();
                 prmFecha.SqlDbType = SqlDbType.DateTime;
                 prmFecha.ParameterName = "@FechaNacimiento";
                 prmFecha.Value = objEntrenadorBE.Fecha;
 
                 cmd.Parameters.Add(prmCodEntrenador);
-                cmd.Parameters.Add(prmCodEquipo);
                 cmd.Parameters.Add(prmFecha);
-                cmd.Parameters.Add(prmNacionalidad);
-                cmd.Parameters.Add(prmNombres);
-                cmd.Parameters.Add(prmApellidos);
 
                 cmd.Connection.Open();
                 cmd.ExecuteNonQuery();
@@ -170,7 +137,6 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
                 {
                     objEntrenadorBE = new EntrenadorBE();
                     objEntrenadorBE.CodEntrenador = dr.GetInt32(dr.GetOrdinal("CodEntrenador"));
-                    objEntrenadorBE.CodEquipo = dr.GetInt32(dr.GetOrdinal("CodEquipo"));
                     objEntrenadorBE.Apellidos = dr.GetString(dr.GetOrdinal("Apellidos"));
                     objEntrenadorBE.Nombres = dr.GetString(dr.GetOrdinal("Nombres"));
                     objEntrenadorBE.Fecha = dr.GetDateTime(dr.GetOrdinal("FechaNacimiento"));
