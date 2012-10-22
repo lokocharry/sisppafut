@@ -39,6 +39,7 @@
   <ItemGroup>
     <Compile Include="AmonestacionDALC.cs" />
     <Compile Include="CompeticionDALC.cs" />
+    <Compile Include="EntrenadorDALC.cs" />
     <Compile Include="EquipoDALC.cs">
       <SubType>Code</SubType>
     </Compile>

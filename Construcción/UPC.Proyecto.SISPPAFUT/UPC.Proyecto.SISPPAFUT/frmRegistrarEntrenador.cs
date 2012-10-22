@@ -82,6 +82,13 @@ namespace UPC.Proyecto.SISPPAFUT
             iniciarModo();
         }
 
+        public void LimpiarCampos()
+        {
+            txtNombres.Clear();
+            txtApellidos.Clear();
+            txtNacionalidad.Clear();
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             EntrenadorBC objEntrenadorBC;
@@ -97,7 +104,10 @@ namespace UPC.Proyecto.SISPPAFUT
                 objEntrenadorBE.Nombres = txtNombres.Text;
 
                 if (_Modo == 1)
+                {
                     objEntrenadorBC.RegistrarEntrenador(objEntrenadorBE);
+                    LimpiarCampos();
+                }
                 else if (_Modo == 2)
                     objEntrenadorBC.ActualizarEntrenador(objEntrenadorBE);
             }

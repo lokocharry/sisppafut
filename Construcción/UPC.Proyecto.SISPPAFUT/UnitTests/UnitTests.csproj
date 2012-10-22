@@ -72,6 +72,7 @@
   <ItemGroup>
     <Compile Include="AmonestacionBCTest.cs" />
     <Compile Include="CompeticionBCTest.cs" />
+    <Compile Include="EntrenadorBCTest.cs" />
     <Compile Include="EquipoBCTest.cs" />
     <Compile Include="EstadioBCTest.cs" />
     <Compile Include="ExcepcionBCTest.cs" />

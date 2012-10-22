@@ -40,6 +40,7 @@
     <Compile Include="AmonestacionBE.cs" />
     <Compile Include="CompeticionBE.cs" />
     <Compile Include="DatosPartidoConsolidado.cs" />
+    <Compile Include="EntrenadorBE.cs" />
     <Compile Include="EquipoBE.cs" />
     <Compile Include="EstadioBE.cs" />
     <Compile Include="ExcepcionBE.cs" />

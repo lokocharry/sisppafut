@@ -82,10 +82,11 @@ namespace UPC.Proyecto.SISPPAFUT
         public void CargarFuncionalidadesUsuario()
         {
             UsuarioFuncionalidadBC objUsuarioFuncionalidadBC;
-
+            UsuarioFuncionalidadBC.Propiedades.userLogged = Usuario;
             try
             {
                 objUsuarioFuncionalidadBC = new UsuarioFuncionalidadBC();
+                
 
                 lst_funcionalidades = new List<FuncionalidadBE>();
 

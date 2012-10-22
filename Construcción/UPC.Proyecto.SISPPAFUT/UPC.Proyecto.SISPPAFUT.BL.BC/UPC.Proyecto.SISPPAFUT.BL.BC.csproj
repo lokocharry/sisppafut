@@ -40,6 +40,7 @@
   <ItemGroup>
     <Compile Include="AmonestacionBC.cs" />
     <Compile Include="CompeticionBC.cs" />
+    <Compile Include="EntrenadorBC.cs" />
     <Compile Include="EquipoBC.cs" />
     <Compile Include="EstadioBC.cs" />
     <Compile Include="ExcepcionBC.cs" />
