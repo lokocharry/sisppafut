@@ -201,23 +201,30 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void inSeleccionEliminar(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex < 0)
-                return;
-
-            if (dgvAsociaciones.Columns[e.ColumnIndex].Name == "Eliminar")
+            try
             {
-                DataGridViewRow row = dgvAsociaciones.Rows[e.RowIndex];
+                if (e.RowIndex < 0)
+                    return;
 
-                DataGridViewCheckBoxCell seleccion = row.Cells["Eliminar"] as DataGridViewCheckBoxCell;
+                if (dgvAsociaciones.Columns[e.ColumnIndex].Name == "Eliminar")
+                {
+                    DataGridViewRow row = dgvAsociaciones.Rows[e.RowIndex];
 
-                if (Convert.ToBoolean(seleccion.Value))
-                {
-                    lst_estados[e.RowIndex] = 1;
+                    DataGridViewCheckBoxCell seleccion = row.Cells["Eliminar"] as DataGridViewCheckBoxCell;
+
+                    if (Convert.ToBoolean(seleccion.Value))
+                    {
+                        lst_estados[e.RowIndex] = 1;
+                    }
+                    else
+                    {
+                        lst_estados[e.RowIndex] = 0;
+                    }
                 }
-                else
-                {
-                    lst_estados[e.RowIndex] = 0;
-                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -277,6 +284,12 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private void inCerrar(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

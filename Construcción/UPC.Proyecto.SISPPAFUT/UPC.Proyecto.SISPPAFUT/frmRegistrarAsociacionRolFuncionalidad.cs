@@ -173,23 +173,30 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void SeleccionEliminar(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex <0)
-                return;
-
-            if (dgvListaAsignaciones.Columns[e.ColumnIndex].Name == "Eliminar")
+            try
             {
-                DataGridViewRow row = dgvListaAsignaciones.Rows[e.RowIndex];
+                if (e.RowIndex < 0)
+                    return;
 
-                DataGridViewCheckBoxCell seleccion = row.Cells["Eliminar"] as DataGridViewCheckBoxCell;
+                if (dgvListaAsignaciones.Columns[e.ColumnIndex].Name == "Eliminar")
+                {
+                    DataGridViewRow row = dgvListaAsignaciones.Rows[e.RowIndex];
 
-                if (Convert.ToBoolean(seleccion.Value))
-                {
-                    lst_EstadosAsociaciones[e.RowIndex] = 1;
+                    DataGridViewCheckBoxCell seleccion = row.Cells["Eliminar"] as DataGridViewCheckBoxCell;
+
+                    if (Convert.ToBoolean(seleccion.Value))
+                    {
+                        lst_EstadosAsociaciones[e.RowIndex] = 1;
+                    }
+                    else
+                    {
+                        lst_EstadosAsociaciones[e.RowIndex] = 0;
+                    }
                 }
-                else
-                {
-                    lst_EstadosAsociaciones[e.RowIndex] = 0;
-                }
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -224,11 +231,6 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
-        }
-
-        private void frmRegistrarAsociacionRolFuncionalidad_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

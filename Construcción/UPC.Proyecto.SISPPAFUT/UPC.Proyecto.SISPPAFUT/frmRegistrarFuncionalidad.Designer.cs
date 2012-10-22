@@ -42,7 +42,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 39);
+            this.label1.Location = new System.Drawing.Point(23, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 13);
             this.label1.TabIndex = 0;
@@ -51,7 +51,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 71);
+            this.label2.Location = new System.Drawing.Point(23, 64);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 0;
@@ -59,27 +59,29 @@
             // 
             // txtNombreFuncionalidad
             // 
-            this.txtNombreFuncionalidad.Location = new System.Drawing.Point(212, 36);
+            this.txtNombreFuncionalidad.Location = new System.Drawing.Point(157, 29);
             this.txtNombreFuncionalidad.MaxLength = 50;
             this.txtNombreFuncionalidad.Name = "txtNombreFuncionalidad";
-            this.txtNombreFuncionalidad.Size = new System.Drawing.Size(277, 20);
+            this.txtNombreFuncionalidad.Size = new System.Drawing.Size(236, 20);
             this.txtNombreFuncionalidad.TabIndex = 1;
+            this.txtNombreFuncionalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inControlarTexto);
             // 
             // txtDescripcionFuncionalidad
             // 
-            this.txtDescripcionFuncionalidad.Location = new System.Drawing.Point(126, 71);
+            this.txtDescripcionFuncionalidad.Location = new System.Drawing.Point(157, 64);
             this.txtDescripcionFuncionalidad.MaxLength = 200;
             this.txtDescripcionFuncionalidad.Multiline = true;
             this.txtDescripcionFuncionalidad.Name = "txtDescripcionFuncionalidad";
             this.txtDescripcionFuncionalidad.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtDescripcionFuncionalidad.Size = new System.Drawing.Size(363, 99);
+            this.txtDescripcionFuncionalidad.Size = new System.Drawing.Size(236, 99);
             this.txtDescripcionFuncionalidad.TabIndex = 2;
+            this.txtDescripcionFuncionalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inControlarTexto);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(414, 188);
+            this.button1.Location = new System.Drawing.Point(304, 169);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 29);
+            this.button1.Size = new System.Drawing.Size(89, 29);
             this.button1.TabIndex = 3;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
@@ -89,7 +91,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 232);
+            this.ClientSize = new System.Drawing.Size(417, 217);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtDescripcionFuncionalidad);
             this.Controls.Add(this.txtNombreFuncionalidad);

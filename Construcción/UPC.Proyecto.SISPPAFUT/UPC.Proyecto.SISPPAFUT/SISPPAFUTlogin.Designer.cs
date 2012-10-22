@@ -43,7 +43,7 @@
             this.btnIngresar.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btnIngresar.Name = "btnIngresar";
             this.btnIngresar.Size = new System.Drawing.Size(123, 25);
-            this.btnIngresar.TabIndex = 0;
+            this.btnIngresar.TabIndex = 3;
             this.btnIngresar.Text = "Iniciar sesión";
             this.btnIngresar.UseVisualStyleBackColor = true;
             this.btnIngresar.Click += new System.EventHandler(this.btnIngresar_Click);
@@ -81,7 +81,7 @@
             this.txtUsuario.MaxLength = 40;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(235, 27);
-            this.txtUsuario.TabIndex = 4;
+            this.txtUsuario.TabIndex = 1;
             // 
             // txtContrasenia
             // 
@@ -93,7 +93,7 @@
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(235, 27);
-            this.txtContrasenia.TabIndex = 5;
+            this.txtContrasenia.TabIndex = 2;
             // 
             // linkLabel1
             // 
@@ -103,10 +103,10 @@
             this.linkLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(146, 15);
-            this.linkLabel1.TabIndex = 6;
+            this.linkLabel1.TabIndex = 4;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "Crear una cuenta nueva";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.RegistrarNuevoApostador);
             // 
             // SISPPAFUTlogin
             // 

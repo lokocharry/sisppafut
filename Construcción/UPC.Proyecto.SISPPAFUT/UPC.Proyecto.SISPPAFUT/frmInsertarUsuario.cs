@@ -21,13 +21,15 @@ namespace UPC.Proyecto.SISPPAFUT
             set { usuario = value; }
         }
 
-        private static frmInsertarUsuario frmUsuario = null;
+        private int nuevoUser = 0;
 
-        public frmInsertarUsuario()
+        public int NuevoUser
         {
-            InitializeComponent();
+            get { return nuevoUser; }
+            set { nuevoUser = value; }
         }
 
+        private static frmInsertarUsuario frmUsuario = null;
         public static frmInsertarUsuario Instance()
         {
             if (frmUsuario == null)
@@ -36,10 +38,9 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             return frmUsuario;
         }
-
-        private void frmInsertarUsuario_Load(object sender, EventArgs e)
+        public frmInsertarUsuario()
         {
-
+            InitializeComponent();
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -81,8 +82,6 @@ namespace UPC.Proyecto.SISPPAFUT
                 {
                     validacion = false;
                 }
-                
-                //return validacion;
             }
             catch (Exception ex)
             {
@@ -126,46 +125,116 @@ namespace UPC.Proyecto.SISPPAFUT
 
                         int codNuevoUsuario = 0;
                         codNuevoUsuario = objUsuarioBC.insertar_Usuario(objUsuarioBE);
-                        List<UsuarioRolBE> lstUsuarioNuevo = new List<UsuarioRolBE>();
-                        UsuarioRolBE objApostadorNuevo = new UsuarioRolBE();
-                        objApostadorNuevo.IdUsuario = codNuevoUsuario;
-                        objApostadorNuevo.IdRol = 3; //3 es el codigo del rol "CLIENTE"
-                        lstUsuarioNuevo.Add(objApostadorNuevo);
-                        objUsuarioRolBC.asignar_RolUsuario(lstUsuarioNuevo);
-
+                        if (nuevoUser == 1)
+                        {
+                            List<UsuarioRolBE> lstUsuarioNuevo = new List<UsuarioRolBE>();
+                            UsuarioRolBE objApostadorNuevo = new UsuarioRolBE();
+                            objApostadorNuevo.IdUsuario = codNuevoUsuario;
+                            objApostadorNuevo.IdRol = 3; //3 es el codigo del rol "CLIENTE"
+                            lstUsuarioNuevo.Add(objApostadorNuevo);
+                            objUsuarioRolBC.asignar_RolUsuario(lstUsuarioNuevo);
+                            //-- Variable para listar las funcionalidades del rol Cliente
+                            List<FuncionalidadBE> lstFuncionalidad = new List<FuncionalidadBE>();
+                            RolXFuncionalidadBC objRolFunc = new RolXFuncionalidadBC();
+                            //-- Listo las funcionalidades del rol Cliente
+                            lstFuncionalidad = objRolFunc.Listar_FuncionalidadesXRol(3);
+                            //-- Variables para registrar las funcionalidades al cliente nuevo
+                            UsuarioFuncionalidadBC objUsuarioFuncion = new UsuarioFuncionalidadBC();
+                            List<UsuarioFuncionalidadBE> objUserFunc = new List<UsuarioFuncionalidadBE>();
+                            UsuarioFuncionalidadBE objUserFuncBE;
+                            //-- Creo una lista de usuariofuncionalidades que debo registrar
+                            foreach (FuncionalidadBE cDto in lstFuncionalidad)
+                            {
+                                objUserFuncBE = new UsuarioFuncionalidadBE();
+                                objUserFuncBE.idUsuario = codNuevoUsuario;
+                                objUserFuncBE.idFuncionalidad = cDto.idFuncionalidad;
+                                objUserFunc.Add(objUserFuncBE);
+                            }
+                            if(objUserFunc.Count>0)
+                            {
+                                objUsuarioFuncion.Insertar_UsuarioFuncionalidad(objUserFunc);
+                            }
+                        }
                         if (codNuevoUsuario != 0)
                         {
-                            MessageBox.Show("El usuario ha sido registrado satisfactoriamente.",
-                                "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK,
-                                MessageBoxIcon.Information);
+                            MessageBox.Show("El usuario ha sido registrado satisfactoriamente.","Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK,MessageBoxIcon.Information);
                             LimpiarCampos();
+                            if (NuevoUser == 1)
+                            {
+                                this.Close();
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("El usuario no se registró debido a un error.",
-                                "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK,
-                                MessageBoxIcon.Error);
+                            MessageBox.Show("El usuario no se registró debido a un error.","Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK,MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Introducir correctamente su contraseña.",
-                            "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK,
-                            MessageBoxIcon.Error);
+                        MessageBox.Show("Introducir correctamente su contraseña.","Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK,MessageBoxIcon.Error);
                         txtContrasenia.Text = "";
                         txtRepetirContrasenia.Text = "";
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Todos los campos son obligatorios.", 
-                        "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, 
-                        MessageBoxIcon.Error);
+                    MessageBox.Show("Todos los campos son obligatorios.","Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
             {
                 Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void inCerrar(object sender, FormClosingEventArgs e)
+        {
+            if (NuevoUser == 0)
+            {
+                if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                    e.Cancel = true;
+            }
+        }
+
+        private void inControlarTexto(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void InControlarTextNumerico(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else
+            {
+                e.Handled = true;
             }
         }
     }

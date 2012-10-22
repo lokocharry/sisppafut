@@ -40,7 +40,6 @@
             this.Empate = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Visita = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPronosticos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -56,10 +55,16 @@
             this.Local,
             this.Empate,
             this.Visita});
-            this.dgvPronosticos.Location = new System.Drawing.Point(12, 12);
+            this.dgvPronosticos.Location = new System.Drawing.Point(22, 24);
             this.dgvPronosticos.Name = "dgvPronosticos";
-            this.dgvPronosticos.Size = new System.Drawing.Size(522, 189);
+            this.dgvPronosticos.RowHeadersVisible = false;
+            this.dgvPronosticos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvPronosticos.Size = new System.Drawing.Size(455, 189);
             this.dgvPronosticos.TabIndex = 0;
+            this.dgvPronosticos.CancelRowEdit += new System.Windows.Forms.QuestionEventHandler(this.dgvPronosticos_CancelRowEdit);
+            this.dgvPronosticos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPronosticos_CellClick);
+            this.dgvPronosticos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inSeleccionarTipo);
+            this.dgvPronosticos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPronosticos_CellEndEdit);
             // 
             // CodPartido
             // 
@@ -99,34 +104,27 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(446, 219);
+            this.btnGuardar.Location = new System.Drawing.Point(395, 219);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(82, 35);
             this.btnGuardar.TabIndex = 1;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(329, 219);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(111, 23);
-            this.btnCancelar.TabIndex = 2;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
             // frmRegistrarPronostico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(546, 254);
-            this.Controls.Add(this.btnCancelar);
+            this.ClientSize = new System.Drawing.Size(500, 268);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.dgvPronosticos);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmRegistrarPronostico";
             this.Text = "Mis Pronosticos";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmRegistrarPronostico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPronosticos)).EndInit();
             this.ResumeLayout(false);
@@ -137,7 +135,6 @@
 
         private System.Windows.Forms.DataGridView dgvPronosticos;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn CodPartido;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoLocal;
         private System.Windows.Forms.DataGridViewTextBoxColumn EquipoVisitante;

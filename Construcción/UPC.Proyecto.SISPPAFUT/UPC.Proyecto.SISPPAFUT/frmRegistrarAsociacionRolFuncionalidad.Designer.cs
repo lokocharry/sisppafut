@@ -37,13 +37,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.dgvListaAsignaciones = new System.Windows.Forms.DataGridView();
-            this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.cmbRol = new System.Windows.Forms.ComboBox();
             this.cmbFuncionalidad = new System.Windows.Forms.ComboBox();
             this.btnAgregarLista = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.Funcionalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaAsignaciones)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +51,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(36, 15);
+            this.label1.Location = new System.Drawing.Point(18, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 13);
             this.label1.TabIndex = 0;
@@ -60,7 +60,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 49);
+            this.label2.Location = new System.Drawing.Point(18, 60);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
             this.label2.TabIndex = 0;
@@ -70,18 +70,18 @@
             // 
             this.groupBox1.Controls.Add(this.btnActualizar);
             this.groupBox1.Controls.Add(this.dgvListaAsignaciones);
-            this.groupBox1.Location = new System.Drawing.Point(39, 82);
+            this.groupBox1.Location = new System.Drawing.Point(21, 93);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(516, 219);
+            this.groupBox1.Size = new System.Drawing.Size(509, 244);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista de Asignaciones";
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(419, 186);
+            this.btnActualizar.Location = new System.Drawing.Point(419, 208);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(75, 30);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -98,35 +98,20 @@
             this.Eliminar});
             this.dgvListaAsignaciones.Location = new System.Drawing.Point(17, 30);
             this.dgvListaAsignaciones.Name = "dgvListaAsignaciones";
+            this.dgvListaAsignaciones.ReadOnly = true;
+            this.dgvListaAsignaciones.RowHeadersVisible = false;
+            this.dgvListaAsignaciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvListaAsignaciones.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvListaAsignaciones.Size = new System.Drawing.Size(477, 150);
+            this.dgvListaAsignaciones.Size = new System.Drawing.Size(477, 172);
             this.dgvListaAsignaciones.TabIndex = 0;
             this.dgvListaAsignaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.SeleccionEliminar);
             this.dgvListaAsignaciones.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvListaAsignaciones_CurrentCellDirtyStateChanged);
-            // 
-            // Funcionalidad
-            // 
-            this.Funcionalidad.HeaderText = "Funcionalidad";
-            this.Funcionalidad.Name = "Funcionalidad";
-            this.Funcionalidad.Width = 159;
-            // 
-            // Rol
-            // 
-            this.Rol.HeaderText = "Rol";
-            this.Rol.Name = "Rol";
-            this.Rol.Width = 159;
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Width = 110;
             // 
             // cmbRol
             // 
             this.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(147, 12);
+            this.cmbRol.Location = new System.Drawing.Point(129, 23);
             this.cmbRol.Name = "cmbRol";
             this.cmbRol.Size = new System.Drawing.Size(191, 21);
             this.cmbRol.TabIndex = 2;
@@ -135,16 +120,16 @@
             // 
             this.cmbFuncionalidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFuncionalidad.FormattingEnabled = true;
-            this.cmbFuncionalidad.Location = new System.Drawing.Point(147, 46);
+            this.cmbFuncionalidad.Location = new System.Drawing.Point(129, 57);
             this.cmbFuncionalidad.Name = "cmbFuncionalidad";
-            this.cmbFuncionalidad.Size = new System.Drawing.Size(298, 21);
+            this.cmbFuncionalidad.Size = new System.Drawing.Size(268, 21);
             this.cmbFuncionalidad.TabIndex = 3;
             // 
             // btnAgregarLista
             // 
-            this.btnAgregarLista.Location = new System.Drawing.Point(463, 44);
+            this.btnAgregarLista.Location = new System.Drawing.Point(421, 51);
             this.btnAgregarLista.Name = "btnAgregarLista";
-            this.btnAgregarLista.Size = new System.Drawing.Size(92, 23);
+            this.btnAgregarLista.Size = new System.Drawing.Size(94, 30);
             this.btnAgregarLista.TabIndex = 4;
             this.btnAgregarLista.Text = "Agregar a lista";
             this.btnAgregarLista.UseVisualStyleBackColor = true;
@@ -152,19 +137,40 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(480, 307);
+            this.btnGuardar.Location = new System.Drawing.Point(440, 343);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 30);
             this.btnGuardar.TabIndex = 5;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // Funcionalidad
+            // 
+            this.Funcionalidad.HeaderText = "Funcionalidad";
+            this.Funcionalidad.Name = "Funcionalidad";
+            this.Funcionalidad.ReadOnly = true;
+            this.Funcionalidad.Width = 189;
+            // 
+            // Rol
+            // 
+            this.Rol.HeaderText = "Rol";
+            this.Rol.Name = "Rol";
+            this.Rol.ReadOnly = true;
+            this.Rol.Width = 159;
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.ReadOnly = true;
+            this.Eliminar.Width = 110;
+            // 
             // frmRegistrarAsociacionRolFuncionalidad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(594, 342);
+            this.ClientSize = new System.Drawing.Size(552, 386);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnAgregarLista);
             this.Controls.Add(this.cmbFuncionalidad);
@@ -179,7 +185,6 @@
             this.ShowIcon = false;
             this.Text = "Asociación de Rol - Funcionalidad";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
-            this.Load += new System.EventHandler(this.frmRegistrarAsociacionRolFuncionalidad_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaAsignaciones)).EndInit();
             this.ResumeLayout(false);

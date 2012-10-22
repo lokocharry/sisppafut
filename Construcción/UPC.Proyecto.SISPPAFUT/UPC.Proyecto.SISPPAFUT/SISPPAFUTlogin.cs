@@ -30,13 +30,24 @@ namespace UPC.Proyecto.SISPPAFUT
                 e.Cancel = true;
         }
 
-        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            frmInsertarUsuario frm = frmInsertarUsuario.Instance();
-
-            frm.MdiParent = this;
-            frm.Show();
-            frm.BringToFront();
+        private void RegistrarNuevoApostador(object sender, LinkLabelLinkClickedEventArgs e)
+        {            
+            try
+            {
+                frmInsertarUsuario frm = frmInsertarUsuario.Instance();
+                UsuarioBC.Propiedades.userLogged = "guest";
+                UsuarioRolBC.Propiedades.userLogged = "guest";
+                UsuarioFuncionalidadBC.Propiedades.userLogged = "guest";
+                FuncionalidadBC.Propiedades.userLogged = "guest";
+                RolXFuncionalidadBC.Propiedades.userLogged = "guest";
+                frm.NuevoUser = 1;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
         }
 
         private void btnIngresar_Click(object sender, EventArgs e)

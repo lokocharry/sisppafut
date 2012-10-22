@@ -46,7 +46,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(32, 42);
+            this.label1.Location = new System.Drawing.Point(27, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 13);
             this.label1.TabIndex = 0;
@@ -55,7 +55,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 73);
+            this.label2.Location = new System.Drawing.Point(27, 59);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 0;
@@ -64,7 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 108);
+            this.label3.Location = new System.Drawing.Point(27, 85);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 13);
             this.label3.TabIndex = 0;
@@ -73,7 +73,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(32, 141);
+            this.label4.Location = new System.Drawing.Point(27, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 13);
             this.label4.TabIndex = 0;
@@ -81,54 +81,58 @@
             // 
             // txtNombreRol
             // 
-            this.txtNombreRol.Location = new System.Drawing.Point(162, 42);
+            this.txtNombreRol.Location = new System.Drawing.Point(134, 30);
             this.txtNombreRol.MaxLength = 30;
             this.txtNombreRol.Name = "txtNombreRol";
             this.txtNombreRol.Size = new System.Drawing.Size(188, 20);
             this.txtNombreRol.TabIndex = 1;
+            this.txtNombreRol.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inControlarTexto);
             // 
             // txtClaveRol
             // 
-            this.txtClaveRol.Location = new System.Drawing.Point(162, 73);
+            this.txtClaveRol.Location = new System.Drawing.Point(134, 56);
             this.txtClaveRol.MaxLength = 15;
             this.txtClaveRol.Name = "txtClaveRol";
             this.txtClaveRol.PasswordChar = '*';
             this.txtClaveRol.Size = new System.Drawing.Size(188, 20);
             this.txtClaveRol.TabIndex = 2;
+            this.txtClaveRol.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inControlarTextoNumerico);
             // 
             // txtConfirmaClave
             // 
-            this.txtConfirmaClave.Location = new System.Drawing.Point(162, 105);
+            this.txtConfirmaClave.Location = new System.Drawing.Point(134, 82);
             this.txtConfirmaClave.MaxLength = 15;
             this.txtConfirmaClave.Name = "txtConfirmaClave";
             this.txtConfirmaClave.PasswordChar = '*';
             this.txtConfirmaClave.Size = new System.Drawing.Size(188, 20);
             this.txtConfirmaClave.TabIndex = 3;
+            this.txtConfirmaClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inControlarTextoNumerico);
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(162, 133);
+            this.txtDescripcion.Location = new System.Drawing.Point(134, 108);
             this.txtDescripcion.MaxLength = 200;
             this.txtDescripcion.Multiline = true;
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(280, 84);
             this.txtDescripcion.TabIndex = 4;
+            this.txtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inControlarTexto);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(362, 227);
+            this.button1.Location = new System.Drawing.Point(334, 198);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(80, 32);
             this.button1.TabIndex = 5;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.inRegistrarRol);
             // 
             // frmRegistrarRol
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(476, 271);
+            this.ClientSize = new System.Drawing.Size(446, 249);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.txtConfirmaClave);

@@ -96,7 +96,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(532, 22);
+            this.label3.Location = new System.Drawing.Point(507, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 13);
             this.label3.TabIndex = 0;
@@ -108,7 +108,7 @@
             this.cmbCompeticion.FormattingEnabled = true;
             this.cmbCompeticion.Location = new System.Drawing.Point(287, 19);
             this.cmbCompeticion.Name = "cmbCompeticion";
-            this.cmbCompeticion.Size = new System.Drawing.Size(237, 21);
+            this.cmbCompeticion.Size = new System.Drawing.Size(197, 21);
             this.cmbCompeticion.TabIndex = 2;
             this.cmbCompeticion.SelectedIndexChanged += new System.EventHandler(this.inSeleccionarCompeticion);
             // 
@@ -116,9 +116,9 @@
             // 
             this.cmbLiga.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbLiga.FormattingEnabled = true;
-            this.cmbLiga.Location = new System.Drawing.Point(576, 19);
+            this.cmbLiga.Location = new System.Drawing.Point(551, 19);
             this.cmbLiga.Name = "cmbLiga";
-            this.cmbLiga.Size = new System.Drawing.Size(183, 21);
+            this.cmbLiga.Size = new System.Drawing.Size(158, 21);
             this.cmbLiga.TabIndex = 3;
             // 
             // dgvTablaPosiciones
@@ -151,8 +151,10 @@
             this.dgvTablaPosiciones.Location = new System.Drawing.Point(12, 76);
             this.dgvTablaPosiciones.Name = "dgvTablaPosiciones";
             this.dgvTablaPosiciones.ReadOnly = true;
-            this.dgvTablaPosiciones.Size = new System.Drawing.Size(828, 449);
-            this.dgvTablaPosiciones.TabIndex = 4;
+            this.dgvTablaPosiciones.RowHeadersVisible = false;
+            this.dgvTablaPosiciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvTablaPosiciones.Size = new System.Drawing.Size(794, 462);
+            this.dgvTablaPosiciones.TabIndex = 5;
             // 
             // Pos
             // 
@@ -304,19 +306,19 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(284, 58);
+            this.label4.Location = new System.Drawing.Point(245, 60);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(558, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "|-------------------- GENERAL -------------------|----------------------- LOCAL -" +
-    "----------------------|-------------------- VISITANTE -----------------------|";
+            this.label4.Size = new System.Drawing.Size(561, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "|--------------------- GENERAL -------------------|----------------------- LOCAL " +
+    "-----------------------|-------------------- VISITANTE -----------------------|";
             // 
             // btnMostrar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(765, 17);
+            this.btnMostrar.Location = new System.Drawing.Point(734, 17);
             this.btnMostrar.Name = "btnMostrar";
             this.btnMostrar.Size = new System.Drawing.Size(75, 23);
-            this.btnMostrar.TabIndex = 6;
+            this.btnMostrar.TabIndex = 4;
             this.btnMostrar.Text = "Mostrar";
             this.btnMostrar.UseVisualStyleBackColor = true;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
@@ -325,7 +327,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(852, 537);
+            this.ClientSize = new System.Drawing.Size(817, 550);
             this.Controls.Add(this.btnMostrar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.dgvTablaPosiciones);
@@ -342,7 +344,6 @@
             this.ShowIcon = false;
             this.Text = "Tabla de Posiciones";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.InCerrar);
-            this.Load += new System.EventHandler(this.frmTablaPosiciones_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaPosiciones)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

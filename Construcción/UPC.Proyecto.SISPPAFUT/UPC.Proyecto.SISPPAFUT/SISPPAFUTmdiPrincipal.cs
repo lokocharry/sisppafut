@@ -591,8 +591,8 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmInsertarUsuario frm = frmInsertarUsuario.Instance();
-
+                frmInsertarUsuario frm = frmInsertarUsuario.Instance();                
+                frm.NuevoUser = 0;
                 frm.MdiParent = this;
                 frm.Show();
                 frm.BringToFront();

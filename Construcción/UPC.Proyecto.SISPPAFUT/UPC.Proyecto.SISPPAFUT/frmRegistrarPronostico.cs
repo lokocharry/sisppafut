@@ -39,15 +39,8 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void frmRegistrarPronostico_Load(object sender, EventArgs e)
         {
-            try
-            {
-                iniciarGrillaPartidos();
-                dgvPartidosDataBind();
-            }
-            catch (Exception ex)
-            {
-                Funciones.RegistrarExcepcion(ex);
-            }
+            iniciarGrillaPartidos();
+            dgvPartidosDataBind();            
         }
 
         private void iniciarGrillaPartidos()
@@ -63,7 +56,7 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                throw;
+                Funciones.RegistrarExcepcion(ex);
             }
         }
 
@@ -97,25 +90,12 @@ namespace UPC.Proyecto.SISPPAFUT
             }
             catch (Exception ex)
             {
-                throw;
-            }
-
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                guardarPronosticos();
-            }
-            catch (Exception ex)
-            {
                 Funciones.RegistrarExcepcion(ex);
             }
 
         }
 
-        private void guardarPronosticos()
+        private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
@@ -128,7 +108,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 {
                     objPronosticoClienteBE = new PronosticoClienteBE();
                     objPronosticoClienteBE.CodigoPartido = Convert.ToInt32(dgvPronosticos.Rows[i].Cells[0].Value);
-                    objPronosticoClienteBE.CodigoUsuario = idusuario; 
+                    objPronosticoClienteBE.CodigoUsuario = idusuario;
 
                     if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[3].Value) == true)
                     {
@@ -143,7 +123,7 @@ namespace UPC.Proyecto.SISPPAFUT
                         pronostico = "V";
                     }
 
-                    objPronosticoClienteBE.Pronostico = pronostico;                    
+                    objPronosticoClienteBE.Pronostico = pronostico;
                     pronostico = "";
 
                     if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[3].Value) == true ||
@@ -160,15 +140,74 @@ namespace UPC.Proyecto.SISPPAFUT
                     objPronosticoClienteBC.inssertarPronosticoCliente(listaPronosticos[i]);
                 }
 
-                MessageBox.Show("Los pronosticos han sido registrados satisfactoriamente.", 
-                    "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, 
-                    MessageBoxIcon.Information);
+                MessageBox.Show("Los pronosticos han sido registrados satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                throw;
+                Funciones.RegistrarExcepcion(ex);
             }
 
+        }        
+
+        private void inCerrar(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
+        }
+
+        private void inSeleccionarTipo(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewCheckBoxCell check_l = new DataGridViewCheckBoxCell();
+
+            if (dgvPronosticos.Columns["Local"].Index == e.ColumnIndex)
+            {
+                check_l = (DataGridViewCheckBoxCell)dgvPronosticos.Rows[e.RowIndex].Cells["Local"];
+
+                if (Convert.ToBoolean(dgvPronosticos.Rows[e.RowIndex].Cells["Empate"].Value) == true &&
+                    Convert.ToBoolean(dgvPronosticos.Rows[e.RowIndex].Cells["Visita"].Value) == true)
+                {
+                    MessageBox.Show("No es posible ese tipo de pronóstico.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dgvPronosticos.Rows[e.RowIndex].Cells["Local"].DataGridView.CancelEdit();
+                }
+            }
+            else
+                if (dgvPronosticos.Columns["Empate"].Index == e.ColumnIndex)
+                {
+                    check_l = (DataGridViewCheckBoxCell)dgvPronosticos.Rows[e.RowIndex].Cells["Empate"];
+
+                    if (Convert.ToBoolean(dgvPronosticos.Rows[e.RowIndex].Cells["Local"].Value) == true &&
+                        Convert.ToBoolean(dgvPronosticos.Rows[e.RowIndex].Cells["Visita"].Value) == true)
+                    {
+                        MessageBox.Show("No es posible ese tipo de pronóstico.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        dgvPronosticos.Rows[e.RowIndex].Cells["Empate"].DataGridView.CancelEdit();
+                    }
+                }
+                else
+                    if (dgvPronosticos.Columns["Visita"].Index == e.ColumnIndex)
+                    {
+                        check_l = (DataGridViewCheckBoxCell)dgvPronosticos.Rows[e.RowIndex].Cells["Visita"];
+
+                        if (Convert.ToBoolean(dgvPronosticos.Rows[e.RowIndex].Cells["Local"].Value) == true &&
+                            Convert.ToBoolean(dgvPronosticos.Rows[e.RowIndex].Cells["Empate"].Value) == true)
+                        {
+                            MessageBox.Show("No es posible ese tipo de pronóstico.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            dgvPronosticos.Rows[e.RowIndex].Cells["Visita"].DataGridView.CancelEdit();
+                        }
+                    }
+        }
+
+        private void dgvPronosticos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void dgvPronosticos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvPronosticos_CancelRowEdit(object sender, QuestionEventArgs e)
+        {
+            
         }
     }
 }

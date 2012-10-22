@@ -49,7 +49,7 @@ namespace UPC.Proyecto.SISPPAFUT
             txtDescripcion.Clear();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void inRegistrarRol(object sender, EventArgs e)
         {
             if (ValidarCampos() == false)
             {
@@ -95,6 +95,48 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
                 e.Cancel = true;
+        }
+
+        private void inControlarTexto(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void inControlarTextoNumerico(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (e.KeyChar >= 48 && e.KeyChar <= 57)
+                e.Handled = false;
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

@@ -47,7 +47,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(34, 37);
+            this.label1.Location = new System.Drawing.Point(25, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 13);
             this.label1.TabIndex = 0;
@@ -56,7 +56,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(34, 77);
+            this.label2.Location = new System.Drawing.Point(25, 71);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 1;
@@ -66,25 +66,25 @@
             // 
             this.cmbRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRol.FormattingEnabled = true;
-            this.cmbRol.Location = new System.Drawing.Point(123, 34);
+            this.cmbRol.Location = new System.Drawing.Point(86, 36);
             this.cmbRol.Name = "cmbRol";
-            this.cmbRol.Size = new System.Drawing.Size(235, 21);
+            this.cmbRol.Size = new System.Drawing.Size(176, 21);
             this.cmbRol.TabIndex = 2;
             // 
             // cmbUsuario
             // 
             this.cmbUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUsuario.FormattingEnabled = true;
-            this.cmbUsuario.Location = new System.Drawing.Point(123, 74);
+            this.cmbUsuario.Location = new System.Drawing.Point(86, 63);
             this.cmbUsuario.Name = "cmbUsuario";
-            this.cmbUsuario.Size = new System.Drawing.Size(235, 21);
+            this.cmbUsuario.Size = new System.Drawing.Size(176, 21);
             this.cmbUsuario.TabIndex = 3;
             // 
             // btnAgregarLista
             // 
-            this.btnAgregarLista.Location = new System.Drawing.Point(442, 77);
+            this.btnAgregarLista.Location = new System.Drawing.Point(291, 63);
             this.btnAgregarLista.Name = "btnAgregarLista";
-            this.btnAgregarLista.Size = new System.Drawing.Size(117, 23);
+            this.btnAgregarLista.Size = new System.Drawing.Size(109, 21);
             this.btnAgregarLista.TabIndex = 4;
             this.btnAgregarLista.Text = "Agregar a lista";
             this.btnAgregarLista.UseVisualStyleBackColor = true;
@@ -94,18 +94,18 @@
             // 
             this.groupBox1.Controls.Add(this.btnActualizar);
             this.groupBox1.Controls.Add(this.dgvAsignaciones);
-            this.groupBox1.Location = new System.Drawing.Point(37, 123);
+            this.groupBox1.Location = new System.Drawing.Point(28, 106);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(522, 213);
+            this.groupBox1.Size = new System.Drawing.Size(483, 230);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lista de Asignaciones";
             // 
             // btnActualizar
             // 
-            this.btnActualizar.Location = new System.Drawing.Point(432, 180);
+            this.btnActualizar.Location = new System.Drawing.Point(393, 190);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(75, 25);
             this.btnActualizar.TabIndex = 1;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = true;
@@ -122,7 +122,9 @@
             this.Eliminar});
             this.dgvAsignaciones.Location = new System.Drawing.Point(15, 19);
             this.dgvAsignaciones.Name = "dgvAsignaciones";
-            this.dgvAsignaciones.Size = new System.Drawing.Size(492, 155);
+            this.dgvAsignaciones.RowHeadersVisible = false;
+            this.dgvAsignaciones.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvAsignaciones.Size = new System.Drawing.Size(453, 165);
             this.dgvAsignaciones.TabIndex = 0;
             this.dgvAsignaciones.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inSeleccionEliminar);
             this.dgvAsignaciones.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvAsignaciones_CurrentCellDirtyStateChanged);
@@ -149,9 +151,9 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(484, 342);
+            this.btnGuardar.Location = new System.Drawing.Point(421, 342);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 36);
             this.btnGuardar.TabIndex = 6;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -161,7 +163,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(597, 373);
+            this.ClientSize = new System.Drawing.Size(543, 390);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnAgregarLista);
@@ -169,11 +171,13 @@
             this.Controls.Add(this.cmbRol);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmRegistrarAsociacionRolUsuario";
             this.ShowIcon = false;
             this.Text = "Asociación Rol - Usuarios";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmRegistrarAsociacionRolUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAsignaciones)).EndInit();

@@ -14,7 +14,6 @@ namespace UPC.Proyecto.SISPPAFUT
 {
     public partial class frmTablaPosiciones : Form
     {
-
         List<TablaPosicionesBE> lst_TablaPosiciones;
         List<PaisBE> lst_Paises;
         List<CompeticionBE> lst_Competiciones;
@@ -51,9 +50,16 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmbPais.Items.Add("Seleccione un país...");
                 cmbPais.SelectedIndex = 0;
 
-                for (int i = 0; i < lst_Paises.Count; i++)
+                if (lst_Paises.Count > 0)
                 {
-                    cmbPais.Items.Add(lst_Paises[i].NombrePais);
+                    for (int i = 0; i < lst_Paises.Count; i++)
+                    {
+                        cmbPais.Items.Add(lst_Paises[i].NombrePais);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No hay países para mostrar.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -75,9 +81,16 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmbCompeticion.Items.Add("Seleccione una competición...");
                 cmbCompeticion.SelectedIndex = 0;
 
-                for (int i = 0; i < lst_Competiciones.Count; i++)
+                if (lst_Competiciones.Count > 0)
                 {
-                    cmbCompeticion.Items.Add(lst_Competiciones[i].Nombre_competicion);
+                    for (int i = 0; i < lst_Competiciones.Count; i++)
+                    {
+                        cmbCompeticion.Items.Add(lst_Competiciones[i].Nombre_competicion);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No hay competiciones para mostrar.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -99,9 +112,16 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmbLiga.Items.Add("Seleccione una liga...");
                 cmbLiga.SelectedIndex = 0;
 
-                for (int i = 0; i < lst_Ligas.Count; i++)
+                if (lst_Ligas.Count > 0)
                 {
-                    cmbLiga.Items.Add(lst_Ligas[i].NombreLiga);
+                    for (int i = 0; i < lst_Ligas.Count; i++)
+                    {
+                        cmbLiga.Items.Add(lst_Ligas[i].NombreLiga);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No hay ligas para mostrar.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -131,6 +151,7 @@ namespace UPC.Proyecto.SISPPAFUT
             else
             {
                 cmbCompeticion.Items.Clear();
+                cmbLiga.Items.Clear();
             }
         }
 
@@ -147,17 +168,24 @@ namespace UPC.Proyecto.SISPPAFUT
 
             try
             {
-                objTabla = new TablaPosicionesBC();
-                lst_TablaPosiciones = objTabla.ObtenerTablaPosicionLiga(lst_Ligas[cmbLiga.SelectedIndex - 1].CodigoLiga);
-
-                dgvTablaPosiciones.Rows.Clear();
-
-                if (lst_TablaPosiciones.Count > 0)
+                if (ValidarControles())
                 {
-                    foreach (TablaPosicionesBE registro in lst_TablaPosiciones)
+                    objTabla = new TablaPosicionesBC();
+                    lst_TablaPosiciones = objTabla.ObtenerTablaPosicionLiga(lst_Ligas[cmbLiga.SelectedIndex - 1].CodigoLiga);
+
+                    dgvTablaPosiciones.Rows.Clear();
+
+                    if (lst_TablaPosiciones.Count > 0)
                     {
-                        dgvTablaPosiciones.Rows.Add(registro.posicion, registro.NombreEquipo, registro.PuntosGeneral, registro.PartidosJugadosTotal, registro.VictoriasTotal, registro.EmpatesTotal, registro.DerrotasTotal, registro.GolesAnotadosTotal, registro.GolesEncajadosTotal, registro.partidosJugadosLocal, registro.victoriasLocal, registro.empatesLocal, registro.derrotasLocal, registro.golesAnotadosLocal, registro.golesEncajadosLocal, registro.partidosJugadosVisita, registro.victoriasVisita, registro.empatesVisita, registro.derrotasVisita, registro.golesAnotadosVisita, registro.golesEncajadosVisita);
+                        foreach (TablaPosicionesBE registro in lst_TablaPosiciones)
+                        {
+                            dgvTablaPosiciones.Rows.Add(registro.posicion, registro.NombreEquipo, registro.PuntosGeneral, registro.PartidosJugadosTotal, registro.VictoriasTotal, registro.EmpatesTotal, registro.DerrotasTotal, registro.GolesAnotadosTotal, registro.GolesEncajadosTotal, registro.partidosJugadosLocal, registro.victoriasLocal, registro.empatesLocal, registro.derrotasLocal, registro.golesAnotadosLocal, registro.golesEncajadosLocal, registro.partidosJugadosVisita, registro.victoriasVisita, registro.empatesVisita, registro.derrotasVisita, registro.golesAnotadosVisita, registro.golesEncajadosVisita);
+                        }
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar todos los datos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -175,11 +203,6 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
                 e.Cancel = true;
-        }
-
-        private void frmTablaPosiciones_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

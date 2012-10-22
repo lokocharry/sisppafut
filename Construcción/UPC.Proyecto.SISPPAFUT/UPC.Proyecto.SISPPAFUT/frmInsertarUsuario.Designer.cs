@@ -46,7 +46,6 @@
             this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.txtRepetirContrasenia = new System.Windows.Forms.TextBox();
             this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -71,7 +70,7 @@
             // lblApellidoPaterno
             // 
             this.lblApellidoPaterno.AutoSize = true;
-            this.lblApellidoPaterno.Location = new System.Drawing.Point(32, 105);
+            this.lblApellidoPaterno.Location = new System.Drawing.Point(32, 96);
             this.lblApellidoPaterno.Name = "lblApellidoPaterno";
             this.lblApellidoPaterno.Size = new System.Drawing.Size(84, 13);
             this.lblApellidoPaterno.TabIndex = 2;
@@ -80,7 +79,7 @@
             // lblApeliidoMaterno
             // 
             this.lblApeliidoMaterno.AutoSize = true;
-            this.lblApeliidoMaterno.Location = new System.Drawing.Point(32, 147);
+            this.lblApeliidoMaterno.Location = new System.Drawing.Point(32, 122);
             this.lblApeliidoMaterno.Name = "lblApeliidoMaterno";
             this.lblApeliidoMaterno.Size = new System.Drawing.Size(86, 13);
             this.lblApeliidoMaterno.TabIndex = 3;
@@ -89,7 +88,7 @@
             // lblFechaNac
             // 
             this.lblFechaNac.AutoSize = true;
-            this.lblFechaNac.Location = new System.Drawing.Point(32, 190);
+            this.lblFechaNac.Location = new System.Drawing.Point(32, 168);
             this.lblFechaNac.Name = "lblFechaNac";
             this.lblFechaNac.Size = new System.Drawing.Size(108, 13);
             this.lblFechaNac.TabIndex = 4;
@@ -98,7 +97,7 @@
             // lblContrasenia
             // 
             this.lblContrasenia.AutoSize = true;
-            this.lblContrasenia.Location = new System.Drawing.Point(32, 231);
+            this.lblContrasenia.Location = new System.Drawing.Point(32, 212);
             this.lblContrasenia.Name = "lblContrasenia";
             this.lblContrasenia.Size = new System.Drawing.Size(61, 13);
             this.lblContrasenia.TabIndex = 5;
@@ -107,7 +106,7 @@
             // lblRepetirContrasenia
             // 
             this.lblRepetirContrasenia.AutoSize = true;
-            this.lblRepetirContrasenia.Location = new System.Drawing.Point(32, 266);
+            this.lblRepetirContrasenia.Location = new System.Drawing.Point(32, 238);
             this.lblRepetirContrasenia.Name = "lblRepetirContrasenia";
             this.lblRepetirContrasenia.Size = new System.Drawing.Size(98, 13);
             this.lblRepetirContrasenia.TabIndex = 6;
@@ -116,68 +115,75 @@
             // txtIdentificacion
             // 
             this.txtIdentificacion.Location = new System.Drawing.Point(160, 24);
+            this.txtIdentificacion.MaxLength = 40;
             this.txtIdentificacion.Name = "txtIdentificacion";
-            this.txtIdentificacion.Size = new System.Drawing.Size(146, 20);
-            this.txtIdentificacion.TabIndex = 7;
+            this.txtIdentificacion.Size = new System.Drawing.Size(101, 20);
+            this.txtIdentificacion.TabIndex = 1;
+            this.txtIdentificacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InControlarTextNumerico);
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(160, 63);
+            this.txtNombre.MaxLength = 50;
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(247, 20);
-            this.txtNombre.TabIndex = 8;
+            this.txtNombre.TabIndex = 2;
+            this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inControlarTexto);
             // 
             // txtApellidoPaterno
             // 
-            this.txtApellidoPaterno.Location = new System.Drawing.Point(160, 102);
+            this.txtApellidoPaterno.Location = new System.Drawing.Point(160, 89);
+            this.txtApellidoPaterno.MaxLength = 50;
             this.txtApellidoPaterno.Name = "txtApellidoPaterno";
             this.txtApellidoPaterno.Size = new System.Drawing.Size(247, 20);
-            this.txtApellidoPaterno.TabIndex = 9;
+            this.txtApellidoPaterno.TabIndex = 3;
+            this.txtApellidoPaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inControlarTexto);
             // 
             // txtApellidoMaterno
             // 
-            this.txtApellidoMaterno.Location = new System.Drawing.Point(160, 144);
+            this.txtApellidoMaterno.Location = new System.Drawing.Point(160, 115);
+            this.txtApellidoMaterno.MaxLength = 50;
             this.txtApellidoMaterno.Name = "txtApellidoMaterno";
             this.txtApellidoMaterno.Size = new System.Drawing.Size(247, 20);
-            this.txtApellidoMaterno.TabIndex = 10;
+            this.txtApellidoMaterno.TabIndex = 4;
+            this.txtApellidoMaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inControlarTexto);
             // 
             // txtContrasenia
             // 
-            this.txtContrasenia.Location = new System.Drawing.Point(160, 228);
+            this.txtContrasenia.Location = new System.Drawing.Point(160, 205);
+            this.txtContrasenia.MaxLength = 15;
             this.txtContrasenia.Name = "txtContrasenia";
             this.txtContrasenia.PasswordChar = '*';
             this.txtContrasenia.Size = new System.Drawing.Size(146, 20);
-            this.txtContrasenia.TabIndex = 12;
+            this.txtContrasenia.TabIndex = 6;
+            this.txtContrasenia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InControlarTextNumerico);
             // 
             // txtRepetirContrasenia
             // 
-            this.txtRepetirContrasenia.Location = new System.Drawing.Point(160, 263);
+            this.txtRepetirContrasenia.Location = new System.Drawing.Point(160, 231);
+            this.txtRepetirContrasenia.MaxLength = 15;
             this.txtRepetirContrasenia.Name = "txtRepetirContrasenia";
             this.txtRepetirContrasenia.PasswordChar = '*';
             this.txtRepetirContrasenia.Size = new System.Drawing.Size(146, 20);
-            this.txtRepetirContrasenia.TabIndex = 13;
+            this.txtRepetirContrasenia.TabIndex = 7;
+            this.txtRepetirContrasenia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InControlarTextNumerico);
             // 
             // dtpFechaNacimiento
             // 
-            this.dtpFechaNacimiento.Location = new System.Drawing.Point(160, 184);
+            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaNacimiento.Location = new System.Drawing.Point(160, 161);
+            this.dtpFechaNacimiento.MaxDate = new System.DateTime(2012, 10, 22, 0, 0, 0, 0);
+            this.dtpFechaNacimiento.MinDate = new System.DateTime(1912, 1, 1, 0, 0, 0, 0);
             this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
-            this.dtpFechaNacimiento.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaNacimiento.TabIndex = 14;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(224, 305);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(102, 23);
-            this.btnCancelar.TabIndex = 15;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.dtpFechaNacimiento.Size = new System.Drawing.Size(101, 20);
+            this.dtpFechaNacimiento.TabIndex = 5;
+            this.dtpFechaNacimiento.Value = new System.DateTime(2012, 10, 22, 0, 0, 0, 0);
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(332, 305);
+            this.btnGuardar.Location = new System.Drawing.Point(317, 275);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(90, 39);
             this.btnGuardar.TabIndex = 16;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
@@ -187,9 +193,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 345);
+            this.ClientSize = new System.Drawing.Size(439, 330);
             this.Controls.Add(this.btnGuardar);
-            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.dtpFechaNacimiento);
             this.Controls.Add(this.txtRepetirContrasenia);
             this.Controls.Add(this.txtContrasenia);
@@ -204,9 +209,12 @@
             this.Controls.Add(this.lblApellidoPaterno);
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblIdentificacion);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmInsertarUsuario";
             this.Text = "Usuario nuevo";
-            this.Load += new System.EventHandler(this.frmInsertarUsuario_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -228,7 +236,6 @@
         private System.Windows.Forms.TextBox txtContrasenia;
         private System.Windows.Forms.TextBox txtRepetirContrasenia;
         private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
-        private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnGuardar;
     }
 }

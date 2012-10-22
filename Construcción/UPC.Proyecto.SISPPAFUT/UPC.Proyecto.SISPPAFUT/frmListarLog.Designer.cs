@@ -49,6 +49,7 @@
             // 
             this.dgvLog.AllowUserToAddRows = false;
             this.dgvLog.AllowUserToDeleteRows = false;
+            this.dgvLog.AllowUserToOrderColumns = true;
             this.dgvLog.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvLog.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Operacion,
@@ -59,6 +60,9 @@
             this.Descripcion});
             this.dgvLog.Location = new System.Drawing.Point(12, 63);
             this.dgvLog.Name = "dgvLog";
+            this.dgvLog.ReadOnly = true;
+            this.dgvLog.RowHeadersVisible = false;
+            this.dgvLog.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvLog.Size = new System.Drawing.Size(686, 349);
             this.dgvLog.TabIndex = 0;
             // 
@@ -104,14 +108,15 @@
             // 
             // dtFecha
             // 
+            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtFecha.Location = new System.Drawing.Point(69, 19);
             this.dtFecha.Name = "dtFecha";
-            this.dtFecha.Size = new System.Drawing.Size(200, 20);
+            this.dtFecha.Size = new System.Drawing.Size(99, 20);
             this.dtFecha.TabIndex = 2;
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(284, 16);
+            this.btnConsultar.Location = new System.Drawing.Point(174, 19);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 23);
             this.btnConsultar.TabIndex = 3;
@@ -128,13 +133,13 @@
             this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvLog);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmListarLog";
             this.ShowIcon = false;
             this.Text = "Historial de Movimientos";
-            this.Load += new System.EventHandler(this.frmListarLog_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLog)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
