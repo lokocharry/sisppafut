@@ -72,8 +72,11 @@
             this.btnAsociarFuncionalidadUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.btnRegistroClientes = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNuevoCliente = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnConsultarLog = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeEntrenadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarUnEntrenadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarEntrenadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -83,7 +86,7 @@
             this.btnMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(731, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(719, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -103,7 +106,8 @@
             this.btnGestionPermisos,
             this.btnRegistroClientes,
             this.btnConsultarLog,
-            this.salirToolStripMenuItem});
+            this.salirToolStripMenuItem,
+            this.gestiónDeEntrenadoresToolStripMenuItem});
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(119, 20);
             this.btnMenu.Text = "Menú de Opciones";
@@ -396,16 +400,9 @@
             // btnNuevoCliente
             // 
             this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Size = new System.Drawing.Size(152, 22);
+            this.btnNuevoCliente.Size = new System.Drawing.Size(149, 22);
             this.btnNuevoCliente.Text = "Nuevo Cliente";
             this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(268, 22);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // btnConsultarLog
             // 
@@ -414,11 +411,41 @@
             this.btnConsultarLog.Text = "Consultar log";
             this.btnConsultarLog.Click += new System.EventHandler(this.btnConsultarLog_Click);
             // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(268, 22);
+            this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
+            // 
+            // gestiónDeEntrenadoresToolStripMenuItem
+            // 
+            this.gestiónDeEntrenadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarUnEntrenadorToolStripMenuItem,
+            this.listarEntrenadoresToolStripMenuItem});
+            this.gestiónDeEntrenadoresToolStripMenuItem.Name = "gestiónDeEntrenadoresToolStripMenuItem";
+            this.gestiónDeEntrenadoresToolStripMenuItem.Size = new System.Drawing.Size(268, 22);
+            this.gestiónDeEntrenadoresToolStripMenuItem.Text = "Gestión de Entrenadores";
+            // 
+            // registrarUnEntrenadorToolStripMenuItem
+            // 
+            this.registrarUnEntrenadorToolStripMenuItem.Name = "registrarUnEntrenadorToolStripMenuItem";
+            this.registrarUnEntrenadorToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.registrarUnEntrenadorToolStripMenuItem.Text = "Registrar un Entrenador";
+            this.registrarUnEntrenadorToolStripMenuItem.Click += new System.EventHandler(this.registrarUnEntrenadorToolStripMenuItem_Click);
+            // 
+            // listarEntrenadoresToolStripMenuItem
+            // 
+            this.listarEntrenadoresToolStripMenuItem.Name = "listarEntrenadoresToolStripMenuItem";
+            this.listarEntrenadoresToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.listarEntrenadoresToolStripMenuItem.Text = "Listar Entrenadores";
+            this.listarEntrenadoresToolStripMenuItem.Click += new System.EventHandler(this.listarEntrenadoresToolStripMenuItem_Click);
+            // 
             // SISPPAFUTmdiPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 515);
+            this.ClientSize = new System.Drawing.Size(719, 503);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -480,5 +507,8 @@
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem btnNuevoPronostico;
         private System.Windows.Forms.ToolStripMenuItem btnConsultarLog;
+        private System.Windows.Forms.ToolStripMenuItem gestiónDeEntrenadoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem registrarUnEntrenadorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listarEntrenadoresToolStripMenuItem;
     }
 }

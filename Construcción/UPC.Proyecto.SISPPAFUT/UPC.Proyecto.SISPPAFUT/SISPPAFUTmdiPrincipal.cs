@@ -591,8 +591,8 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmInsertarUsuario frm = frmInsertarUsuario.Instance();                
-                frm.NuevoUser = 0;
+                frmInsertarUsuario frm = frmInsertarUsuario.Instance();
+
                 frm.MdiParent = this;
                 frm.Show();
                 frm.BringToFront();
@@ -705,6 +705,39 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 frmListarLog frm = frmListarLog.Instance();
+
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void registrarUnEntrenadorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmRegistrarEntrenador frm = frmRegistrarEntrenador.Instance();
+
+                frm.Modo = 1;
+                frm.MdiParent = this;
+                frm.Show();
+                frm.BringToFront();
+            }
+            catch (Exception ex)
+            {
+                Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void listarEntrenadoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmListarEntrenadores frm = frmListarEntrenadores.Instance();
 
                 frm.MdiParent = this;
                 frm.Show();
