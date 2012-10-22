@@ -3,9 +3,7 @@
 -- Description:	Este SP permite listar la información de los entrenadores
 -- =============================================
 CREATE PROCEDURE spUpdateEntrenador
-	@CodEntrenador int, @CodEquipo int, @Nombres varchar(20), 
-	@Apellidos varchar(20), @Nacionalidad varchar(20),
-	@FechaNacimiento datetime
+	@CodEntrenador int, @FechaNacimiento datetime
 AS
 BEGIN
 	-- SET NOCOUNT ON added to prevent extra result sets from
@@ -13,7 +11,7 @@ BEGIN
 	SET NOCOUNT ON;
 
     UPDATE Entrenador
-    SET CodEquipo = @CodEquipo, Nombres = @Nombres, Apellidos = @Apellidos, Nacionalidad = @Nacionalidad, FechaNacimiento = @FechaNacimiento
+    SET FechaNacimiento = @FechaNacimiento
     WHERE CodEntrenador = @CodEntrenador
     
 END
