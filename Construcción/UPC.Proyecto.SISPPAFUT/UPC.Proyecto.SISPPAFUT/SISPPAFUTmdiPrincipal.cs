@@ -28,6 +28,7 @@ namespace UPC.Proyecto.SISPPAFUT
             for (int i = 0; i < 28; i++)
                 estado_Funcionalidades.Add(0);
             //-- En cada BC asigno el usuario que se logueó
+            EntrenadorBC.Propiedades.userLogged = Propiedades.userLogged;
             AmonestacionBC.Propiedades.userLogged = Propiedades.userLogged;
             CompeticionBC.Propiedades.userLogged = Propiedades.userLogged;
             EquipoBC.Propiedades.userLogged = Propiedades.userLogged;

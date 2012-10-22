@@ -105,11 +105,16 @@ namespace UPC.Proyecto.SISPPAFUT
 
                 if (_Modo == 1)
                 {
-                    objEntrenadorBC.RegistrarEntrenador(objEntrenadorBE);
+                    int result = objEntrenadorBC.RegistrarEntrenador(objEntrenadorBE);
                     LimpiarCampos();
+                    if(result !=0)
+                    MessageBox.Show("Se registró el entrenador");
                 }
                 else if (_Modo == 2)
+                {
                     objEntrenadorBC.ActualizarEntrenador(objEntrenadorBE);
+                    MessageBox.Show("Se actualizó el entrenador");
+                }
             }
             catch (Exception ex)
             {
