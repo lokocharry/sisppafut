@@ -25,7 +25,7 @@ namespace UPC.Proyecto.SISPPAFUT
             InitializeComponent();
             estado_Funcionalidades = new List<int>(); //Valores -> 0: desactivado , 1: activado
 
-            for (int i = 0; i < 28; i++)
+            for (int i = 0; i < 30; i++)
                 estado_Funcionalidades.Add(0);
             //-- En cada BC asigno el usuario que se logueó
             EntrenadorBC.Propiedades.userLogged = Propiedades.userLogged;
@@ -276,6 +276,11 @@ namespace UPC.Proyecto.SISPPAFUT
                 if (estado_Funcionalidades[27] == 0)
                 {
                     btnConsultarLog.Visible = false;
+                }
+
+                if (estado_Funcionalidades[28] == 0 && estado_Funcionalidades[29] == 0)
+                {
+                    gestiónDeEntrenadoresToolStripMenuItem.Visible = false;
                 }
             }
             catch (Exception ex)

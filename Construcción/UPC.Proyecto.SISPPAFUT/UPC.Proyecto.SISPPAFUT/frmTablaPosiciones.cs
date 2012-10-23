@@ -102,7 +102,7 @@ namespace UPC.Proyecto.SISPPAFUT
         private void IniciarLigas()
         {
             LigaBC objLigaBC;
-
+            
             try
             {
                 objLigaBC = new LigaBC();
@@ -140,6 +140,7 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 cmbLiga.Items.Clear();
             }
+            dgvTablaPosiciones.Rows.Clear();
         }
 
         private void inSeleccionarPais(object sender, EventArgs e)
@@ -153,6 +154,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 cmbCompeticion.Items.Clear();
                 cmbLiga.Items.Clear();
             }
+            dgvTablaPosiciones.Rows.Clear();
         }
 
         private bool ValidarControles()
@@ -196,6 +198,7 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
+            dgvTablaPosiciones.Rows.Clear();
             MostrarTablaPosiciones();
         }
 
@@ -203,6 +206,11 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
                 e.Cancel = true;
+        }
+
+        private void inSeleccionarLiga(object sender, EventArgs e)
+        {
+            dgvTablaPosiciones.Rows.Clear();
         }
     }
 }

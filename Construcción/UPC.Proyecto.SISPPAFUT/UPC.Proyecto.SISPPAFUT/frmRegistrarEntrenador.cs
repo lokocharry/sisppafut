@@ -104,27 +104,34 @@ namespace UPC.Proyecto.SISPPAFUT
             try
             {
                 objEntrenadorBC = new EntrenadorBC();
-
-                if (_Modo == 1)
+                if (cmbFecha.Value.Year < (DateTime.Today.Year - 18))
                 {
-                    EntrenadorBE objEntrenadorBE;                    
-                    objEntrenadorBE = new EntrenadorBE();
+                    if (_Modo == 1)
+                    {
+                        EntrenadorBE objEntrenadorBE;
+                        objEntrenadorBE = new EntrenadorBE();
 
-                    objEntrenadorBE.Apellidos = txtApellidos.Text;
-                    objEntrenadorBE.Fecha = cmbFecha.Value;
-                    objEntrenadorBE.Nacionalidad = txtNacionalidad.Text;
-                    objEntrenadorBE.Nombres = txtNombres.Text;
-                
-                    int result = objEntrenadorBC.RegistrarEntrenador(objEntrenadorBE);
-                    LimpiarCampos();
-                    if(result !=0)
-                    MessageBox.Show("Se registró el entrenador");
+                        objEntrenadorBE.Apellidos = txtApellidos.Text;
+                        objEntrenadorBE.Fecha = cmbFecha.Value;
+                        objEntrenadorBE.Nacionalidad = txtNacionalidad.Text;
+                        objEntrenadorBE.Nombres = txtNombres.Text;
+
+                        int result = objEntrenadorBC.RegistrarEntrenador(objEntrenadorBE);
+                        LimpiarCampos();
+                        if (result != 0)
+                            MessageBox.Show("Se registró el entrenador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                    }
+                    else if (_Modo == 2)
+                    {
+                        objEntrenadorBE.Fecha = cmbFecha.Value;
+                        objEntrenadorBC.ActualizarEntrenador(objEntrenadorBE);
+                        MessageBox.Show("Se actualizó el entrenador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                 }
-                else if (_Modo == 2)
+                else
                 {
-                    objEntrenadorBE.Fecha = cmbFecha.Value;
-                    objEntrenadorBC.ActualizarEntrenador(objEntrenadorBE);
-                    MessageBox.Show("Se actualizó el entrenador");
+                    MessageBox.Show("Verifique la edad del entrenador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)
@@ -133,9 +140,30 @@ namespace UPC.Proyecto.SISPPAFUT
             }
         }
 
-        private void btnCancelar_Click(object sender, EventArgs e)
+        private void inCerrar(object sender, FormClosingEventArgs e)
         {
-            this.Close();
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
+        }
+
+        private void inValidarTexto(object sender, KeyPressEventArgs e)
+        {
+            if (Char.IsLetter(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else if (Char.IsSeparator(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
         }
     }
 }

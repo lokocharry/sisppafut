@@ -13,11 +13,15 @@
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
-            if (disposing && (components != null))
+             if (disposing)
             {
-                components.Dispose();
+                if (components != null)
+                {
+                    components.Dispose();
+                }
             }
             base.Dispose(disposing);
+            frmListarEntrenador = null;
         }
 
         #region Windows Form Designer generated code
@@ -43,7 +47,7 @@
             this.groupBox1.Controls.Add(this.dgvEntrenadores);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(587, 344);
+            this.groupBox1.Size = new System.Drawing.Size(540, 329);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Relación de Entrenadores";
@@ -57,10 +61,12 @@
             this.Entrenador,
             this.Fecha,
             this.Nacionalidad});
-            this.dgvEntrenadores.Location = new System.Drawing.Point(20, 40);
+            this.dgvEntrenadores.Location = new System.Drawing.Point(17, 27);
             this.dgvEntrenadores.Name = "dgvEntrenadores";
             this.dgvEntrenadores.ReadOnly = true;
-            this.dgvEntrenadores.Size = new System.Drawing.Size(545, 287);
+            this.dgvEntrenadores.RowHeadersVisible = false;
+            this.dgvEntrenadores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgvEntrenadores.Size = new System.Drawing.Size(506, 287);
             this.dgvEntrenadores.TabIndex = 0;
             this.dgvEntrenadores.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEntrenadores_CellContentClick);
             // 
@@ -87,11 +93,11 @@
             // 
             // btnEditar
             // 
-            this.btnEditar.Location = new System.Drawing.Point(502, 362);
+            this.btnEditar.Location = new System.Drawing.Point(460, 347);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(75, 23);
+            this.btnEditar.Size = new System.Drawing.Size(75, 28);
             this.btnEditar.TabIndex = 1;
-            this.btnEditar.Text = "Editar Entrenador";
+            this.btnEditar.Text = "Editar";
             this.btnEditar.UseVisualStyleBackColor = true;
             this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
@@ -99,15 +105,16 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(611, 397);
+            this.ClientSize = new System.Drawing.Size(565, 387);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.groupBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmListarEntrenadores";
             this.ShowIcon = false;
             this.Text = "Entrenadores";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmListarEntrenadores_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEntrenadores)).EndInit();

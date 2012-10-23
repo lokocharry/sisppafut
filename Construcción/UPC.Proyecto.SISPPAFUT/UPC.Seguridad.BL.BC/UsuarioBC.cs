@@ -103,5 +103,17 @@ namespace UPC.Seguridad.BL.BC
             }
         }
 
+        public int Verificar_LoginExiste(String usuario)
+        {
+            try
+            {
+                UsuarioDALC objUsuarioDALC = new UsuarioDALC();
+                return objUsuarioDALC.Verificar_LoginExiste(usuario);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
     }
 }

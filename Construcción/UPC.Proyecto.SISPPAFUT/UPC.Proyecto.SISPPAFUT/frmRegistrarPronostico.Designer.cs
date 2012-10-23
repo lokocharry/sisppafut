@@ -61,10 +61,7 @@
             this.dgvPronosticos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgvPronosticos.Size = new System.Drawing.Size(455, 189);
             this.dgvPronosticos.TabIndex = 0;
-            this.dgvPronosticos.CancelRowEdit += new System.Windows.Forms.QuestionEventHandler(this.dgvPronosticos_CancelRowEdit);
-            this.dgvPronosticos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPronosticos_CellClick);
             this.dgvPronosticos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inSeleccionarTipo);
-            this.dgvPronosticos.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPronosticos_CellEndEdit);
             // 
             // CodPartido
             // 

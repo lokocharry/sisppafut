@@ -41,7 +41,6 @@
             this.cmbFecha = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -65,7 +64,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 99);
+            this.label3.Location = new System.Drawing.Point(27, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 2;
@@ -73,40 +72,44 @@
             // 
             // txtNombres
             // 
-            this.txtNombres.Location = new System.Drawing.Point(137, 26);
+            this.txtNombres.Location = new System.Drawing.Point(117, 30);
             this.txtNombres.MaxLength = 20;
             this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Size = new System.Drawing.Size(440, 20);
+            this.txtNombres.Size = new System.Drawing.Size(338, 20);
             this.txtNombres.TabIndex = 3;
+            this.txtNombres.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inValidarTexto);
             // 
             // txtApellidos
             // 
-            this.txtApellidos.Location = new System.Drawing.Point(137, 65);
+            this.txtApellidos.Location = new System.Drawing.Point(117, 61);
             this.txtApellidos.MaxLength = 20;
             this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.Size = new System.Drawing.Size(440, 20);
+            this.txtApellidos.Size = new System.Drawing.Size(338, 20);
             this.txtApellidos.TabIndex = 4;
+            this.txtApellidos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inValidarTexto);
             // 
             // txtNacionalidad
             // 
-            this.txtNacionalidad.Location = new System.Drawing.Point(137, 96);
+            this.txtNacionalidad.Location = new System.Drawing.Point(117, 92);
             this.txtNacionalidad.MaxLength = 20;
             this.txtNacionalidad.Name = "txtNacionalidad";
-            this.txtNacionalidad.Size = new System.Drawing.Size(118, 20);
+            this.txtNacionalidad.Size = new System.Drawing.Size(165, 20);
             this.txtNacionalidad.TabIndex = 5;
+            this.txtNacionalidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.inValidarTexto);
             // 
             // cmbFecha
             // 
-            this.cmbFecha.Location = new System.Drawing.Point(365, 96);
+            this.cmbFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.cmbFecha.Location = new System.Drawing.Point(357, 92);
             this.cmbFecha.MinDate = new System.DateTime(1881, 1, 1, 0, 0, 0, 0);
             this.cmbFecha.Name = "cmbFecha";
-            this.cmbFecha.Size = new System.Drawing.Size(212, 20);
+            this.cmbFecha.Size = new System.Drawing.Size(98, 20);
             this.cmbFecha.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(281, 99);
+            this.label5.Location = new System.Drawing.Point(288, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(63, 13);
             this.label5.TabIndex = 2;
@@ -114,30 +117,19 @@
             // 
             // btnGuardar
             // 
-            this.btnGuardar.Location = new System.Drawing.Point(409, 137);
+            this.btnGuardar.Location = new System.Drawing.Point(380, 128);
             this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btnGuardar.Size = new System.Drawing.Size(75, 32);
             this.btnGuardar.TabIndex = 7;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Location = new System.Drawing.Point(502, 137);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelar.TabIndex = 8;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
             // frmRegistrarEntrenador
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(621, 181);
-            this.Controls.Add(this.btnCancelar);
+            this.ClientSize = new System.Drawing.Size(490, 181);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.cmbFecha);
             this.Controls.Add(this.txtNacionalidad);
@@ -147,12 +139,13 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmRegistrarEntrenador";
             this.ShowIcon = false;
             this.Text = "Entrenador";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.frmRegistrarEntrenador_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -170,6 +163,5 @@
         private System.Windows.Forms.DateTimePicker cmbFecha;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnGuardar;
-        private System.Windows.Forms.Button btnCancelar;
     }
 }

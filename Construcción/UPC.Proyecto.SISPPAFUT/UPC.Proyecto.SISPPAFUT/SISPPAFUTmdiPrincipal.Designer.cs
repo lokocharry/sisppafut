@@ -86,7 +86,7 @@
             this.btnMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(719, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(715, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -99,15 +99,15 @@
             this.btnGestionEstadios,
             this.btnGestionEquipos,
             this.btnGestionJugadores,
+            this.gestiónDeEntrenadoresToolStripMenuItem,
             this.btnGestionPartidos,
             this.btnGestionDesarrollo,
             this.btnEntrenamiento,
             this.btnVisualizacionPronostico,
-            this.btnGestionPermisos,
             this.btnRegistroClientes,
+            this.btnGestionPermisos,
             this.btnConsultarLog,
-            this.salirToolStripMenuItem,
-            this.gestiónDeEntrenadoresToolStripMenuItem});
+            this.salirToolStripMenuItem});
             this.btnMenu.Name = "btnMenu";
             this.btnMenu.Size = new System.Drawing.Size(119, 20);
             this.btnMenu.Text = "Menú de Opciones";
@@ -445,7 +445,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 503);
+            this.ClientSize = new System.Drawing.Size(715, 499);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;

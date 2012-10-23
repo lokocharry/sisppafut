@@ -212,6 +212,52 @@ namespace UPC.Seguridad.DL.DALC
             }
         }
 
+        public int Verificar_LoginExiste(String usuario)
+        {
+            SqlConnection conexion = null;
+            SqlCommand cmd_usuario = null;
+            SqlDataReader dr_usuario = null;
+            SqlParameter prm_usuario;
+
+            String sql_verificarLogin;
+
+            try
+            {
+                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+
+                sql_verificarLogin = "spVerificarLoginExiste";
+
+                cmd_usuario = new SqlCommand(sql_verificarLogin, conexion);
+                cmd_usuario.CommandType = CommandType.StoredProcedure;
+
+                prm_usuario = new SqlParameter();
+                prm_usuario.ParameterName = "@nombre";
+                prm_usuario.SqlDbType = SqlDbType.VarChar;
+                prm_usuario.Size = 40;
+                prm_usuario.Value = usuario;
+                                
+                cmd_usuario.Parameters.Add(prm_usuario);
+
+                cmd_usuario.Connection.Open();
+                dr_usuario = cmd_usuario.ExecuteReader();
+
+                int Cantidad = 0;
+
+                while (dr_usuario.Read())
+                {
+                    Cantidad = dr_usuario.GetInt32(dr_usuario.GetOrdinal("Cantidad"));
+                }
+
+                cmd_usuario.Connection.Close();
+                cmd_usuario.Connection.Dispose();
+
+                return Cantidad;
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
     }
 }
 

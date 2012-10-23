@@ -120,6 +120,7 @@
             this.cmbLiga.Name = "cmbLiga";
             this.cmbLiga.Size = new System.Drawing.Size(158, 21);
             this.cmbLiga.TabIndex = 3;
+            this.cmbLiga.SelectedIndexChanged += new System.EventHandler(this.inSeleccionarLiga);
             // 
             // dgvTablaPosiciones
             // 

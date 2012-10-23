@@ -103,7 +103,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 PronosticoClienteBE objPronosticoClienteBE;
                 String pronostico = "";
                 List<PronosticoClienteBE> listaPronosticos = new List<PronosticoClienteBE>();
-
+                Boolean proosticado = false;
                 for (int i = 0; i < dgvPronosticos.RowCount; i++)
                 {
                     objPronosticoClienteBE = new PronosticoClienteBE();
@@ -112,35 +112,56 @@ namespace UPC.Proyecto.SISPPAFUT
 
                     if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[3].Value) == true)
                     {
-                        pronostico = "L";
+                        if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[4].Value) == true)
+                            pronostico = "LE";
+                        else
+                            if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[5].Value) == true)
+                                pronostico = "LV";
+                            else
+                                pronostico = "L";
+                        proosticado = true;
                     }
+                    else
                     if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[4].Value) == true)
                     {
-                        pronostico = "E";
+                        if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[3].Value) == true)
+                            pronostico = "LE";
+                        else
+                            if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[5].Value) == true)
+                                pronostico = "EV";
+                            else
+                                pronostico = "E";
+                        proosticado = true;
                     }
                     if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[5].Value) == true)
                     {
-                        pronostico = "V";
+                        if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[3].Value) == true)
+                            pronostico = "LV";
+                        else
+                            if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[4].Value) == true)
+                                pronostico = "EV";
+                            else
+                                pronostico = "V";
+                        proosticado = true;
                     }
 
-                    objPronosticoClienteBE.Pronostico = pronostico;
-                    pronostico = "";
-
-                    if (Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[3].Value) == true ||
-                        Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[4].Value) == true ||
-                        Convert.ToBoolean(dgvPronosticos.Rows[i].Cells[5].Value) == true)
+                    if (proosticado == true)
                     {
+                        objPronosticoClienteBE.Pronostico = pronostico;
                         listaPronosticos.Add(objPronosticoClienteBE);
+                        proosticado = false;
                     }
                 }
 
                 objPronosticoClienteBC = new PronosticoClienteBC();
-                for (int i = 0; i < listaPronosticos.Count; i++)
+                if (listaPronosticos.Count > 0)
                 {
-                    objPronosticoClienteBC.inssertarPronosticoCliente(listaPronosticos[i]);
+                    for (int i = 0; i < listaPronosticos.Count; i++)
+                    {
+                        objPronosticoClienteBC.inssertarPronosticoCliente(listaPronosticos[i]);
+                    }
+                    MessageBox.Show("Los pronosticos han sido registrados satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                MessageBox.Show("Los pronosticos han sido registrados satisfactoriamente.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -194,20 +215,7 @@ namespace UPC.Proyecto.SISPPAFUT
                             dgvPronosticos.Rows[e.RowIndex].Cells["Visita"].DataGridView.CancelEdit();
                         }
                     }
-        }
-
-        private void dgvPronosticos_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-        }
-
-        private void dgvPronosticos_CellEndEdit(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
-
-        private void dgvPronosticos_CancelRowEdit(object sender, QuestionEventArgs e)
-        {
-            
+            check_l.Dispose();
         }
     }
 }

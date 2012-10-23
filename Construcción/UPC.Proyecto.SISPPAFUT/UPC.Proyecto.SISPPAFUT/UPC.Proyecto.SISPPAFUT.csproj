@@ -224,12 +224,6 @@
     <Compile Include="SISPPAFUTlogin.Designer.cs">
       <DependentUpon>SISPPAFUTlogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="SISPPAFUTmdi.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SISPPAFUTmdi.Designer.cs">
-      <DependentUpon>SISPPAFUTmdi.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmInsertarCompeticion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,9 +351,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SISPPAFUTlogin.resx">
       <DependentUpon>SISPPAFUTlogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SISPPAFUTmdi.resx">
-      <DependentUpon>SISPPAFUTmdi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmInsertarPais.resx">
       <DependentUpon>frmInsertarPais.cs</DependentUpon>

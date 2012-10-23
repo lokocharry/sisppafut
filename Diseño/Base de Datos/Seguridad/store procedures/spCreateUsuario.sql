@@ -1,7 +1,7 @@
 USE [SEGURIDAD]
 GO
 
-/****** Object:  StoredProcedure [dbo].[spCreateUsuario]    Script Date: 09/10/2012 12:41:47 ******/
+/****** Object:  StoredProcedure [dbo].[spCreateUsuario]    Script Date: 10/22/2012 23:11:36 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -32,8 +32,12 @@ INSERT INTO [SEGURIDAD].[dbo].[Usuario]
            ,@apellidoPaterno
            ,@apellidoMaterno
            ,@fechaNac
-           ,@contrasenia)
-    RETURN @@IDENTITY
+           ,@contrasenia)    
+    declare @codUserNew int
+    set @codUserNew = @@IDENTITY
+    insert into [SISPPAFUT].[dbo].[UsuarioReferencia]
+				(idUsuario,nombreUsuario)values(@codUserNew,@nombreUsuario)
+    return @codUserNew
 END
 
 GO

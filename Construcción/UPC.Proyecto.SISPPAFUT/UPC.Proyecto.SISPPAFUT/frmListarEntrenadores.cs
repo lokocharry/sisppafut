@@ -21,13 +21,13 @@ namespace UPC.Proyecto.SISPPAFUT
 
         int FilaSeleccionada = -1;
         List<EntrenadorBE> lst_Entrenadores;
-        private static frmListarEntrenadores frm = null;
+        private static frmListarEntrenadores frmListarEntrenador = null;
 
         public static frmListarEntrenadores Instance()
         {
-            if (frm == null)
-                frm = new frmListarEntrenadores();
-            return frm;
+            if (frmListarEntrenador == null)
+                frmListarEntrenador = new frmListarEntrenadores();
+            return frmListarEntrenador;
         }
 
         public void ListarEntrenadores()
@@ -90,6 +90,12 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        private void inCerrar(object sender, FormClosingEventArgs e)
+        {
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                e.Cancel = true;
         }
     }
 }

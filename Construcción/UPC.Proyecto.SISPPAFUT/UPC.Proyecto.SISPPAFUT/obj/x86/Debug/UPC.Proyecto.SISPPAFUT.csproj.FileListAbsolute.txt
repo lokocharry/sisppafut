@@ -390,7 +390,6 @@ C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyec
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmRegistrarRol.resources
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmTablaPosiciones.resources
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.SISPPAFUTlogin.resources
-C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.SISPPAFUTmdi.resources
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmInsertarPais.resources
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.Properties.Resources.resources
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.SISPPAFUTmdiPrincipal.resources
@@ -409,3 +408,5 @@ C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyec
 C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmListarEntrenadores.resources
 C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmRegistrarEntrenador.resources
 C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\GenerateResource.write.540.tlog
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmListarEntrenadores.resources
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmRegistrarEntrenador.resources

@@ -54,18 +54,18 @@
             this.lblIdentificacion.AutoSize = true;
             this.lblIdentificacion.Location = new System.Drawing.Point(32, 27);
             this.lblIdentificacion.Name = "lblIdentificacion";
-            this.lblIdentificacion.Size = new System.Drawing.Size(70, 13);
+            this.lblIdentificacion.Size = new System.Drawing.Size(43, 13);
             this.lblIdentificacion.TabIndex = 0;
-            this.lblIdentificacion.Text = "Identificacion";
+            this.lblIdentificacion.Text = "Usuario";
             // 
             // lblNombre
             // 
             this.lblNombre.AutoSize = true;
-            this.lblNombre.Location = new System.Drawing.Point(32, 66);
+            this.lblNombre.Location = new System.Drawing.Point(32, 70);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(100, 13);
+            this.lblNombre.Size = new System.Drawing.Size(44, 13);
             this.lblNombre.TabIndex = 1;
-            this.lblNombre.Text = "Nombre del Usuario";
+            this.lblNombre.Text = "Nombre";
             // 
             // lblApellidoPaterno
             // 
