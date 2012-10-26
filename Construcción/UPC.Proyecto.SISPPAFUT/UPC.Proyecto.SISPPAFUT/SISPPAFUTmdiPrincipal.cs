@@ -727,7 +727,7 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             try
             {
-                frmRegistrarEntrenador frm = frmRegistrarEntrenador.Instance();
+                frmInsertarEntrenador frm = frmInsertarEntrenador.Instance();
 
                 frm.Modo = 1;
                 frm.MdiParent = this;

@@ -1,6 +1,6 @@
 ﻿namespace UPC.Proyecto.SISPPAFUT
 {
-    partial class frmRegistrarEntrenador
+    partial class frmInsertarEntrenador
     {
         /// <summary>
         /// Required designer variable.

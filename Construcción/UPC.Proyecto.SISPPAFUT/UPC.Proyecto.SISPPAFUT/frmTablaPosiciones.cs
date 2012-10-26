@@ -212,5 +212,25 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             dgvTablaPosiciones.Rows.Clear();
         }
+
+        private void dgvTablaPosicionesConfigurar()
+        {
+            dgvTablaPosiciones.AllowUserToAddRows = false;
+            dgvTablaPosiciones.AllowUserToDeleteRows = false;
+
+            dgvTablaPosiciones.AllowUserToResizeColumns = false;
+            dgvTablaPosiciones.AllowUserToResizeRows = false;
+            dgvTablaPosiciones.AllowDrop = false;
+
+            dgvTablaPosiciones.MultiSelect = false;
+            dgvTablaPosiciones.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+
+            dgvTablaPosiciones.ReadOnly = true;
+        }
+
+        private void inCargarFrm(object sender, EventArgs e)
+        {
+            dgvTablaPosicionesConfigurar();
+        }
     }
 }

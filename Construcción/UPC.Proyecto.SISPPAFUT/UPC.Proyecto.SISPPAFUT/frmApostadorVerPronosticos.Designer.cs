@@ -34,12 +34,6 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dg_Pronosticos = new System.Windows.Forms.DataGridView();
-            this.codPartido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codPronostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pronostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cmb_temporada = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,6 +42,12 @@
             this.cmb_competicion = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.codPartido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.codPronostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Local = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Visitante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pronostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dg_Pronosticos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -68,55 +68,12 @@
             this.dg_Pronosticos.Location = new System.Drawing.Point(274, 23);
             this.dg_Pronosticos.Name = "dg_Pronosticos";
             this.dg_Pronosticos.ReadOnly = true;
+            this.dg_Pronosticos.RowHeadersVisible = false;
             this.dg_Pronosticos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             this.dg_Pronosticos.RowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dg_Pronosticos.Size = new System.Drawing.Size(469, 274);
+            this.dg_Pronosticos.Size = new System.Drawing.Size(441, 274);
             this.dg_Pronosticos.TabIndex = 1;
-            // 
-            // codPartido
-            // 
-            this.codPartido.HeaderText = "Codigo Partido";
-            this.codPartido.Name = "codPartido";
-            this.codPartido.ReadOnly = true;
-            this.codPartido.Visible = false;
-            this.codPartido.Width = 20;
-            // 
-            // codPronostico
-            // 
-            this.codPronostico.HeaderText = "Codigo Pronostico";
-            this.codPronostico.Name = "codPronostico";
-            this.codPronostico.ReadOnly = true;
-            this.codPronostico.Visible = false;
-            this.codPronostico.Width = 20;
-            // 
-            // Local
-            // 
-            this.Local.HeaderText = "Equipo Local";
-            this.Local.Name = "Local";
-            this.Local.ReadOnly = true;
-            this.Local.Width = 120;
-            // 
-            // Visitante
-            // 
-            this.Visitante.HeaderText = "Equipo Visitante";
-            this.Visitante.Name = "Visitante";
-            this.Visitante.ReadOnly = true;
-            this.Visitante.Width = 120;
-            // 
-            // Pronostico
-            // 
-            this.Pronostico.HeaderText = "Pronóstico";
-            this.Pronostico.Name = "Pronostico";
-            this.Pronostico.ReadOnly = true;
-            this.Pronostico.Width = 80;
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            this.Fecha.ReadOnly = true;
-            this.Fecha.Width = 80;
             // 
             // groupBox1
             // 
@@ -142,6 +99,7 @@
             this.cmb_temporada.Name = "cmb_temporada";
             this.cmb_temporada.Size = new System.Drawing.Size(145, 21);
             this.cmb_temporada.TabIndex = 6;
+            this.cmb_temporada.SelectedValueChanged += new System.EventHandler(this.inSeleccionarTemporada);
             // 
             // label3
             // 
@@ -200,11 +158,54 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "País:";
             // 
+            // codPartido
+            // 
+            this.codPartido.HeaderText = "Codigo Partido";
+            this.codPartido.Name = "codPartido";
+            this.codPartido.ReadOnly = true;
+            this.codPartido.Visible = false;
+            this.codPartido.Width = 20;
+            // 
+            // codPronostico
+            // 
+            this.codPronostico.HeaderText = "Codigo Pronostico";
+            this.codPronostico.Name = "codPronostico";
+            this.codPronostico.ReadOnly = true;
+            this.codPronostico.Visible = false;
+            this.codPronostico.Width = 20;
+            // 
+            // Local
+            // 
+            this.Local.HeaderText = "Equipo Local";
+            this.Local.Name = "Local";
+            this.Local.ReadOnly = true;
+            this.Local.Width = 120;
+            // 
+            // Visitante
+            // 
+            this.Visitante.HeaderText = "Equipo Visitante";
+            this.Visitante.Name = "Visitante";
+            this.Visitante.ReadOnly = true;
+            this.Visitante.Width = 120;
+            // 
+            // Pronostico
+            // 
+            this.Pronostico.HeaderText = "Pronóstico";
+            this.Pronostico.Name = "Pronostico";
+            this.Pronostico.ReadOnly = true;
+            this.Pronostico.Width = 80;
+            // 
+            // Fecha
+            // 
+            this.Fecha.HeaderText = "Fecha";
+            this.Fecha.Name = "Fecha";
+            this.Fecha.ReadOnly = true;
+            // 
             // frmApostadorVerPronosticos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(755, 319);
+            this.ClientSize = new System.Drawing.Size(729, 319);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dg_Pronosticos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -213,7 +214,6 @@
             this.Name = "frmApostadorVerPronosticos";
             this.Text = "Pronosticos de la semana";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
-            this.Load += new System.EventHandler(this.frmApostadorVerPronosticos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dg_Pronosticos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

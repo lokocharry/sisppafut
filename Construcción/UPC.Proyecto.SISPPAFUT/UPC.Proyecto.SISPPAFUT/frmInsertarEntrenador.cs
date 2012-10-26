@@ -11,20 +11,20 @@ using UPC.Proyecto.SISPPAFUT.BL.BC;
 
 namespace UPC.Proyecto.SISPPAFUT
 {
-    public partial class frmRegistrarEntrenador : Form
+    public partial class frmInsertarEntrenador : Form
     {
-        public frmRegistrarEntrenador()
+        public frmInsertarEntrenador()
         {
             InitializeComponent();
         }
 
         EntrenadorBE objEntrenadorBE;
-        private static frmRegistrarEntrenador frm = null;
+        private static frmInsertarEntrenador frm = null;
         private int _Modo;
-        public static frmRegistrarEntrenador Instance()
+        public static frmInsertarEntrenador Instance()
         {
             if (frm == null)
-                frm = new frmRegistrarEntrenador();
+                frm = new frmInsertarEntrenador();
             return frm;
         }
 
@@ -97,10 +97,25 @@ namespace UPC.Proyecto.SISPPAFUT
             txtNacionalidad.Clear();
         }
 
+        public bool ValidarCampos()
+        {
+            if (txtApellidos.Text.Length == 0 || txtApellidos.Text == " " ||
+                txtNacionalidad.Text.Length == 0 || txtNacionalidad.Text == " " ||
+                txtNombres.Text.Length == 0 || txtNombres.Text == " ")
+                return false;
+            return true;
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             EntrenadorBC objEntrenadorBC;
-            
+
+            if (ValidarCampos() == false)
+            {
+                MessageBox.Show("Debe llenar todos los campos.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             try
             {
                 objEntrenadorBC = new EntrenadorBC();
@@ -131,7 +146,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 }
                 else
                 {
-                    MessageBox.Show("Verifique la edad del entrenador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Debe verifique la edad del entrenador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (Exception ex)

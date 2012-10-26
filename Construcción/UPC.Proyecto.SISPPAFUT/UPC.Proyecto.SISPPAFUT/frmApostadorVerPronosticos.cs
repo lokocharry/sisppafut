@@ -121,13 +121,15 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             if (cmb_pais.SelectedIndex == 0)
             {
-                cmb_competicion.Items.Clear();                
+                cmb_competicion.Items.Clear();
+                cmb_temporada.Items.Clear();
             }
             else
                 if (cmb_pais.SelectedIndex > 0)
                 {
                     iniciar_competicion();
                 }
+            dg_Pronosticos.Rows.Clear();
         }
 
         private void iniciar_competicion()
@@ -160,6 +162,9 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 iniciar_temporadas();
             }
+            else
+                cmb_temporada.Items.Clear();
+            dg_Pronosticos.Rows.Clear();
         }
 
         private void iniciar_temporadas()
@@ -235,9 +240,9 @@ namespace UPC.Proyecto.SISPPAFUT
                 e.Cancel = true;
         }
 
-        private void frmApostadorVerPronosticos_Load(object sender, EventArgs e)
+        private void inSeleccionarTemporada(object sender, EventArgs e)
         {
-
+            dg_Pronosticos.Rows.Clear();
         }
     }
 }

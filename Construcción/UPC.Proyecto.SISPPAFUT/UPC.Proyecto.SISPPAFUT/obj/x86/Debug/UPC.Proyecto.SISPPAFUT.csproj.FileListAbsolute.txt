@@ -409,4 +409,4 @@ C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISP
 C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmRegistrarEntrenador.resources
 C:\Users\User\Desktop\TDP\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\GenerateResource.write.540.tlog
 C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmListarEntrenadores.resources
-C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmRegistrarEntrenador.resources
+C:\Users\Michael\Documents\UPC\2012\TP1\SISPPAFUT\trunk\Construcción\UPC.Proyecto.SISPPAFUT\UPC.Proyecto.SISPPAFUT\obj\x86\Debug\UPC.Proyecto.SISPPAFUT.frmInsertarEntrenador.resources
