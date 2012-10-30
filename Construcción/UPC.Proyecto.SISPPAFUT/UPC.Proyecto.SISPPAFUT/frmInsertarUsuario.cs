@@ -201,6 +201,11 @@ namespace UPC.Proyecto.SISPPAFUT
                 if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
                     e.Cancel = true;
             }
+            else
+            {
+                SISPPAFUTlogin frm = SISPPAFUTlogin.Instance();
+                frm.modoFormulario(true);
+            }
         }
 
         private void inControlarTexto(object sender, KeyPressEventArgs e)

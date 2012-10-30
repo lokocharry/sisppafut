@@ -55,6 +55,9 @@
             this.btnEditarJugador = new System.Windows.Forms.ToolStripMenuItem();
             this.btnTransferirJugador = new System.Windows.Forms.ToolStripMenuItem();
             this.btnConsultarHistorial = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeEntrenadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registrarUnEntrenadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listarEntrenadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionPartidos = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNuevoPartido = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionDesarrollo = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,19 +67,16 @@
             this.btnNuevoPronostico = new System.Windows.Forms.ToolStripMenuItem();
             this.btnVisualizacionPronostico = new System.Windows.Forms.ToolStripMenuItem();
             this.btnVerPronostico = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnRegistroClientes = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnNuevoCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionPermisos = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNuevoRol = new System.Windows.Forms.ToolStripMenuItem();
             this.btnNuevaFuncionalidad = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAsociarRolFuncionalidad = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAsociarRolUsuario = new System.Windows.Forms.ToolStripMenuItem();
             this.btnAsociarFuncionalidadUsuario = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnRegistroClientes = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnNuevoCliente = new System.Windows.Forms.ToolStripMenuItem();
             this.btnConsultarLog = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDeEntrenadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.registrarUnEntrenadorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listarEntrenadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -86,7 +86,7 @@
             this.btnMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(715, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(707, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -274,6 +274,29 @@
             this.btnConsultarHistorial.Text = "Consultar Historial de Jugador";
             this.btnConsultarHistorial.Click += new System.EventHandler(this.btnConsultarHistorial_Click);
             // 
+            // gestiónDeEntrenadoresToolStripMenuItem
+            // 
+            this.gestiónDeEntrenadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registrarUnEntrenadorToolStripMenuItem,
+            this.listarEntrenadoresToolStripMenuItem});
+            this.gestiónDeEntrenadoresToolStripMenuItem.Name = "gestiónDeEntrenadoresToolStripMenuItem";
+            this.gestiónDeEntrenadoresToolStripMenuItem.Size = new System.Drawing.Size(268, 22);
+            this.gestiónDeEntrenadoresToolStripMenuItem.Text = "Gestión de Entrenadores";
+            // 
+            // registrarUnEntrenadorToolStripMenuItem
+            // 
+            this.registrarUnEntrenadorToolStripMenuItem.Name = "registrarUnEntrenadorToolStripMenuItem";
+            this.registrarUnEntrenadorToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.registrarUnEntrenadorToolStripMenuItem.Text = "Registrar un Entrenador";
+            this.registrarUnEntrenadorToolStripMenuItem.Click += new System.EventHandler(this.registrarUnEntrenadorToolStripMenuItem_Click);
+            // 
+            // listarEntrenadoresToolStripMenuItem
+            // 
+            this.listarEntrenadoresToolStripMenuItem.Name = "listarEntrenadoresToolStripMenuItem";
+            this.listarEntrenadoresToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.listarEntrenadoresToolStripMenuItem.Text = "Listar Entrenadores";
+            this.listarEntrenadoresToolStripMenuItem.Click += new System.EventHandler(this.listarEntrenadoresToolStripMenuItem_Click);
+            // 
             // btnGestionPartidos
             // 
             this.btnGestionPartidos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -342,6 +365,21 @@
             this.btnVerPronostico.Text = "Ver Pronósticos";
             this.btnVerPronostico.Click += new System.EventHandler(this.btnVerPronostico_Click);
             // 
+            // btnRegistroClientes
+            // 
+            this.btnRegistroClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btnNuevoCliente});
+            this.btnRegistroClientes.Name = "btnRegistroClientes";
+            this.btnRegistroClientes.Size = new System.Drawing.Size(268, 22);
+            this.btnRegistroClientes.Text = "Registro de Clientes";
+            // 
+            // btnNuevoCliente
+            // 
+            this.btnNuevoCliente.Name = "btnNuevoCliente";
+            this.btnNuevoCliente.Size = new System.Drawing.Size(149, 22);
+            this.btnNuevoCliente.Text = "Nuevo Cliente";
+            this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
+            // 
             // btnGestionPermisos
             // 
             this.btnGestionPermisos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -389,21 +427,6 @@
             this.btnAsociarFuncionalidadUsuario.Text = "Asociar Funcionalidad a Usuario";
             this.btnAsociarFuncionalidadUsuario.Click += new System.EventHandler(this.btnAsociarFuncionalidadUsuario_Click);
             // 
-            // btnRegistroClientes
-            // 
-            this.btnRegistroClientes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnNuevoCliente});
-            this.btnRegistroClientes.Name = "btnRegistroClientes";
-            this.btnRegistroClientes.Size = new System.Drawing.Size(268, 22);
-            this.btnRegistroClientes.Text = "Registro de Clientes";
-            // 
-            // btnNuevoCliente
-            // 
-            this.btnNuevoCliente.Name = "btnNuevoCliente";
-            this.btnNuevoCliente.Size = new System.Drawing.Size(149, 22);
-            this.btnNuevoCliente.Text = "Nuevo Cliente";
-            this.btnNuevoCliente.Click += new System.EventHandler(this.btnNuevoCliente_Click);
-            // 
             // btnConsultarLog
             // 
             this.btnConsultarLog.Name = "btnConsultarLog";
@@ -416,45 +439,23 @@
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(268, 22);
             this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
-            // 
-            // gestiónDeEntrenadoresToolStripMenuItem
-            // 
-            this.gestiónDeEntrenadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registrarUnEntrenadorToolStripMenuItem,
-            this.listarEntrenadoresToolStripMenuItem});
-            this.gestiónDeEntrenadoresToolStripMenuItem.Name = "gestiónDeEntrenadoresToolStripMenuItem";
-            this.gestiónDeEntrenadoresToolStripMenuItem.Size = new System.Drawing.Size(268, 22);
-            this.gestiónDeEntrenadoresToolStripMenuItem.Text = "Gestión de Entrenadores";
-            // 
-            // registrarUnEntrenadorToolStripMenuItem
-            // 
-            this.registrarUnEntrenadorToolStripMenuItem.Name = "registrarUnEntrenadorToolStripMenuItem";
-            this.registrarUnEntrenadorToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.registrarUnEntrenadorToolStripMenuItem.Text = "Registrar un Entrenador";
-            this.registrarUnEntrenadorToolStripMenuItem.Click += new System.EventHandler(this.registrarUnEntrenadorToolStripMenuItem_Click);
-            // 
-            // listarEntrenadoresToolStripMenuItem
-            // 
-            this.listarEntrenadoresToolStripMenuItem.Name = "listarEntrenadoresToolStripMenuItem";
-            this.listarEntrenadoresToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
-            this.listarEntrenadoresToolStripMenuItem.Text = "Listar Entrenadores";
-            this.listarEntrenadoresToolStripMenuItem.Click += new System.EventHandler(this.listarEntrenadoresToolStripMenuItem_Click);
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.Salir);
             // 
             // SISPPAFUTmdiPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(715, 499);
-            this.ControlBox = false;
+            this.ClientSize = new System.Drawing.Size(707, 491);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "SISPPAFUTmdiPrincipal";
             this.ShowIcon = false;
             this.Text = "Sistema Inteligente para Pronóstico de Partidos de Fútbol";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.inCerrar);
             this.Load += new System.EventHandler(this.SISPPAFUTmdiPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

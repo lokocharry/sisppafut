@@ -19,6 +19,16 @@ namespace UPC.Proyecto.SISPPAFUT
             public static string userLogged { get; set; }
         }
 
+        private static SISPPAFUTlogin frmLogin = null;
+        public static SISPPAFUTlogin Instance()
+        {
+            if (frmLogin == null)
+            {
+                frmLogin = new SISPPAFUTlogin();
+            }
+            return frmLogin;
+        }
+
         public SISPPAFUTlogin()
         {
             InitializeComponent();
@@ -43,6 +53,7 @@ namespace UPC.Proyecto.SISPPAFUT
                 frm.NuevoUser = 1;
                 frm.Show();
                 frm.BringToFront();
+                modoFormulario(false);
             }
             catch (Exception ex)
             {
@@ -79,11 +90,17 @@ namespace UPC.Proyecto.SISPPAFUT
                 frm.BringToFront();
                 txtUsuario.Clear();
                 txtContrasenia.Clear();
+                modoFormulario(false);
             }
             catch (Exception ex)
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+        }
+
+        public void modoFormulario(Boolean estado)
+        {
+            Visible = estado;
         }
     }
 }

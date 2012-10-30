@@ -142,6 +142,9 @@ namespace UPC.Proyecto.SISPPAFUT
                         objEntrenadorBE.Fecha = cmbFecha.Value;
                         objEntrenadorBC.ActualizarEntrenador(objEntrenadorBE);
                         MessageBox.Show("Se actualizó el entrenador.", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        frmListarEntrenadores frmListarEntrenadores = frmListarEntrenadores.Instance();
+                        frmListarEntrenadores.ListarEntrenadores();
+                        Close();
                     }
                 }
                 else
@@ -157,8 +160,11 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void inCerrar(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
-                e.Cancel = true;
+            if (_Modo != 2)
+            {
+                if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+                    e.Cancel = true;
+            }
         }
 
         private void inValidarTexto(object sender, KeyPressEventArgs e)

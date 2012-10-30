@@ -294,9 +294,9 @@ namespace UPC.Proyecto.SISPPAFUT
             CargarFuncionalidadesUsuario();
         }
 
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Salir(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void btnRegistrarPais_Click(object sender, EventArgs e)
@@ -753,6 +753,20 @@ namespace UPC.Proyecto.SISPPAFUT
             catch (Exception ex)
             {
                 Funciones.RegistrarExcepcion(ex);
+            }
+        }
+
+        private void inCerrar(object sender, FormClosingEventArgs e)
+        {
+            String msg = Propiedades.userLogged + ", ¿Seguro que desea salir?";
+            if (MessageBox.Show(msg, "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+            {
+                e.Cancel = true;
+            }
+            else
+            {
+                SISPPAFUTlogin frm = SISPPAFUTlogin.Instance();
+                frm.modoFormulario(true);
             }
         }
     }

@@ -14,7 +14,8 @@ namespace UPC.Proyecto.SISPPAFUT
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SISPPAFUTlogin());
+            SISPPAFUTlogin login = SISPPAFUTlogin.Instance();
+            Application.Run(login);
         }
     }
 }
