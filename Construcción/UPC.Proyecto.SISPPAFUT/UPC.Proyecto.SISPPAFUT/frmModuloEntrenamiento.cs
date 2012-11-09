@@ -534,94 +534,89 @@ namespace UPC.Proyecto.SISPPAFUT
                     //-- Paso 5: Se hace un análisis final de los pronósticos 
                     
                     if (listaPronosticos.Count > 0)
-                    {                        
-                        //Mientras que no se entrene con el maestro/supervisor no se implementará esto
+                    {
                         foreach (PronosticoBE cDto in listaPronosticos)
-                        {                            
-                            if (cDto.Pronostico == "L" && (cDto.PorcentajeLocal*1000 < 800))//(cDto.PorcentajeLocal*1000 >= 500 && cDto.PorcentajeLocal*1000 < 700))
+                        {
+                            if ((cDto.PorcentajeLocal * 1000 < 500) && (cDto.PorcentajeEmpate * 1000 < 500) && (cDto.PorcentajeVisita * 1000 < 500))
                             {
-                                if (cDto.PorcentajeLocal * 1000 <= 700)
-                                {
-                                    if (Math.Abs((cDto.PorcentajeEmpate - cDto.PorcentajeVisita)) * 1000 >= 300)
-                                    {
-                                        if (cDto.PorcentajeEmpate > cDto.PorcentajeVisita)
-                                        {
-                                            cDto.Pronostico = "LE";
-                                        }
-                                        else
-                                            cDto.Pronostico = "LV";
-                                    }
-                                    else
-                                        cDto.Pronostico = "N/J";
-                                }
+                                if (cDto.PorcentajeLocal * 1000 <= 246) { cDto.Pronostico = "EV"; } //254
                                 else
-                                    if (Math.Abs((cDto.PorcentajeEmpate - cDto.PorcentajeVisita)) * 1000 >= 210)
-                                    {
-                                        if (cDto.PorcentajeEmpate > cDto.PorcentajeVisita)
-                                        {
-                                            cDto.Pronostico = "LE";
-                                        }
+                                    if (cDto.PorcentajeEmpate * 1000 <= 246) { cDto.Pronostico = "LV"; }
+                                    else
+                                        if (cDto.PorcentajeVisita * 1000 <= 246) { cDto.Pronostico = "LE"; }
                                         else
-                                            cDto.Pronostico = "LV";
-                                    }
+                                            if (cDto.PorcentajeLocal * 1000 >= 425 && Math.Abs(cDto.PorcentajeEmpate * 1000 - cDto.PorcentajeVisita * 1000) <= 20)
+                                                cDto.Pronostico = "L";
+                                            else
+                                                if (cDto.PorcentajeEmpate * 1000 >= 425 && Math.Abs(cDto.PorcentajeLocal * 1000 - cDto.PorcentajeVisita * 1000) <= 20)
+                                                    cDto.Pronostico = "E";
+                                                else
+                                                    if (cDto.PorcentajeVisita * 1000 >= 425 && Math.Abs(cDto.PorcentajeLocal * 1000 - cDto.PorcentajeEmpate * 1000) <= 20)
+                                                        cDto.Pronostico = "V";
+                                                    else
+                                                        cDto.Pronostico = "N/J";
                             }
                             else
-                            if (cDto.Pronostico == "E" && (cDto.PorcentajeEmpate * 1000 < 800))//(cDto.PorcentajeEmpate * 1000 >= 500 && cDto.PorcentajeEmpate * 1000 < 700))
-                            {
-                                if (cDto.PorcentajeEmpate * 1000 <= 700)
+                                if (cDto.PorcentajeLocal * 1000 > 800 && cDto.PorcentajeLocal * 1000 <= 900 && (Math.Abs(cDto.PorcentajeEmpate * 1000 - cDto.PorcentajeVisita * 1000) <= 100))
                                 {
-                                    if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeVisita)) * 1000 >= 300)
+                                    if ((cDto.PorcentajeEmpate * 1000) > (cDto.PorcentajeVisita * 1000))
                                     {
-                                        if (cDto.PorcentajeLocal > cDto.PorcentajeVisita)
+                                        cDto.Pronostico = "LE";
+                                    }
+                                    else
+                                        cDto.Pronostico = "LV";
+                                }
+                                else
+                                    if (cDto.PorcentajeLocal * 1000 > 700 && cDto.PorcentajeLocal * 1000 <= 800 && Math.Abs(cDto.PorcentajeEmpate * 1000 - cDto.PorcentajeVisita * 1000) >= 100 && Math.Abs(cDto.PorcentajeEmpate * 1000 - cDto.PorcentajeVisita * 1000) <= 160)
+                                    {
+                                        if ((cDto.PorcentajeEmpate * 1000) > (cDto.PorcentajeVisita * 1000))
                                         {
                                             cDto.Pronostico = "LE";
                                         }
                                         else
-                                            cDto.Pronostico = "EV";
+                                            cDto.Pronostico = "LV";
                                     }
                                     else
-                                        cDto.Pronostico = "N/J";
-                                }
-                                else
-                                    if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeVisita)) * 1000 >= 210)
-                                    {
-                                        if (cDto.PorcentajeLocal > cDto.PorcentajeVisita)
+                                        if (cDto.PorcentajeVisita * 1000 > 700 && cDto.PorcentajeVisita * 1000 <= 800)
                                         {
-                                            cDto.Pronostico = "LE";
+                                            if ((cDto.PorcentajeEmpate * 1000) > (cDto.PorcentajeLocal * 1000))
+                                            {
+                                                cDto.Pronostico = "EV";
+                                            }
+                                            else
+                                                cDto.Pronostico = "LV";
                                         }
                                         else
-                                            cDto.Pronostico = "EV";
-                                    }
-                            }
-                            else
-                            if (cDto.Pronostico == "V" && (cDto.PorcentajeVisita * 1000 < 800))//(cDto.PorcentajeVisita * 1000 >= 500 && cDto.PorcentajeVisita * 1000 < 700))
-                            {
-                                if (cDto.PorcentajeVisita * 1000 <= 700)
-                                {
-                                    if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeEmpate)) * 1000 >= 300)
-                                    {
-                                        if (cDto.PorcentajeLocal > cDto.PorcentajeEmpate)
-                                        {
-                                            cDto.Pronostico = "LV";
-                                        }
-                                        else
-                                            cDto.Pronostico = "EV";
-                                    }
-                                    else
-                                        cDto.Pronostico = "N/J";
-                                }
-                                else
-                                    if (Math.Abs((cDto.PorcentajeLocal - cDto.PorcentajeEmpate)) * 1000 >= 210)
-                                    {
-                                        if (cDto.PorcentajeLocal > cDto.PorcentajeEmpate)
-                                        {
-                                            cDto.Pronostico = "LV";
-                                        }
-                                        else
-                                            cDto.Pronostico = "EV";
-                                    }
-                            }
-                        }
+                                            if (cDto.PorcentajeLocal * 1000 >= 500 && cDto.PorcentajeLocal * 1000 <= 700 && (cDto.PorcentajeLocal * 1000 + cDto.PorcentajeEmpate * 1000) > 800)
+                                            {
+                                                cDto.Pronostico = "LE";
+                                            }
+                                            else
+                                                if (cDto.PorcentajeEmpate * 1000 >= 500 && cDto.PorcentajeEmpate * 1000 <= 700 && (cDto.PorcentajeLocal * 1000 + cDto.PorcentajeEmpate * 1000) > 800)
+                                                {
+                                                    cDto.Pronostico = "LE";
+                                                }
+                                                else
+                                                    if (cDto.PorcentajeVisita * 1000 >= 505 && cDto.PorcentajeVisita * 1000 < 550 && Math.Abs(cDto.PorcentajeLocal * 1000 - cDto.PorcentajeEmpate * 1000) <= 69)
+                                                    {
+                                                        cDto.Pronostico = "EV";
+                                                    }
+                                                    else
+                                                    if (cDto.PorcentajeVisita * 1000 >= 550 && cDto.PorcentajeVisita * 1000 < 700 && Math.Abs(cDto.PorcentajeLocal * 1000 - cDto.PorcentajeEmpate * 1000) < 249)
+                                                    {
+                                                        cDto.Pronostico = "EV";
+                                                    }
+                                                    else
+                                                    if (cDto.PorcentajeVisita * 1000 >= 500 && cDto.PorcentajeVisita * 1000 <= 700 && (cDto.PorcentajeLocal * 1000 + cDto.PorcentajeVisita * 1000) > 800)
+                                                    {
+                                                        cDto.Pronostico = "EV";
+                                                    }
+                                                    else
+                                                        if (cDto.PorcentajeLocal * 1000 > cDto.PorcentajeEmpate * 1000 && cDto.PorcentajeLocal * 1000 > cDto.PorcentajeVisita * 1000 && Math.Abs(cDto.PorcentajeLocal * 1000 - cDto.PorcentajeEmpate * 1000) < 100 && Math.Abs(cDto.PorcentajeEmpate * 1000 - cDto.PorcentajeVisita * 1000) > 15 * 1000)
+                                                        {
+                                                            cDto.Pronostico = "LE";
+                                                        }
+                        }                        
                         objPronosticoBC = new PronosticoBC();
                         for (int i = 0; i<ListaPartidosPronosticados.Count; i++)
                         {
@@ -857,13 +852,15 @@ namespace UPC.Proyecto.SISPPAFUT
 
         private void CrearFicheroARFF(List<InstanciaNormalizadaBE> Data)//List<PartidoPronosticadoBE> Data)
         {
+            StreamWriter archivo = null;
+
             try
             {
                 String fic = Application.StartupPath + "\\SISPPAFUT.arff";
                 //const string fic = @"C:\Users\Michael\Documents\UPC\2012\TP1\Documentos\SISPPAFUT.arff";
 
                 //-- fuente de la función: http://www.elguille.info/NET/dotnet/leer_escribir_ficheros_texto.htm
-                System.IO.StreamWriter archivo = new StreamWriter(fic, false);
+                archivo = new StreamWriter(fic, false);
 
                 //-- Contenido del fichero
 
@@ -904,14 +901,14 @@ namespace UPC.Proyecto.SISPPAFUT
                     string _data = String.Empty;
                     _data = cDto.C_QEquiposLiga + "," +
                             cDto.C_Mes + "," +
-                            //cDto.C_QEquiposMundial+ "," + 
-                            //cDto.C_QAsistencia    + "," +
+                        //cDto.C_QEquiposMundial+ "," + 
+                        //cDto.C_QAsistencia    + "," +
                             cDto.C_Local_PosLiga + "," +
                             cDto.C_Local_Pts + "," +
                             cDto.C_Local + "," +
                             cDto.C_Local_PosRankMund + "," +
-                            //cDto.C_Local_GoleadorSuspendido + "," + 
-                            //cDto.C_Local_ArqueroSuspendido + "," + 
+                        //cDto.C_Local_GoleadorSuspendido + "," + 
+                        //cDto.C_Local_ArqueroSuspendido + "," + 
                             cDto.C_Local_QExpulsados + "," +
                             cDto.C_Local_QSuspendidos + "," +
                             cDto.C_Local_GolesAnotados + "," +
@@ -922,8 +919,8 @@ namespace UPC.Proyecto.SISPPAFUT
                             cDto.C_Visita_Pts + "," +
                             cDto.C_Visita + "," +
                             cDto.C_Visita_PosRankMund + "," +
-                            //cDto.C_Visita_GoleadorSuspendido + "," + 
-                            //cDto.C_Visita_ArqueroSuspendido + "," + 
+                        //cDto.C_Visita_GoleadorSuspendido + "," + 
+                        //cDto.C_Visita_ArqueroSuspendido + "," + 
                             cDto.C_Visita_QExpulsados + "," +
                             cDto.C_Visita_QSuspendidos + "," +
                             cDto.C_Visita_GolesAnotados + "," +
@@ -940,11 +937,16 @@ namespace UPC.Proyecto.SISPPAFUT
             {
                 Funciones.RegistrarExcepcion(ex);
             }
+            finally 
+            {
+                if(archivo != null)
+                    archivo.Dispose();
+            }
         }
 
         private void inCerrar(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == System.Windows.Forms.DialogResult.No)
+            if (MessageBox.Show("¿Seguro que desea salir?", "Sistema Inteligente para Pronóstico de Partidos de Fútbol", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.No)
                 e.Cancel = true;
         }
     }
