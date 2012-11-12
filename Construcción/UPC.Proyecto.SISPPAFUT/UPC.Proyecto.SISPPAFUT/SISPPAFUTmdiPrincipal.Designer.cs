@@ -32,6 +32,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SISPPAFUTmdiPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.btnGestionPaises = new System.Windows.Forms.ToolStripMenuItem();
@@ -449,6 +450,7 @@
             this.ClientSize = new System.Drawing.Size(1230, 718);
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
