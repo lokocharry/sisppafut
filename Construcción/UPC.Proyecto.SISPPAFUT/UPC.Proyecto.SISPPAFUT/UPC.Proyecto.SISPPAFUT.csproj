@@ -34,6 +34,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Entrenamiento, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Entrenamiento.dll</HintPath>
+    </Reference>
     <Reference Include="IKVM.OpenJDK.Core, Version=7.0.4335.0, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>bin\Debug\IKVM.OpenJDK.Core.dll</HintPath>
@@ -217,7 +221,6 @@
       <DependentUpon>frmTablaPosiciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Funciones.cs" />
-    <Compile Include="RedNeuronal.cs" />
     <Compile Include="SISPPAFUTlogin.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
-
+using Entrenamiento;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
 using UPC.Proyecto.SISPPAFUT.BL.BC;
 
@@ -529,94 +525,10 @@ namespace UPC.Proyecto.SISPPAFUT
 
                     //-- Paso 4: Se lleva a entrenamiento los datos
                     listaPronosticos = new List<PronosticoBE>();
-                    listaPronosticos = RedNeuronal.Entrenamiento();
+                    listaPronosticos = Entrenamiento.Entrenamiento.Entrenar();
                                         
-                    //-- Paso 5: Se hace un análisis final de los pronósticos 
-                    
                     if (listaPronosticos.Count > 0)
                     {
-                        foreach (PronosticoBE cDto in listaPronosticos)
-                        {
-                            if ((cDto.PorcentajeLocal * 1000 < 500) && (cDto.PorcentajeEmpate * 1000 < 500) && (cDto.PorcentajeVisita * 1000 < 500))
-                            {
-                                if (cDto.PorcentajeLocal * 1000 <= 246) { cDto.Pronostico = "EV"; } //254
-                                else
-                                    if (cDto.PorcentajeEmpate * 1000 <= 246) { cDto.Pronostico = "LV"; }
-                                    else
-                                        if (cDto.PorcentajeVisita * 1000 <= 246) { cDto.Pronostico = "LE"; }
-                                        else
-                                            if (cDto.PorcentajeLocal * 1000 >= 425 && Math.Abs(cDto.PorcentajeEmpate * 1000 - cDto.PorcentajeVisita * 1000) <= 20)
-                                                cDto.Pronostico = "L";
-                                            else
-                                                if (cDto.PorcentajeEmpate * 1000 >= 425 && Math.Abs(cDto.PorcentajeLocal * 1000 - cDto.PorcentajeVisita * 1000) <= 20)
-                                                    cDto.Pronostico = "E";
-                                                else
-                                                    if (cDto.PorcentajeVisita * 1000 >= 425 && Math.Abs(cDto.PorcentajeLocal * 1000 - cDto.PorcentajeEmpate * 1000) <= 20)
-                                                        cDto.Pronostico = "V";
-                                                    else
-                                                        cDto.Pronostico = "N/J";
-                            }
-                            else
-                                if (cDto.PorcentajeLocal * 1000 > 800 && cDto.PorcentajeLocal * 1000 <= 900 && (Math.Abs(cDto.PorcentajeEmpate * 1000 - cDto.PorcentajeVisita * 1000) <= 100))
-                                {
-                                    if ((cDto.PorcentajeEmpate * 1000) > (cDto.PorcentajeVisita * 1000))
-                                    {
-                                        cDto.Pronostico = "LE";
-                                    }
-                                    else
-                                        cDto.Pronostico = "LV";
-                                }
-                                else
-                                    if (cDto.PorcentajeLocal * 1000 > 700 && cDto.PorcentajeLocal * 1000 <= 800 && Math.Abs(cDto.PorcentajeEmpate * 1000 - cDto.PorcentajeVisita * 1000) >= 100 && Math.Abs(cDto.PorcentajeEmpate * 1000 - cDto.PorcentajeVisita * 1000) <= 160)
-                                    {
-                                        if ((cDto.PorcentajeEmpate * 1000) > (cDto.PorcentajeVisita * 1000))
-                                        {
-                                            cDto.Pronostico = "LE";
-                                        }
-                                        else
-                                            cDto.Pronostico = "LV";
-                                    }
-                                    else
-                                        if (cDto.PorcentajeVisita * 1000 > 700 && cDto.PorcentajeVisita * 1000 <= 800)
-                                        {
-                                            if ((cDto.PorcentajeEmpate * 1000) > (cDto.PorcentajeLocal * 1000))
-                                            {
-                                                cDto.Pronostico = "EV";
-                                            }
-                                            else
-                                                cDto.Pronostico = "LV";
-                                        }
-                                        else
-                                            if (cDto.PorcentajeLocal * 1000 >= 500 && cDto.PorcentajeLocal * 1000 <= 700 && (cDto.PorcentajeLocal * 1000 + cDto.PorcentajeEmpate * 1000) > 800)
-                                            {
-                                                cDto.Pronostico = "LE";
-                                            }
-                                            else
-                                                if (cDto.PorcentajeEmpate * 1000 >= 500 && cDto.PorcentajeEmpate * 1000 <= 700 && (cDto.PorcentajeLocal * 1000 + cDto.PorcentajeEmpate * 1000) > 800)
-                                                {
-                                                    cDto.Pronostico = "LE";
-                                                }
-                                                else
-                                                    if (cDto.PorcentajeVisita * 1000 >= 505 && cDto.PorcentajeVisita * 1000 < 550 && Math.Abs(cDto.PorcentajeLocal * 1000 - cDto.PorcentajeEmpate * 1000) <= 69)
-                                                    {
-                                                        cDto.Pronostico = "EV";
-                                                    }
-                                                    else
-                                                    if (cDto.PorcentajeVisita * 1000 >= 550 && cDto.PorcentajeVisita * 1000 < 700 && Math.Abs(cDto.PorcentajeLocal * 1000 - cDto.PorcentajeEmpate * 1000) < 249)
-                                                    {
-                                                        cDto.Pronostico = "EV";
-                                                    }
-                                                    else
-                                                    if (cDto.PorcentajeVisita * 1000 >= 500 && cDto.PorcentajeVisita * 1000 <= 700 && (cDto.PorcentajeLocal * 1000 + cDto.PorcentajeVisita * 1000) > 800)
-                                                    {
-                                                        cDto.Pronostico = "EV";
-                                                    }
-                                                    else
-                                                        if (cDto.PorcentajeLocal * 1000 > cDto.PorcentajeEmpate * 1000 && cDto.PorcentajeLocal * 1000 > cDto.PorcentajeVisita * 1000 && Math.Abs(cDto.PorcentajeLocal * 1000 - cDto.PorcentajeEmpate * 1000) < 100 && Math.Abs(cDto.PorcentajeEmpate * 1000 - cDto.PorcentajeVisita * 1000) > 15 * 1000)
-                                                        {
-                                                            cDto.Pronostico = "LE";
-                                                        }
-                        }                        
                         objPronosticoBC = new PronosticoBC();
                         for (int i = 0; i<ListaPartidosPronosticados.Count; i++)
                         {
