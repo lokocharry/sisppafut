@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -28,7 +28,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlEstadioInsertar = "spCreateEstadio";
 
@@ -100,7 +100,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlEstadiosListar = "spListarEstadios";
                 cmd_estadios = new SqlCommand(sqlEstadiosListar, conexion);
                 cmd_estadios.Connection.Open();
@@ -149,7 +149,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlEstadiosListar = "spListarEstadiosDeEquipo";
 
@@ -207,7 +207,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlEstadiosListar = "spListarEstadiosDePais";
 

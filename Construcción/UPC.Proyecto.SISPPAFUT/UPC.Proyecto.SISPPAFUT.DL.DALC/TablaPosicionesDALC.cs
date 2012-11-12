@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -39,7 +39,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sql = "spInsertarEquipoTablaPosiciones";
 
@@ -180,7 +180,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlTabla = "spListarTablaPosiciones";
                 cmd = conexion.CreateCommand();
                 cmd.CommandText = sqlTabla;

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Seguridad.BL.BE;
@@ -23,7 +23,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
                 sql_insertarRelacion = "spCreateUsuarioFuncionalidad";
 
                 cmd_usuariofunc = new SqlCommand(sql_insertarRelacion, conexion);
@@ -75,7 +75,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
 
                 sql_verificarexiste = "spVerificarUsuarioFuncionalidadExiste";
 
@@ -127,7 +127,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
 
                 sql_funcionalidadListar = "spListarFuncionalidadxUsuario";
 

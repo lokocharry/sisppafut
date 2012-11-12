@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -28,7 +28,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPronosticoInsertar = "spCreatePronostico";
 
                 cmd_PronosticoInsertar = new SqlCommand(sqlPronosticoInsertar, conexion);
@@ -103,7 +103,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlUpdatePronostico = "spUpdatePronostico";
 
                 cmd_actualizarPronostico = new SqlCommand(sqlUpdatePronostico, conexion);
@@ -162,7 +162,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPronosticosListar = "spListarPronosticos";
                 cmd_pronosticos = new SqlCommand(sqlPronosticosListar, conexion);
                 cmd_pronosticos.Connection.Open();
@@ -208,7 +208,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPronosticosListar = "spListarPronosticosParaApostar";
                 cmd_pronosticos = new SqlCommand(sqlPronosticosListar, conexion);
                 cmd_pronosticos.Connection.Open();

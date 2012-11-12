@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Seguridad.BL.BE;
-
 
 namespace UPC.Seguridad.DL.DALC
 {
@@ -24,7 +23,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
 
                 sqlRolFuncInsertar = "spCreateRolFuncionalidad";
 
@@ -75,7 +74,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
 
                 sql_funcionalidadListar = "spListarFuncionalidadxRol";
 
@@ -129,7 +128,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
 
                 sql_verificarexiste = "spVerificarRolFuncionalidadExiste";
 
@@ -169,7 +168,5 @@ namespace UPC.Seguridad.DL.DALC
                 throw;
             }
         }
-    
-        
     }
 }

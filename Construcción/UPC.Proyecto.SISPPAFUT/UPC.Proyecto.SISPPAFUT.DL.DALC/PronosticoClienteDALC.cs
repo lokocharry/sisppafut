@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -23,7 +23,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlInsertarPronosticoCliente = "spCreatePronosticoCliente";
 
@@ -80,7 +80,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPronosticosClienteListar = "spListarPronosticoCliente";
 
                 cmd_pronosticosCliente = conexion.CreateCommand();

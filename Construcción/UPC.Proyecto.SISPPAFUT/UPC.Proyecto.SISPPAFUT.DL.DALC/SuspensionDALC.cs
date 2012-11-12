@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -20,7 +20,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlSuspensionCrear = "spCreateSuspensionXJugador";
 
                 cmd_CrearSuspension = new SqlCommand(sqlSuspensionCrear, conexion);
@@ -70,7 +70,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlSuspensionActualizar = "spActualizarSuspension";
 
                 cmd_ActualizarSuspension = new SqlCommand(sqlSuspensionActualizar, conexion);
@@ -125,7 +125,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlReadSuspension = "spReadEstadoSuspension";
 
                 cmd_LeerEstadoSuspension = new SqlCommand(sqlReadSuspension, conexion);
@@ -180,7 +180,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlExisteSuspension = "spVerificarExisteSuspension";
 
                 cmd_ExisteSuspension = new SqlCommand(sqlExisteSuspension, conexion);
@@ -229,7 +229,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlReadArqueroSuspension = "spArqueroSuspendido";
 
                 cmd = new SqlCommand(sqlReadArqueroSuspension, conexion);
@@ -288,7 +288,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlReadGoleadorSuspension = "spGoleadorSuspendido";
 
                 cmd = new SqlCommand(sqlReadGoleadorSuspension, conexion);
@@ -347,7 +347,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sql = "spAcumulacionAmonestacionesJugador";
                 cmd = conexion.CreateCommand();
                 cmd.CommandText = sql;

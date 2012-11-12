@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -29,7 +29,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlEquipoInsertar = "spCreateEquipo";
 
@@ -123,7 +123,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlEquipoValidar = "spEquipoVerificarRepetido";
 
                 cmd_EquipoValidar = new SqlCommand(sqlEquipoValidar, conexion);
@@ -167,7 +167,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlEquiposListar = "spListarEquipos";
                 cmd_equipos = conexion.CreateCommand();
                 cmd_equipos.CommandText = sqlEquiposListar;
@@ -231,7 +231,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlEquiposListar = "spListarEquiposDeLiga";
                 cmd_equipos = conexion.CreateCommand();
                 cmd_equipos.CommandText = sqlEquiposListar;
@@ -294,7 +294,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlEquipoObtener = "spReadEquipo";
                 cmd = conexion.CreateCommand();
                 cmd.CommandText = sqlEquipoObtener;
@@ -350,7 +350,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlEquipoEditar = "spUpdateEquipo";
                 cmd = new SqlCommand(sqlEquipoEditar, conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -411,7 +411,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlObtenerPromEdad = "spObtenerPromedioEdadEquipoTitular";
                 cmd = conexion.CreateCommand();
                 cmd.CommandText = sqlObtenerPromEdad;
@@ -465,7 +465,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sql = "spCantidadRojasUltimoPartido";
                 cmd = conexion.CreateCommand();
                 cmd.CommandText = sql;
@@ -525,7 +525,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sql = "spCantidadPartidoUltimoMes";
                 cmd = conexion.CreateCommand();
                 cmd.CommandText = sql;

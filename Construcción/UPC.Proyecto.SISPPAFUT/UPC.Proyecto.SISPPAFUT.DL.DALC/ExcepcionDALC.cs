@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
 
 namespace UPC.Proyecto.SISPPAFUT.DL.DALC
@@ -24,7 +25,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                Conn = new SqlConnection(Properties.Settings.Default.Cadena);
+                Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlExcepcionInsertar = "spCreateExcepcion";
                 cmdExcepcionInsertar = Conn.CreateCommand();

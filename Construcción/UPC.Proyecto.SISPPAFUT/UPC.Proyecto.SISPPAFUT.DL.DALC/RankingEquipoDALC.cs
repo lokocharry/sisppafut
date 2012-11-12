@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -27,7 +27,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlRankingInsertar = "spCreateRankingEquipo";
                 cmd_RankingInsertar = new SqlCommand(sqlRankingInsertar, conexion);
@@ -104,7 +104,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
             try
             {
 
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlRankingObtener = "spReadRankingEquipo";
                 cmd_ranking = conexion.CreateCommand();
                 cmd_ranking.CommandText = sqlRankingObtener;

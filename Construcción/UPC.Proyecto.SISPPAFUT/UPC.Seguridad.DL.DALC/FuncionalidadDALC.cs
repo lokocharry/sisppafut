@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Seguridad.BL.BE;
@@ -25,7 +25,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
 
                 sqlFuncionalidadInsertar = "spCreateFuncionalidad";
 
@@ -89,7 +89,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
 
                 sqlFuncionalidadInsertar = "spVerificarFuncionalidadExiste";
 
@@ -147,7 +147,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
 
                 sql_listarfuncionalidad = "spListarFuncionalidades";
 

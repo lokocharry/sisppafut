@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -30,7 +30,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlPartidoInsertar = "spCreatePartido";
 
@@ -121,7 +121,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPartidosListar = "spListarPartidos";
                 cmd_partidos = conexion.CreateCommand();
                 cmd_partidos.CommandText = sqlPartidosListar;
@@ -191,7 +191,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPartidosListar = "spPartidosPronosticados";
                 cmd_partidos = conexion.CreateCommand();
                 cmd_partidos.CommandText = sqlPartidosListar;
@@ -248,7 +248,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPartidosListar = "spListarPartidosPorJugar";
                 cmd_partidos = conexion.CreateCommand();
                 cmd_partidos.CommandText = sqlPartidosListar;
@@ -306,7 +306,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPartidoObtener = "spReadPartido";
                 cmd_partido = conexion.CreateCommand();
                 cmd_partido.CommandText = sqlPartidoObtener;
@@ -370,7 +370,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlUpdatePartido = "spUpdatePartido";
 
                 cmd_PartidoEditar = new SqlCommand(sqlUpdatePartido, conexion);
@@ -421,7 +421,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPartidoValidar = "spPartidoVerificarRepetido";
 
                 cmd_PartidoValidar = new SqlCommand(sqlPartidoValidar, conexion);
@@ -478,7 +478,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPartidoValidar = "spPartidoVerificarCantidad";
 
                 cmd_PartidoValidar = new SqlCommand(sqlPartidoValidar, conexion);
@@ -525,7 +525,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlActualizarResultado = "spUpdateGolesPartido";
 
@@ -586,7 +586,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPartidosListar = "spLista5UltimosPartidos";
                 cmd_partidos = conexion.CreateCommand();
                 cmd_partidos.CommandText = sqlPartidosListar;
@@ -663,7 +663,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlPartidosListar = "spListarPartidosDesarrollados";
                 cmd_partidos = conexion.CreateCommand();
                 cmd_partidos.CommandText = sqlPartidosListar;

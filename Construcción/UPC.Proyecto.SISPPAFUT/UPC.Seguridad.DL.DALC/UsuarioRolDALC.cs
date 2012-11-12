@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Seguridad.BL.BE;
@@ -23,7 +23,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
                 sqlRolAsignar = "spCreateUsuarioRol";
 
                 cmd_RolAsignar = new SqlCommand(sqlRolAsignar, conexion);
@@ -76,7 +76,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
                 sqlRolAsignar = "spVerificarRolUsuarioExiste";
 
                 cmd_verificarexiste = new SqlCommand(sqlRolAsignar, conexion);
@@ -136,7 +136,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
                 sqlListar = "spListarRolxUsuario";
 
                 cmd_listar = new SqlCommand(sqlListar, conexion);

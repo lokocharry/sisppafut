@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -30,7 +30,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlJugadorInsertar = "spCreateJugador";
 
@@ -123,7 +123,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlListarJugadores = "spListarJugadores";
                 cmd_jugadores = conexion.CreateCommand();
                 cmd_jugadores.CommandText = sqlListarJugadores;
@@ -184,7 +184,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlListarJugadores = "spListaJugadoresPorNacionalidad";
                 cmd_jugadores = conexion.CreateCommand();
                 cmd_jugadores.CommandText = sqlListarJugadores;
@@ -253,7 +253,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlListarJugadores = "spListarJugadoresXEquipo";
                 cmd_jugadores = conexion.CreateCommand();
                 cmd_jugadores.CommandText = sqlListarJugadores;
@@ -323,7 +323,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlJugadorAsignar = "spCreateJugadorEquipo";
 
@@ -378,7 +378,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlJugadorEditar = "spUpdateJugador";
 
                 cmd_JugadorEditar = new SqlCommand(sqlJugadorEditar, conexion);
@@ -432,7 +432,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlListarJugadores = "spCantidadGolesJugador";
                 cmd_jugadores = conexion.CreateCommand();
                 cmd_jugadores.CommandText = sqlListarJugadores;
@@ -493,7 +493,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlListarJugadores = "spCantidadPartidosJugados";
                 cmd_jugadores = conexion.CreateCommand();
                 cmd_jugadores.CommandText = sqlListarJugadores;
@@ -555,7 +555,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlReadLesion = "spReadEstadoLesion";
 
                 cmd_LeerEstadoLesion = new SqlCommand(sqlReadLesion, conexion);
@@ -610,7 +610,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlTransferirJugador = "spCreateTransferenciaJugadorNuevoEquipo";
 
                 cmd_transferirjugador = new SqlCommand(sqlTransferirJugador, conexion);
@@ -656,7 +656,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlListaNacionalidades = "spListaNacionalidades";
 
                 cmd_listaNacionalidades = new SqlCommand(sqlListaNacionalidades, conexion);

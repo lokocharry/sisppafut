@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Configuration;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
 
@@ -26,7 +27,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                Conn = new SqlConnection(Properties.Settings.Default.Cadena);
+                Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
 
                 sqlLogBEInsertar = "spCreateLog";
 
@@ -109,7 +110,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                Conn = new SqlConnection(Properties.Settings.Default.Cadena);
+                Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlLogBEListar = "spListarLog";
                 cmd = Conn.CreateCommand();
                 cmd.CommandText = sqlLogBEListar;
@@ -162,7 +163,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                Conn = new SqlConnection(Properties.Settings.Default.Cadena);
+                Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlLogBEListar = "uspLogListarTabla";
                 cmd = Conn.CreateCommand();
                 cmd.CommandText = sqlLogBEListar;
@@ -223,7 +224,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                Conn = new SqlConnection(Properties.Settings.Default.Cadena);
+                Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlLogBEListar = "uspLogListarUsuario";
                 cmd = Conn.CreateCommand();
                 cmd.CommandText = sqlLogBEListar;
@@ -284,7 +285,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                Conn = new SqlConnection(Properties.Settings.Default.Cadena);
+                Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlLogBEListar = "uspLogListarFecha";
                 cmd = Conn.CreateCommand();
                 cmd.CommandText = sqlLogBEListar;
@@ -344,7 +345,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                Conn = new SqlConnection(Properties.Settings.Default.Cadena);
+                Conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 sqlLogBEListar = "uspLogListarIP";
                 cmd = Conn.CreateCommand();
                 cmd.CommandText = sqlLogBEListar;

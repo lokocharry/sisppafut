@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Proyecto.SISPPAFUT.BL.BE;
@@ -19,7 +19,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 spCreateEntrenador = "spCreateEntrenador";
                 cmd = new SqlCommand(spCreateEntrenador, conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -82,7 +82,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 spUpdateEntrenador = "spUpdateEntrenador";
                 cmd = new SqlCommand(spUpdateEntrenador, conexion);
                 cmd.CommandType = CommandType.StoredProcedure;
@@ -122,7 +122,7 @@ namespace UPC.Proyecto.SISPPAFUT.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.Cadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSISPPAFUT"].ConnectionString);
                 spLeerEntrenadores = "spListarEntrenadores";
                 cmd = new SqlCommand(spLeerEntrenadores, conexion);
                 cmd.CommandType = CommandType.StoredProcedure;

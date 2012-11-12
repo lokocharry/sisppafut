@@ -1,9 +1,8 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using UPC.Seguridad.BL.BE;
@@ -30,7 +29,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
                 //Cambiar "Cadena" por la cadena de conexion a SISPPAFUT_seguridad
                 sqlUsuarioInsertar = "spCreateUsuario";
 
@@ -119,7 +118,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
                 sqlUsuariosListar = "spListarUsuarios";
                 cmd_usuarios = new SqlCommand(sqlUsuariosListar, conexion);
                 cmd_usuarios.Connection.Open();
@@ -169,7 +168,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
 
                 sql_verificarLogin = "spVerificarLogin";
 
@@ -223,7 +222,7 @@ namespace UPC.Seguridad.DL.DALC
 
             try
             {
-                conexion = new SqlConnection(Properties.Settings.Default.sCadena);
+                conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["BDSEGURIDAD"].ConnectionString);
 
                 sql_verificarLogin = "spVerificarLoginExiste";
 
